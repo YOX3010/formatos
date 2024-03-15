@@ -1,0 +1,36 @@
+[27-Feb-2024 14:52:41 America/Caracas] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in /home/autotex/public_html/modelos/conexion.php:9
+Stack trace:
+#0 /home/autotex/public_html/modelos/conexion.php(9): PDO->__construct('mysql:host=loca...', 'root', '*a123456')
+#1 /home/autotex/public_html/modelos/reparaciones.modelo.php(25): Conexion::conectar()
+#2 /home/autotex/public_html/controladores/reparaciones.controlador.php(13): ModeloReparaciones::mdlMostrarReparaciones('reparaciones', NULL, NULL, 'id')
+#3 /home/autotex/public_html/ajax/datatable-reparaciones.ajax.php(22): ControladorReparaciones::ctrMostrarReparaciones(NULL, NULL, 'id')
+#4 /home/autotex/public_html/ajax/datatable-reparaciones.ajax.php(118): TablaProductos->mostrarTablaProductos()
+#5 {main}
+  thrown in /home/autotex/public_html/modelos/conexion.php on line 9
+[27-Feb-2024 14:52:41 America/Caracas] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in /home/autotex/public_html/modelos/conexion.php:9
+Stack trace:
+#0 /home/autotex/public_html/modelos/conexion.php(9): PDO->__construct('mysql:host=loca...', 'root', '*a123456')
+#1 /home/autotex/public_html/modelos/productos.modelo.php(25): Conexion::conectar()
+#2 /home/autotex/public_html/controladores/productos.controlador.php(13): ModeloProductos::mdlMostrarProductos('productos', NULL, NULL, 'id')
+#3 /home/autotex/public_html/ajax/datatable-productos.ajax.php(22): ControladorProductos::ctrMostrarProductos(NULL, NULL, 'id')
+#4 /home/autotex/public_html/ajax/datatable-productos.ajax.php(118): TablaProductos->mostrarTablaProductos()
+#5 {main}
+  thrown in /home/autotex/public_html/modelos/conexion.php on line 9
+[27-Feb-2024 14:52:45 America/Caracas] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in /home/autotex/public_html/modelos/conexion.php:9
+Stack trace:
+#0 /home/autotex/public_html/modelos/conexion.php(9): PDO->__construct('mysql:host=loca...', 'root', '*a123456')
+#1 /home/autotex/public_html/modelos/reparaciones.modelo.php(25): Conexion::conectar()
+#2 /home/autotex/public_html/controladores/reparaciones.controlador.php(13): ModeloReparaciones::mdlMostrarReparaciones('reparaciones', NULL, NULL, 'id')
+#3 /home/autotex/public_html/ajax/datatable-reparaciones.ajax.php(22): ControladorReparaciones::ctrMostrarReparaciones(NULL, NULL, 'id')
+#4 /home/autotex/public_html/ajax/datatable-reparaciones.ajax.php(118): TablaProductos->mostrarTablaProductos()
+#5 {main}
+  thrown in /home/autotex/public_html/modelos/conexion.php on line 9
+[27-Feb-2024 14:52:45 America/Caracas] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in /home/autotex/public_html/modelos/conexion.php:9
+Stack trace:
+#0 /home/autotex/public_html/modelos/conexion.php(9): PDO->__construct('mysql:host=loca...', 'root', '*a123456')
+#1 /home/autotex/public_html/modelos/productos.modelo.php(25): Conexion::conectar()
+#2 /home/autotex/public_html/controladores/productos.controlador.php(13): ModeloProductos::mdlMostrarProductos('productos', NULL, NULL, 'id')
+#3 /home/autotex/public_html/ajax/datatable-productos.ajax.php(22): ControladorProductos::ctrMostrarProductos(NULL, NULL, 'id')
+#4 /home/autotex/public_html/ajax/datatable-productos.ajax.php(118): TablaProductos->mostrarTablaProductos()
+#5 {main}
+  thrown in /home/autotex/public_html/modelos/conexion.php on line 9
