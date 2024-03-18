@@ -41,7 +41,7 @@ if ($_SESSION["perfil"] == "Vendedor") {
 
         </button>
 
-        <!-- <a href="index.php?ruta=formato-2&idFormato2=<?php //$_GET['idFormato2'];
+        <!-- <a href="index.php?ruta=formato-2&idFormato=<?php //$_GET['idFormato'];
                                                           ?>"> -->
 
         <a href="index.php?ruta=formato-1&idFormato=">
@@ -796,7 +796,15 @@ MODAL AGREGAR FORMATO
 
           <div class="box-body">
 
-            <!-- ENTRADA ELEMENTO -->
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <h4><b>Datos del Cliente</b></h4>
+
+              </div>
+
+            </div>
 
             <!-- PARA 1 -->
 
@@ -924,9 +932,41 @@ MODAL AGREGAR FORMATO
 
               </div>
 
-              <!-- Via -->
+            </div>
+
+            <!-- ADDRESS -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoClienteAddress" placeholder="Address / Dirección">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
 
             </div>
+
+            <!-- TELEFONO CLIENTE -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoClienteTelephone" placeholder="Telephone / Teléfono">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- Via -->
 
             <div class="form-group">
 
@@ -953,6 +993,366 @@ MODAL AGREGAR FORMATO
                 <input type="text" class="form-control input-lg" name="nuevoClienteEmailVia" placeholder="Email / Correo Electrónico:" required>
 
                 <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <h5><b>Información del banco del comprador</b></h5>
+
+              </div>
+
+            </div>
+
+            <!-- AGREGAR Name of the Bank / Nombre del Banco	 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoClienteNameOfTheBank" placeholder="Name of the Bank / Nombre del Banco">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- AGREGAR Branch and Branch Address / Marca y Dirección de Marca	 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoClienteBranchAddress" placeholder="Branch and Branch Address / Marca y Dirección de Marca">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- AGREGAR Name of the Banking Official / Nombre Oficial de la Banca -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoClienteNameOfTheBanking" placeholder="Name of the Banking Official / Nombre Oficial de la Banca">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- AGREGAR Phone Number / Número de Teléfono -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoClientePhoneNumber" placeholder="Phone Number / Número de Teléfono">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- AGREGAR FAX Number / Número de FAX	 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoClienteFaxNumber" placeholder="FAX Number / Número de FAX">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- AGREGAR Banking Officer mail / Correo Oficial de la Banca -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoClienteBankingOfficerMail" placeholder="Banking Officer mail / Correo Oficial de la Banca">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- AGREGAR Account Signatory Name / Nombre del Firmante de la Cuenta -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoClienteAccountSignatoryName" placeholder="Account Signatory Name / Nombre del Firmante de la Cuenta">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- AGREGAR Account Name / Nombre de la Cuenta -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoClienteAccountName" placeholder="Account Name / Nombre de la Cuenta">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- AGREGAR Account Number/Routing/ABA Number / Número de cuenta/ruta/número ABA -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoClienteAccountNumberRoutingAba" placeholder="Account Number/Routing/ABA Number / Número de cuenta/ruta/número ABA">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- AGREGAR Swift Code / Código Swift	 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoClienteSwift" placeholder="Swift Code / Código Swift">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <h5><b>Detalles de la cuenta del Vendedor</b></h5>
+
+              </div>
+
+            </div>
+
+            <!-- SELLER -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoSelSellerAccountDetails" placeholder="Seller Account Detail / Detalles de la cuenta de vendedor">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- BANK NAME -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoSelBankName" placeholder="Bank Name / Nombre del Banco">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- BANK ADDRESS -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoSelBankAddress" placeholder="Bank Address / Dirección del Banco">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- ACCOUNT NAME -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoSelAccountName" placeholder="Account Name / Nombre de la Cuenta">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- ACCOUNT NUMBER -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoSelAccountNumber" placeholder="Account Number / Número de Cuenta">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- SWIFT -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoSelSwift" placeholder="Swift">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <h5><b>Detalles de la Cuenta del comprador</b></h5>
+
+              </div>
+
+            </div>
+
+            <!-- Buyer's Bank Name -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoClienteBankName" placeholder="Buyer's Bank Name / Nombre del banco del comprador">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- Bank Address -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoClienteBankAddress" placeholder="Bank Address / Dirección del Banco">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- Swift Code -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoClienteSwiftCode" placeholder="Swift Code / Código de Swift">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- Account Number -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoClienteAccountNumber" placeholder="Account Number / Número de Cuenta">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <h4><b>FORMATO 1</b></h4>
 
               </div>
 
@@ -992,7 +1392,7 @@ MODAL AGREGAR FORMATO
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoValiditySco" placeholder="Validity of SCO / Validez de SCO" required>
+                <input type="text" class="form-control input-lg" name="nuevoValiditySco" placeholder="Validity of SCO / Validez de SCO">
 
                 <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
@@ -1008,7 +1408,7 @@ MODAL AGREGAR FORMATO
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoCommodity" placeholder="Commodity / Mercancía" required>
+                <input type="text" class="form-control input-lg" name="nuevoCommodity" placeholder="Commodity / Mercancía">
 
                 <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
@@ -1024,7 +1424,7 @@ MODAL AGREGAR FORMATO
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoQuantity" placeholder="Quantity / Cantidad" required>
+                <input type="text" class="form-control input-lg" name="nuevoQuantity" placeholder="Quantity / Cantidad">
 
                 <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
@@ -1040,7 +1440,7 @@ MODAL AGREGAR FORMATO
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoPrice" placeholder="Price / Precio" required>
+                <input type="text" class="form-control input-lg" name="nuevoPrice" placeholder="Price / Precio">
 
                 <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
@@ -1054,7 +1454,7 @@ MODAL AGREGAR FORMATO
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoIncoterms" placeholder="Incoterms / Incotérminos" required>
+                <input type="text" class="form-control input-lg" name="nuevoIncoterms" placeholder="Incoterms / Incotérminos">
 
                 <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
@@ -1070,7 +1470,7 @@ MODAL AGREGAR FORMATO
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoPort" placeholder="Port / Puerto" required>
+                <input type="text" class="form-control input-lg" name="nuevoPort" placeholder="Port / Puerto">
 
                 <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
@@ -1086,7 +1486,7 @@ MODAL AGREGAR FORMATO
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoProductOrigin" placeholder="Product origin/ Origen del Producto" required>
+                <input type="text" class="form-control input-lg" name="nuevoProductOrigin" placeholder="Product origin/ Origen del Producto">
 
                 <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
@@ -1102,7 +1502,7 @@ MODAL AGREGAR FORMATO
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoContractTerm" placeholder="Contract Term / Término de Contrato" required>
+                <input type="text" class="form-control input-lg" name="nuevoContractTerm" placeholder="Contract Term / Término de Contrato">
 
                 <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
@@ -1118,7 +1518,7 @@ MODAL AGREGAR FORMATO
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoCommission" placeholder="Commission / Comisión" required>
+                <input type="text" class="form-control input-lg" name="nuevoCommission" placeholder="Commission / Comisión">
 
                 <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
@@ -1130,756 +1530,592 @@ MODAL AGREGAR FORMATO
             CUERPO DEL MODAL FORMATO 2
             ======================================-->
 
-            <div class="modal-body">
+            <div class="form-group">
 
-              <div class="box-body">
+              <div class="input-group">
 
-                <!-- AGREGAR Name of the Bank / Nombre del Banco	 -->
+                <h4><b>FORMATO 2</b></h4>
 
-                <div class="form-group">
+              </div>
 
-                  <div class="input-group">
+            </div>
 
-                    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+            <div class="form-group">
 
-                    <input type="text" class="form-control input-lg" name="nuevoClienteNameOfTheBank" placeholder="Name of the Bank / Nombre del Banco" required>
+              <div class="input-group">
 
-                    <input type="hidden" name="nuevoFormato2" id="nuevoFormato2" required>
+                <h5><b>Datails of the signatory of the contracts on behalf of the Corporation / Datos del firmante de los contratos en nombre de la Corporación:</b></h5>
 
-                  </div>
+              </div>
 
-                </div>
+            </div>
 
-                <!-- AGREGAR Branch and Branch Address / Marca y Dirección de Marca	 -->
+            <!-- AGREGAR Name / Nombre	 -->
 
-                <div class="form-group">
+            <div class="form-group">
 
-                  <div class="input-group">
+              <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                    <input type="text" class="form-control input-lg" name="nuevoClienteBranchAddress" placeholder="Branch and Branch Address / Marca y Dirección de Marca" required>
+                <input type="text" class="form-control input-lg" name="nuevoName" placeholder="Name / Nombre">
 
-                    <input type="hidden" name="nuevoFormato2" id="nuevoFormato2" required>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                  </div>
+              </div>
 
-                </div>
+            </div>
 
-                <!-- AGREGAR Name of the Banking Official / Nombre Oficial de la Banca -->
+            <!-- AGREGAR Date And Place Brith / Fecha y Lugar de Nacimiento	 -->
 
-                <div class="form-group">
+            <div class="form-group">
 
-                  <div class="input-group">
+              <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                    <input type="text" class="form-control input-lg" name="nuevoClienteNameOfTheBanking" placeholder="Name of the Banking Official / Nombre Oficial de la Banca" required>
+                <input type="text" class="form-control input-lg" name="nuevoDatePlaceBirth" placeholder="Date And Place Brith / Fecha y Lugar de Nacimiento">
 
-                    <input type="hidden" name="nuevoFormato2" id="nuevoFormato2" required>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                  </div>
+              </div>
 
-                </div>
+            </div>
 
-                <!-- AGREGAR Phone Number / Número de Teléfono -->
+            <!-- AGREGAR Passport Number And Country of issue / Número de pasaporte y país de emisión	 -->
 
-                <div class="form-group">
+            <div class="form-group">
 
-                  <div class="input-group">
+              <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                    <input type="text" class="form-control input-lg" name="nuevoClientePhoneNumber" placeholder="Phone Number / Número de Teléfono" required>
+                <input type="text" class="form-control input-lg" name="nuevoNumberCountryIssue" placeholder="Passport Number And Country of issue / Número de pasaporte y país de emisión">
 
-                    <input type="hidden" name="nuevoFormato2" id="nuevoFormato2" required>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                  </div>
+              </div>
 
-                </div>
+            </div>
 
-                <!-- AGREGAR FAX Number / Número de FAX	 -->
+            <!-- AGREGAR Passport Issue Date / Fecha de emisión del pasaporte	 -->
 
-                <div class="form-group">
+            <div class="form-group">
 
-                  <div class="input-group">
+              <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                    <input type="text" class="form-control input-lg" name="nuevoClienteFaxNumber" placeholder="FAX Number / Número de FAX" required>
+                <input type="text" class="form-control input-lg" name="nuevoIssueDate" placeholder="Passport Issue Date / Fecha de emisión del pasaporte">
 
-                    <input type="hidden" name="nuevoFormato2" id="nuevoFormato2" required>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                  </div>
+              </div>
 
-                </div>
+            </div>
 
-                <!-- AGREGAR Banking Officer mail / Correo Oficial de la Banca -->
+            <!-- AGREGAR Passport Expiration Date / Fecha de vencimiento del Pasaporte	 -->
 
-                <div class="form-group">
+            <div class="form-group">
 
-                  <div class="input-group">
+              <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                    <input type="text" class="form-control input-lg" name="nuevoClienteBankingOfficerMail" placeholder="Banking Officer mail / Correo Oficial de la Banca" required>
+                <input type="text" class="form-control input-lg" name="nuevoPassportExpirationDate" placeholder="Passport Expiration Date / Fecha de vencimiento del Pasaporte">
 
-                    <input type="hidden" name="nuevoFormato2" id="nuevoFormato2" required>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                  </div>
+              </div>
 
-                </div>
+            </div>
 
-                <!-- AGREGAR Account Signatory Name / Nombre del Firmante de la Cuenta -->
+            <!-- AGREGAR Title within the Corporation/Company / Título dentro de la Corporación/Compañía	 -->
 
-                <div class="form-group">
+            <div class="form-group">
 
-                  <div class="input-group">
+              <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                    <input type="text" class="form-control input-lg" name="nuevoClienteAccountSignatoryName" placeholder="Account Signatory Name / Nombre del Firmante de la Cuenta" required>
+                <input type="text" class="form-control input-lg" name="nuevoTitleWithinCorporationCompany" placeholder="Title within the Corporation/Company / Título dentro de la Corporación/Compañía">
 
-                    <input type="hidden" name="nuevoFormato2" id="nuevoFormato2" required>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                  </div>
+              </div>
 
-                </div>
+            </div>
 
-                <!-- AGREGAR Account Name / Nombre de la Cuenta -->
+            <!-- AGREGAR Office Phone Number / Número de teléfono de la Oficina	 -->
 
-                <div class="form-group">
+            <div class="form-group">
 
-                  <div class="input-group">
+              <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                    <input type="text" class="form-control input-lg" name="nuevoClienteAccountName" placeholder="Account Name / Nombre de la Cuenta" required>
+                <input type="text" class="form-control input-lg" name="nuevoOfficePhoneNumber" placeholder="Office Phone Number / Número de teléfono de la Oficina">
 
-                    <input type="hidden" name="nuevoFormato2" id="nuevoFormato2" required>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                  </div>
+              </div>
 
-                </div>
+            </div>
 
-                <!-- AGREGAR Account Number/Routing/ABA Number / Número de cuenta/ruta/número ABA -->
+            <!-- AGREGAR Mobile Number phone / Número de teléfono móvil	 -->
 
-                <div class="form-group">
+            <div class="form-group">
 
-                  <div class="input-group">
+              <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                    <input type="text" class="form-control input-lg" name="nuevoClienteAccountNumberRoutingAba" placeholder="Account Number/Routing/ABA Number / Número de cuenta/ruta/número ABA" required>
+                <input type="text" class="form-control input-lg" name="nuevoMobilePhoneNumber" placeholder="Mobile Number phone / Número de teléfono móvil">
 
-                    <input type="hidden" name="nuevoFormato2" id="nuevoFormato2" required>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                  </div>
+              </div>
 
-                </div>
+            </div>
 
-                <!-- AGREGAR Swift Code / Código Swift	 -->
+            <!-- AGREGAR Email Address / Dirección de Correo Electrónico	 -->
 
-                <div class="form-group">
+            <div class="form-group">
 
-                  <div class="input-group">
+              <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                    <input type="text" class="form-control input-lg" name="nuevoClienteSwift" placeholder="Swift Code / Código Swift" required>
+                <input type="text" class="form-control input-lg" name="nuevoEmailAddress" placeholder="Email Address / Dirección de Correo Electrónico">
 
-                    <input type="hidden" name="nuevoFormato2" id="nuevoFormato2" required>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                  </div>
+              </div>
 
-                </div>
+            </div>
 
-                <div class="form-group">
+            <!--=====================================
+            CUERPO DEL MODAL FORMATO 3
+            ======================================-->
 
-                  <div class="input-group">
+            <div class="form-group">
 
-                    <h5><b>Datails of the signatory of the contracts on behalf of the Corporation / Datos del firmante de los contratos en nombre de la Corporación:</b></h5>
+              <div class="input-group">
 
-                  </div>
+                <h4><b>FORMATO 3</b></h4>
 
-                </div>
+              </div>
 
-                <!-- AGREGAR Name / Nombre	 -->
+            </div>
 
-                <div class="form-group">
+            <!-- NUEVO COMMERCIAL INVOICE -->
 
-                  <div class="input-group">
+            <div class="form-group">
 
-                    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+              <div class="input-group">
 
-                    <input type="text" class="form-control input-lg" name="nuevoName" placeholder="Name / Nombre" required>
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                    <input type="hidden" name="nuevoFormato2" id="nuevoFormato2" required>
+                <input type="text" class="form-control input-lg" name="nuevoCommercialInvoice" placeholder="Commercial Invoice / Factura Comercial">
 
-                  </div>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                </div>
+              </div>
 
-                <!-- AGREGAR Date And Place Brith / Fecha y Lugar de Nacimiento	 -->
+            </div>
 
-                <div class="form-group">
+            <!-- NUEVO DATE COMMERCIAL INVOICE -->
 
-                  <div class="input-group">
+            <div class="form-group">
 
-                    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+              <div class="input-group">
 
-                    <input type="text" class="form-control input-lg" name="nuevoDatePlaceBirth" placeholder="Date And Place Brith / Fecha y Lugar de Nacimiento" required>
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                    <input type="hidden" name="nuevoFormato2" id="nuevoFormato2" required>
+                <input type="text" class="form-control input-lg" name="nuevoDateCommercialInvoice" placeholder="Date / Fecha">
 
-                  </div>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                </div>
+              </div>
 
-                <!-- AGREGAR Passport Number And Country of issue / Número de pasaporte y país de emisión	 -->
+            </div>
 
-                <div class="form-group">
+            <div class="form-group">
 
-                  <div class="input-group">
+              <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                <h5><b>COMMERCIAL INVOICE / FACTURA COMERCIAL:</b></h5>
 
-                    <input type="text" class="form-control input-lg" name="nuevoNumberCountryIssue" placeholder="Passport Number And Country of issue / Número de pasaporte y país de emisión" required>
+              </div>
 
-                    <input type="hidden" name="nuevoFormato2" id="nuevoFormato2" required>
+            </div>
 
-                  </div>
+            <!-- TOTAL / GROSS AMOUNT -->
 
-                </div>
+            <div class="form-group">
 
-                <!-- AGREGAR Passport Issue Date / Fecha de emisión del pasaporte	 -->
+              <div class="input-group">
 
-                <div class="form-group">
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                  <div class="input-group">
+                <input type="text" class="form-control input-lg" name="nuevoTotalGrossAmount" placeholder="Total/Gross Amount / Importe Total/Bruto">
 
-                    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                    <input type="text" class="form-control input-lg" name="nuevoIssueDate" placeholder="Passport Issue Date / Fecha de emisión del pasaporte" required>
+              </div>
 
-                    <input type="hidden" name="nuevoFormato2" id="nuevoFormato2" required>
+            </div>
 
-                  </div>
+            <!-- TERMS OF DELIVERY DESTINATION -->
 
-                </div>
+            <div class="form-group">
 
-                <!-- AGREGAR Passport Expiration Date / Fecha de vencimiento del Pasaporte	 -->
+              <div class="input-group">
 
-                <div class="form-group">
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                  <div class="input-group">
+                <input type="text" class="form-control input-lg" name="nuevoTermsDeliveryDestinationPort" placeholder="Terms of Delivery/Destination Port / Términos del Envío/Puerto de Destino">
 
-                    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                    <input type="text" class="form-control input-lg" name="nuevoPassportExpirationDate" placeholder="Passport Expiration Date / Fecha de vencimiento del Pasaporte" required>
+              </div>
 
-                    <input type="hidden" name="nuevoFormato2" id="nuevoFormato2" required>
+            </div>
 
-                  </div>
+            <!-- TERMS OF PAYMENT -->
 
-                </div>
+            <div class="form-group">
 
-                <!-- AGREGAR Title within the Corporation/Company / Título dentro de la Corporación/Compañía	 -->
+              <div class="input-group">
 
-                <div class="form-group">
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                  <div class="input-group">
+                <input type="text" class="form-control input-lg" name="nuevoTermsPayment" placeholder="Terms of Payment / Términos de Pago">
 
-                    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                    <input type="text" class="form-control input-lg" name="nuevoTitleWithinCorporationCompany" placeholder="Title within the Corporation/Company / Título dentro de la Corporación/Compañía" required>
+              </div>
 
-                    <input type="hidden" name="nuevoFormato2" id="nuevoFormato2" required>
+            </div>
 
-                  </div>
+            <!-- FREIGHT / INSURANCE CHARGE -->
 
-                </div>
+            <div class="form-group">
 
-                <!-- AGREGAR Office Phone Number / Número de teléfono de la Oficina	 -->
+              <div class="input-group">
 
-                <div class="form-group">
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                  <div class="input-group">
+                <input type="text" class="form-control input-lg" name="nuevoFreightInsuranceCharge" placeholder="Freight/Insurance Charges / Gastos de Flete/Seguro">
 
-                    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                    <input type="text" class="form-control input-lg" name="nuevoOfficePhoneNumber" placeholder="Office Phone Number / Número de teléfono de la Oficina" required>
+              </div>
 
-                    <input type="hidden" name="nuevoFormato2" id="nuevoFormato2" required>
+            </div>
 
-                  </div>
+            <!--=====================================
+            MODAL AGREGAR FORMATO 4
+            ======================================-->
 
-                </div>
+            <div class="form-group">
 
-                <!-- AGREGAR Mobile Number phone / Número de teléfono móvil	 -->
+              <div class="input-group">
 
-                <div class="form-group">
+                <h4><b>FORMATO 4</b></h4>
 
-                  <div class="input-group">
+              </div>
 
-                    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+            </div>
 
-                    <input type="text" class="form-control input-lg" name="nuevoMobilePhoneNumber" placeholder="Mobile Number phone / Número de teléfono móvil" required>
+            <!-- AGREGAR Codigo de autenticación	-->
 
-                    <input type="hidden" name="nuevoFormato2" id="nuevoFormato2" required>
+            <div class="form-group">
 
-                  </div>
+              <div class="input-group">
 
-                </div>
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <!-- AGREGAR Email Address / Dirección de Correo Electrónico	 -->
+                <input type="text" class="form-control input-lg" name="nuevoAuthenticationCode" placeholder="Authentication Code / Código de Autenticación">
 
-                <div class="form-group">
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                  <div class="input-group">
+              </div>
 
-                    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+            </div>
 
-                    <input type="text" class="form-control input-lg" name="nuevoEmailAddress" placeholder="Email Address / Dirección de Correo Electrónico" required>
+            <!-- AGREGAR Ref. Number / Número de Referencia:	 -->
 
-                    <input type="hidden" name="nuevoFormato2" id="nuevoFormato2" required>
+            <div class="form-group">
 
-                  </div>
+              <div class="input-group">
 
-                </div>
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <!--=====================================
-                CUERPO DEL MODAL FORMATO 3
-                ======================================-->
+                <input type="text" class="form-control input-lg" name="nuevoRefNumber" placeholder="Ref. Number / Número de Referencia:">
 
-                <div class="modal-body">
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                  <div class="box-body">
+              </div>
 
-                    <!-- NUEVO COMMERCIAL INVOICE -->
+            </div>
 
-                    <div class="form-group">
+            <!-- AGREGAR Trade Date / Fecha de negociación	 -->
 
-                      <div class="input-group">
+            <div class="form-group">
 
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
+              <div class="input-group">
 
-                        <input type="text" class="form-control input-lg" name="nuevoCommercialInvoice" placeholder="Commercial Invoice / Factura Comercial">
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
+                <input type="text" class="form-control input-lg" name="nuevoIcpoDate" placeholder="Date / Fecha">
 
-                      </div>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                    </div>
+              </div>
 
-                    <!-- NUEVO DATE COMMERCIAL INVOICE -->
+            </div>
 
-                    <div class="form-group">
+            <!-- AGREGAR To: / Para:	 -->
 
-                      <div class="input-group">
+            <div class="form-group">
 
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
+              <div class="input-group">
 
-                        <input type="text" class="form-control input-lg" name="nuevoDateCommercialInvoice" placeholder="Date / Fecha">
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
+                <input type="text" class="form-control input-lg" name="nuevoIcpoTo" placeholder="To: / Para:">
 
-                      </div>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                    </div>
+              </div>
 
-                    <div class="form-group">
+            </div>
 
-                      <div class="input-group">
+            <div class="form-group">
 
-                        <h5><b>COMMERCIAL INVOICE / FACTURA COMERCIAL:</b></h5>
+              <div class="input-group">
 
-                      </div>
+                <h5><b>IRREVOCABLE CORPORATE PURCHASE ORDER ICPO / ORDEN DE COMPRA CORPORATIVA IRREVOCABLE OCCI.</b></h5>
 
-                    </div>
+              </div>
 
-                    <!-- COSIGNEE -->
+            </div>
 
-                    <div class="form-group">
+            <!-- AGREGAR Trade Date / Fecha de negociación		 -->
 
-                      <div class="input-group">
+            <div class="form-group">
 
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
+              <div class="input-group">
 
-                        <input type="text" class="form-control input-lg" name="nuevoClienteCoignee" placeholder="Cosignee / Cosignatario">
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
+                <input type="text" class="form-control input-lg" name="nuevoTradeDate" placeholder="Trade Date / Fecha de negociación">
 
-                      </div>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                    </div>
+              </div>
 
-                    <!-- SIGNATORY -->
+            </div>
 
-                    <div class="form-group">
+            <!-- AGREGAR Seller / Vendedor		 -->
 
-                      <div class="input-group">
+            <div class="form-group">
 
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
+              <div class="input-group">
 
-                        <input type="text" class="form-control input-lg" name="nuevoClienteSignatory" placeholder="Signatory / Firmante">
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
+                <input type="text" class="form-control input-lg" name="nuevoSeller" placeholder="Seller / Vendedor">
 
-                      </div>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                    </div>
+              </div>
 
-                    <!-- ADDRESS -->
+            </div>
 
-                    <div class="form-group">
+            <!-- AGREGAR Duration Of Contract / Duración del Contrato		 -->
 
-                      <div class="input-group">
+            <div class="form-group">
 
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
+              <div class="input-group">
 
-                        <input type="text" class="form-control input-lg" name="nuevoClienteAddress" placeholder="Address / Dirección">
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
+                <input type="text" class="form-control input-lg" name="nuevoDurationContract" placeholder="Duration Of Contract / Duración del Contrato">
 
-                      </div>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                    </div>
+              </div>
 
-                    <!-- TELEFONO CLIENTE -->
+            </div>
 
-                    <div class="form-group">
+            <!-- AGREGAR Vessel / Buque	 -->
 
-                      <div class="input-group">
+            <div class="form-group">
 
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
+              <div class="input-group">
 
-                        <input type="text" class="form-control input-lg" name="nuevoClienteTelephone" placeholder="Telephone / Teléfono">
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
+                <input type="text" class="form-control input-lg" name="nuevoVessel" placeholder="Vessel / Buque">
 
-                      </div>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                    </div>
+              </div>
 
-                    <!-- EMAIL CLIENTE -->
+            </div>
 
-                    <div class="form-group">
+            <!-- AGREGAR Inspection / Inspección	 -->
 
-                      <div class="input-group">
+            <div class="form-group">
 
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
+              <div class="input-group">
 
-                        <input type="text" class="form-control input-lg" name="nuevoClienteEmail" placeholder="Email / Correo Electrónico">
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
+                <input type="text" class="form-control input-lg" name="nuevoInspection" placeholder="Inspection / Inspección">
 
-                      </div>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                    </div>
+              </div>
 
-                    <!-- COMMODITY -->
+            </div>
 
-                    <div class="form-group">
+            <!-- AGREGAR Insurance / Seguro	 -->
 
-                      <div class="input-group">
+            <div class="form-group">
 
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
+              <div class="input-group">
 
-                        <input type="text" class="form-control input-lg" name="nuevoCommodity" placeholder="Commodity / Mercancía">
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
+                <input type="text" class="form-control input-lg" name="nuevoInsurance" placeholder="Insurance / Seguro">
 
-                      </div>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                    </div>
+              </div>
 
-                    <!-- QUANTITY -->
+            </div>
 
-                    <div class="form-group">
+            <!-- AGREGAR Payment Method / Método de Pago	 -->
 
-                      <div class="input-group">
+            <div class="form-group">
 
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
+              <div class="input-group">
 
-                        <input type="text" class="form-control input-lg" name="nuevoQuantity" placeholder="Quantity / Cantidad">
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
+                <input type="text" class="form-control input-lg" name="nuevoPaymentMethod" placeholder="Payment Method / Método de Pago">
 
-                      </div>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                    </div>
+              </div>
 
-                    <!-- PRICE -->
+            </div>
 
-                    <div class="form-group">
+            <!-- AGREGAR Q & Q Determination / Determinación C & C	 -->
 
-                      <div class="input-group">
+            <div class="form-group">
 
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
+              <div class="input-group">
 
-                        <input type="text" class="form-control input-lg" name="nuevoPrice" placeholder="Unit Price / Precio de Unidad">
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
+                <input type="text" class="form-control input-lg" name="nuevoQQDetermination" placeholder="Q & Q Determination / Determinación C & C">
 
-                      </div>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                    </div>
+              </div>
 
-                    <!-- TOTAL / GROSS AMOUNT -->
+            </div>
 
-                    <div class="form-group">
+            <!-- AGREGAR Lay Time / Tiempo de Puesta	 -->
 
-                      <div class="input-group">
+            <div class="form-group">
 
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
+              <div class="input-group">
 
-                        <input type="text" class="form-control input-lg" name="nuevoTotalGrossAmount" placeholder="Total/Gross Amount / Importe Total/Bruto">
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
+                <input type="text" class="form-control input-lg" name="nuevoLayTime" placeholder="Lay Time / Tiempo de Puesta">
 
-                      </div>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                    </div>
+              </div>
 
-                    <!-- TERMS OF DELIVERY DESTINATION -->
+            </div>
 
-                    <div class="form-group">
+            <!-- AGREGAR Demurrage Rate / Tasa de Sobreestadía	 -->
 
-                      <div class="input-group">
+            <div class="form-group">
 
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
+              <div class="input-group">
 
-                        <input type="text" class="form-control input-lg" name="nuevoTermsDeliveryDestinationPort" placeholder="Terms of Delivery/Destination Port / Términos del Envío/Puerto de Destino">
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
+                <input type="text" class="form-control input-lg" name="nuevoDemurrageRate" placeholder="Demurrage Rate / Tasa de Sobreestadía">
 
-                      </div>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                    </div>
+              </div>
 
-                    <!-- TERMS OF PAYMENT -->
+            </div>
 
-                    <div class="form-group">
+            <!-- AGREGAR Law / Ley	 -->
 
-                      <div class="input-group">
+            <div class="form-group">
 
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
+              <div class="input-group">
 
-                        <input type="text" class="form-control input-lg" name="nuevoTermsPayment" placeholder="Terms of Payment / Términos de Pago">
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
+                <input type="text" class="form-control input-lg" name="nuevoLaw" placeholder="Law / Ley">
 
-                      </div>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                    </div>
+              </div>
 
-                    <!-- FREIGHT / INSURANCE CHARGE -->
+            </div>
 
-                    <div class="form-group">
+            <!-- AGREGAR Images / Imagene -->
 
-                      <div class="input-group">
+            <div class="form-group">
 
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
+              <div class="input-group">
 
-                        <input type="text" class="form-control input-lg" name="nuevoFreightInsuranceCharge" placeholder="Freight/Insurance Charges / Gastos de Flete/Seguro">
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
+                <input type="text" class="form-control input-lg" name="nuevoIdImagenes" placeholder="Images / Imagenes">
 
-                      </div>
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
 
-                    </div>
+              </div>
 
-                    <!-- SELLER -->
+            </div>
 
-                    <div class="form-group">
+          </div>
 
-                      <div class="input-group">
+        </div>
 
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                        <input type="text" class="form-control input-lg" name="nuevoSelSellerAccountDetails" placeholder="Seller Account Detail / Detalles de la cuenta de vendedor">
-
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
-
-                      </div>
-
-                    </div>
-
-                    <!-- BANK NAME -->
-
-                    <div class="form-group">
-
-                      <div class="input-group">
-
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                        <input type="text" class="form-control input-lg" name="nuevoSelBankName" placeholder="Bank Name / Nombre del Banco">
-
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
-
-                      </div>
-
-                    </div>
-
-                    <!-- BANK ADDRESS -->
-
-                    <div class="form-group">
-
-                      <div class="input-group">
-
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                        <input type="text" class="form-control input-lg" name="nuevoSelBankAddress" placeholder="Bank Address / Dirección del Banco">
-
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
-
-                      </div>
-
-                    </div>
-
-                    <!-- ACCOUNT NAME -->
-
-                    <div class="form-group">
-
-                      <div class="input-group">
-
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                        <input type="text" class="form-control input-lg" name="nuevoSelAccountName" placeholder="Account Name / Nombre de la Cuenta">
-
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
-
-                      </div>
-
-                    </div>
-
-                    <!-- ACCOUNT NUMBER -->
-
-                    <div class="form-group">
-
-                      <div class="input-group">
-
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                        <input type="text" class="form-control input-lg" name="nuevoSelAccountNumber" placeholder="Account Number / Número de Cuenta">
-
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
-
-                      </div>
-
-                    </div>
-
-                    <!-- SWIFT -->
-
-                    <div class="form-group">
-
-                      <div class="input-group">
-
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                        <input type="text" class="form-control input-lg" name="nuevoSelSwift" placeholder="Swift">
-
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
-
-                      </div>
-
-                      <!-- ¡¡¡¡¡¡¡CONTINUAR AQUI!!!!!!!!! -->
-
-                    </div>
-
-                    <div class="form-group">
-
-                      <div class="input-group">
-
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                        <input type="text" class="form-control input-lg" name="nuevoBuyerBankName" id="nuevoBuyerBankName" placeholder="Buyer's Bank Name / Nombre del banco del comprador" required>
-
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
-
-                      </div>
-
-                    </div>
-
-                    <div class="form-group">
-
-                      <div class="input-group">
-
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                        <input type="text" class="form-control input-lg" name="nuevoBankAddressBuyer" id="nuevoBankAddressBuyer" placeholder="Bank Address / Dirección del Banco" required>
-
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
-
-                      </div>
-
-                    </div>
-
-                    <div class="form-group">
-
-                      <div class="input-group">
-
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                        <input type="text" class="form-control input-lg" name="nuevoAccountHolder" id="nuevoAccountHolder" placeholder="Account Holder / Titular de la Cuenta" required>
-
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
-
-                      </div>
-
-                    </div>
-
-                    <div class="form-group">
-
-                      <div class="input-group">
-
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                        <input type="text" class="form-control input-lg" name="nuevoSwiftCode" id="nuevoSwiftCode" placeholder="Swift Code / Código de Swift" required>
-
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
-
-                      </div>
-
-                    </div>
-
-                    <div class="form-group">
-
-                      <div class="input-group">
-
-                        <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                        <input type="text" class="form-control input-lg" name="nuevoAccountNumberBuyer" id="nuevoAccountNumberBuyer" placeholder="Account Number / Número de Cuenta" required>
-
-                        <input type="hidden" name="nuevoFormato3" id="nuevoFormato3" required>
-
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-                <!--=====================================
+        <!--=====================================
         PIE DEL MODAL
         ======================================-->
 
-                <div class="modal-footer">
+        <div class="modal-footer">
 
-                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-                  <button type="submit" class="btn btn-primary">Guardar Elemento</button>
+          <button type="submit" class="btn btn-primary">Guardar Elemento</button>
 
-                </div>
+        </div>
 
-                <?php
+        <?php
 
-                $crearFormato = new ControladorFormato();
-                $crearFormato->ctrCrearFormato();
+        $crearFormato = new ControladorFormato();
+        $crearFormato->ctrCrearFormato();
 
-                ?>
+        ?>
 
       </form>
 
@@ -2237,9 +2473,9 @@ MODAL EDITAR FORMATO
 
                     <input type="text" class="form-control input-lg" name="editarClienteNameOfTheBank" id="editarClienteNameOfTheBank">
 
-                    <input type="hidden" name="idFormato2" id="idFormato2" required>
+                    <input type="hidden" name="idFormato" id="idFormato" required>
 
-                    <input type="hidden" name="editarFormato2" id="editarFormato2" required>
+                    <input type="hidden" name="editarFormato" id="editarFormato" required>
 
                   </div>
 

@@ -230,7 +230,7 @@ class ModeloFormato
         $stmt->bindParam(":lay_time", $datos["lay_time"], PDO::PARAM_STR);
         $stmt->bindParam(":demurrage_rate", $datos["demurrage_rate"], PDO::PARAM_STR);
         $stmt->bindParam(":law", $datos["law"], PDO::PARAM_STR);
-        $stmt->bindParam(":id_imagenes", $datos["id_imagenes"], PDO::PARAM_INT);
+        $stmt->bindParam(":id_imagenes", $datos["id_imagenes"], PDO::PARAM_STR);
 
         if ($stmt->execute()) {
 
@@ -428,7 +428,7 @@ class ModeloFormato
         $stmt->bindParam(":lay_time", $datos["lay_time"], PDO::PARAM_STR);
         $stmt->bindParam(":demurrage_rate", $datos["demurrage_rate"], PDO::PARAM_STR);
         $stmt->bindParam(":law", $datos["law"], PDO::PARAM_STR);
-        $stmt->bindParam(":id_imagenes", $datos["id_imagenes"], PDO::PARAM_INT);
+        $stmt->bindParam(":id_imagenes", $datos["id_imagenes"], PDO::PARAM_STR);
 
         if ($stmt->execute()) {
 

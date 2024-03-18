@@ -4,7 +4,7 @@ class ControladorFormato
 {
 
     /*=============================================
-    CREAR FORMATO 1
+    CREAR FORMATOS
     =============================================*/
 
     public static function ctrCrearFormato()
@@ -138,7 +138,7 @@ class ControladorFormato
     }
 
     /*=============================================
-    MOSTRAR FORMATO 1
+    MOSTRAR FORMATO
     =============================================*/
 
     public static function ctrMostrarFormato($item, $valor)
@@ -152,7 +152,7 @@ class ControladorFormato
     }
 
     /*=============================================
-    EDITAR FORMATO 1
+    EDITAR FORMATO
     =============================================*/
 
     public static function ctrEditarFormato()

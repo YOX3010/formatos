@@ -7,7 +7,7 @@ class Conexion
 	{
 
 		$link = new PDO(
-			"mysql:host=localhost;dbname=formulario_clientes",
+			"mysql:host=localhost;dbname=taller",
 			"root",
 			""
 		);
@@ -17,24 +17,6 @@ class Conexion
 		return $link;
 	}
 }
-
-// class Conexion
-// {
-
-// 	static public function conectar()
-// 	{
-
-// 		$link = new PDO(
-// 			"mysql:host=localhost;dbname=taller",
-// 			"root",
-// 			""
-// 		);
-
-// 		$link->exec("set names utf8");
-
-// 		return $link;
-// 	}
-// }
 
 // class Conexion{
 
