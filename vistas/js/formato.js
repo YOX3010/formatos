@@ -22,7 +22,7 @@ $(".tablas").on("click", ".btnEditarFormato", function () {
       $("#idFormato").val(respuesta["id"]);
       $("#editarClienteTo1").val(respuesta["cliente_to1"]);
       $("#editarClienteMr1").val(respuesta["cliente_mr1"]);
-      $("#editarClientePosition").val(respuesta["cliente_position1"]);
+      $("#editarClientePosition1").val(respuesta["cliente_position1"]);
       $("#editarClienteEmail1").val(respuesta["cliente_email1"]);
       $("#editarClienteCoignee").val(respuesta["cliente_cosignee"]);
       $("#editarClienteSignatory").val(respuesta["cliente_signatory"]);

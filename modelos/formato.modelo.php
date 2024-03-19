@@ -14,7 +14,6 @@ class ModeloFormato
 
         $stmt = Conexion::conectar()->prepare("INSERT INTO 		$tabla(	cliente_to1,
 																		cliente_mr1,
-																		position_1,
 																		cliente_position1,
 																		cliente_email1,
 																		cliente_cosignee,
@@ -87,7 +86,6 @@ class ModeloFormato
                                                                         id_imagenes)
 																VALUES(	:cliente_to1,
 																		:cliente_mr1,
-																		:position_1,
 																		:cliente_position1,
 																		:cliente_email1,
 																		:cliente_cosignee,
@@ -283,7 +281,6 @@ class ModeloFormato
 
         $stmt = Conexion::conectar()->prepare("UPDATE $tabla 	SET 	cliente_to1 = cliente_to1,
 																		cliente_mr1 = cliente_mr1,
-																		position_1 = position_1,
 																		cliente_position1 = cliente_position1,
 																		cliente_email1 = cliente_email1,
 																		cliente_cosignee = cliente_cosignee,
