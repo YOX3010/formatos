@@ -20,20 +20,13 @@ $(".tablas").on("click", ".btnEditarFormato4", function () {
 
     success: function (respuesta) {
       $("#idFormato4").val(respuesta["id"]);
-      $("#editarCode").val(respuesta["code"]);
+      $("#editarAuthenticationCode").val(respuesta["authentication_code"]);
       $("#editarRefNumber").val(respuesta["ref_number"]);
-      $("#editarDateToday").val(respuesta["date_today"]);
-      $("#editarToClient").val(respuesta["to_client"]);
+      $("#editarIcpoDate").val(respuesta["icpo_date"]);
+      $("#editarIcpoTo").val(respuesta["icpo_to"]);
       $("#editarTradeDate").val(respuesta["trade_date"]);
       $("#editarSeller").val(respuesta["seller"]);
-      $("#editarProductName").val(respuesta["product_name"]);
-      $("#editarShippingTermsSale").val(respuesta["shipping_terms_sale"]);
-      $("#editarOrigin").val(respuesta["origin"]);
-      $("#editarTrialQuantity").val(respuesta["trial_quantity"]);
-      $("#editarContractQuantity").val(respuesta["contract_quantity"]);
       $("#editarDurationContract").val(respuesta["duration_contract"]);
-      $("#editarTargetPriceUsd").val(respuesta["target_price_usd"]);
-      $("#editarShipmentTerms").val(respuesta["shipment_terms"]);
       $("#editarVessel").val(respuesta["vessel"]);
       $("#editarInspection").val(respuesta["inspection"]);
       $("#editarInsurance").val(respuesta["insurance"]);
@@ -42,7 +35,7 @@ $(".tablas").on("click", ".btnEditarFormato4", function () {
       $("#editarLayTime").val(respuesta["lay_time"]);
       $("#editarDemurrageRate").val(respuesta["demurrage_rate"]);
       $("#editarLaw").val(respuesta["law"]);
-      $("#editarIdImages").val(respuesta["id_images"]);
+      $("#editarIdImagenes").val(respuesta["id_imagenes"]);
     },
   });
 });
@@ -51,24 +44,24 @@ $(".tablas").on("click", ".btnEditarFormato4", function () {
 ELIMINAR FORMATO 4
 =============================================*/
 
-$(".tablas").on("click", ".btnEliminarFormato4", function () {
-  var idFormato4 = $(this).attr("idFormato4");
+// $(".tablas").on("click", ".btnEliminarFormato4", function () {
+//   var idFormato4 = $(this).attr("idFormato4");
 
-  swal({
-    title: "¿Está seguro de borrar El Formato?",
-    text: "¡Si no lo está puede cancelar la acción!",
-    type: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    cancelButtonText: "Cancelar",
-    confirmButtonText: "Si, borrar El Formato!",
-  }).then(function (result) {
-    if (result.value) {
-      window.location = "index.php?ruta=formato-4&idFormato4=" + idFormato4;
-    }
-  });
-});
+//   swal({
+//     title: "¿Está seguro de borrar El Formato?",
+//     text: "¡Si no lo está puede cancelar la acción!",
+//     type: "warning",
+//     showCancelButton: true,
+//     confirmButtonColor: "#3085d6",
+//     cancelButtonColor: "#d33",
+//     cancelButtonText: "Cancelar",
+//     confirmButtonText: "Si, borrar El Formato!",
+//   }).then(function (result) {
+//     if (result.value) {
+//       window.location = "index.php?ruta=formato-4&idFormato4=" + idFormato4;
+//     }
+//   });
+// });
 
 /*=============================================
 BOTON EDITAR FORMATO 4

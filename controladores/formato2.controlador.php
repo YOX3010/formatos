@@ -7,95 +7,95 @@ class ControladorFormato2
     CREAR FORMATO 2
     =============================================*/
 
-    public static function ctrCrearFormato2()
-    {
+    // public static function ctrCrearFormato2()
+    // {
 
-        if (isset($_POST["nuevoFormato2"])) {
+    //     if (isset($_POST["nuevoFormato2"])) {
 
-            $tabla = "formato_2";
+    //         $tabla = "formato_2";
 
-            $datos = array(
-                "bank_name" => $_POST["nuevoBankName"],
-                "branch_address" => $_POST["nuevoBranchAddress"],
-                "banking_official_name" => $_POST["nuevoBankingOfficialName"],
-                "phone_number" => $_POST["nuevoPhoneNumber"],
-                "fax_number" => $_POST["nuevoFaxNumber"],
-                "banking_oficer_mail" => $_POST["nuevoBankingOficerMail"],
-                "account_signatory_name" => $_POST["nuevoAccountSignatory"],
-                "account_name" => $_POST["nuevoAccountName"],
-                "account_number_routing_aba" => $_POST["nuevoAccountNumberRoutingAba"],
-                "swift_code" => $_POST["nuevoSwiftCode"],
-                "name" => $_POST["nuevoName"],
-                "date_place_birth" => $_POST["nuevoDatePlaceBirth"],
-                "passport_number_country" => $_POST["nuevoPassportNumberCountry"],
-                "passport_issue_date" => $_POST["nuevoPassportIssueDate"],
-                "passport_expiration_date" => $_POST["nuevoPassportExpirationDate"],
-                "title_corporation_company" => $_POST["nuevoTitleCorporationCompany"],
-                "office_phone_number" => $_POST["nuevoOfficePhoneNumber"],
-                "mobile_phone_number" => $_POST["nuevoMobilePhoneNumber"],
-                "email_address" => $_POST["nuevoEmailAddress"],
-            );
+    //         $datos = array(
+    //             "bank_name" => $_POST["nuevoBankName"],
+    //             "branch_address" => $_POST["nuevoBranchAddress"],
+    //             "banking_official_name" => $_POST["nuevoBankingOfficialName"],
+    //             "phone_number" => $_POST["nuevoPhoneNumber"],
+    //             "fax_number" => $_POST["nuevoFaxNumber"],
+    //             "banking_oficer_mail" => $_POST["nuevoBankingOficerMail"],
+    //             "account_signatory_name" => $_POST["nuevoAccountSignatory"],
+    //             "account_name" => $_POST["nuevoAccountName"],
+    //             "account_number_routing_aba" => $_POST["nuevoAccountNumberRoutingAba"],
+    //             "swift_code" => $_POST["nuevoSwiftCode"],
+    //             "name" => $_POST["nuevoName"],
+    //             "date_place_birth" => $_POST["nuevoDatePlaceBirth"],
+    //             "passport_number_country" => $_POST["nuevoPassportNumberCountry"],
+    //             "passport_issue_date" => $_POST["nuevoPassportIssueDate"],
+    //             "passport_expiration_date" => $_POST["nuevoPassportExpirationDate"],
+    //             "title_corporation_company" => $_POST["nuevoTitleCorporationCompany"],
+    //             "office_phone_number" => $_POST["nuevoOfficePhoneNumber"],
+    //             "mobile_phone_number" => $_POST["nuevoMobilePhoneNumber"],
+    //             "email_address" => $_POST["nuevoEmailAddress"],
+    //         );
 
-            $respuesta = ModeloFormato2::mdlIngresarFormato2($tabla, $datos);
+    //         $respuesta = ModeloFormato2::mdlIngresarFormato2($tabla, $datos);
 
-            if ($respuesta == "ok") {
+    //         if ($respuesta == "ok") {
 
-                echo '<script>
+    //             echo '<script>
 
-					swal({
+    // 				swal({
 
-						  type: "warning",
-						  title: "El Formato ha sido guardada correctamente Recuerde Actualizar",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
-						  }).then(function(result){
+    // 					  type: "warning",
+    // 					  title: "El Formato ha sido guardada correctamente Recuerde Actualizar",
+    // 					  showConfirmButton: true,
+    // 					  confirmButtonText: "Cerrar"
+    // 					  }).then(function(result){
 
-									if (result.value) {
+    // 								if (result.value) {
 
-									window.location.close
+    // 								window.location.close
 
-									}
+    // 								}
 
-								})
+    // 							})
 
-					</script>';
-            } else {
+    // 				</script>';
+    //         } else {
 
-                echo '<script>
+    //             echo '<script>
 
-					swal({
+    // 				swal({
 
-						  type: "error",
-						  title: "¡Error al Guardar El Formato!",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
-						  }).then(function(result){
-							if (result.value) {
+    // 					  type: "error",
+    // 					  title: "¡Error al Guardar El Formato!",
+    // 					  showConfirmButton: true,
+    // 					  confirmButtonText: "Cerrar"
+    // 					  }).then(function(result){
+    // 						if (result.value) {
 
-							window.location = "formato-2";
+    // 						window.location = "formato-2";
 
-							}
+    // 						}
 
-						})
+    // 					})
 
-			  	</script>';
-            }
-        }
-    }
+    // 		  	</script>';
+    //         }
+    //     }
+    // }
 
-    /*=============================================
-    MOSTRAR FORMATO 2
-    =============================================*/
+    // /*=============================================
+    // MOSTRAR FORMATO 2
+    // =============================================*/
 
-    public static function ctrMostrarFormato2($item, $valor)
-    {
+    // public static function ctrMostrarFormato2($item, $valor)
+    // {
 
-        $tabla = "formato_2";
+    //     $tabla = "formato_2";
 
-        $respuesta = ModeloFormato2::mdlMostrarFormato2($tabla, $item, $valor);
+    //     $respuesta = ModeloFormato2::mdlMostrarFormato2($tabla, $item, $valor);
 
-        return $respuesta;
-    }
+    //     return $respuesta;
+    // }
 
     /*=============================================
     EDITAR FORMATO 2
@@ -106,25 +106,15 @@ class ControladorFormato2
 
         if (isset($_POST["editarFormato2"])) {
 
-            $tabla = "formato_2";
+            $tabla = "formato";
 
             $datos = array(
-                "bank_name" => $_POST["editarBankName"],
-                "branch_address" => $_POST["editarBranchAddress"],
-                "banking_official_name" => $_POST["editarBankingOfficialName"],
-                "phone_number" => $_POST["editarPhoneNumber"],
-                "fax_number" => $_POST["editarFaxNumber"],
-                "banking_oficer_mail" => $_POST["editarBankingOficerMail"],
-                "account_signatory_name" => $_POST["editarAccountSignatory"],
-                "account_name" => $_POST["editarAccountName"],
-                "account_number_routing_aba" => $_POST["editarAccountNumberRoutingAba"],
-                "swift_code" => $_POST["editarSwiftCode"],
                 "name" => $_POST["editarName"],
                 "date_place_birth" => $_POST["editarDatePlaceBirth"],
-                "passport_number_country" => $_POST["editarPassportNumberCountry"],
-                "passport_issue_date" => $_POST["editarPassportIssueDate"],
+                "passport_number_country_issue" => $_POST["editarNumberCountryIssue"],
+                "passport_issue_date" => $_POST["editarIssueDate"],
                 "passport_expiration_date" => $_POST["editarPassportExpirationDate"],
-                "title_corporation_company" => $_POST["editarTitleCorporationCompany"],
+                "title_within_corporation_company" => $_POST["editarTitleWithinCorporationCompany"],
                 "office_phone_number" => $_POST["editarOfficePhoneNumber"],
                 "mobile_phone_number" => $_POST["editarMobilePhoneNumber"],
                 "email_address" => $_POST["editarEmailAddress"],

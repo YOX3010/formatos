@@ -30,15 +30,15 @@ $(".tablas").on("click", ".btnEditarFormato", function () {
       $("#editarClienteEmail").val(respuesta["cliente_email"]);
       $("#editarClienteVia").val(respuesta["cliente_via"]);
       $("#editarClienteEmailVia").val(respuesta["cliente_email_via"]);
-      $("#editarValiditySco").val(respuesta["validity_sco"]);
-      $("#editarCommodity").val(respuesta["commodity"]);
-      $("#editarQuantity").val(respuesta["quantity"]);
-      $("#editarPrice").val(respuesta["price"]);
-      $("#editarIncoterms").val(respuesta["incoterms"]);
-      $("#editarPort").val(respuesta["port"]);
-      $("#editarProductOrigin").val(respuesta["product_origin"]);
-      $("#editarContractTerm").val(respuesta["contract_term"]);
-      $("#editarCommission").val(respuesta["commission"]);
+      // $("#editarValiditySco").val(respuesta["validity_sco"]);
+      // $("#editarCommodity").val(respuesta["commodity"]);
+      // $("#editarQuantity").val(respuesta["quantity"]);
+      // $("#editarPrice").val(respuesta["price"]);
+      // $("#editarIncoterms").val(respuesta["incoterms"]);
+      // $("#editarPort").val(respuesta["port"]);
+      // $("#editarProductOrigin").val(respuesta["product_origin"]);
+      // $("#editarContractTerm").val(respuesta["contract_term"]);
+      // $("#editarCommission").val(respuesta["commission"]);
       $("#editarClienteNameOfTheBank").val(
         respuesta["cliente_name_of_the_bank"]
       );
@@ -59,35 +59,35 @@ $(".tablas").on("click", ".btnEditarFormato", function () {
         respuesta["cliente_account_number_routing_aba"]
       );
       $("#editarClienteSwift").val(respuesta["cliente_swift"]);
-      $("#editarName").val(respuesta["name"]);
-      $("#editarDatePlaceBirth").val(respuesta["date_place_birth"]);
-      $("#editarNumberCountryIssue").val(
-        respuesta["passport_number_country_issue"]
-      );
-      $("#editarIssueDate").val(respuesta["passport_issue_date"]);
-      $("#editarPassportExpirationDate").val(
-        respuesta["passport_expiration_date"]
-      );
-      $("#editarTitleWithinCorporationCompany").val(
-        respuesta["title_within_corporation_company"]
-      );
-      $("#editarOfficePhoneNumber").val(respuesta["office_phone_number"]);
-      $("#editarMobilePhoneNumber").val(respuesta["mobile_phone_number"]);
-      $("#editarEmailAddress").val(respuesta["email_address"]);
-      $("#editarCommercialInvoice").val(respuesta["commercial_invoice"]);
-      $("#editarDateCommercialInvoice").val(
-        respuesta["date_commercial_invoice"]
-      );
+      // $("#editarName").val(respuesta["name"]);
+      // $("#editarDatePlaceBirth").val(respuesta["date_place_birth"]);
+      // $("#editarNumberCountryIssue").val(
+      //   respuesta["passport_number_country_issue"]
+      // );
+      // $("#editarIssueDate").val(respuesta["passport_issue_date"]);
+      // $("#editarPassportExpirationDate").val(
+      //   respuesta["passport_expiration_date"]
+      // );
+      // $("#editarTitleWithinCorporationCompany").val(
+      //   respuesta["title_within_corporation_company"]
+      // );
+      // $("#editarOfficePhoneNumber").val(respuesta["office_phone_number"]);
+      // $("#editarMobilePhoneNumber").val(respuesta["mobile_phone_number"]);
+      // $("#editarEmailAddress").val(respuesta["email_address"]);
+      // $("#editarCommercialInvoice").val(respuesta["commercial_invoice"]);
+      // $("#editarDateCommercialInvoice").val(
+      //   respuesta["date_commercial_invoice"]
+      // );
       $("#editarClienteAddress").val(respuesta["cliente_address"]);
       $("#editarClienteTelephone").val(respuesta["cliente_telephone"]);
-      $("#editarTotalGrossAmount").val(respuesta["total_gross_amount"]);
-      $("#editarTermsDeliveryDestinationPort").val(
-        respuesta["terms_delivary_destination_port"]
-      );
-      $("#editarTermsPayment").val(respuesta["terms_payment"]);
-      $("#editarFreightInsuranceCharge").val(
-        respuesta["freight_insurance_charges"]
-      );
+      // $("#editarTotalGrossAmount").val(respuesta["total_gross_amount"]);
+      // $("#editarTermsDeliveryDestinationPort").val(
+      //   respuesta["terms_delivary_destination_port"]
+      // );
+      // $("#editarTermsPayment").val(respuesta["terms_payment"]);
+      // $("#editarFreightInsuranceCharge").val(
+      //   respuesta["freight_insurance_charges"]
+      // );
       $("#editarSelSellerAccountDetails").val(
         respuesta["sel_seller_account_details"]
       );
@@ -100,22 +100,22 @@ $(".tablas").on("click", ".btnEditarFormato", function () {
       $("#editarClienteBankAddress").val(respuesta["cliente_bank_address"]);
       $("#editarClienteSwiftCode").val(respuesta["cliente_swift_code"]);
       $("#editarClienteAccountNumber").val(respuesta["cliente_account_number"]);
-      $("#editarAuthenticationCode").val(respuesta["authentication_code"]);
-      $("#editarRefNumber").val(respuesta["ref_number"]);
-      $("#editarIcpoDate").val(respuesta["icpo_date"]);
-      $("#editarIcpoTo").val(respuesta["icpo_to"]);
-      $("#editarTradeDate").val(respuesta["trade_date"]);
-      $("#editarSeller").val(respuesta["seller"]);
-      $("#editarDurationContract").val(respuesta["duration_contract"]);
-      $("#editarVessel").val(respuesta["vessel"]);
-      $("#editarInspection").val(respuesta["inspection"]);
-      $("#editarInsurance").val(respuesta["insurance"]);
-      $("#editarPaymentMethod").val(respuesta["payment_method"]);
-      $("#editarQQDetermination").val(respuesta["qq_determination"]);
-      $("#editarLayTime").val(respuesta["lay_time"]);
-      $("#editarDemurrageRate").val(respuesta["demurrage_rate"]);
-      $("#editarLaw").val(respuesta["law"]);
-      $("#editarIdImagenes").val(respuesta["id_imagenes"]);
+      // $("#editarAuthenticationCode").val(respuesta["authentication_code"]);
+      // $("#editarRefNumber").val(respuesta["ref_number"]);
+      // $("#editarIcpoDate").val(respuesta["icpo_date"]);
+      // $("#editarIcpoTo").val(respuesta["icpo_to"]);
+      // $("#editarTradeDate").val(respuesta["trade_date"]);
+      // $("#editarSeller").val(respuesta["seller"]);
+      // $("#editarDurationContract").val(respuesta["duration_contract"]);
+      // $("#editarVessel").val(respuesta["vessel"]);
+      // $("#editarInspection").val(respuesta["inspection"]);
+      // $("#editarInsurance").val(respuesta["insurance"]);
+      // $("#editarPaymentMethod").val(respuesta["payment_method"]);
+      // $("#editarQQDetermination").val(respuesta["qq_determination"]);
+      // $("#editarLayTime").val(respuesta["lay_time"]);
+      // $("#editarDemurrageRate").val(respuesta["demurrage_rate"]);
+      // $("#editarLaw").val(respuesta["law"]);
+      // $("#editarIdImagenes").val(respuesta["id_imagenes"]);
     },
   });
 });

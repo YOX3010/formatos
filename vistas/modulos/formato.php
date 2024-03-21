@@ -41,9 +41,6 @@ if ($_SESSION["perfil"] == "Vendedor") {
 
         </button>
 
-        <!-- <a href="index.php?ruta=formato-2&idFormato=<?php //$_GET['idFormato'];
-                                                          ?>"> -->
-
         <a href="formato">
 
           <button class="btn btn-warning"> Actualizar </button>
@@ -85,18 +82,26 @@ if ($_SESSION["perfil"] == "Vendedor") {
               <th colspan="4" style="background-color:#e1e1e1;text-align:center;">FORMATO 1</th>
 
               <td style="text-align:center;background-color:#e1e1e1;" >
-
+              
               <div class="btn-group">
+              
+                <button class="btn btn-info btnImprimirFormato1" idFormato1="' . $value["id"] . '"><i class="fa fa-print"></i></button>
 
-                <button class="btn btn-warning btnEditarFormato" idFormato="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormato"><i class="fa fa-pencil"></i></button>
-                
-                <button class="btn btn-info btnImprimirFormato1" idFormato1="' . $value["id"] . '"><i class="fa fa-print"></i></button>';
+                <button class="btn btn-success btnEditarFormato" idFormato="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarClienteFormato"><i class="fa-solid fa-user-pen"></i></button>';
 
-              if ($_SESSION["perfil"] == "Administrador") {
+              $item1 = "id";
+              $valor1 = $value["id"];
 
-                //echo '<button class="btn btn-danger btnEliminarEmpleado" idEmpleado="'.$value["id"].'"><i class="fa fa-times"></i></button>';
+              $Formato1 = ControladorFormato1::ctrEditarFormato1($item1, $valor1);
 
-              }
+              echo $value["id"];
+
+              // foreach ($Formato1 as $Formato1key => $Formato1Value) {
+              //   if ($Formato1Value["id"] == $_GET) {
+
+              echo '<button class="btn btn-warning btnEditarFormato1" idFormato1="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormato1"><i class="fa fa-pencil"></i></button>';
+              //   }
+              // }
 
               echo '</div>
 
@@ -234,7 +239,7 @@ if ($_SESSION["perfil"] == "Vendedor") {
 
               <div class="btn-group">
 
-                <button class="btn btn-warning btnEditarFormato" idFormato="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormato"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-warning btnEditarFormato2" idFormato2="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormato2"><i class="fa fa-pencil"></i></button>
                 
                 <button class="btn btn-info btnImprimirFormato2" idFormato2="' . $value["id"] . '"><i class="fa fa-print"></i></button>
                 
@@ -412,7 +417,7 @@ if ($_SESSION["perfil"] == "Vendedor") {
 
               <div class="btn-group">
 
-                <button class="btn btn-warning btnEditarFormato" idFormato="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormato"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-warning btnEditarFormato" idFormato="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormato3"><i class="fa fa-pencil"></i></button>
                 
                 <button class="btn btn-info btnImprimirFormato3" idFormato3="' . $value["id"] . '"><i class="fa fa-print"></i></button>
                 
@@ -603,8 +608,8 @@ if ($_SESSION["perfil"] == "Vendedor") {
 
                 <div class="btn-group">
 
-                  <button class="btn btn-warning btnEditarFormato" idFormato="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormato"><i class="fa fa-pencil"></i></button>
-                  
+                  <button class="btn btn-warning btnEditarFormato" idFormato="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormato4"><i class="fa fa-pencil"></i></button>
+
                   <button class="btn btn-info btnImprimirFormato4" idFormato4="' . $value["id"] . '"><i class="fa fa-print"></i></button>
                   
                 </div>
@@ -1402,22 +1407,6 @@ MODAL AGREGAR FORMATO
 
             </div>
 
-            <!-- MR 3 -->
-
-            <!-- <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="nuevoMr3" placeholder="Mr. / Sr." required>
-
-                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
-
-              </div>
-
-            </div> -->
-
             <div class="form-group">
 
               <div class="input-group">
@@ -2170,10 +2159,10 @@ MODAL AGREGAR FORMATO
 </div>
 
 <!--=====================================
-MODAL EDITAR FORMATO
+MODAL EDITAR INFO CLIENTE
 ======================================-->
 
-<div id="modalEditarFormato" class="modal fade" role="dialog">
+<div id="modalEditarClienteFormato" class="modal fade" role="dialog">
 
   <div class="modal-dialog">
 
@@ -2189,12 +2178,12 @@ MODAL EDITAR FORMATO
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Editar Formato</h4>
+          <h4 class="modal-title">Editar Información del Cliente</h4>
 
         </div>
 
         <!--=====================================
-        CUERPO DEL MODAL FORMATO 1
+        CUERPO DEL MODAL INFO CLIENTE
         ======================================-->
 
         <div class="modal-body">
@@ -2221,9 +2210,7 @@ MODAL EDITAR FORMATO
 
                 <input type="text" class="form-control input-lg" name="editarClienteTo1" id="editarClienteTo1" placeholder="To / Para:" required>
 
-                <input type="hidden" name="idFormato" id="idFormato" required>
-
-                <input type="hidden" name="editarFormato" id="editarFormato" required>
+                <input type="text" name="idFormato" id="idFormato" required>
 
               </div>
 
@@ -2693,6 +2680,69 @@ MODAL EDITAR FORMATO
 
             </div>
 
+          </div>
+
+        </div>
+
+        <!--=====================================
+        PIE DEL MODAL
+        ======================================-->
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+
+        </div>
+
+        <?php
+
+        $editarFormato = new ControladorFormato();
+        $editarFormato->ctrEditarFormato();
+
+        ?>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!--=====================================
+MODAL EDITAR FORMATO 1
+======================================-->
+
+<div id="modalEditarFormato1" class="modal fade" role="dialog">
+
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <form role="form" method="post">
+
+        <!--=====================================
+        CABEZA DEL MODAL
+        ======================================-->
+
+        <div class="modal-header" style="background:#3c8dbc; color:white">
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4 class="modal-title">Editar Formato 1</h4>
+
+        </div>
+
+        <!--=====================================
+        CUERPO DEL MODAL FORMATO 1
+        ======================================-->
+
+        <div class="modal-body">
+
+          <div class="box-body">
+
             <div class="form-group">
 
               <div class="input-group">
@@ -2702,20 +2752,6 @@ MODAL EDITAR FORMATO
               </div>
 
             </div>
-
-            <!-- MR 3 -->
-
-            <!-- <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="editarMr3" placeholder="Mr. / Sr." required>
-
-              </div>
-
-            </div> -->
 
             <div class="form-group">
 
@@ -2736,6 +2772,8 @@ MODAL EDITAR FORMATO
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
                 <input type="text" class="form-control input-lg" name="editarValiditySco" id="editarValiditySco" placeholder="Validity of SCO / Validez de SCO">
+
+                <input type="text" name="idFormato" id="idFormato" required>
 
               </div>
 
@@ -2853,6 +2891,69 @@ MODAL EDITAR FORMATO
 
             </div>
 
+          </div>
+
+        </div>
+
+        <!--=====================================
+        PIE DEL MODAL
+        ======================================-->
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+
+        </div>
+
+        <?php
+
+        $editarFormato1 = new ControladorFormato1();
+        $editarFormato1->ctrEditarFormato1();
+
+        ?>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!--=====================================
+MODAL EDITAR FORMATO 2
+======================================-->
+
+<div id="modalEditarFormato2" class="modal fade" role="dialog">
+
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <form role="form" method="post">
+
+        <!--=====================================
+        CABEZA DEL MODAL
+        ======================================-->
+
+        <div class="modal-header" style="background:#3c8dbc; color:white">
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4 class="modal-title">Editar Formato 2</h4>
+
+        </div>
+
+        <!--=====================================
+        CUERPO DEL MODAL FORMATO 2
+        ======================================-->
+
+        <div class="modal-body">
+
+          <div class="box-body">
+
             <!--=====================================
             CUERPO DEL MODAL FORMATO 2
             ======================================-->
@@ -2886,6 +2987,10 @@ MODAL EDITAR FORMATO
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
                 <input type="text" class="form-control input-lg" name="editarName" id="editarName" placeholder="Name / Nombre">
+
+                <input type="text" name="idFormato" id="idFormato" required>
+
+                <input type="hidden" name="editarFormato" id="editarFormato" required>
 
               </div>
 
@@ -3003,9 +3108,72 @@ MODAL EDITAR FORMATO
 
             </div>
 
+          </div>
+
+        </div>
+
+        <!--=====================================
+        PIE DEL MODAL
+        ======================================-->
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+
+        </div>
+
+        <?php
+
+        $editarFormato2 = new ControladorFormato2();
+        $editarFormato2->ctrEditarFormato2();
+
+        ?>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!--=====================================
+MODAL EDITAR FORMATO 3
+======================================-->
+
+<div id="modalEditarFormato3" class="modal fade" role="dialog">
+
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <form role="form" method="post">
+
+        <!--=====================================
+        CABEZA DEL MODAL
+        ======================================-->
+
+        <div class="modal-header" style="background:#3c8dbc; color:white">
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4 class="modal-title">Editar Formato 3</h4>
+
+        </div>
+
+        <!--=====================================
+        CUERPO DEL MODAL FORMATO 3
+        ======================================-->
+
+        <div class="modal-body">
+
+          <div class="box-body">
+
             <!--=====================================
             CUERPO DEL MODAL FORMATO 3
-            ======================================-->
+            =====================================-->
 
             <div class="form-group">
 
@@ -3026,6 +3194,10 @@ MODAL EDITAR FORMATO
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
                 <input type="text" class="form-control input-lg" name="editarCommercialInvoice" id="editarCommercialInvoice" placeholder="Commercial Invoice / Factura Comercial">
+
+                <input type="hidden" name="idFormato" id="idFormato" required>
+
+                <input type="hidden" name="editarFormato" id="editarFormato" required>
 
               </div>
 
@@ -3111,6 +3283,69 @@ MODAL EDITAR FORMATO
 
             </div>
 
+          </div>
+
+        </div>
+
+        <!--=====================================
+        PIE DEL MODAL
+        ======================================-->
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+
+        </div>
+
+        <?php
+
+        $editarFormato = new ControladorFormato();
+        $editarFormato->ctrEditarFormato();
+
+        ?>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!--=====================================
+MODAL EDITAR FORMATO 4
+======================================-->
+
+<div id="modalEditarFormato4" class="modal fade" role="dialog">
+
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <form role="form" method="post">
+
+        <!--=====================================
+        CABEZA DEL MODAL
+        ======================================-->
+
+        <div class="modal-header" style="background:#3c8dbc; color:white">
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4 class="modal-title">Editar Formato 4</h4>
+
+        </div>
+
+        <!--=====================================
+        CUERPO DEL MODAL FORMATO 4
+        ======================================-->
+
+        <div class="modal-body">
+
+          <div class="box-body">
+
             <!--=====================================
             MODAL EDITAR FORMATO 4
             ======================================-->
@@ -3134,6 +3369,10 @@ MODAL EDITAR FORMATO
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
                 <input type="text" class="form-control input-lg" name="editarAuthenticationCode" id="editarAuthenticationCode" placeholder="Authentication Code / Código de Autenticación">
+
+                <input type="hidden" name="idFormato" id="idFormato" required>
+
+                <input type="hidden" name="editarFormato" id="editarFormato" required>
 
               </div>
 
@@ -3364,8 +3603,8 @@ MODAL EDITAR FORMATO
         </div>
 
         <!--=====================================
-        PIE DEL MODAL
-        ======================================-->
+                PIE DEL MODAL
+                ======================================-->
 
         <div class="modal-footer">
 

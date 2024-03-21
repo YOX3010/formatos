@@ -7,7 +7,7 @@ class AjaxFormato
 {
 
 	/*=============================================
-		EDITAR FORMATO 1
+		EDITAR FORMATO
 	=============================================*/
 
 	public $idFormato;
@@ -25,7 +25,7 @@ class AjaxFormato
 }
 
 /*=============================================
-EDITAR FORMATO 1
+EDITAR FORMATO
 =============================================*/
 
 if (isset($_POST["idFormato"])) {

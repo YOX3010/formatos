@@ -279,78 +279,78 @@ class ModeloFormato
     public static function mdlEditarFormato($tabla, $datos)
     {
 
-        $stmt = Conexion::conectar()->prepare("UPDATE $tabla 	SET 	cliente_to1 = cliente_to1,
-																		cliente_mr1 = cliente_mr1,
-																		cliente_position1 = cliente_position1,
-																		cliente_email1 = cliente_email1,
-																		cliente_cosignee = cliente_cosignee,
-																		cliente_signatory = cliente_signatory,
-																		cliente_position = cliente_position,
-																		cliente_email = cliente_email,
-																		cliente_via = cliente_via,
-																		cliente_email_via = cliente_email_via,
-																		validity_sco = validity_sco,
-																		commodity = commodity,
-																		quantity = quantity,
-																		price = price,
-																		incoterms = incoterms,
-																		port = port,
-																		product_origin = product_origin,
-																		contract_term = contract_term,
-																		commission = commission,
-                                                                        cliente_name_of_the_bank = cliente_name_of_the_bank,
-                                                                        cliente_branch_address = cliente_branch_address,
-                                                                        cliente_name_of_the_banking = cliente_name_of_the_banking,
-                                                                        cliente_phone_number = cliente_phone_number,
-                                                                        cliente_fax_number = cliente_fax_number,
-                                                                        cliente_banking_officer_mail = cliente_banking_officer_mail,
-                                                                        cliente_account_signatory_name = cliente_account_signatory_name,
-                                                                        cliente_account_name = cliente_account_name,
-                                                                        cliente_account_number_routing_aba = cliente_account_number_routing_aba,
-                                                                        cliente_swift = cliente_swift,
-                                                                        name = name,
-                                                                        date_place_birth = date_place_birth,
-                                                                        passport_number_country_issue = passport_number_country_issue,
-                                                                        passport_issue_date = passport_issue_date,
-                                                                        passport_expiration_date = passport_expiration_date,
-                                                                        title_within_corporation_company = title_within_corporation_company,
-                                                                        office_phone_number = office_phone_number,
-                                                                        mobile_phone_number = mobile_phone_number,
-                                                                        email_address = email_address,
-                                                                        commercial_invoice = commercial_invoice,
-                                                                        date_commercial_invoice = date_commercial_invoice,
-                                                                        cliente_address = cliente_address,
-                                                                        cliente_telephone = cliente_telephone,
-                                                                        total_gross_amount = total_gross_amount,
-                                                                        terms_delivary_destination_port = terms_delivary_destination_port,
-                                                                        terms_payment = terms_payment,
-                                                                        freight_insurance_charges = freight_insurance_charges,
-                                                                        sel_seller_account_details = sel_seller_account_details,
-                                                                        sel_bank_name = sel_bank_name,
-                                                                        sel_bank_address = sel_bank_address,
-                                                                        sel_account_name = sel_account_name,
-                                                                        sel_account_number = sel_account_number,
-                                                                        sel_swift = sel_swift,
-                                                                        cliente_bank_name = cliente_bank_name,
-                                                                        cliente_bank_address = cliente_bank_address,
-                                                                        cliente_swift_code = cliente_swift_code,
-                                                                        cliente_account_number = cliente_account_number,
-                                                                        authentication_code = authentication_code,
-                                                                        ref_number = ref_number,
-                                                                        icpo_date = icpo_date,
-                                                                        icpo_to = icpo_to,
-                                                                        trade_date = trade_date,
-                                                                        seller = seller,
-                                                                        duration_contract = duration_contract,
-                                                                        vessel = vessel,
-                                                                        inspection = inspection,
-                                                                        insurance = insurance,
-                                                                        payment_method = payment_method,
-                                                                        qq_determination = qq_determination,
-                                                                        lay_time = lay_time,
-                                                                        demurrage_rate = demurrage_rate,
-                                                                        law = law,
-                                                                        id_imagenes = id_imagenes,
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla 	SET 	cliente_to1 = :cliente_to1,
+																		cliente_mr1 = :cliente_mr1,
+																		cliente_position1 = :cliente_position1,
+																		cliente_email1 = :cliente_email1,
+																		cliente_cosignee = :cliente_cosignee,
+																		cliente_signatory = :cliente_signatory,
+																		cliente_position = :cliente_position,
+																		cliente_email = :cliente_email,
+																		cliente_via = :cliente_via,
+																		cliente_email_via = :cliente_email_via,
+																		-- validity_sco = :validity_sco,
+																		-- commodity = :commodity,
+																		-- quantity = :quantity,
+																		-- price = :price,
+																		-- incoterms = :incoterms,
+																		-- port = :port,
+																		-- product_origin = :product_origin,
+																		-- contract_term = :contract_term,
+																		-- commission = :commission,
+                                                                        cliente_name_of_the_bank = :cliente_name_of_the_bank,
+                                                                        cliente_branch_address = :cliente_branch_address,
+                                                                        cliente_name_of_the_banking = :cliente_name_of_the_banking,
+                                                                        cliente_phone_number = :cliente_phone_number,
+                                                                        cliente_fax_number = :cliente_fax_number,
+                                                                        cliente_banking_officer_mail = :cliente_banking_officer_mail,
+                                                                        cliente_account_signatory_name = :cliente_account_signatory_name,
+                                                                        cliente_account_name = :cliente_account_name,
+                                                                        cliente_account_number_routing_aba = :cliente_account_number_routing_aba,
+                                                                        cliente_swift = :cliente_swift,
+                                                                        -- name = :name,
+                                                                        -- date_place_birth = :date_place_birth,
+                                                                        -- passport_number_country_issue = :passport_number_country_issue,
+                                                                        -- passport_issue_date = :passport_issue_date,
+                                                                        -- passport_expiration_date = :passport_expiration_date,
+                                                                        -- title_within_corporation_company = :title_within_corporation_company,
+                                                                        -- office_phone_number = :office_phone_number,
+                                                                        -- mobile_phone_number = :mobile_phone_number,
+                                                                        -- email_address = :email_address,
+                                                                        -- commercial_invoice = :commercial_invoice,
+                                                                        -- date_commercial_invoice = :date_commercial_invoice,
+                                                                        cliente_address = :cliente_address,
+                                                                        cliente_telephone = :cliente_telephone,
+                                                                        -- total_gross_amount = :total_gross_amount,
+                                                                        -- terms_delivary_destination_port = :terms_delivary_destination_port,
+                                                                        -- terms_payment = :terms_payment,
+                                                                        -- freight_insurance_charges = :freight_insurance_charges,
+                                                                        sel_seller_account_details = :sel_seller_account_details,
+                                                                        sel_bank_name = :sel_bank_name,
+                                                                        sel_bank_address = :sel_bank_address,
+                                                                        sel_account_name = :sel_account_name,
+                                                                        sel_account_number = :sel_account_number,
+                                                                        sel_swift = :sel_swift,
+                                                                        cliente_bank_name = :cliente_bank_name,
+                                                                        cliente_bank_address = :cliente_bank_address,
+                                                                        cliente_swift_code = :cliente_swift_code,
+                                                                        cliente_account_number = :cliente_account_number,
+                                                                        -- authentication_code = :authentication_code,
+                                                                        -- ref_number = :ref_number,
+                                                                        -- icpo_date = :icpo_date,
+                                                                        -- icpo_to = :icpo_to,
+                                                                        -- trade_date = :trade_date,
+                                                                        -- seller = :seller,
+                                                                        -- duration_contract = :duration_contract,
+                                                                        -- vessel = :vessel,
+                                                                        -- inspection = :inspection,
+                                                                        -- insurance = :insurance,
+                                                                        -- payment_method = :payment_method,
+                                                                        -- qq_determination = :qq_determination,
+                                                                        -- lay_time = :lay_time,
+                                                                        -- demurrage_rate = :demurrage_rate,
+                                                                        -- law = :law,
+                                                                        -- id_imagenes = :id_imagenes
 															 	WHERE 	id = :id");
 
         $stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
@@ -364,15 +364,15 @@ class ModeloFormato
         $stmt->bindParam(":cliente_email", $datos["cliente_email"], PDO::PARAM_STR);
         $stmt->bindParam(":cliente_via", $datos["cliente_via"], PDO::PARAM_STR);
         $stmt->bindParam(":cliente_email_via", $datos["cliente_email_via"], PDO::PARAM_STR);
-        $stmt->bindParam(":validity_sco", $datos["validity_sco"], PDO::PARAM_STR);
-        $stmt->bindParam(":commodity", $datos["commodity"], PDO::PARAM_STR);
-        $stmt->bindParam(":quantity", $datos["quantity"], PDO::PARAM_STR);
-        $stmt->bindParam(":price", $datos["price"], PDO::PARAM_STR);
-        $stmt->bindParam(":incoterms", $datos["incoterms"], PDO::PARAM_STR);
-        $stmt->bindParam(":port", $datos["port"], PDO::PARAM_STR);
-        $stmt->bindParam(":product_origin", $datos["product_origin"], PDO::PARAM_STR);
-        $stmt->bindParam(":contract_term", $datos["contract_term"], PDO::PARAM_STR);
-        $stmt->bindParam(":commission", $datos["commission"], PDO::PARAM_STR);
+        // $stmt->bindParam(":validity_sco", $datos["validity_sco"], PDO::PARAM_STR);
+        // $stmt->bindParam(":commodity", $datos["commodity"], PDO::PARAM_STR);
+        // $stmt->bindParam(":quantity", $datos["quantity"], PDO::PARAM_STR);
+        // $stmt->bindParam(":price", $datos["price"], PDO::PARAM_STR);
+        // $stmt->bindParam(":incoterms", $datos["incoterms"], PDO::PARAM_STR);
+        // $stmt->bindParam(":port", $datos["port"], PDO::PARAM_STR);
+        // $stmt->bindParam(":product_origin", $datos["product_origin"], PDO::PARAM_STR);
+        // $stmt->bindParam(":contract_term", $datos["contract_term"], PDO::PARAM_STR);
+        // $stmt->bindParam(":commission", $datos["commission"], PDO::PARAM_STR);
         $stmt->bindParam(":cliente_name_of_the_bank", $datos["cliente_name_of_the_bank"], PDO::PARAM_STR);
         $stmt->bindParam(":cliente_branch_address", $datos["cliente_branch_address"], PDO::PARAM_STR);
         $stmt->bindParam(":cliente_name_of_the_banking", $datos["cliente_name_of_the_banking"], PDO::PARAM_STR);
@@ -383,23 +383,23 @@ class ModeloFormato
         $stmt->bindParam(":cliente_account_name", $datos["cliente_account_name"], PDO::PARAM_STR);
         $stmt->bindParam(":cliente_account_number_routing_aba", $datos["cliente_account_number_routing_aba"], PDO::PARAM_STR);
         $stmt->bindParam(":cliente_swift", $datos["cliente_swift"], PDO::PARAM_STR);
-        $stmt->bindParam(":name", $datos["name"], PDO::PARAM_STR);
-        $stmt->bindParam(":date_place_birth", $datos["date_place_birth"], PDO::PARAM_STR);
-        $stmt->bindParam(":passport_number_country_issue", $datos["passport_number_country_issue"], PDO::PARAM_STR);
-        $stmt->bindParam(":passport_issue_date", $datos["passport_issue_date"], PDO::PARAM_STR);
-        $stmt->bindParam(":passport_expiration_date", $datos["passport_expiration_date"], PDO::PARAM_STR);
-        $stmt->bindParam(":title_within_corporation_company", $datos["title_within_corporation_company"], PDO::PARAM_STR);
-        $stmt->bindParam(":office_phone_number", $datos["office_phone_number"], PDO::PARAM_STR);
-        $stmt->bindParam(":mobile_phone_number", $datos["mobile_phone_number"], PDO::PARAM_STR);
-        $stmt->bindParam(":email_address", $datos["email_address"], PDO::PARAM_STR);
-        $stmt->bindParam(":commercial_invoice", $datos["commercial_invoice"], PDO::PARAM_STR);
-        $stmt->bindParam(":date_commercial_invoice", $datos["date_commercial_invoice"], PDO::PARAM_STR);
+        // $stmt->bindParam(":name", $datos["name"], PDO::PARAM_STR);
+        // $stmt->bindParam(":date_place_birth", $datos["date_place_birth"], PDO::PARAM_STR);
+        // $stmt->bindParam(":passport_number_country_issue", $datos["passport_number_country_issue"], PDO::PARAM_STR);
+        // $stmt->bindParam(":passport_issue_date", $datos["passport_issue_date"], PDO::PARAM_STR);
+        // $stmt->bindParam(":passport_expiration_date", $datos["passport_expiration_date"], PDO::PARAM_STR);
+        // $stmt->bindParam(":title_within_corporation_company", $datos["title_within_corporation_company"], PDO::PARAM_STR);
+        // $stmt->bindParam(":office_phone_number", $datos["office_phone_number"], PDO::PARAM_STR);
+        // $stmt->bindParam(":mobile_phone_number", $datos["mobile_phone_number"], PDO::PARAM_STR);
+        // $stmt->bindParam(":email_address", $datos["email_address"], PDO::PARAM_STR);
+        // $stmt->bindParam(":commercial_invoice", $datos["commercial_invoice"], PDO::PARAM_STR);
+        // $stmt->bindParam(":date_commercial_invoice", $datos["date_commercial_invoice"], PDO::PARAM_STR);
         $stmt->bindParam(":cliente_address", $datos["cliente_address"], PDO::PARAM_STR);
         $stmt->bindParam(":cliente_telephone", $datos["cliente_telephone"], PDO::PARAM_STR);
-        $stmt->bindParam(":total_gross_amount", $datos["total_gross_amount"], PDO::PARAM_STR);
-        $stmt->bindParam(":terms_delivary_destination_port", $datos["terms_delivary_destination_port"], PDO::PARAM_STR);
-        $stmt->bindParam(":terms_payment", $datos["terms_payment"], PDO::PARAM_STR);
-        $stmt->bindParam(":freight_insurance_charges", $datos["freight_insurance_charges"], PDO::PARAM_STR);
+        // $stmt->bindParam(":total_gross_amount", $datos["total_gross_amount"], PDO::PARAM_STR);
+        // $stmt->bindParam(":terms_delivary_destination_port", $datos["terms_delivary_destination_port"], PDO::PARAM_STR);
+        // $stmt->bindParam(":terms_payment", $datos["terms_payment"], PDO::PARAM_STR);
+        // $stmt->bindParam(":freight_insurance_charges", $datos["freight_insurance_charges"], PDO::PARAM_STR);
         $stmt->bindParam(":sel_seller_account_details", $datos["sel_seller_account_details"], PDO::PARAM_STR);
         $stmt->bindParam(":sel_bank_name", $datos["sel_bank_name"], PDO::PARAM_STR);
         $stmt->bindParam(":sel_bank_address", $datos["sel_bank_address"], PDO::PARAM_STR);
