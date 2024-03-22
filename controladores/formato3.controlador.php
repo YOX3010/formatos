@@ -90,19 +90,19 @@ class ControladorFormato3
 	// 	}
 	// }
 
-	// /*=============================================
-	// MOSTRAR FORMATO 3
-	// =============================================*/
+	/*=============================================
+	MOSTRAR FORMATO 3
+	=============================================*/
 
-	// static public function ctrMostrarFormato3($item, $valor)
-	// {
+	static public function ctrMostrarFormato3($item, $valor)
+	{
 
-	// 	$tabla = "formato_3";
+		$tabla = "formatos";
 
-	// 	$respuesta = ModeloFormato3::mdlMostrarFormato3($tabla, $item, $valor);
+		$respuesta = ModeloFormato3::mdlMostrarFormato3($tabla, $item, $valor);
 
-	// 	return $respuesta;
-	// }
+		return $respuesta;
+	}
 
 	/*=============================================
 	EDITAR FORMATO 3
@@ -113,7 +113,7 @@ class ControladorFormato3
 
 		if (isset($_POST["editarFormato3"])) {
 
-			$tabla = "formato";
+			$tabla = "formatos";
 
 			$datos = array(
 				"commercial_invoice" => $_POST["editarCommercialInvoice"],

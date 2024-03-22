@@ -101,35 +101,35 @@ class ModeloFormato3
 	// 	$stmt = null;
 	// }
 
-	// /*=============================================
-	// MOSTRAR FORMATO 3
-	// =============================================*/
+	/*=============================================
+	MOSTRAR FORMATO 3
+	=============================================*/
 
-	// static public function mdlMostrarFormato3($tabla, $item, $valor)
-	// {
+	static public function mdlMostrarFormato3($tabla, $item, $valor)
+	{
 
-	// 	if ($item != null) {
+		if ($item != null) {
 
-	// 		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
 
-	// 		$stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
+			$stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
 
-	// 		$stmt->execute();
+			$stmt->execute();
 
-	// 		return $stmt->fetch();
-	// 	} else {
+			return $stmt->fetch();
+		} else {
 
-	// 		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
 
-	// 		$stmt->execute();
+			$stmt->execute();
 
-	// 		return $stmt->fetchAll();
-	// 	}
+			return $stmt->fetchAll();
+		}
 
-	// 	$stmt->close();
+		$stmt->close();
 
-	// 	$stmt = null;
-	// }
+		$stmt = null;
+	}
 
 	/*=============================================
 	EDITAR FORMATO 3

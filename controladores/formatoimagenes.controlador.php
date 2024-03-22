@@ -4,93 +4,98 @@ class ControladorFormatoImagenes
 {
 
 	/*=============================================
-	CREAR INSPECCION BATERÍA
+	CREAR IMAGEN DE FORMATOS
 	=============================================*/
 
 	static public function ctrCrearFormatoImagenes()
 	{
 
-		/*=============================================
+		if (isset($_POST["nuevoFormatoImagenes"])) {
+
+			if ($_POST["nuevoFormatoImagenes"]) {
+
+				/*=============================================
 				VALIDAR IMAGEN
 				=============================================*/
 
-		$ruta = "vistas/img/formatos/default/anonymous.png";
+				$ruta = "vistas/img/formatos/default/anonymous.png";
 
-		if (isset($_FILES["nuevoFormatoImagen"]["tmp_name"])) {
+				if (isset($_FILES["nuevoFormatoImagenes"]["tmp_name"])) {
 
-			list($ancho, $alto) = getimagesize($_FILES["nuevoFormatoImagen"]["tmp_name"]);
+					list($ancho, $alto) = getimagesize($_FILES["nuevoFormatoImagenes"]["tmp_name"]);
 
-			$nuevoAncho = 500;
-			$nuevoAlto = 500;
+					$nuevoAncho = 500;
+					$nuevoAlto = 500;
 
-			/*=============================================
+					/*=============================================
 				 CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
 				 =============================================*/
 
-			$directorio = "vistas/img/formatos/" . $_POST["nuevoCodigo"];
+					$directorio = "vistas/img/formatos/" . $_POST["nuevoFormatoImagenes"];
 
-			mkdir($directorio, 0755);
+					mkdir($directorio, 0755);
 
-			/*=============================================
+					/*=============================================
 				 DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
 				 =============================================*/
 
-			if ($_FILES["nuevoFormatoImagen"]["type"] == "image/jpeg") {
+					if ($_FILES["nuevoFormatoImagenes"]["type"] == "image/jpeg") {
 
-				/*=============================================
+						/*=============================================
 					 GUARDAMOS LA IMAGEN EN EL DIRECTORIO
 					 =============================================*/
 
-				$aleatorio = mt_rand(100, 999);
+						$aleatorio = mt_rand(100, 999);
 
-				$ruta = "vistas/img/formatos/" . $_POST["nuevoCodigo"] . "/" . $aleatorio . ".jpg";
+						$ruta = "vistas/img/formatos/" . $_POST["nuevoFormatoImagenes"] . "/" . $aleatorio . ".jpg";
 
-				$origen = imagecreatefromjpeg($_FILES["nuevoFormatoImagen"]["tmp_name"]);
+						$origen = imagecreatefromjpeg($_FILES["nuevoFormatoImagenes"]["tmp_name"]);
 
-				$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
-				imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
 
-				imagejpeg($destino, $ruta);
-			}
+						imagejpeg($destino, $ruta);
+					}
 
-			if ($_FILES["nuevoFormatoImagen"]["type"] == "image/png") {
+					if ($_FILES["nuevoFormatoImagenes"]["type"] == "image/png") {
 
-				/*=============================================
+						/*=============================================
 					 GUARDAMOS LA IMAGEN EN EL DIRECTORIO
 					 =============================================*/
 
-				$aleatorio = mt_rand(100, 999);
+						$aleatorio = mt_rand(100, 999);
 
-				$ruta = "vistas/img/formatos/" . $_POST["nuevoCodigo"] . "/" . $aleatorio . ".png";
+						$ruta = "vistas/img/formatos/" . $_POST["nuevoFormatoImagenes"] . "/" . $aleatorio . ".png";
 
-				$origen = imagecreatefrompng($_FILES["nuevoFormatoImagen"]["tmp_name"]);
+						$origen = imagecreatefrompng($_FILES["nuevoFormatoImagenes"]["tmp_name"]);
 
-				$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
-				imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
 
-				imagepng($destino, $ruta);
+						imagepng($destino, $ruta);
+					}
+				}
 			}
-		}
 
-		$tabla = "formato_imagenes";
+			$tabla = "formato_imagenes";
 
-		$datos = array(
-			"imagen" => $_POST["nuevaFormatoImagenes"],
-			"imagen" => $ruta
-		);
+			$datos = array(
+				// "imagen" => $_POST["nuevoFormatoImagenes"],
+				"imagen" => $ruta
+			);
 
-		$respuesta = ModeloFormatoImagenes::mdlIngresarFormatoImagenes($tabla, $datos);
+			$respuesta = ModeloFormatoImagenes::mdlIngresarFormatoImagenes($tabla, $datos);
 
-		if ($respuesta == "ok") {
+			if ($respuesta == "ok") {
 
-			echo '<script>
+				echo '<script>
 
 					swal({
 
 						  type: "success",
-						  title: "La Inspeccion del neumático ha sido guardada correctamente",
+						  title: "La Imagen del documento ha sido guardada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -104,14 +109,14 @@ class ControladorFormatoImagenes
 								})
 
 					</script>';
-		} else {
+			} else {
 
-			echo '<script>
+				echo '<script>
 
 					swal({
 
 						  type: "error",
-						  title: "¡Error al Guardar La Inspeccion del neumático!",
+						  title: "¡Error al Guardar La Imagen del documentos",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -124,6 +129,7 @@ class ControladorFormatoImagenes
 						})
 
 			  	</script>';
+			}
 		}
 	}
 
@@ -150,9 +156,9 @@ class ControladorFormatoImagenes
 
 		$ruta = $_POST["imagenActual"];
 
-		if (isset($_FILES["editarImagen"]["tmp_name"]) && !empty($_FILES["editarImagen"]["tmp_name"])) {
+		if (isset($_FILES["editarFormatoImagen"]["tmp_name"]) && !empty($_FILES["editarFormatoImagen"]["tmp_name"])) {
 
-			list($ancho, $alto) = getimagesize($_FILES["editarImagen"]["tmp_name"]);
+			list($ancho, $alto) = getimagesize($_FILES["editarFormatoImagen"]["tmp_name"]);
 
 			$nuevoAncho = 500;
 			$nuevoAlto = 500;
@@ -161,7 +167,7 @@ class ControladorFormatoImagenes
 					CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
 					=============================================*/
 
-			$directorio = "vistas/img/formatos/" . $_POST["editarCodigo"];
+			$directorio = "vistas/img/formatos/" . $_POST["editarImagen"];
 
 			/*=============================================
 					PRIMERO PREGUNTAMOS SI EXISTE OTRA IMAGEN EN LA BD
@@ -187,7 +193,7 @@ class ControladorFormatoImagenes
 
 				$aleatorio = mt_rand(100, 999);
 
-				$ruta = "vistas/img/formatos/" . $_POST["editarCodigo"] . "/" . $aleatorio . ".jpg";
+				$ruta = "vistas/img/formatos/" . $_POST["editarFormatoImagen"] . "/" . $aleatorio . ".jpg";
 
 				$origen = imagecreatefromjpeg($_FILES["editarFormatoImagenes"]["tmp_name"]);
 
@@ -206,7 +212,7 @@ class ControladorFormatoImagenes
 
 				$aleatorio = mt_rand(100, 999);
 
-				$ruta = "vistas/img/formato/" . $_POST["editarCodigo"] . "/" . $aleatorio . ".png";
+				$ruta = "vistas/img/formato/" . $_POST["editarFormatoImagen"] . "/" . $aleatorio . ".png";
 
 				$origen = imagecreatefrompng($_FILES["editarFormatoImagenes"]["tmp_name"]);
 
@@ -218,7 +224,8 @@ class ControladorFormatoImagenes
 			}
 		}
 
-		$tabla = "formatoimagenes";
+
+		$tabla = "formato_imagenes";
 
 		$datos = array(
 			"imagen" => $_POST["editarFormatoImagenes"],
@@ -234,7 +241,7 @@ class ControladorFormatoImagenes
 					swal({
 
 						  type: "success",
-						  title: "La Imagen ha sido Editada correctamente",
+						  title: "La Imagen del documento ha sido Editada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -254,7 +261,7 @@ class ControladorFormatoImagenes
 					swal({
 
 						  type: "error",
-						  title: "¡Error al Editar La Imagen!",
+						  title: "¡Error al Editar La Imagen del Documento!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){

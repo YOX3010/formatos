@@ -1,15 +1,15 @@
 <?php
 
-if ($_SESSION["perfil"] == "Vendedor") {
+// if ($_SESSION["perfil"] == "Vendedor") {
 
-  echo '<script>
+//   echo '<script>
 
-    window.location = "inicio";
+//     window.location = "inicio";
 
-  </script>';
+//   </script>';
 
-  return;
-}
+//   return;
+// }
 
 ?>
 
@@ -37,7 +37,7 @@ if ($_SESSION["perfil"] == "Vendedor") {
 
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarFormato">
 
-          Agregar Elmento
+          Agregar Elemento
 
         </button>
 
@@ -87,23 +87,11 @@ if ($_SESSION["perfil"] == "Vendedor") {
               
                 <button class="btn btn-info btnImprimirFormato1" idFormato1="' . $value["id"] . '"><i class="fa fa-print"></i></button>
 
-                <button class="btn btn-success btnEditarFormato" idFormato="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarClienteFormato"><i class="fa-solid fa-user-pen"></i></button>';
+                <button class="btn btn-success btnEditarFormato" idFormato="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarClienteFormato"><i class="fa-solid fa-user-pen"></i></button>
 
-              $item1 = "id";
-              $valor1 = $value["id"];
-
-              $Formato1 = ControladorFormato1::ctrEditarFormato1($item1, $valor1);
-
-              echo $value["id"];
-
-              // foreach ($Formato1 as $Formato1key => $Formato1Value) {
-              //   if ($Formato1Value["id"] == $_GET) {
-
-              echo '<button class="btn btn-warning btnEditarFormato1" idFormato1="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormato1"><i class="fa fa-pencil"></i></button>';
-              //   }
-              // }
-
-              echo '</div>
+                <button class="btn btn-warning btnEditarFormato1" idFormato1="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormato1"><i class="fa fa-pencil"></i></button>
+              
+              </div>
 
                 </td>
 
@@ -239,9 +227,9 @@ if ($_SESSION["perfil"] == "Vendedor") {
 
               <div class="btn-group">
 
-                <button class="btn btn-warning btnEditarFormato2" idFormato2="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormato2"><i class="fa fa-pencil"></i></button>
-                
                 <button class="btn btn-info btnImprimirFormato2" idFormato2="' . $value["id"] . '"><i class="fa fa-print"></i></button>
+              
+                <button class="btn btn-warning btnEditarFormato2" idFormato2="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormato2"><i class="fa fa-pencil"></i></button>
                 
               </div>
 
@@ -417,10 +405,10 @@ if ($_SESSION["perfil"] == "Vendedor") {
 
               <div class="btn-group">
 
-                <button class="btn btn-warning btnEditarFormato" idFormato="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormato3"><i class="fa fa-pencil"></i></button>
-                
                 <button class="btn btn-info btnImprimirFormato3" idFormato3="' . $value["id"] . '"><i class="fa fa-print"></i></button>
-                
+              
+                <button class="btn btn-warning btnEditarFormato3" idFormato3="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormato3"><i class="fa fa-pencil"></i></button>
+              
               </div>
 
             </td>
@@ -608,9 +596,9 @@ if ($_SESSION["perfil"] == "Vendedor") {
 
                 <div class="btn-group">
 
-                  <button class="btn btn-warning btnEditarFormato" idFormato="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormato4"><i class="fa fa-pencil"></i></button>
-
-                  <button class="btn btn-info btnImprimirFormato4" idFormato4="' . $value["id"] . '"><i class="fa fa-print"></i></button>
+                <button class="btn btn-info btnImprimirFormato4" idFormato4="' . $value["id"] . '"><i class="fa fa-print"></i></button>
+                
+                <button class="btn btn-warning btnEditarFormato4" idFormato4="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormato4"><i class="fa fa-pencil"></i></button>
                   
                 </div>
 
@@ -2210,7 +2198,9 @@ MODAL EDITAR INFO CLIENTE
 
                 <input type="text" class="form-control input-lg" name="editarClienteTo1" id="editarClienteTo1" placeholder="To / Para:" required>
 
-                <input type="text" name="idFormato" id="idFormato" required>
+                <input type="hidden" name="idFormato" id="idFormato" required>
+
+                <input type="hidden" name="editarFormato" id="editarFormato" required>
 
               </div>
 
@@ -2773,7 +2763,9 @@ MODAL EDITAR FORMATO 1
 
                 <input type="text" class="form-control input-lg" name="editarValiditySco" id="editarValiditySco" placeholder="Validity of SCO / Validez de SCO">
 
-                <input type="text" name="idFormato" id="idFormato" required>
+                <input type="hidden" name="idFormato1" id="idFormato1" required>
+
+                <input type="hidden" name="editarFormato1" id="editarFormato1" required>
 
               </div>
 
@@ -2988,9 +2980,9 @@ MODAL EDITAR FORMATO 2
 
                 <input type="text" class="form-control input-lg" name="editarName" id="editarName" placeholder="Name / Nombre">
 
-                <input type="text" name="idFormato" id="idFormato" required>
+                <input type="hidden" name="idFormato2" id="idFormato2" required>
 
-                <input type="hidden" name="editarFormato" id="editarFormato" required>
+                <input type="hidden" name="editarFormato2" id="editarFormato2" required>
 
               </div>
 
@@ -3195,9 +3187,9 @@ MODAL EDITAR FORMATO 3
 
                 <input type="text" class="form-control input-lg" name="editarCommercialInvoice" id="editarCommercialInvoice" placeholder="Commercial Invoice / Factura Comercial">
 
-                <input type="hidden" name="idFormato" id="idFormato" required>
+                <input type="hidden" name="idFormato3" id="idFormato3" required>
 
-                <input type="hidden" name="editarFormato" id="editarFormato" required>
+                <input type="hidden" name="editarFormato3" id="editarFormato3" required>
 
               </div>
 
@@ -3301,8 +3293,8 @@ MODAL EDITAR FORMATO 3
 
         <?php
 
-        $editarFormato = new ControladorFormato();
-        $editarFormato->ctrEditarFormato();
+        $editarFormato3 = new ControladorFormato3();
+        $editarFormato3->ctrEditarFormato3();
 
         ?>
 
@@ -3370,9 +3362,9 @@ MODAL EDITAR FORMATO 4
 
                 <input type="text" class="form-control input-lg" name="editarAuthenticationCode" id="editarAuthenticationCode" placeholder="Authentication Code / Código de Autenticación">
 
-                <input type="hidden" name="idFormato" id="idFormato" required>
+                <input type="hidden" name="idFormato4" id="idFormato4" required>
 
-                <input type="hidden" name="editarFormato" id="editarFormato" required>
+                <input type="hidden" name="editarFormato4" id="editarFormato4" required>
 
               </div>
 
@@ -3616,8 +3608,8 @@ MODAL EDITAR FORMATO 4
 
         <?php
 
-        $editarFormato = new ControladorFormato();
-        $editarFormato->ctrEditarFormato();
+        $editarFormato4 = new ControladorFormato4();
+        $editarFormato4->ctrEditarFormato4();
 
         ?>
 

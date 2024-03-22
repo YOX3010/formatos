@@ -37,7 +37,7 @@ if ($_SESSION["perfil"] == "Vendedor") {
 
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarFormatoImagenes">
 
-          Agregar Elmento
+          Agregar Imagen
 
         </button>
 
@@ -80,15 +80,9 @@ if ($_SESSION["perfil"] == "Vendedor") {
 
                       <div class="btn-group">                          
 
-                        <button class="btn btn-warning btnEditarFormatoImagenes" idFormatoImagenes="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormatoImagenes"><i class="fa fa-pencil"></i></button>';
-
-              if ($_SESSION["perfil"] == "Administrador") {
-
-                //echo '<button class="btn btn-danger btnEliminarEmpleado" idEmpleado="'.$value["id"].'"><i class="fa fa-times"></i></button>';
-
-              }
-
-              echo '</div>  
+                        <button class="btn btn-warning btnEditarFormatoImagenes" idFormatoImagenes="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormatoImagenes"><i class="fa fa-pencil"></i></button>
+                        
+                        </div>  
 
                     </td>
 
@@ -229,6 +223,8 @@ MODAL EDITAR IMAGEN
                 <input type="text" class="form-control input-lg" name="editarFormatoImagenes" id="editarFormatoImagenes" required>
 
                 <input type="hidden" name="idFormatoImagenes" id="idFormatoImagenes" required>
+
+                <input type="hidden" name="editarFormatoImagenes" id="editarFormatoImagenes" required>
 
               </div>
 

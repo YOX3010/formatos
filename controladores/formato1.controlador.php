@@ -84,19 +84,19 @@ class ControladorFormato1
     //     }
     // }
 
-    // /*=============================================
-    // MOSTRAR FORMATO 1
-    // =============================================*/
+    /*=============================================
+    MOSTRAR FORMATO 1
+    =============================================*/
 
-    // public static function ctrMostrarFormato1($item, $valor)
-    // {
+    public static function ctrMostrarFormato1($item, $valor)
+    {
 
-    //     $tabla = "formato_1";
+        $tabla = "formatos";
 
-    //     $respuesta = ModeloFormato1::mdlMostrarFormato1($tabla, $item, $valor);
+        $respuesta = ModeloFormato1::mdlMostrarFormato1($tabla, $item, $valor);
 
-    //     return $respuesta;
-    // }
+        return $respuesta;
+    }
 
     /*=============================================
     EDITAR FORMATO 1
@@ -107,7 +107,7 @@ class ControladorFormato1
 
         if (isset($_POST["editarFormato1"])) {
 
-            $tabla = "formato";
+            $tabla = "formatos";
 
             $datos = array(
                 "validity_sco" => $_POST["editarValiditySco"],

@@ -83,19 +83,19 @@ class ControladorFormato2
     //     }
     // }
 
-    // /*=============================================
-    // MOSTRAR FORMATO 2
-    // =============================================*/
+    /*=============================================
+    MOSTRAR FORMATO 2
+    =============================================*/
 
-    // public static function ctrMostrarFormato2($item, $valor)
-    // {
+    public static function ctrMostrarFormato2($item, $valor)
+    {
 
-    //     $tabla = "formato_2";
+        $tabla = "formatos";
 
-    //     $respuesta = ModeloFormato2::mdlMostrarFormato2($tabla, $item, $valor);
+        $respuesta = ModeloFormato2::mdlMostrarFormato2($tabla, $item, $valor);
 
-    //     return $respuesta;
-    // }
+        return $respuesta;
+    }
 
     /*=============================================
     EDITAR FORMATO 2
@@ -106,7 +106,7 @@ class ControladorFormato2
 
         if (isset($_POST["editarFormato2"])) {
 
-            $tabla = "formato";
+            $tabla = "formatos";
 
             $datos = array(
                 "name" => $_POST["editarName"],

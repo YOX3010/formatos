@@ -87,19 +87,19 @@ class ControladorFormato4
     //     }
     // }
 
-    // /*=============================================
-    // MOSTRAR FORMATO 4
-    // =============================================*/
+    /*=============================================
+    MOSTRAR FORMATO 4
+    =============================================*/
 
-    // public static function ctrMostrarFormato4($item, $valor)
-    // {
+    public static function ctrMostrarFormato4($item, $valor)
+    {
 
-    //     $tabla = "formato_4";
+        $tabla = "formatos";
 
-    //     $respuesta = ModeloFormato4::mdlMostrarFormato4($tabla, $item, $valor);
+        $respuesta = ModeloFormato4::mdlMostrarFormato4($tabla, $item, $valor);
 
-    //     return $respuesta;
-    // }
+        return $respuesta;
+    }
 
     /*=============================================
     EDITAR FORMATO 4
@@ -110,7 +110,7 @@ class ControladorFormato4
 
         if (isset($_POST["editarFormato4"])) {
 
-            $tabla = "formato";
+            $tabla = "formatos";
 
             $datos = array(
                 "authentication_code" => $_POST["editarAuthenticationCode"],
