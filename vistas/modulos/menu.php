@@ -37,6 +37,20 @@
 			</li>
 
 			<li>
+				<a href="um">
+					<i class="fa-solid fa-ruler-combined"></i>
+					<span>Unidades</span>
+				</a>
+			</li>
+
+			<li>
+				<a href="incoterms">
+					<i class="fa-solid fa-sheet-plastic"></i>
+					<span>Procedimientos</span>
+				</a>
+			</li>
+
+			<li>
 				<a href="port">
 					<i class="fa-solid fa-anchor"></i>
 					<span>Puertos</span>

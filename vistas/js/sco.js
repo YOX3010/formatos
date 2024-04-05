@@ -26,6 +26,8 @@ $(".tablas").on("click", ".btnEditarSCO", function () {
       $("#editarCommodity").val(respuesta["id_commodity"]);
       $("#editarPort").val(respuesta["id_port"]);
       $("#editarProductOrigin").val(respuesta["id_product_origin"]);
+      $("#editarUM").val(respuesta["id_um"]);
+      $("#editarIncoterms").val(respuesta["id_incoterms"]);
       $("#editarCodigo").val(respuesta["codigo"]);
       $("#editarViaCliente").val(respuesta["via_cliente"]);
       $("#editarEmailViaCliente").val(respuesta["email_via_cliente"]);
@@ -33,7 +35,6 @@ $(".tablas").on("click", ".btnEditarSCO", function () {
       $("#editarEmailViaTpc").val(respuesta["email_via_tpc"]);
       $("#editarValiditySco").val(respuesta["validity_of_sco"]);
       $("#editarQuantity").val(respuesta["quantity"]);
-      $("#editarIncoterms").val(respuesta["incoterms"]);
       $("#editarContractTerms").val(respuesta["contract_terms"]);
       $("#editarCommission").val(respuesta["commission"]);
     },

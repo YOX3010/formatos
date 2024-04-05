@@ -185,11 +185,16 @@ if ($_SESSION["perfil"] == "Especial") {
 
           </tr>
 
-          <tr>
+          <tr>';
 
-            <th>Quantity / Cantidad:</th>
+                $itemUM = "id";
+                $valorUM = $value["id_um"];
 
-            <td>' . $value["quantity"] . '</td>
+                $respuestaUM = ControladorUM::ctrMostrarUM($itemUM, $valorUM);
+
+                echo '<th>Quantity / Cantidad:</th>
+                
+                <td>' . $value["quantity"] . $respuestaUM["unidad"] . '</td>
 
             <th>Price / Precio:</th>
 
@@ -197,11 +202,16 @@ if ($_SESSION["perfil"] == "Especial") {
 
           </tr>
 
-          <tr>
+          <tr>';
 
-            <th>Incoterms / Incotérminos:</th>
+                $itemIncoterms = "id";
+                $valorIncoterms = $value["id_incoterms"];
 
-            <td>' . $value["incoterms"] . '</td>';
+                $respuestaIncoterms = ControladorIncoterms::ctrMostrarIncoterms($itemIncoterms, $valorIncoterms);
+
+                echo '<th>Incoterms / Incotérminos:</th>
+          
+                <td>' . $respuestaIncoterms["incoterm"] . '</td>';
 
                 $itemPort = "id";
                 $valorPort = $value["id_port"];
@@ -612,7 +622,28 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-boxes-packing"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoQuantity" placeholder="Quantity / Cantidad" required>
+                <input type="number" class="form-control input-lg" name="nuevoQuantity" placeholder="Quantity / Cantidad" required>
+
+                <select class="form-control input-lg" id="nuevoUM" name="nuevoUM" required>
+
+                  <option value="">Seleccionar Unidad</option>
+
+                  <?php
+
+                  $item = null;
+                  $valor = null;
+
+                  $um = ControladorUM::ctrMostrarUM($item, $valor);
+
+                  foreach ($um as $key => $value) {
+
+
+                    echo '<option value="' . $value["id"] . '">' . $value["unidad"] . '</option>';
+                  }
+
+                  ?>
+
+                </select>
 
                 <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
 
@@ -644,7 +675,26 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-sheet-plastic"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoIncoterms" placeholder="Incoterms / Incotérminos" required>
+                <select class="form-control input-lg" id="nuevoIncoterms" name="nuevoIncoterms" required>
+
+                  <option value="">Selecionar Procedimiento</option>
+
+                  <?php
+
+                  $item = null;
+                  $valor = null;
+
+                  $incoterm = ControladorIncoterms::ctrMostrarIncoterms($item, $valor);
+
+                  foreach ($incoterm as $key => $value) {
+
+
+                    echo '<option value="' . $value["id"] . '">' . $value["incoterm"] . '</option>';
+                  }
+
+                  ?>
+
+                </select>
 
                 <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
 
@@ -1091,7 +1141,49 @@ MODAL EDITAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-boxes-packing"></i></span>
 
-                <input type="text" class="form-control input-lg" id="editarQuantity" name="editarQuantity" required>
+                <input type="number" class="form-control input-lg" id="editarQuantity" name="editarQuantity" required>
+
+                <select class="form-control input-lg" id="editarUM" name="editarUM" required>
+
+                  <option value="">Selecionar Unidad</option>
+
+                  <?php
+
+                  $item = null;
+                  $valor = null;
+
+                  $unidad = ControladorUM::ctrMostrarUM($item, $valor);
+
+                  foreach ($unidad as $key => $value) {
+
+
+                    echo '<option value="' . $value["id"] . '">' . $value["unidad"] . '</option>';
+                  }
+
+                  ?>
+
+                </select>
+
+                <!-- <select class="form-control input-lg" id="editarUM" name="editarUM" required>
+
+                  <option value=""></option>
+
+                  <?php
+
+                  // $item = null;
+                  // $valor = null;
+
+                  // $um = ControladorUM::ctrMostrarUM($item, $valor);
+
+                  // foreach ($um as $key => $value) {
+
+
+                  //   echo '<option value="' . $value["id"] . '">' . $value["unidad"] . '</option>';
+                  // }
+
+                  ?>
+
+                </select> -->
 
               </div>
 
@@ -1119,7 +1211,25 @@ MODAL EDITAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-sheet-plastic"></i></span>
 
-                <input type="text" class="form-control input-lg" id="editarIncoterms" name="editarIncoterms" required>
+                <select class="form-control input-lg" id="editarIncoterms" name="editarIncoterms" required>
+
+                  <option value="">Selecionar Procedimiento</option>
+
+                  <?php
+
+                  $item = null;
+                  $valor = null;
+
+                  $incoterms = ControladorIncoterms::ctrMostrarIncoterms($item, $valor);
+
+                  foreach ($incoterms as $key => $value) {
+
+                    echo '<option value="' . $value["id"] . '">' . $value["incoterm"] . '</option>';
+                  }
+
+                  ?>
+
+                </select>
 
               </div>
 

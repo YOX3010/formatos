@@ -18,6 +18,8 @@ class ModeloSCO
     																	id_commodity,
     																	id_port,
     																	id_product_origin,
+    																	id_um,
+    																	id_incoterms,
     																	codigo,
     																	via_cliente,
     																	email_via_cliente,
@@ -25,7 +27,6 @@ class ModeloSCO
     																	email_via_tpc,
     																	validity_of_sco,
     																	quantity,
-    																	incoterms,
     																	contract_terms,
     																	commission)
     															VALUES(	:id_loi,
@@ -34,6 +35,8 @@ class ModeloSCO
     																	:id_commodity,
     																	:id_port,
     																	:id_product_origin,
+                                                                        :id_um,
+    																	:id_incoterms,
     																	:codigo,
     																	:via_cliente,
     																	:email_via_cliente,
@@ -41,7 +44,6 @@ class ModeloSCO
     																	:email_via_tpc,
     																	:validity_of_sco,
     																	:quantity,
-    																	:incoterms,
     																	:contract_terms,
     																	:commission)");
 
@@ -51,14 +53,15 @@ class ModeloSCO
         $stmt->bindParam(":id_commodity", $datos["id_commodity"], PDO::PARAM_INT);
         $stmt->bindParam(":id_port", $datos["id_port"], PDO::PARAM_INT);
         $stmt->bindParam(":id_product_origin", $datos["id_product_origin"], PDO::PARAM_INT);
+        $stmt->bindParam(":id_um", $datos["id_um"], PDO::PARAM_INT);
+        $stmt->bindParam(":id_incoterms", $datos["id_incoterms"], PDO::PARAM_INT);
         $stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
         $stmt->bindParam(":via_cliente", $datos["via_cliente"], PDO::PARAM_STR);
         $stmt->bindParam(":email_via_cliente", $datos["email_via_cliente"], PDO::PARAM_STR);
         $stmt->bindParam(":via_tpc", $datos["via_tpc"], PDO::PARAM_STR);
         $stmt->bindParam(":email_via_tpc", $datos["email_via_tpc"], PDO::PARAM_STR);
         $stmt->bindParam(":validity_of_sco", $datos["validity_of_sco"], PDO::PARAM_STR);
-        $stmt->bindParam(":quantity", $datos["quantity"], PDO::PARAM_STR);
-        $stmt->bindParam(":incoterms", $datos["incoterms"], PDO::PARAM_STR);
+        $stmt->bindParam(":quantity", $datos["quantity"], PDO::PARAM_INT);
         $stmt->bindParam(":contract_terms", $datos["contract_terms"], PDO::PARAM_STR);
         $stmt->bindParam(":commission", $datos["commission"], PDO::PARAM_STR);
 
@@ -113,9 +116,12 @@ class ModeloSCO
 
         $stmt = Conexion::conectar()->prepare("UPDATE $tabla 	SET 	id_loi = :id_loi,
                                                                         id_clientes = :id_clientes,
+                                                                        id_usuario = :id_usuario,
                                                                         id_commodity = :id_commodity,
                                                                         id_port = :id_port,
                                                                         id_product_origin = :id_product_origin,
+                                                                        id_um = :id_um,
+                                                                        id_incoterms = :id_incoterms,
                                                                         codigo = :codigo,
                                                                         via_cliente = :via_cliente,
                                                                         email_via_cliente = :email_via_cliente,
@@ -123,7 +129,6 @@ class ModeloSCO
                                                                         email_via_tpc = :email_via_tpc,
                                                                         validity_of_sco = :validity_of_sco,
                                                                         quantity = :quantity,
-                                                                        incoterms = :incoterms,
                                                                         contract_terms = :contract_terms,
                                                                         commission = :commission
 															 	WHERE 	id = :id");
@@ -135,14 +140,15 @@ class ModeloSCO
         $stmt->bindParam(":id_commodity", $datos["id_commodity"], PDO::PARAM_INT);
         $stmt->bindParam(":id_port", $datos["id_port"], PDO::PARAM_INT);
         $stmt->bindParam(":id_product_origin", $datos["id_product_origin"], PDO::PARAM_INT);
+        $stmt->bindParam(":id_um", $datos["id_um"], PDO::PARAM_INT);
+        $stmt->bindParam(":id_incoterms", $datos["id_incoterms"], PDO::PARAM_INT);
         $stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
         $stmt->bindParam(":via_cliente", $datos["via_cliente"], PDO::PARAM_STR);
         $stmt->bindParam(":email_via_cliente", $datos["email_via_cliente"], PDO::PARAM_STR);
         $stmt->bindParam(":via_tpc", $datos["via_tpc"], PDO::PARAM_STR);
         $stmt->bindParam(":email_via_tpc", $datos["email_via_tpc"], PDO::PARAM_STR);
         $stmt->bindParam(":validity_of_sco", $datos["validity_of_sco"], PDO::PARAM_STR);
-        $stmt->bindParam(":quantity", $datos["quantity"], PDO::PARAM_STR);
-        $stmt->bindParam(":incoterms", $datos["incoterms"], PDO::PARAM_STR);
+        $stmt->bindParam(":quantity", $datos["quantity"], PDO::PARAM_INT);
         $stmt->bindParam(":contract_terms", $datos["contract_terms"], PDO::PARAM_STR);
         $stmt->bindParam(":commission", $datos["commission"], PDO::PARAM_STR);
 
