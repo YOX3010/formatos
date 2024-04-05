@@ -30,12 +30,11 @@ class ControladorUsuarios
 						$_SESSION["iniciarSesion"] = "ok";
 						$_SESSION["id"] = $respuesta["id"];
 						$_SESSION["nombre"] = $respuesta["nombre"];
+						$_SESSION["position"] = $respuesta["position"];
+						$_SESSION["email"] = $respuesta["email"];
 						$_SESSION["usuario"] = $respuesta["usuario"];
 						$_SESSION["perfil"] = $respuesta["perfil"];
-						$_SESSION["foto"] = $respuesta["foto"];
-						$_SESSION["position"] = $respuesta["position"];
-						$_SESSION["via"] = $respuesta["via"];
-						$_SESSION["via_email"] = $respuesta["via_email"];
+						// $_SESSION["foto"] = $respuesta["foto"];
 
 						/*=============================================
 						REGISTRAR FECHA PARA SABER EL ÚLTIMO LOGIN
@@ -88,76 +87,75 @@ class ControladorUsuarios
 
 			if (
 				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
-				preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoUsuario"]) &&
-				preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoPassword"]) &&
 				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoPosition"]) &&
-				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoVia"]) &&
-				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ@. ]+$/', $_POST["nuevoViaEmail"])
+				preg_match('/./', $_POST["nuevoEmail"]) &&
+				preg_match('/./', $_POST["nuevoUsuario"]) &&
+				preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoPassword"])
 			) {
 
-				/*=============================================
-				VALIDAR IMAGEN
-				=============================================*/
+				// /*=============================================
+				// VALIDAR IMAGEN
+				// =============================================*/
 
-				$ruta = "vistas/img/usuarios/default/anonymous.png";
+				// $ruta = "vistas/img/usuarios/default/anonymous.png";
 
-				if (isset($_FILES["nuevaFoto"]["tmp_name"])) {
+				// if (isset($_FILES["nuevaFoto"]["tmp_name"])) {
 
-					list($ancho, $alto) = getimagesize($_FILES["nuevaFoto"]["tmp_name"]);
+				// 	list($ancho, $alto) = getimagesize($_FILES["nuevaFoto"]["tmp_name"]);
 
-					$nuevoAncho = 500;
-					$nuevoAlto = 500;
+				// 	$nuevoAncho = 500;
+				// 	$nuevoAlto = 500;
 
-					/*=============================================
-					CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
-					=============================================*/
+				// 	/*=============================================
+				// 	CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
+				// 	=============================================*/
 
-					$directorio = "vistas/img/usuarios/" . $_POST["nuevoUsuario"];
+				// 	$directorio = "vistas/img/usuarios/" . $_POST["nuevoUsuario"];
 
-					mkdir($directorio, 0755);
+				// 	mkdir($directorio, 0755);
 
-					/*=============================================
-					DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
-					=============================================*/
+				// 	/*=============================================
+				// 	DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
+				// 	=============================================*/
 
-					if ($_FILES["nuevaFoto"]["type"] == "image/jpeg") {
+				// 	if ($_FILES["nuevaFoto"]["type"] == "image/jpeg") {
 
-						/*=============================================
-						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-						=============================================*/
+				// 		/*=============================================
+				// 		GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+				// 		=============================================*/
 
-						$aleatorio = mt_rand(100, 999);
+				// 		$aleatorio = mt_rand(100, 999);
 
-						$ruta = "vistas/img/usuarios/" . $_POST["nuevoUsuario"] . "/" . $aleatorio . ".jpg";
+				// 		$ruta = "vistas/img/usuarios/" . $_POST["nuevoUsuario"] . "/" . $aleatorio . ".jpg";
 
-						$origen = imagecreatefromjpeg($_FILES["nuevaFoto"]["tmp_name"]);
+				// 		$origen = imagecreatefromjpeg($_FILES["nuevaFoto"]["tmp_name"]);
 
-						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+				// 		$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
-						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+				// 		imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
 
-						imagejpeg($destino, $ruta);
-					}
+				// 		imagejpeg($destino, $ruta);
+				// 	}
 
-					if ($_FILES["nuevaFoto"]["type"] == "image/png") {
+				// 	if ($_FILES["nuevaFoto"]["type"] == "image/png") {
 
-						/*=============================================
-						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-						=============================================*/
+				// 		/*=============================================
+				// 		GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+				// 		=============================================*/
 
-						$aleatorio = mt_rand(100, 999);
+				// 		$aleatorio = mt_rand(100, 999);
 
-						$ruta = "vistas/img/usuarios/" . $_POST["nuevoUsuario"] . "/" . $aleatorio . ".png";
+				// 		$ruta = "vistas/img/usuarios/" . $_POST["nuevoUsuario"] . "/" . $aleatorio . ".png";
 
-						$origen = imagecreatefrompng($_FILES["nuevaFoto"]["tmp_name"]);
+				// 		$origen = imagecreatefrompng($_FILES["nuevaFoto"]["tmp_name"]);
 
-						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+				// 		$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
-						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+				// 		imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
 
-						imagepng($destino, $ruta);
-					}
-				}
+				// 		imagepng($destino, $ruta);
+				// 	}
+				// }
 
 				$tabla = "usuarios";
 
@@ -165,13 +163,12 @@ class ControladorUsuarios
 
 				$datos = array(
 					"nombre" => $_POST["nuevoNombre"],
+					"position" => $_POST["nuevoPosition"],
+					"email" => $_POST["nuevoEmail"],
 					"usuario" => $_POST["nuevoUsuario"],
 					"password" => $encriptar,
 					"perfil" => $_POST["nuevoPerfil"],
-					"foto" => $ruta,
-					"position" => $_POST["nuevoPosition"],
-					"via" => $_POST["nuevoVia"],
-					"via_email" => $_POST["nuevoViaEmail"]
+					// "foto" => $ruta,
 				);
 
 				$respuesta = ModeloUsuarios::mdlIngresarUsuario($tabla, $datos);
@@ -252,79 +249,79 @@ class ControladorUsuarios
 
 			if (preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarNombre"])) {
 
-				/*=============================================
-				VALIDAR IMAGEN
-				=============================================*/
+				// /*=============================================
+				// VALIDAR IMAGEN
+				// =============================================*/
 
-				$ruta = $_POST["fotoActual"];
+				// $ruta = $_POST["fotoActual"];
 
-				if (isset($_FILES["editarFoto"]["tmp_name"]) && !empty($_FILES["editarFoto"]["tmp_name"])) {
+				// if (isset($_FILES["editarFoto"]["tmp_name"]) && !empty($_FILES["editarFoto"]["tmp_name"])) {
 
-					list($ancho, $alto) = getimagesize($_FILES["editarFoto"]["tmp_name"]);
+				// 	list($ancho, $alto) = getimagesize($_FILES["editarFoto"]["tmp_name"]);
 
-					$nuevoAncho = 500;
-					$nuevoAlto = 500;
+				// 	$nuevoAncho = 500;
+				// 	$nuevoAlto = 500;
 
-					/*=============================================
-					CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
-					=============================================*/
+				// 	/*=============================================
+				// 	CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
+				// 	=============================================*/
 
-					$directorio = "vistas/img/usuarios/" . $_POST["editarUsuario"];
+				// 	$directorio = "vistas/img/usuarios/" . $_POST["editarUsuario"];
 
-					/*=============================================
-					PRIMERO PREGUNTAMOS SI EXISTE OTRA IMAGEN EN LA BD
-					=============================================*/
+				// 	/*=============================================
+				// 	PRIMERO PREGUNTAMOS SI EXISTE OTRA IMAGEN EN LA BD
+				// 	=============================================*/
 
-					if (!empty($_POST["fotoActual"])) {
+				// 	if (!empty($_POST["fotoActual"])) {
 
-						unlink($_POST["fotoActual"]);
-					} else {
+				// 		unlink($_POST["fotoActual"]);
+				// 	} else {
 
-						mkdir($directorio, 0755);
-					}
+				// 		mkdir($directorio, 0755);
+				// 	}
 
-					/*=============================================
-					DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
-					=============================================*/
+				// 	/*=============================================
+				// 	DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
+				// 	=============================================*/
 
-					if ($_FILES["editarFoto"]["type"] == "image/jpeg") {
+				// 	if ($_FILES["editarFoto"]["type"] == "image/jpeg") {
 
-						/*=============================================
-						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-						=============================================*/
+				// 		/*=============================================
+				// 		GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+				// 		=============================================*/
 
-						$aleatorio = mt_rand(100, 999);
+				// 		$aleatorio = mt_rand(100, 999);
 
-						$ruta = "vistas/img/usuarios/" . $_POST["editarUsuario"] . "/" . $aleatorio . ".jpg";
+				// 		$ruta = "vistas/img/usuarios/" . $_POST["editarUsuario"] . "/" . $aleatorio . ".jpg";
 
-						$origen = imagecreatefromjpeg($_FILES["editarFoto"]["tmp_name"]);
+				// 		$origen = imagecreatefromjpeg($_FILES["editarFoto"]["tmp_name"]);
 
-						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+				// 		$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
-						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+				// 		imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
 
-						imagejpeg($destino, $ruta);
-					}
+				// 		imagejpeg($destino, $ruta);
+				// 	}
 
-					if ($_FILES["editarFoto"]["type"] == "image/png") {
+				// 	if ($_FILES["editarFoto"]["type"] == "image/png") {
 
-						/*=============================================
-						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-						=============================================*/
+				// 		/*=============================================
+				// 		GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+				// 		=============================================*/
 
-						$aleatorio = mt_rand(100, 999);
+				// 		$aleatorio = mt_rand(100, 999);
 
-						$ruta = "vistas/img/usuarios/" . $_POST["editarUsuario"] . "/" . $aleatorio . ".png";
+				// 		$ruta = "vistas/img/usuarios/" . $_POST["editarUsuario"] . "/" . $aleatorio . ".png";
 
-						$origen = imagecreatefrompng($_FILES["editarFoto"]["tmp_name"]);
+				// 		$origen = imagecreatefrompng($_FILES["editarFoto"]["tmp_name"]);
 
-						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+				// 		$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
-						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+				// 		imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
 
-						imagepng($destino, $ruta);
-					}
-				}
+				// 		imagepng($destino, $ruta);
+				// 	}
+				// }
 
 				$tabla = "usuarios";
 
@@ -361,13 +358,12 @@ class ControladorUsuarios
 
 				$datos = array(
 					"nombre" => $_POST["editarNombre"],
+					"position" => $_POST["editarPosition"],
+					"email" => $_POST["editarEmail"],
 					"usuario" => $_POST["editarUsuario"],
 					"password" => $encriptar,
 					"perfil" => $_POST["editarPerfil"],
-					"foto" => $ruta,
-					"position" => $_POST["editarPosition"],
-					"via" => $_POST["editarVia"],
-					"via_email" => $_POST["editarViaEmail"]
+					// "foto" => $ruta,
 				);
 
 				$respuesta = ModeloUsuarios::mdlEditarUsuario($tabla, $datos);

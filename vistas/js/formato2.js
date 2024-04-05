@@ -20,21 +20,19 @@ $(".tablas").on("click", ".btnEditarFormato2", function () {
 
     success: function (respuesta) {
       $("#idFormato2").val(respuesta["id"]);
-      $("#editarName").val(respuesta["name"]);
-      $("#editarDatePlaceBirth").val(respuesta["date_place_birth"]);
-      $("#editarNumberCountryIssue").val(
-        respuesta["passport_number_country_issue"]
+      $("#editarCommercialInvoice").val(respuesta["commercial_invoice"]);
+      $("#editarDateCommercialInvoice").val(
+        respuesta["date_commercial_invoice"]
       );
-      $("#editarIssueDate").val(respuesta["passport_issue_date"]);
-      $("#editarPassportExpirationDate").val(
-        respuesta["passport_expiration_date"]
+      $("#editarTotalGrossAmount").val(respuesta["total_gross_amount"]);
+      $("#editarTermsDeliveryDestinationPort").val(
+        respuesta["terms_delivary_destination_port"]
       );
-      $("#editarTitleWithinCorporationCompany").val(
-        respuesta["title_within_corporation_company"]
+      $("#editarTermsPayment").val(respuesta["terms_payment"]);
+      $("#editarFreightInsuranceCharge").val(
+        respuesta["freight_insurance_charges"]
       );
-      $("#editarOfficePhoneNumber").val(respuesta["office_phone_number"]);
-      $("#editarMobilePhoneNumber").val(respuesta["mobile_phone_number"]);
-      $("#editarEmailAddress").val(respuesta["email_address"]);
+      $("#editarIdImagenesCliente").val(respuesta["id_imagenes_cliente"]);
     },
   });
 });
@@ -69,7 +67,7 @@ BOTON EDITAR FORMATO 2
 $(".tablas").on("click", ".btnFormato2", function () {
   var idFormato2 = $(this).attr("idFormato2");
 
-  window.location = "index.php?ruta=formato-2&idFormato2=" + idFormato2;
+  window.location = "index.php?ruta=formatos&idFormato2=" + idFormato2;
 });
 
 /*=============================================

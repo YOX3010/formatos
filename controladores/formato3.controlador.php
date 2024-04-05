@@ -3,133 +3,150 @@
 class ControladorFormato3
 {
 
-	// /*=============================================
-	// CREAR FORMATO 3
-	// =============================================*/
+    /*=============================================
+    CREAR FORMATO 3
+    =============================================*/
 
-	// static public function ctrCrearFormato3()
-	// {
+    // public static function ctrCrearFormato3()
+    // {
 
-	// 	if (isset($_POST["nuevoFormato3"])) {
+    //     if (isset($_POST["nuevoFormato3"])) {
 
-	// 		$tabla = "formato_3";
+    //         $tabla = "formato-4";
 
-	// 		$datos = array(
-	// 			"commercial_invoice" => $_POST["nuevoCommercialInvoice"],
-	// 			"date_form" => $_POST["nuevoDateForm"],
-	// 			"cosignee" => $_POST["nuevoCosignee"],
-	// 			"signatory" => $_POST["nuevoSignatory"],
-	// 			"address" => $_POST["nuevoAddress"],
-	// 			"telephone" => $_POST["nuevoTelephone"],
-	// 			"email" => $_POST["nuevoEmail"],
-	// 			"commodity" => $_POST["nuevoCommodity"],
-	// 			"quantity" => $_POST["nuevoQuantity"],
-	// 			"unit_price" => $_POST["nuevoUnitPrice"],
-	// 			"total_gross_amount" => $_POST["nuevoTotalGrossAmount"],
-	// 			"terms_delivery_destination_port" => $_POST["nuevoTermsDeliveryDestinationPort"],
-	// 			"terms_payment" => $_POST["nuevoTermsPayment"],
-	// 			"fright_insurance_charges" => $_POST["nuevoInsuranceCharges"],
-	// 			"seller_account_detail" => $_POST["nuevoSellerAccountDetail"],
-	// 			"bank_name" => $_POST["nuevoBankName"],
-	// 			"bank_address" => $_POST["nuevoBankAddress"],
-	// 			"account_name" => $_POST["nuevoAccountName"],
-	// 			"account_number" => $_POST["nuevoAccountNumber"],
-	// 			"swift" => $_POST["nuevoSwift"],
-	// 			"buyer_bank_name" => $_POST["nuevoBuyerBankName"],
-	// 			"bank_address_buyer" => $_POST["nuevoBankAddressBuyer"],
-	// 			"account_holder" => $_POST["nuevoAccountHolder"],
-	// 			"swift_code" => $_POST["nuevoSwiftCode"],
-	// 			"account_number_buyer" => $_POST["nuevoAccountNumberBuyer"],
-	// 		);
+    //         $datos = array(
+    //             "code" => $_POST["nuevoCode"],
+    //             "ref_number" => $_POST["nuevoRefNumber"],
+    //             "date_today" => $_POST["nuevoDateToday"],
+    //             "to_client" => $_POST["nuevoToClient"],
+    //             "trade_date" => $_POST["nuevoTradeDate"],
+    //             "seller" => $_POST["nuevoSeller"],
+    //             "product_name" => $_POST["nuevoProductName"],
+    //             "shipping_terms_sale" => $_POST["nuevoShippingTermsSale"],
+    //             "origin" => $_POST["nuevoOrigin"],
+    //             "trial_quantity" => $_POST["nuevoTrialQuantity"],
+    //             "contract_quantity" => $_POST["nuevoContractQuantity"],
+    //             "duration_contract" => $_POST["nuevoDurationContract"],
+    //             "target_price_usd" => $_POST["nuevoTargetPriceUsd"],
+    //             "shipment_terms" => $_POST["nuevoShipmentTerms"],
+    //             "vessel" => $_POST["nuevoVessel"],
+    //             "inspection" => $_POST["nuevoInspection"],
+    //             "insurance" => $_POST["nuevoInsurance"],
+    //             "payment_method" => $_POST["nuevoPaymentMethod"],
+    //             "qq_determination" => $_POST["nuevoQQDetermination"],
+    //             "lay_time" => $_POST["nuevoLayTime"],
+    //             "demurrage_rate" => $_POST["nuevoDemurrageRate"],
+    //             "law" => $_POST["nuevoLaw"],
+    //             "id_images" => $_POST["nuevoIdImages"],
+    //         );
 
+    //         $respuesta = ModeloFormato3::mdlIngresarFormato3($tabla, $datos);
 
-	// 		$respuesta = ModeloFormato3::mdlIngresarFormato3($tabla, $datos);
+    //         if ($respuesta == "ok") {
 
-	// 		if ($respuesta == "ok") {
+    //             echo '<script>
 
-	// 			echo '<script>
+    // 				swal({
 
-	// 				swal({
+    // 					  type: "warning",
+    // 					  title: "El Formato ha sido guardada correctamente Recuerde Actualizar",
+    // 					  showConfirmButton: true,
+    // 					  confirmButtonText: "Cerrar"
+    // 					  }).then(function(result){
 
-	// 					  type: "warning",
-	// 					  title: "El Formato ha sido guardada correctamente Recuerde Actualizar",
-	// 					  showConfirmButton: true,
-	// 					  confirmButtonText: "Cerrar"
-	// 					  }).then(function(result){
+    // 								if (result.value) {
 
-	// 								if (result.value) {
+    // 								window.location.close
 
-	// 								window.location.close 
+    // 								}
 
-	// 								}
+    // 							})
 
-	// 							})
+    // 				</script>';
+    //         } else {
 
-	// 				</script>';
-	// 		} else {
+    //             echo '<script>
 
-	// 			echo '<script>
+    // 				swal({
 
-	// 				swal({
+    // 					  type: "error",
+    // 					  title: "¡Error al Guardar El Formato!",
+    // 					  showConfirmButton: true,
+    // 					  confirmButtonText: "Cerrar"
+    // 					  }).then(function(result){
+    // 						if (result.value) {
 
-	// 					  type: "error",
-	// 					  title: "¡Error al Guardar El Formato!",
-	// 					  showConfirmButton: true,
-	// 					  confirmButtonText: "Cerrar"
-	// 					  }).then(function(result){
-	// 						if (result.value) {
+    // 						window.location = "formato-4";
 
-	// 						window.location = "formato-3";
+    // 						}
 
-	// 						}
+    // 					})
 
-	// 					})
+    // 		  	</script>';
+    //         }
+    //     }
+    // }
 
-	// 		  	</script>';
-	// 		}
-	// 	}
-	// }
+    /*=============================================
+    MOSTRAR FORMATO 3
+    =============================================*/
 
-	/*=============================================
-	MOSTRAR FORMATO 3
-	=============================================*/
+    public static function ctrMostrarFormato3($item, $valor)
+    {
 
-	static public function ctrMostrarFormato3($item, $valor)
-	{
+        $tabla = "formatos";
 
-		$tabla = "formatos";
+        $respuesta = ModeloFormato3::mdlMostrarFormato3($tabla, $item, $valor);
 
-		$respuesta = ModeloFormato3::mdlMostrarFormato3($tabla, $item, $valor);
+        return $respuesta;
+    }
 
-		return $respuesta;
-	}
+    /*=============================================
+    EDITAR FORMATO 3
+    =============================================*/
 
-	/*=============================================
-	EDITAR FORMATO 3
-	=============================================*/
+    public static function ctrEditarFormato3()
+    {
 
-	static public function ctrEditarFormato3()
-	{
+        if (isset($_POST["editarFormato3"])) {
 
-		if (isset($_POST["editarFormato3"])) {
+            $tabla = "formatos";
 
-			$tabla = "formatos";
+            $datos = array(
+                "authentication_code" => $_POST["editarAuthenticationCode"],
+                "ref_number" => $_POST["editarRefNumber"],
+                "icpo_date" => $_POST["editarIcpoDate"],
+                "icpo_to" => $_POST["editarIcpoTo"],
+                "trade_date" => $_POST["editarTradeDate"],
+                "seller" => $_POST["editarSeller"],
+                "duration_contract" => $_POST["editarDurationContract"],
+                "target_price" => $_POST["editarTargetPrice"],
+                "vessel" => $_POST["editarVessel"],
+                "inspection" => $_POST["editarInspection"],
+                "insurance" => $_POST["editarInsurance"],
+                "payment_method" => $_POST["editarPaymentMethod"],
+                "qq_determination" => $_POST["editarQQDetermination"],
+                "lay_time" => $_POST["editarLayTime"],
+                "demurrage_rate" => $_POST["editarDemurrageRate"],
+                "law" => $_POST["editarLaw"],
+                "name" => $_POST["editarName"],
+                "date_place_birth" => $_POST["editarDatePlaceBirth"],
+                "passport_number_country_issue" => $_POST["editarNumberCountryIssue"],
+                "passport_issue_date" => $_POST["editarIssueDate"],
+                "passport_expiration_date" => $_POST["editarPassportExpirationDate"],
+                "title_within_corporation_company" => $_POST["editarTitleWithinCorporationCompany"],
+                "office_phone_number" => $_POST["editarOfficePhoneNumber"],
+                "mobile_phone_number" => $_POST["editarMobilePhoneNumber"],
+                "email_address" => $_POST["editarEmailAddress"],
+                "id_imagenes" => $_POST["editarIdImagenes"],
+                "id" => $_POST["idFormato3"],
+            );
 
-			$datos = array(
-				"commercial_invoice" => $_POST["editarCommercialInvoice"],
-				"date_commercial_invoice" => $_POST["editarDateCommercialInvoice"],
-				"total_gross_amount" => $_POST["editarTotalGrossAmount"],
-				"terms_delivary_destination_port" => $_POST["editarTermsDeliveryDestinationPort"],
-				"terms_payment" => $_POST["editarTermsPayment"],
-				"freight_insurance_charges" => $_POST["editarFreightInsuranceCharge"],
-				"id" => $_POST["idFormato3"]
-			);
+            $respuesta = ModeloFormato3::mdlEditarFormato3($tabla, $datos);
 
-			$respuesta = ModeloFormato3::mdlEditarFormato3($tabla, $datos);
+            if ($respuesta == "ok") {
 
-			if ($respuesta == "ok") {
-
-				echo '<script>
+                echo '<script>
 
 					swal({
 
@@ -140,16 +157,16 @@ class ControladorFormato3
 						  }).then(function(result){
 									if (result.value) {
 
-									window.location.close 
+									window.location.close
 
 									}
 
 								})
 
 					</script>';
-			} else {
+            } else {
 
-				echo '<script>
+                echo '<script>
 
 					swal({
 
@@ -160,14 +177,14 @@ class ControladorFormato3
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "formato-3";
+							window.location = "formatos";
 
 							}
 
 						})
 
 			  	</script>';
-			}
-		}
-	}
+            }
+        }
+    }
 }

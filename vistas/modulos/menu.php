@@ -23,9 +23,23 @@
 			</li>
 
 			<li>
-				<a href="formato">
-					<i class="fa fa-file"></i>
-					<span>Formatos</span>
+				<a href="commodity">
+					<i class="fa-solid fa-gas-pump"></i>
+					<span>Productos</span>
+				</a>
+			</li>
+
+			<li>
+				<a href="product-origin">
+					<i class="fa-solid fa-globe"></i>
+					<span>Paises</span>
+				</a>
+			</li>
+
+			<li>
+				<a href="port">
+					<i class="fa-solid fa-anchor"></i>
+					<span>Puertos</span>
 				</a>
 			</li>';
 			}
@@ -56,102 +70,102 @@
 
 			// }
 
-			// if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Vendedor"){
+			if ($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Vendedor") {
 
-			// 	echo '<li>
-			// 		<a href="clientes">
-			// 			<i class="fa-solid fa-user-tie"></i>
-			// 			&nbsp;
-			// 			<span>Clientes</span>
-			// 		</a>
-			// 	</li>
+				echo '<li>
+						<a href="clientes">
+							<i class="fa-solid fa-user-tie"></i>
+							&nbsp;
+							<span>Clientes</span>
+						</a>
+					</li>';
 
-			// 	<li class="treeview">
-			// 		<a href="">
-			// 			<i class="fa-solid fa-address-card"></i>
-			// 			&nbsp;
-			// 			<span>Empleados</span>		
-			// 			<span class="pull-right-container">	
-			// 				<i class="fa fa-angle-left pull-right"></i>
-			// 			</span>
-			// 		</a>
-			// 		<ul class="treeview-menu">				
+				// 	<li class="treeview">
+				// 		<a href="">
+				// 			<i class="fa-solid fa-address-card"></i>
+				// 			&nbsp;
+				// 			<span>Empleados</span>		
+				// 			<span class="pull-right-container">	
+				// 				<i class="fa fa-angle-left pull-right"></i>
+				// 			</span>
+				// 		</a>
+				// 		<ul class="treeview-menu">				
 
-			// 			<li>
-			// 				<a href="empleados-cargos">
-			// 					<i class="fa-solid fa-pen-to-square"></i>
-			// 					&nbsp;
-			// 					<span>Cargos Empleados</span>
-			// 				</a>
-			// 			</li>
+				// 			<li>
+				// 				<a href="empleados-cargos">
+				// 					<i class="fa-solid fa-pen-to-square"></i>
+				// 					&nbsp;
+				// 					<span>Cargos Empleados</span>
+				// 				</a>
+				// 			</li>
 
-			// 			<li>
-			// 				<a href="empleados">
-			// 					<i class="fa-solid fa-address-card"></i>
-			// 					&nbsp;
-			// 					<span>Empleados</span>
-			// 				</a>
-			// 			</li>	
+				// 			<li>
+				// 				<a href="empleados">
+				// 					<i class="fa-solid fa-address-card"></i>
+				// 					&nbsp;
+				// 					<span>Empleados</span>
+				// 				</a>
+				// 			</li>	
 
-			// 		</ul>
+				// 		</ul>
 
-			// 	</li>
+				// 	</li>
 
-			// 	<li>
-			// 		<a href="ordenes">
-			// 			<i class="fa-solid fa-toolbox"></i>
-			// 			&nbsp;
-			// 			<span>Ordenes de Servicio</span>
-			// 		</a>
-			// 	</li>		
+				// 	<li>
+				// 		<a href="ordenes">
+				// 			<i class="fa-solid fa-toolbox"></i>
+				// 			&nbsp;
+				// 			<span>Ordenes de Servicio</span>
+				// 		</a>
+				// 	</li>		
 
-			// 	<li class="treeview">
-			// 		<a href="inicio-vehiculos">
-			// 			<i class="fa-solid fa-car"></i>
-			// 			&nbsp;
-			// 			<span>Vehiculos</span>		
-			// 			<span class="pull-right-container">	
-			// 				<i class="fa fa-angle-left pull-right"></i>
-			// 			</span>
-			// 		</a>
-			// 		<ul class="treeview-menu">				
+				// 	<li class="treeview">
+				// 		<a href="inicio-vehiculos">
+				// 			<i class="fa-solid fa-car"></i>
+				// 			&nbsp;
+				// 			<span>Vehiculos</span>		
+				// 			<span class="pull-right-container">	
+				// 				<i class="fa fa-angle-left pull-right"></i>
+				// 			</span>
+				// 		</a>
+				// 		<ul class="treeview-menu">				
 
-			// 			<li>
-			// 				<a href="marcas-vehiculos">
-			// 					<i class="fa-solid fa-pen-to-square"></i>
-			// 					&nbsp;
-			// 					<span>Marcas Vehiculos</span>
-			// 				</a>
-			// 			</li>
+				// 			<li>
+				// 				<a href="marcas-vehiculos">
+				// 					<i class="fa-solid fa-pen-to-square"></i>
+				// 					&nbsp;
+				// 					<span>Marcas Vehiculos</span>
+				// 				</a>
+				// 			</li>
 
-			// 			<li>
-			// 				<a href="modelos-vehiculos">
-			// 					<i class="fa-solid fa-pen-to-square"></i>
-			// 					&nbsp;
-			// 					<span>Modelos Vehiculos</span>
-			// 				</a>
-			// 			</li>
+				// 			<li>
+				// 				<a href="modelos-vehiculos">
+				// 					<i class="fa-solid fa-pen-to-square"></i>
+				// 					&nbsp;
+				// 					<span>Modelos Vehiculos</span>
+				// 				</a>
+				// 			</li>
 
-			// 			<li>
-			// 				<a href="tipos-vehiculos">
-			// 					<i class="fa-solid fa-pen-to-square"></i>
-			// 					&nbsp;
-			// 					<span>Tipos Vehiculos</span>
-			// 				</a>
-			// 			</li>
+				// 			<li>
+				// 				<a href="tipos-vehiculos">
+				// 					<i class="fa-solid fa-pen-to-square"></i>
+				// 					&nbsp;
+				// 					<span>Tipos Vehiculos</span>
+				// 				</a>
+				// 			</li>
 
-			// 			<li>
-			// 				<a href="vehiculos">
-			// 					<i class="fa-solid fa-car"></i>
-			// 					&nbsp;
-			// 					<span>Vehiculos</span>
-			// 				</a>
-			// 			</li>
+				// 			<li>
+				// 				<a href="vehiculos">
+				// 					<i class="fa-solid fa-car"></i>
+				// 					&nbsp;
+				// 					<span>Vehiculos</span>
+				// 				</a>
+				// 			</li>
 
-			// 		</ul>
+				// 		</ul>
 
-			// 	</li>';
-			// }
+				// 	</li>';
+			}
 
 			// if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Vendedor"){
 

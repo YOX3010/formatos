@@ -1,5 +1,5 @@
 /*=============================================
-EDITAR FORMATO 3
+EDITAR FORMATO 4
 =============================================*/
 
 $(".tablas").on("click", ".btnEditarFormato3", function () {
@@ -20,28 +20,49 @@ $(".tablas").on("click", ".btnEditarFormato3", function () {
 
     success: function (respuesta) {
       $("#idFormato3").val(respuesta["id"]);
-      $("#editarCommercialInvoice").val(respuesta["commercial_invoice"]);
-      $("#editarDateCommercialInvoice").val(
-        respuesta["date_commercial_invoice"]
+      $("#editarAuthenticationCode").val(respuesta["authentication_code"]);
+      $("#editarRefNumber").val(respuesta["ref_number"]);
+      $("#editarIcpoDate").val(respuesta["icpo_date"]);
+      $("#editarIcpoTo").val(respuesta["icpo_to"]);
+      $("#editarTradeDate").val(respuesta["trade_date"]);
+      $("#editarSeller").val(respuesta["seller"]);
+      $("#editarDurationContract").val(respuesta["duration_contract"]);
+      $("#editarTargetPrice").val(respuesta["target_price"]);
+      $("#editarTargetPrice").val(respuesta["target_price"]);
+      $("#editarVessel").val(respuesta["vessel"]);
+      $("#editarInspection").val(respuesta["inspection"]);
+      $("#editarInsurance").val(respuesta["insurance"]);
+      $("#editarPaymentMethod").val(respuesta["payment_method"]);
+      $("#editarQQDetermination").val(respuesta["qq_determination"]);
+      $("#editarLayTime").val(respuesta["lay_time"]);
+      $("#editarDemurrageRate").val(respuesta["demurrage_rate"]);
+      $("#editarLaw").val(respuesta["law"]);
+      $("#editarName").val(respuesta["name"]);
+      $("#editarDatePlaceBirth").val(respuesta["date_place_birth"]);
+      $("#editarNumberCountryIssue").val(
+        respuesta["passport_number_country_issue"]
       );
-      $("#editarTotalGrossAmount").val(respuesta["total_gross_amount"]);
-      $("#editarTermsDeliveryDestinationPort").val(
-        respuesta["terms_delivary_destination_port"]
+      $("#editarIssueDate").val(respuesta["passport_issue_date"]);
+      $("#editarPassportExpirationDate").val(
+        respuesta["passport_expiration_date"]
       );
-      $("#editarTermsPayment").val(respuesta["terms_payment"]);
-      $("#editarFreightInsuranceCharge").val(
-        respuesta["freight_insurance_charges"]
+      $("#editarTitleWithinCorporationCompany").val(
+        respuesta["title_within_corporation_company"]
       );
+      $("#editarOfficePhoneNumber").val(respuesta["office_phone_number"]);
+      $("#editarMobilePhoneNumber").val(respuesta["mobile_phone_number"]);
+      $("#editarEmailAddress").val(respuesta["email_address"]);
+      $("#editarIdImagenes").val(respuesta["id_imagenes"]);
     },
   });
 });
 
 /*=============================================
-ELIMINAR FORMATO 3
+ELIMINAR FORMATO 4
 =============================================*/
 
 // $(".tablas").on("click", ".btnEliminarFormato3", function () {
-//   var idOrdenVehiculo = $(this).attr("idFormato3");
+//   var idFormato3 = $(this).attr("idFormato3");
 
 //   swal({
 //     title: "¿Está seguro de borrar El Formato?",
@@ -54,23 +75,23 @@ ELIMINAR FORMATO 3
 //     confirmButtonText: "Si, borrar El Formato!",
 //   }).then(function (result) {
 //     if (result.value) {
-//       window.location = "index.php?ruta=formato-3&idFormato3=" + idFormato3;
+//       window.location = "index.php?ruta=formato-4&idFormato3=" + idFormato3;
 //     }
 //   });
 // });
 
 /*=============================================
-BOTON EDITAR FORMATO 3
+BOTON EDITAR FORMATO 4
 =============================================*/
 
 $(".tablas").on("click", ".btnFormato3", function () {
   var idFormato3 = $(this).attr("idFormato3");
 
-  window.location = "index.php?ruta=formato-3&idFormato3=" + idFormato3;
+  window.location = "index.php?ruta=formatos&idFormato3=" + idFormato3;
 });
 
 /*=============================================
-BOTON IMPRIMIR FORMATO 3
+BOTON IMPRIMIR FORMATO 4
 =============================================*/
 
 $(".tablas").on("click", ".btnImprimirFormato3", function () {

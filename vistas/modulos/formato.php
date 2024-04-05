@@ -17,7 +17,7 @@
 
   <section class="content-header">
 
-    <h1> Administrar Formato </h1>
+    <h1> Administrar Formatos </h1>
 
     <ol class="breadcrumb">
 
@@ -37,7 +37,7 @@
 
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarFormato">
 
-          Agregar Elemento
+          Agregar Formato
 
         </button>
 
@@ -77,7 +77,7 @@
 
               echo '<tr>
               
-              <th rowspan="75">' . ($key + 1) . '</th>
+              <th rowspan="76">' . ($key + 1) . '</th>
               
               <th colspan="4" style="background-color:#e1e1e1;text-align:center;">FORMATO 1</th>
 
@@ -220,339 +220,461 @@
           </tr>
 
           <tr>
-          
-            <th colspan="4" style="background-color:#e1e1e1;text-align:center;">FORMATO 2</th>
-
-            <td style="text-align:center;background-color:#e1e1e1;" >
-
-              <div class="btn-group">
-
-                <button class="btn btn-info btnImprimirFormato2" idFormato2="' . $value["id"] . '"><i class="fa fa-print"></i></button>
-              
-                <button class="btn btn-warning btnEditarFormato2" idFormato2="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormato2"><i class="fa fa-pencil"></i></button>
-                
-              </div>
-
-            </td>
-          
-          </tr>
-          
-          <tr>
-
-          <tr>
-
-            <th>Name of the Bank / Nombre del Banco</th>
-
-            <td colspan="4">' . $value["cliente_name_of_the_bank"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th>Branch and Branch Address / Marca y Dirección de Marca</th>
-
-            <td colspan="4">' . $value["cliente_branch_address"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th>Name of the Banking Official / Nombre Oficial de la Banca</th>
-
-            <td colspan="4">' . $value["cliente_name_of_the_banking"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th>Phone Number / Número de Teléfono</th>
-
-            <td colspan="4">' . $value["cliente_phone_number"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th>FAX Number / Número de FAX</th>
-
-            <td colspan="4">' . $value["cliente_fax_number"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th>Banking Officer mail / Correo Oficial de la Banca</th>
-
-            <td colspan="4">' . $value["cliente_banking_officer_mail"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th>Account Signatory Name / Nombre del Firmante de la Cuenta</th>
-
-            <td colspan="4">' . $value["cliente_account_signatory_name"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th>Account Name / Nombre de la Cuenta</th>
-
-            <td colspan="4">' . $value["cliente_account_name"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th>Account Number/Routing/ABA Number / Número de cuenta/ruta/número ABA</th>
-
-            <td colspan="4">' . $value["cliente_account_number_routing_aba"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th>Swift Code / Código Swift</th>
-
-            <td colspan="4">' . $value["cliente_swift"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th style="text-align: center;" colspan="6">Datails of the signatory of the contracts on behalf of the Corporation / Datos del firmante de los contratos en nombre de la Corporación:</th>
-
-          </tr>
-
-          <tr>
-
-            <th>Name / Nombre</th>
-
-            <td colspan="4">' . $value["name"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th>Date And Place Brith / Fecha y Lugar de Nacimiento</th>
-
-            <td colspan="4">' . $value["date_place_birth"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th>Passport Number And Country of issue / Número de pasaporte y país de emisión</th>
-
-            <td colspan="4">' . $value["passport_number_country_issue"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th>Passport Issue Date / Fecha de emisión del pasaporte</th>
-
-            <td colspan="4">' . $value["passport_issue_date"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th>Passport Expiration Date / Fecha de vencimiento del Pasaporte</th>
-
-            <td colspan="4">' . $value["passport_expiration_date"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th>Title within the Corporation/Company / Título dentro de la Corporación/Compañía</th>
-
-            <td colspan="4">' . $value["title_within_corporation_company"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th>Office Phone Number / Número de teléfono de la Oficina</th>
-
-            <td colspan="4">' . $value["office_phone_number"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th>Mobile Number phone / Número de teléfono móvil</th>
-
-            <td colspan="4">' . $value["mobile_phone_number"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th>Email Address / Dirección de Correo Electrónico</th>
-
-            <td colspan="4">' . $value["email_address"] . '</td>
-
-          </tr>
-
-          <tr>
-          
-            <th colspan="4" style="background-color:#e1e1e1;text-align:center;">FORMATO 3</th>
             
-            <td style="text-align:center;background-color:#e1e1e1;" >
-
-              <div class="btn-group">
-
-                <button class="btn btn-info btnImprimirFormato3" idFormato3="' . $value["id"] . '"><i class="fa fa-print"></i></button>
-              
-                <button class="btn btn-warning btnEditarFormato3" idFormato3="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormato3"><i class="fa fa-pencil"></i></button>
-              
-              </div>
-
-            </td>
+          <th colspan="4" style="background-color:#e1e1e1;text-align:center;">FORMATO 2</th>
           
-          </tr>
+          <td style="text-align:center;background-color:#e1e1e1;" >
 
+            <div class="btn-group">
+
+              <button class="btn btn-info btnImprimirFormato2" idFormato2="' . $value["id"] . '"><i class="fa fa-print"></i></button>
             
+              <button class="btn btn-warning btnEditarFormato2" idFormato2="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormato2"><i class="fa fa-pencil"></i></button>
+            
+            </div>
+
+          </td>
+        
+        </tr>
+
+        
+
+        <tr>
+
+          <th>Commercial Invoice / Factura Comercial</th>
+
+          <td>' . $value["commercial_invoice"] . '</td>
+
+          <th>Date / Fecha</th>
+
+          <td colspan="2">' . $value["date_commercial_invoice"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th style="text-align:center;" colspan="5">COMMERCIAL INVOICE / FACTURA COMERCIAL</th>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="2">Cosignee / Cosignatario</th>
+
+          <td colspan="3">' . $value["cliente_cosignee"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="2">Signatory / Firmante</th>
+
+          <td colspan="3">' . $value["cliente_signatory"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="2">Address / Dirección</th>
+
+          <td colspan="3">' . $value["cliente_address"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="2">Telephone / Telefóno</th>
+
+          <td colspan="3">' . $value["cliente_telephone"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="2">Email / Correo Electrónico</th>
+
+          <td colspan="3">' . $value["cliente_email"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th>Commodity / Mercancía</th>
+
+          <th>Quantity / Cantidad</th>
+
+          <th>Unit Price / Precio de Unidad</th>
+
+          <th colspan="2">Total/Gross Amount / Importe Total/Bruto</th>
+
+        </tr>
+
+        <tr>
+
+          <td>' . $value["commodity"] . '</td>
+
+          <td>' . $value["quantity"] . '</td>
+
+          <td>' . $value["price"] . '</td>
+
+          <td colspan="2">' . $value["total_gross_amount"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th>Terms of Delivery/Destination Port / Términos del Envío/Puerto de Destino</th>
+
+          <th>Terms of Payment / Términos de Pago</th>
+
+          <th colspan="3">Freight/Insurance Charges / Gastos de Flete/Seguro</th>
+
+
+        </tr>
+
+        <tr>
+
+        <td>' . $value["terms_delivary_destination_port"] . '</td>
+
+        <td>' . $value["terms_payment"] . '</td>
+
+        <td colspan="3">' . $value["freight_insurance_charges"] . '</td>
+
+        </tr>
+
+        <tr>
+
+         <th>Seller Account Detail / Detalles de la cuenta de vendedor</th>
+
+         <td>' . $value["sel_seller_account_details"] . '</td>
+
+         <th>Buyer\'s Bank Name / Nombre del banco del comprador</th>
+
+         <td colspan="2">' . $value["cliente_bank_name"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th>Bank Namen / Nombre del Banco</th>
+
+          <td>' . $value["sel_bank_name"] . '</td>
+
+          <th>Bank Address / Dirección del Banco</th>
+
+          <td colspan="2">' . $value["cliente_bank_address"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th>Bank Address / Dirección del Banco</th>
+
+          <td>' . $value["sel_bank_address"] . '</td>
+
+          <th>Account Holder / Titular de la Cuenta</th>
+
+          <td colspan="2">' . $value["cliente_cosignee"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th>Account Name / Nombre de la Cuenta</th>
+
+          <td>' . $value["sel_account_name"] . '</td>
+
+          <th>Swift Code / Código de Swift</th>
+
+          <td colspan="2">' . $value["cliente_swift_code"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th>Account Number / Número de Cuenta</th>
+
+          <td>' . $value["sel_account_number"] . '</td>
+
+          <th>Account Number / Número de Cuenta</th>
+
+          <td colspan="2">' . $value["cliente_account_number"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th>Swift</th>
+
+          <td>' . $value["sel_swift"] . '</td>
+
+        </tr>
 
           <tr>
 
-              <th>Commercial Invoice / Factura Comercial</th>
+          <th colspan="4" style="background-color:#e1e1e1;text-align:center;">FORMATO 3</th>
 
-              <td>' . $value["commercial_invoice"] . '</td>
+          <td style="text-align:center;background-color:#e1e1e1;" >
 
-              <th>Date / Fecha</th>
+            <div class="btn-group">
 
-              <td colspan="2">' . $value["date_commercial_invoice"] . '</td>
+            <button class="btn btn-info btnImprimirFormato3" idFormato3="' . $value["id"] . '"><i class="fa fa-print"></i></button>
+            
+            <button class="btn btn-warning btnEditarFormato3" idFormato3="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormato3"><i class="fa fa-pencil"></i></button>
+              
+            </div>
+
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="4">Athentication Code / Código de Autenticación</th>
+
+          <td colspan="1">' . $value["authentication_code"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th>Ref. Number / Número de Referencia:</th>
+
+          <td>' . $value["ref_number"] . '</td>
+
+          <th>Date / Fecha</th>
+
+          <td colspan="2">' . $value["icpo_date"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th>To: / Para:</th>
+
+          <td colspan="4">' . $value["icpo_to"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th style="text-align:center;" colspan="5">IRREVOCABLE CORPORATE PURCHASE ORDER ICPO / ORDEN DE COMPRA CORPORATIVA IRREVOCABLE OCCI.</th>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="1">Trade Date / Fecha de negociación</th>
+
+          <td colspan="4">' . $value["trade_date"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="1">Seller / Vendedor</th>
+
+          <td colspan="4">' . $value["seller"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="1">Product Name / Nombre del Producto</th>
+
+          <td colspan="4">' . $value["commodity"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="1">Shipping Terms for Sale / Condiciones de envío para la venta</th>
+
+          <td colspan="4">' . $value["incoterms"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="1">Origin / Origen</th>
+
+          <td colspan="4">' . $value["product_origin"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="1">Trial Quantity / Cantidad de Prueba</th>
+
+          <td colspan="4">' . $value["quantity"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="1">Contract Quantity / Contrato de Cantidad</th>
+
+          <td colspan="4">' . $value["contract_term"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="1">Duration Of Contract / Precio Objetivo USD</th>
+
+          <td colspan="4">' . $value["duration_contract"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="1">Target Price USD / Duración del Contrato</th>
+
+          <td colspan="4">' . $value["target_price"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="1">Target Price USD / Precio Objetivo USD</th>
+
+          <td colspan="4">' . $value["price"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="1">Shipment Terms / Coniciones de Envío</th>
+
+          <td colspan="4">' . $value["terms_delivary_destination_port"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="1">Vessel / Buque</th>
+
+          <td colspan="4">' . $value["vessel"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="1">Inspection / Inspección</th>
+
+          <td colspan="4">' . $value["inspection"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="1">Insurance / Seguro</th>
+
+          <td colspan="4">' . $value["insurance"] . '</td>
+
+        </tr>
+
+        <tr>
+
+         <th colspan="1">Payment Method / Método de Pago</th>
+
+         <td colspan="4">' . $value["payment_method"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="1">Q & Q Determination / Determinación C & C</th>
+
+          <td colspan="4">' . $value["qq_determination"] . '</td>
+
+        </tr>
+
+        <tr>
+
+         <th colspan="1">Lay Time / Tiempo de Puesta</th>
+
+         <td colspan="4">' . $value["lay_time"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="1">Demurrage Rate / Tasa de Sobreestadía</th>
+
+          <td colspan="4">' . $value["demurrage_rate"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th colspan="1">Law / Ley</th>
+
+          <td colspan="4">' . $value["law"] . '</td>
+
+        </tr>
+
+        <tr>
+
+          <th style="text-align: center;" colspan="6">Buyer\'s Bank Information / Información del Banco del Comprador:</th>
+
+        </tr>
+
+          <tr>
+
+            <tr>
+
+              <th>Name of the Bank / Nombre del Banco</th>
+
+              <td colspan="4">' . $value["cliente_name_of_the_bank"] . '</td>
 
             </tr>
 
             <tr>
 
-              <th style="text-align:center;" colspan="5">COMMERCIAL INVOICE / FACTURA COMERCIAL</th>
+              <th>Branch and Branch Address / Marca y Dirección de Marca</th>
+
+              <td colspan="4">' . $value["cliente_branch_address"] . '</td>
 
             </tr>
 
             <tr>
 
-              <th colspan="2">Cosignee / Cosignatario</th>
+              <th>Name of the Banking Official / Nombre Oficial de la Banca</th>
 
-              <td colspan="3">' . $value["cliente_cosignee"] . '</td>
-
-            </tr>
-
-            <tr>
-
-              <th colspan="2">Signatory / Firmante</th>
-
-              <td colspan="3">' . $value["cliente_signatory"] . '</td>
+              <td colspan="4">' . $value["cliente_name_of_the_banking"] . '</td>
 
             </tr>
 
             <tr>
 
-              <th colspan="2">Address / Dirección</th>
+              <th>Phone Number / Número de Teléfono</th>
 
-              <td colspan="3">' . $value["cliente_address"] . '</td>
-
-            </tr>
-
-            <tr>
-
-              <th colspan="2">Telephone / Telefóno</th>
-
-              <td colspan="3">' . $value["cliente_telephone"] . '</td>
+              <td colspan="4">' . $value["cliente_phone_number"] . '</td>
 
             </tr>
 
             <tr>
 
-              <th colspan="2">Email / Correo Electrónico</th>
+              <th>FAX Number / Número de FAX</th>
 
-              <td colspan="3">' . $value["cliente_email"] . '</td>
-
-            </tr>
-
-            <tr>
-
-              <th>Commodity / Mercancía</th>
-
-              <th>Quantity / Cantidad</th>
-
-              <th>Unit Price / Precio de Unidad</th>
-
-              <th colspan="2">Total/Gross Amount / Importe Total/Bruto</th>
+              <td colspan="4">' . $value["cliente_fax_number"] . '</td>
 
             </tr>
 
             <tr>
 
-              <td>' . $value["commodity"] . '</td>
+              <th>Banking Officer mail / Correo Oficial de la Banca</th>
 
-              <td>' . $value["quantity"] . '</td>
-
-              <td>' . $value["price"] . '</td>
-
-              <td colspan="2">' . $value["total_gross_amount"] . '</td>
+              <td colspan="4">' . $value["cliente_banking_officer_mail"] . '</td>
 
             </tr>
 
             <tr>
 
-              <th>Terms of Delivery/Destination Port / Términos del Envío/Puerto de Destino</th>
+              <th>Account Signatory Name / Nombre del Firmante de la Cuenta</th>
 
-              <th>Terms of Payment / Términos de Pago</th>
-
-              <th colspan="3">Freight/Insurance Charges / Gastos de Flete/Seguro</th>
-
-
-            </tr>
-
-            <tr>
-
-            <td>' . $value["terms_delivary_destination_port"] . '</td>
-
-            <td>' . $value["terms_payment"] . '</td>
-
-            <td colspan="3">' . $value["freight_insurance_charges"] . '</td>
-
-            </tr>
-
-            <tr>
-
-             <th>Seller Account Detail / Detalles de la cuenta de vendedor</th>
-
-             <td>' . $value["sel_seller_account_details"] . '</td>
-
-             <th>Buyer\'s Bank Name / Nombre del banco del comprador</th>
-
-             <td colspan="2">' . $value["cliente_bank_name"] . '</td>
-
-            </tr>
-
-            <tr>
-
-              <th>Bank Namen / Nombre del Banco</th>
-
-              <td>' . $value["sel_bank_name"] . '</td>
-
-              <th>Bank Address / Dirección del Banco</th>
-
-              <td colspan="2">' . $value["cliente_bank_address"] . '</td>
-
-            </tr>
-
-            <tr>
-
-              <th>Bank Address / Dirección del Banco</th>
-
-              <td>' . $value["sel_bank_address"] . '</td>
-
-              <th>Account Holder / Titular de la Cuenta</th>
-
-              <td colspan="2">' . $value["cliente_cosignee"] . '</td>
+              <td colspan="4">' . $value["cliente_account_signatory_name"] . '</td>
 
             </tr>
 
@@ -560,229 +682,105 @@
 
               <th>Account Name / Nombre de la Cuenta</th>
 
-              <td>' . $value["sel_account_name"] . '</td>
-
-              <th>Swift Code / Código de Swift</th>
-
-              <td colspan="2">' . $value["cliente_swift_code"] . '</td>
+              <td colspan="4">' . $value["cliente_account_name"] . '</td>
 
             </tr>
 
             <tr>
 
-              <th>Account Number / Número de Cuenta</th>
+              <th>Account Number/Routing/ABA Number / Número de cuenta/ruta/número ABA</th>
 
-              <td>' . $value["sel_account_number"] . '</td>
-
-              <th>Account Number / Número de Cuenta</th>
-
-              <td colspan="2">' . $value["cliente_account_number"] . '</td>
+              <td colspan="4">' . $value["cliente_account_number_routing_aba"] . '</td>
 
             </tr>
 
             <tr>
 
-              <th>Swift</th>
+              <th>Swift Code / Código Swift</th>
 
-              <td>' . $value["sel_swift"] . '</td>
-
-            </tr>
-
-            <tr>
-
-              <th colspan="4" style="background-color:#e1e1e1;text-align:center;">FORMATO 4</th>
-
-              <td style="text-align:center;background-color:#e1e1e1;" >
-
-                <div class="btn-group">
-
-                <button class="btn btn-info btnImprimirFormato4" idFormato4="' . $value["id"] . '"><i class="fa fa-print"></i></button>
-                
-                <button class="btn btn-warning btnEditarFormato4" idFormato4="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarFormato4"><i class="fa fa-pencil"></i></button>
-                  
-                </div>
-
-              </td>
+              <td colspan="4">' . $value["cliente_swift"] . '</td>
 
             </tr>
 
             <tr>
 
-              <th colspan="4">Athentication Code / Código de Autenticación</th>
-
-              <td colspan="1">' . $value["authentication_code"] . '</td>
+              <th style="text-align: center;" colspan="6">Datails of the signatory of the contracts on behalf of the Corporation / Datos del firmante de los contratos en nombre de la Corporación:</th>
 
             </tr>
 
             <tr>
 
-              <th>Ref. Number / Número de Referencia:</th>
+              <th>Name / Nombre</th>
 
-              <td>' . $value["ref_number"] . '</td>
-
-              <th>Date / Fecha</th>
-
-              <td colspan="2">' . $value["icpo_date"] . '</td>
+              <td colspan="4">' . $value["name"] . '</td>
 
             </tr>
 
             <tr>
 
-              <th>To: / Para:</th>
+              <th>Date And Place Brith / Fecha y Lugar de Nacimiento</th>
 
-              <td colspan="4">' . $value["icpo_to"] . '</td>
-
-            </tr>
-
-            <tr>
-
-              <th style="text-align:center;" colspan="5">IRREVOCABLE CORPORATE PURCHASE ORDER ICPO / ORDEN DE COMPRA CORPORATIVA IRREVOCABLE OCCI.</th>
+              <td colspan="4">' . $value["date_place_birth"] . '</td>
 
             </tr>
 
             <tr>
 
-              <th colspan="1">Trade Date / Fecha de negociación</th>
+              <th>Passport Number And Country of issue / Número de pasaporte y país de emisión</th>
 
-              <td colspan="4">' . $value["trade_date"] . '</td>
-
-            </tr>
-
-            <tr>
-
-              <th colspan="1">Seller / Vendedor</th>
-
-              <td colspan="4">' . $value["seller"] . '</td>
+              <td colspan="4">' . $value["passport_number_country_issue"] . '</td>
 
             </tr>
 
             <tr>
 
-              <th colspan="1">Product Name / Nombre del Producto</th>
+              <th>Passport Issue Date / Fecha de emisión del pasaporte</th>
 
-              <td colspan="4">' . $value["commodity"] . '</td>
-
-            </tr>
-
-            <tr>
-
-              <th colspan="1">Shipping Terms for Sale / Condiciones de envío para la venta</th>
-
-              <td colspan="4">' . $value["incoterms"] . '</td>
+              <td colspan="4">' . $value["passport_issue_date"] . '</td>
 
             </tr>
 
             <tr>
 
-              <th colspan="1">Origin / Origen</th>
+              <th>Passport Expiration Date / Fecha de vencimiento del Pasaporte</th>
 
-              <td colspan="4">' . $value["product_origin"] . '</td>
-
-            </tr>
-
-            <tr>
-
-              <th colspan="1">Trial Quantity / Cantidad de Prueba</th>
-
-              <td colspan="4">' . $value["quantity"] . '</td>
+              <td colspan="4">' . $value["passport_expiration_date"] . '</td>
 
             </tr>
 
             <tr>
 
-              <th colspan="1">Contract Quantity / Contrato de Cantidad</th>
+              <th>Title within the Corporation/Company / Título dentro de la Corporación/Compañía</th>
 
-              <td colspan="4">' . $value["contract_term"] . '</td>
-
-            </tr>
-
-            <tr>
-
-              <th colspan="1">Duration Of Contract / Duración del Contrato</th>
-
-              <td colspan="4">' . $value["duration_contract"] . '</td>
+              <td colspan="4">' . $value["title_within_corporation_company"] . '</td>
 
             </tr>
 
             <tr>
 
-              <th colspan="1">Target Price USD / Precio Objetivo USD</th>
+              <th>Office Phone Number / Número de teléfono de la Oficina</th>
 
-              <td colspan="4">' . $value["price"] . '</td>
-
-            </tr>
-
-            <tr>
-
-              <th colspan="1">Shipment Terms / Coniciones de Envío</th>
-
-              <td colspan="4">' . $value["terms_delivary_destination_port"] . '</td>
+              <td colspan="4">' . $value["office_phone_number"] . '</td>
 
             </tr>
 
             <tr>
 
-              <th colspan="1">Vessel / Buque</th>
+              <th>Mobile Number phone / Número de teléfono móvil</th>
 
-              <td colspan="4">' . $value["vessel"] . '</td>
-
-            </tr>
-
-            <tr>
-
-              <th colspan="1">Inspection / Inspección</th>
-
-              <td colspan="4">' . $value["inspection"] . '</td>
+              <td colspan="4">' . $value["mobile_phone_number"] . '</td>
 
             </tr>
 
             <tr>
 
-              <th colspan="1">Insurance / Seguro</th>
+              <th>Email Address / Dirección de Correo Electrónico</th>
 
-              <td colspan="4">' . $value["insurance"] . '</td>
-
-            </tr>
-
-            <tr>
-
-             <th colspan="1">Payment Method / Método de Pago</th>
-
-             <td colspan="4">' . $value["payment_method"] . '</td>
+              <td colspan="4">' . $value["email_address"] . '</td>
 
             </tr>
 
-            <tr>
-
-              <th colspan="1">Q & Q Determination / Determinación C & C</th>
-
-              <td colspan="4">' . $value["qq_determination"] . '</td>
-
-            </tr>
-
-            <tr>
-
-             <th colspan="1">Lay Time / Tiempo de Puesta</th>
-
-             <td colspan="4">' . $value["lay_time"] . '</td>
-
-            </tr>
-
-            <tr>
-
-              <th colspan="1">Demurrage Rate / Tasa de Sobreestadía</th>
-
-              <td colspan="4">' . $value["demurrage_rate"] . '</td>
-
-            </tr>
-
-            <tr>
-
-              <th colspan="1">Law / Ley</th>
-
-              <td colspan="4">' . $value["law"] . '</td>
-
-            </tr>
+          </tr>
 
           ';
             }
@@ -1389,7 +1387,7 @@ MODAL AGREGAR FORMATO
 
               <div class="input-group">
 
-                <h4><b>FORMATO 1</b></h4>
+                <h4><b>FORMATO 1 TRANSACTING TERMS</b></h4>
 
               </div>
 
@@ -1555,175 +1553,7 @@ MODAL AGREGAR FORMATO
 
               <div class="input-group">
 
-                <h4><b>FORMATO 2</b></h4>
-
-              </div>
-
-            </div>
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <h5><b>Datails of the signatory of the contracts on behalf of the Corporation / Datos del firmante de los contratos en nombre de la Corporación:</b></h5>
-
-              </div>
-
-            </div>
-
-            <!-- AGREGAR Name / Nombre	 -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="nuevoName" placeholder="Name / Nombre">
-
-                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
-
-              </div>
-
-            </div>
-
-            <!-- AGREGAR Date And Place Brith / Fecha y Lugar de Nacimiento	 -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="nuevoDatePlaceBirth" placeholder="Date And Place Brith / Fecha y Lugar de Nacimiento">
-
-                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
-
-              </div>
-
-            </div>
-
-            <!-- AGREGAR Passport Number And Country of issue / Número de pasaporte y país de emisión	 -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="nuevoNumberCountryIssue" placeholder="Passport Number And Country of issue / Número de pasaporte y país de emisión">
-
-                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
-
-              </div>
-
-            </div>
-
-            <!-- AGREGAR Passport Issue Date / Fecha de emisión del pasaporte	 -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="nuevoIssueDate" placeholder="Passport Issue Date / Fecha de emisión del pasaporte">
-
-                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
-
-              </div>
-
-            </div>
-
-            <!-- AGREGAR Passport Expiration Date / Fecha de vencimiento del Pasaporte	 -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="nuevoPassportExpirationDate" placeholder="Passport Expiration Date / Fecha de vencimiento del Pasaporte">
-
-                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
-
-              </div>
-
-            </div>
-
-            <!-- AGREGAR Title within the Corporation/Company / Título dentro de la Corporación/Compañía	 -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="nuevoTitleWithinCorporationCompany" placeholder="Title within the Corporation/Company / Título dentro de la Corporación/Compañía">
-
-                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
-
-              </div>
-
-            </div>
-
-            <!-- AGREGAR Office Phone Number / Número de teléfono de la Oficina	 -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="nuevoOfficePhoneNumber" placeholder="Office Phone Number / Número de teléfono de la Oficina">
-
-                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
-
-              </div>
-
-            </div>
-
-            <!-- AGREGAR Mobile Number phone / Número de teléfono móvil	 -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="nuevoMobilePhoneNumber" placeholder="Mobile Number phone / Número de teléfono móvil">
-
-                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
-
-              </div>
-
-            </div>
-
-            <!-- AGREGAR Email Address / Dirección de Correo Electrónico	 -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="nuevoEmailAddress" placeholder="Email Address / Dirección de Correo Electrónico">
-
-                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
-
-              </div>
-
-            </div>
-
-            <!--=====================================
-            CUERPO DEL MODAL FORMATO 3
-            ======================================-->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <h4><b>FORMATO 3</b></h4>
+                <h4><b>FORMATO 2 COMMERCIAL INVOICE</b></h4>
 
               </div>
 
@@ -1836,14 +1666,14 @@ MODAL AGREGAR FORMATO
             </div>
 
             <!--=====================================
-            MODAL AGREGAR FORMATO 4
+            CUERPO DEL MODAL FORMATO 3
             ======================================-->
 
             <div class="form-group">
 
               <div class="input-group">
 
-                <h4><b>FORMATO 4</b></h4>
+                <h4><b>FORMATO 3 ICPO</b></h4>
 
               </div>
 
@@ -2115,6 +1945,160 @@ MODAL AGREGAR FORMATO
 
             </div>
 
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <h5><b>Datails of the signatory of the contracts on behalf of the Corporation / Datos del firmante de los contratos en nombre de la Corporación:</b></h5>
+
+              </div>
+
+            </div>
+
+            <!-- AGREGAR Name / Nombre	 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoName" placeholder="Name / Nombre">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- AGREGAR Date And Place Brith / Fecha y Lugar de Nacimiento	 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoDatePlaceBirth" placeholder="Date And Place Brith / Fecha y Lugar de Nacimiento">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- AGREGAR Passport Number And Country of issue / Número de pasaporte y país de emisión	 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoNumberCountryIssue" placeholder="Passport Number And Country of issue / Número de pasaporte y país de emisión">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- AGREGAR Passport Issue Date / Fecha de emisión del pasaporte	 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoIssueDate" placeholder="Passport Issue Date / Fecha de emisión del pasaporte">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- AGREGAR Passport Expiration Date / Fecha de vencimiento del Pasaporte	 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoPassportExpirationDate" placeholder="Passport Expiration Date / Fecha de vencimiento del Pasaporte">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- AGREGAR Title within the Corporation/Company / Título dentro de la Corporación/Compañía	 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoTitleWithinCorporationCompany" placeholder="Title within the Corporation/Company / Título dentro de la Corporación/Compañía">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- AGREGAR Office Phone Number / Número de teléfono de la Oficina	 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoOfficePhoneNumber" placeholder="Office Phone Number / Número de teléfono de la Oficina">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- AGREGAR Mobile Number phone / Número de teléfono móvil	 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoMobilePhoneNumber" placeholder="Mobile Number phone / Número de teléfono móvil">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
+            <!-- AGREGAR Email Address / Dirección de Correo Electrónico	 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoEmailAddress" placeholder="Email Address / Dirección de Correo Electrónico">
+
+                <input type="hidden" name="nuevoFormato" id="nuevoFormato" required>
+
+              </div>
+
+            </div>
+
           </div>
 
         </div>
@@ -2346,7 +2330,7 @@ MODAL EDITAR INFO CLIENTE
 
             </div>
 
-            <!-- EDITAR Email 3 -->
+            <!-- EDITAR Email via -->
 
             <div class="form-group">
 
@@ -2355,6 +2339,72 @@ MODAL EDITAR INFO CLIENTE
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
                 <input type="text" class="form-control input-lg" name="editarClienteEmailVia" id="editarClienteEmailVia" placeholder="Email / Correo Electrónico:" required>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <h5><b>Detalles de la Cuenta del comprador</b></h5>
+
+              </div>
+
+            </div>
+
+            <!-- EDITAR Buyer's Bank Name -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarClienteBankName" id="editarClienteBankName" placeholder="Buyer's Bank Name / Nombre del banco del comprador">
+
+              </div>
+
+            </div>
+
+            <!-- EDITAR Bank Address -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarClienteBankAddress" id="editarClienteBankAddress" placeholder="Bank Address / Dirección del Banco">
+
+              </div>
+
+            </div>
+
+            <!-- EDITAR Swift Code -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarClienteSwiftCode" id="editarClienteSwiftCode" placeholder="Swift Code / Código de Swift">
+
+              </div>
+
+            </div>
+
+            <!-- EDITAR Account Number -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarClienteAccountNumber" id="editarClienteAccountNumber" placeholder="Account Number / Número de Cuenta">
 
               </div>
 
@@ -2599,72 +2649,6 @@ MODAL EDITAR INFO CLIENTE
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
                 <input type="text" class="form-control input-lg" name="editarSelSwift" id="editarSelSwift" placeholder="Swift">
-
-              </div>
-
-            </div>
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <h5><b>Detalles de la Cuenta del comprador</b></h5>
-
-              </div>
-
-            </div>
-
-            <!-- EDITAR Buyer's Bank Name -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="editarClienteBankName" id="editarClienteBankName" placeholder="Buyer's Bank Name / Nombre del banco del comprador">
-
-              </div>
-
-            </div>
-
-            <!-- EDITAR Bank Address -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="editarClienteBankAddress" id="editarClienteBankAddress" placeholder="Bank Address / Dirección del Banco">
-
-              </div>
-
-            </div>
-
-            <!-- EDITAR Swift Code -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="editarClienteSwiftCode" id="editarClienteSwiftCode" placeholder="Swift Code / Código de Swift">
-
-              </div>
-
-            </div>
-
-            <!-- EDITAR Account Number -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="editarClienteAccountNumber" id="editarClienteAccountNumber" placeholder="Account Number / Número de Cuenta">
 
               </div>
 
@@ -2948,230 +2932,13 @@ MODAL EDITAR FORMATO 2
 
             <!--=====================================
             CUERPO DEL MODAL FORMATO 2
-            ======================================-->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <h4><b>FORMATO 2</b></h4>
-
-              </div>
-
-            </div>
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <h5><b>Datails of the signatory of the contracts on behalf of the Corporation / Datos del firmante de los contratos en nombre de la Corporación:</b></h5>
-
-              </div>
-
-            </div>
-
-            <!-- EDITAR Name / Nombre	 -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="editarName" id="editarName" placeholder="Name / Nombre">
-
-                <input type="hidden" name="idFormato2" id="idFormato2" required>
-
-                <input type="hidden" name="editarFormato2" id="editarFormato2" required>
-
-              </div>
-
-            </div>
-
-            <!-- EDITAR Date And Place Brith / Fecha y Lugar de Nacimiento	 -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="editarDatePlaceBirth" id="editarDatePlaceBirth" placeholder="Date And Place Brith / Fecha y Lugar de Nacimiento">
-
-              </div>
-
-            </div>
-
-            <!-- EDITAR Passport Number And Country of issue / Número de pasaporte y país de emisión	 -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="editarNumberCountryIssue" id="editarNumberCountryIssue" placeholder="Passport Number And Country of issue / Número de pasaporte y país de emisión">
-
-              </div>
-
-            </div>
-
-            <!-- EDITAR Passport Issue Date / Fecha de emisión del pasaporte	 -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="editarIssueDate" id="editarIssueDate" placeholder="Passport Issue Date / Fecha de emisión del pasaporte">
-
-              </div>
-
-            </div>
-
-            <!-- EDITAR Passport Expiration Date / Fecha de vencimiento del Pasaporte	 -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="editarPassportExpirationDate" id="editarPassportExpirationDate" placeholder="Passport Expiration Date / Fecha de vencimiento del Pasaporte">
-
-              </div>
-
-            </div>
-
-            <!-- EDITAR Title within the Corporation/Company / Título dentro de la Corporación/Compañía	 -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="editarTitleWithinCorporationCompany" id="editarTitleWithinCorporationCompany" placeholder="Title within the Corporation/Company / Título dentro de la Corporación/Compañía">
-
-              </div>
-
-            </div>
-
-            <!-- EDITAR Office Phone Number / Número de teléfono de la Oficina	 -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="editarOfficePhoneNumber" id="editarOfficePhoneNumber" placeholder="Office Phone Number / Número de teléfono de la Oficina">
-
-              </div>
-
-            </div>
-
-            <!-- EDITAR Mobile Number phone / Número de teléfono móvil	 -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="editarMobilePhoneNumber" id="editarMobilePhoneNumber" placeholder="Mobile Number phone / Número de teléfono móvil">
-
-              </div>
-
-            </div>
-
-            <!-- EDITAR Email Address / Dirección de Correo Electrónico	 -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="editarEmailAddress" id="editarEmailAddress" placeholder="Email Address / Dirección de Correo Electrónico">
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <!--=====================================
-        PIE DEL MODAL
-        ======================================-->
-
-        <div class="modal-footer">
-
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-
-          <button type="submit" class="btn btn-primary">Guardar cambios</button>
-
-        </div>
-
-        <?php
-
-        $editarFormato2 = new ControladorFormato2();
-        $editarFormato2->ctrEditarFormato2();
-
-        ?>
-
-      </form>
-
-    </div>
-
-  </div>
-
-</div>
-
-<!--=====================================
-MODAL EDITAR FORMATO 3
-======================================-->
-
-<div id="modalEditarFormato3" class="modal fade" role="dialog">
-
-  <div class="modal-dialog">
-
-    <div class="modal-content">
-
-      <form role="form" method="post">
-
-        <!--=====================================
-        CABEZA DEL MODAL
-        ======================================-->
-
-        <div class="modal-header" style="background:#3c8dbc; color:white">
-
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-          <h4 class="modal-title">Editar Formato 3</h4>
-
-        </div>
-
-        <!--=====================================
-        CUERPO DEL MODAL FORMATO 3
-        ======================================-->
-
-        <div class="modal-body">
-
-          <div class="box-body">
-
-            <!--=====================================
-            CUERPO DEL MODAL FORMATO 3
             =====================================-->
 
             <div class="form-group">
 
               <div class="input-group">
 
-                <h4><b>FORMATO 3</b></h4>
+                <h4><b>FORMATO 2</b></h4>
 
               </div>
 
@@ -3187,9 +2954,9 @@ MODAL EDITAR FORMATO 3
 
                 <input type="text" class="form-control input-lg" name="editarCommercialInvoice" id="editarCommercialInvoice" placeholder="Commercial Invoice / Factura Comercial">
 
-                <input type="hidden" name="idFormato3" id="idFormato3" required>
+                <input type="hidden" name="idFormato2" id="idFormato2" required>
 
-                <input type="hidden" name="editarFormato3" id="editarFormato3" required>
+                <input type="hidden" name="editarFormato2" id="editarFormato2" required>
 
               </div>
 
@@ -3275,6 +3042,20 @@ MODAL EDITAR FORMATO 3
 
             </div>
 
+            <!--EDITAR IMAGENES CLIENTES -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarIdImagenesCliente" id="editarIdImagenesCliente" placeholder="Imagenes Clientes">
+
+              </div>
+
+            </div>
+
           </div>
 
         </div>
@@ -3293,8 +3074,8 @@ MODAL EDITAR FORMATO 3
 
         <?php
 
-        $editarFormato3 = new ControladorFormato3();
-        $editarFormato3->ctrEditarFormato3();
+        $editarFormato2 = new ControladorFormato2();
+        $editarFormato2->ctrEditarFormato2();
 
         ?>
 
@@ -3307,10 +3088,10 @@ MODAL EDITAR FORMATO 3
 </div>
 
 <!--=====================================
-MODAL EDITAR FORMATO 4
+MODAL EDITAR FORMATO 3
 ======================================-->
 
-<div id="modalEditarFormato4" class="modal fade" role="dialog">
+<div id="modalEditarFormato3" class="modal fade" role="dialog">
 
   <div class="modal-dialog">
 
@@ -3326,12 +3107,12 @@ MODAL EDITAR FORMATO 4
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Editar Formato 4</h4>
+          <h4 class="modal-title">Editar Formato 3</h4>
 
         </div>
 
         <!--=====================================
-        CUERPO DEL MODAL FORMATO 4
+        CUERPO DEL MODAL FORMATO 3
         ======================================-->
 
         <div class="modal-body">
@@ -3339,14 +3120,14 @@ MODAL EDITAR FORMATO 4
           <div class="box-body">
 
             <!--=====================================
-            MODAL EDITAR FORMATO 4
+            CUERPO DEL MODAL FORMATO 3
             ======================================-->
 
             <div class="form-group">
 
               <div class="input-group">
 
-                <h4><b>FORMATO 4</b></h4>
+                <h4><b>FORMATO 3</b></h4>
 
               </div>
 
@@ -3362,9 +3143,9 @@ MODAL EDITAR FORMATO 4
 
                 <input type="text" class="form-control input-lg" name="editarAuthenticationCode" id="editarAuthenticationCode" placeholder="Authentication Code / Código de Autenticación">
 
-                <input type="hidden" name="idFormato4" id="idFormato4" required>
+                <input type="hidden" name="idFormato3" id="idFormato3" required>
 
-                <input type="hidden" name="editarFormato4" id="editarFormato4" required>
+                <input type="hidden" name="editarFormato3" id="editarFormato3" required>
 
               </div>
 
@@ -3459,6 +3240,20 @@ MODAL EDITAR FORMATO 4
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
                 <input type="text" class="form-control input-lg" name="editarDurationContract" id="editarDurationContract" placeholder="Duration Of Contract / Duración del Contrato">
+
+              </div>
+
+            </div>
+
+            <!-- EDITAR Target Price USD		 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarTargetPrice" id="editarTargetPrice" placeholder="Target Price USD / Target Price USD">
 
               </div>
 
@@ -3576,6 +3371,142 @@ MODAL EDITAR FORMATO 4
 
             </div>
 
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <h5><b>Datails of the signatory of the contracts on behalf of the Corporation / Datos del firmante de los contratos en nombre de la Corporación:</b></h5>
+
+              </div>
+
+            </div>
+
+            <!-- EDITAR Name / Nombre	 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarName" id="editarName" placeholder="Name / Nombre">
+
+              </div>
+
+            </div>
+
+            <!-- EDITAR Date And Place Brith / Fecha y Lugar de Nacimiento	 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarDatePlaceBirth" id="editarDatePlaceBirth" placeholder="Date And Place Brith / Fecha y Lugar de Nacimiento">
+
+              </div>
+
+            </div>
+
+            <!-- EDITAR Passport Number And Country of issue / Número de pasaporte y país de emisión	 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarNumberCountryIssue" id="editarNumberCountryIssue" placeholder="Passport Number And Country of issue / Número de pasaporte y país de emisión">
+
+              </div>
+
+            </div>
+
+            <!-- EDITAR Passport Issue Date / Fecha de emisión del pasaporte	 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarIssueDate" id="editarIssueDate" placeholder="Passport Issue Date / Fecha de emisión del pasaporte">
+
+              </div>
+
+            </div>
+
+            <!-- EDITAR Passport Expiration Date / Fecha de vencimiento del Pasaporte	 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarPassportExpirationDate" id="editarPassportExpirationDate" placeholder="Passport Expiration Date / Fecha de vencimiento del Pasaporte">
+
+              </div>
+
+            </div>
+
+            <!-- EDITAR Title within the Corporation/Company / Título dentro de la Corporación/Compañía	 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarTitleWithinCorporationCompany" id="editarTitleWithinCorporationCompany" placeholder="Title within the Corporation/Company / Título dentro de la Corporación/Compañía">
+
+              </div>
+
+            </div>
+
+            <!-- EDITAR Office Phone Number / Número de teléfono de la Oficina	 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarOfficePhoneNumber" id="editarOfficePhoneNumber" placeholder="Office Phone Number / Número de teléfono de la Oficina">
+
+              </div>
+
+            </div>
+
+            <!-- EDITAR Mobile Number phone / Número de teléfono móvil	 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarMobilePhoneNumber" id="editarMobilePhoneNumber" placeholder="Mobile Number phone / Número de teléfono móvil">
+
+              </div>
+
+            </div>
+
+            <!-- EDITAR Email Address / Dirección de Correo Electrónico	 -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarEmailAddress" id="editarEmailAddress" placeholder="Email Address / Dirección de Correo Electrónico">
+
+              </div>
+
+            </div>
+
             <!-- EDITAR Images / Imagene -->
 
             <div class="form-group">
@@ -3595,8 +3526,8 @@ MODAL EDITAR FORMATO 4
         </div>
 
         <!--=====================================
-                PIE DEL MODAL
-                ======================================-->
+        PIE DEL MODAL
+        ======================================-->
 
         <div class="modal-footer">
 
@@ -3608,8 +3539,8 @@ MODAL EDITAR FORMATO 4
 
         <?php
 
-        $editarFormato4 = new ControladorFormato4();
-        $editarFormato4->ctrEditarFormato4();
+        $editarFormato3 = new ControladorFormato3();
+        $editarFormato3->ctrEditarFormato3();
 
         ?>
 

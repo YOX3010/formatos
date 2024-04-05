@@ -1,6 +1,6 @@
 <?php
 
-if($_SESSION["perfil"] == "Especial"){
+if ($_SESSION["perfil"] == "Especial") {
 
   echo '<script>
 
@@ -9,26 +9,25 @@ if($_SESSION["perfil"] == "Especial"){
   </script>';
 
   return;
-
 }
 
 ?>
 
 <div class="content-wrapper">
 
-  <section class="content-header">    
+  <section class="content-header">
 
-    <h1>      
+    <h1>
 
-      Administrar clientes   
+      Administrar clientes
 
     </h1>
 
-    <ol class="breadcrumb">      
+    <ol class="breadcrumb">
 
-      <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>      
+      <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
-      <li class="active">Administrar clientes</li>    
+      <li class="active">Administrar clientes</li>
 
     </ol>
 
@@ -38,7 +37,7 @@ if($_SESSION["perfil"] == "Especial"){
 
     <div class="box">
 
-      <div class="box-header with-border">  
+      <div class="box-header with-border">
 
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCliente">
 
@@ -48,85 +47,87 @@ if($_SESSION["perfil"] == "Especial"){
 
       </div>
 
-      <div class="box-body">        
+      <div class="box-body">
 
-       <table class="table table-bordered table-striped dt-responsive tablas" width="100%">         
+        <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
 
-        <thead>         
+          <thead>
 
-         <tr>           
+            <tr>
 
-           <th style="width:10px">#</th>
-           <th>Nombre</th>
-           <th>Documento ID</th>
-           <th>Email</th>
-           <th>Teléfono</th>
-           <th>Dirección</th>
-           <th>Total compras</th>
-           <th>Última compra</th>
-           <th>Ingreso al sistema</th>
-           <th>Acciones</th>
+              <th style="width:10px">#</th>
+              <th>Cosignatario</th>
+              <th>Firmante</th>
+              <th>Posición</th>
+              <th>Email</th>
+              <th>Dirección</th>
+              <th>Teléfono</th>
+              <th>Ingreso al sistema</th>
+              <th>Acciones</th>
 
-         </tr> 
+            </tr>
 
-        </thead>
+          </thead>
 
-        <tbody>
+          <tbody>
 
-        <?php
+            <?php
 
-          $item = null;
-          $valor = null;
+            $item = null;
+            $valor = null;
 
-          $clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
+            $clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
 
-          foreach ($clientes as $key => $value) { 
+            foreach ($clientes as $key => $value) {
 
-            echo '<tr>
+              echo '<tr>
 
-                    <td>'.($key+1).'</td>
+                    <td>' . ($key + 1) . '</td>
 
-                    <td>'.$value["nombre"].'</td>
+                    <td>' . $value["cosignee"] . '</td>
 
-                    <td>'.$value["documento"].'</td>
+                    <td>' . $value["signatory"] . '</td>
 
-                    <td>'.$value["email"].'</td>
+                    <td>' . $value["position"] . '</td>
 
-                    <td>'.$value["telefono"].'</td>
+                    <td>' . $value["email"] . '</td>
 
-                    <td>'.$value["direccion"].'</td>  
+                    <td>' . $value["direccion"] . '</td>  
+                    
+                    <td>' . $value["telefono"] . '</td>
 
-                    <td>'.$value["compras"].'</td>
-
-                    <td>'.$value["ultima_compra"].'</td>
-
-                    <td>'.$value["fecha"].'</td>
+                    <td>' . $value["fecha"] . '</td>
 
                     <td>
 
-                      <div class="btn-group">                          
+                      <div class="btn-group">
+                      
+                      <button class="btn btn-success btnInfoCliente" data-toggle="modal" data-target="#modalInfoCliente" idCliente="' . $value["id"] . '"><i class="fa-solid fa-eye"></i></button>';
 
-                        <button class="btn btn-warning btnEditarCliente" data-toggle="modal" data-target="#modalEditarCliente" idCliente="'.$value["id"].'"><i class="fa fa-pencil"></i></button>';
+              if ($_SESSION["perfil"] == "Administrador") {
 
-                      if($_SESSION["perfil"] == "Administrador"){
+                echo '<button class="btn btn-warning btnEditarCliente" data-toggle="modal" data-target="#modalEditarCliente" idCliente="' . $value["id"] . '"><i class="fa-solid fa-pencil"></i></button>';
 
-                          //echo '<button class="btn btn-danger btnEliminarCliente" idCliente="'.$value["id"].'"><i class="fa fa-times"></i></button>';
+                //echo '<button class="btn btn-danger btnEliminarCliente" idCliente="'.$value["id"].'"><i class="fa fa-times"></i></button>';
 
-                      }
+              }
 
-                      echo '</div> 
+              echo '
+              
+              <button class="btn btn-info btnLOI" idLOI="' . $value["id"] . '">LOI\'s</button>
+              
+              </div> 
 
                     </td>
 
-                  </tr>';          
-
+                  </tr>';
             }
 
-        ?>   
+            ?>
 
-        </tbody>
+          </tbody>
 
-       </table>
+        </table>
 
       </div>
 
@@ -140,7 +141,7 @@ if($_SESSION["perfil"] == "Especial"){
 MODAL AGREGAR CLIENTE
 ======================================-->
 
-<div id="modalAgregarCliente" class="modal fade" role="dialog">  
+<div id="modalAgregarCliente" class="modal fade" role="dialog">
 
   <div class="modal-dialog">
 
@@ -168,71 +169,225 @@ MODAL AGREGAR CLIENTE
 
           <div class="box-body">
 
-            <!-- ENTRADA PARA EL NOMBRE -->            
+            <!-- ENTRADA PARA EL COSIGNEE -->
 
-            <div class="form-group">              
+            <div class="form-group">
 
-              <div class="input-group">              
+              <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa-solid fa-industry"></i></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoCliente" placeholder="Ingresar nombre" required>
+                <input type="text" class="form-control input-lg" name="nuevoCosignee" placeholder="Ingresar Cosignatario" required>
 
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL DOCUMENTO ID -->            
-
-            <div class="form-group">              
-
-              <div class="input-group">              
-
-                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
-
-                <input type="number" min="0" class="form-control input-lg" name="nuevoDocumentoId" placeholder="Ingresar documento" required>
+                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL EMAIL -->            
+            <!-- ENTRADA PARA EL SIGNATORY -->
 
-            <div class="form-group">              
+            <div class="form-group">
 
-              <div class="input-group">              
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-user-tie"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoSignatory" placeholder="Ingresar Firmante" required>
+
+                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA POSICION -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-briefcase"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoPosition" placeholder="Ingresar Posición" required>
+
+                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL EMAIL -->
+
+            <div class="form-group">
+
+              <div class="input-group">
 
                 <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
 
                 <input type="email" class="form-control input-lg" name="nuevoEmail" placeholder="Ingresar email" required>
 
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL TELÉFONO -->            
-
-            <div class="form-group">              
-
-              <div class="input-group">              
-
-                <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar teléfono" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
+                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA LA DIRECCIÓN -->            
+            <!-- ENTRADA PARA LA DIRECCIÓN -->
 
-            <div class="form-group">              
+            <div class="form-group">
 
-              <div class="input-group">              
+              <div class="input-group">
 
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
 
                 <input type="text" class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar dirección" required>
+
+                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL TELÉFONO -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar teléfono" required>
+
+                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL BANK NAME -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-building-columns"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoBankName" placeholder="Ingresar Nombre del banco" required>
+
+                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL BANK ADDRESS -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-map-location"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoBankAddress" placeholder="Ingresar Dirección del Banco" required>
+
+                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL SWIFT -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-hashtag"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoSwift" placeholder="Ingresar Swift" required>
+
+                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA ACCOUNT NUMBER -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-id-card"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoAccountNumber" placeholder="Ingresar Número de Cuenta" required>
+
+                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA PASSPORT NUMBER AND COUNTRY -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoPassportNumberCountry" placeholder="Ingresar País de emición y Número del pasaporte" required>
+
+                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA PASSPORT ISSUE DATE -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoPassportIssueDate" placeholder="Ingresar Fecha de emición del pasaporte" required>
+
+                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL PASSPORT EXPIRATION DATE -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoPassportExpirationDate" placeholder="Ingresar Fecha de vencimiendo del passaporte" required>
+
+                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL PASSPORT IMAGE -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoPassportImage" placeholder="Cargar foto del pasaporte" required>
+
+                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
 
               </div>
 
@@ -258,8 +413,8 @@ MODAL AGREGAR CLIENTE
 
       <?php
 
-        $crearCliente = new ControladorClientes();
-        $crearCliente -> ctrCrearCliente();
+      $crearCliente = new ControladorClientes();
+      $crearCliente->ctrCrearCliente();
 
       ?>
 
@@ -273,7 +428,7 @@ MODAL AGREGAR CLIENTE
 MODAL EDITAR CLIENTE
 ======================================-->
 
-<div id="modalEditarCliente" class="modal fade" role="dialog">  
+<div id="modalEditarCliente" class="modal fade" role="dialog">
 
   <div class="modal-dialog">
 
@@ -301,43 +456,59 @@ MODAL EDITAR CLIENTE
 
           <div class="box-body">
 
-            <!-- ENTRADA PARA EL NOMBRE -->            
+            <!-- ENTRADA PARA EL COSIGNEE -->
 
-            <div class="form-group">              
+            <div class="form-group">
 
-              <div class="input-group">              
+              <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa-solid fa-industry"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarCliente" id="editarCliente" required>
+                <input type="text" class="form-control input-lg" name="editarCosignee" id="editarCosignee" required>
 
-                <input type="hidden" id="idCliente" name="idCliente">
+                <input type="hidden" name="idCliente" id="idCliente" required>
 
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL DOCUMENTO ID -->            
-
-            <div class="form-group">              
-
-              <div class="input-group">              
-
-                <span class="input-group-addon"><i class="fa fa-key"></i></span>
-
-                <input type="number" min="0" class="form-control input-lg" name="editarDocumentoId" id="editarDocumentoId" required>
+                <input type="hidden" name="editarCliente" id="editarCliente" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL EMAIL -->            
+            <!-- ENTRADA PARA SIGNATORY-->
 
-            <div class="form-group">              
+            <div class="form-group">
 
-              <div class="input-group">              
+              <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa fa-envelope"></i></span> 
+                <span class="input-group-addon"><i class="fa-solid fa-user-tie"></i></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarSignatory" id="editarSignatory" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA POSICIÓN -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-briefcase"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarPosition" id="editarPosition" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL EMAIL -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
 
                 <input type="email" class="form-control input-lg" name="editarEmail" id="editarEmail" required>
 
@@ -345,11 +516,25 @@ MODAL EDITAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA EL TELÉFONO -->            
+            <!-- ENTRADA PARA LA DIRECCIÓN -->
 
-            <div class="form-group">              
+            <div class="form-group">
 
-              <div class="input-group">              
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarDireccion" id="editarDireccion" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL TELÉFONO -->
+
+            <div class="form-group">
+
+              <div class="input-group">
 
                 <span class="input-group-addon"><i class="fa fa-phone"></i></span>
 
@@ -359,15 +544,113 @@ MODAL EDITAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA LA DIRECCIÓN -->            
+            <!-- ENTRADA PARA BANK NAME -->
 
-            <div class="form-group">              
+            <div class="form-group">
 
-              <div class="input-group">              
+              <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+                <span class="input-group-addon"><i class="fa-solid fa-building-columns"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarDireccion" id="editarDireccion"  required>
+                <input type="text" class="form-control input-lg" name="editarBankName" id="editarBankName" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA BANK ADDRESS -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-map-location"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarBankAddress" id="editarBankAddress" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA SWIFT -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-hashtag"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarSwift" id="editarSwift" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA ACCOUNT NUMBER -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-id-card"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarAccountNumber" id="editarAccountNumber" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA PASSPORT NUMBER COUNTRY -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarPassportNumberCountry" id="editarPassportNumberCountry" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA PASSPORT ISSUE DATE -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarPassportIssueDate" id="editarPassportIssueDate" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA PASSPORT EXPIRATION DATE -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarPassportExpirationDate" id="editarPassportExpirationDate" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA LA PASSPORT IMAGE -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarPassportImage" id="editarPassportImage" required>
 
               </div>
 
@@ -393,10 +676,10 @@ MODAL EDITAR CLIENTE
 
       <?php
 
-        $editarCliente = new ControladorClientes();
-        $editarCliente -> ctrEditarCliente();
+      $editarCliente = new ControladorClientes();
+      $editarCliente->ctrEditarCliente();
 
-      ?>  
+      ?>
 
     </div>
 
@@ -406,12 +689,257 @@ MODAL EDITAR CLIENTE
 
 <?php
 
-  $eliminarCliente = new ControladorClientes();
-  $eliminarCliente -> ctrEliminarCliente();
+$eliminarCliente = new ControladorClientes();
+$eliminarCliente->ctrEliminarCliente();
 
 ?>
 
+<!--=====================================
+MODAL INFORMACIÓN DEL CLIENTE
+======================================-->
 
+<div id="modalInfoCliente" class="modal fade" role="dialog">
 
+  <div class="modal-dialog">
 
+    <div class="modal-content">
 
+      <form role="form" method="post">
+
+        <!--=====================================
+        CABEZA DEL MODAL
+        ======================================-->
+
+        <div class="modal-header" style="background:#3c8dbc; color:white">
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4 class="modal-title">Información del Cliente</h4>
+
+        </div>
+
+        <!--=====================================
+        CUERPO DEL MODAL
+        ======================================-->
+
+        <div class="modal-body">
+
+          <div class="box-body">
+
+            <!-- ENTRADA PARA EL COSIGNEE -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-industry"></i> Cosignatario</span>
+
+                <input type="text" class="form-control input-lg" name="infoCosignee" id="infoCosignee" readonly>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA SIGNATORY-->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-user-tie"></i> Firmante</span>
+
+                <input type="text" class="form-control input-lg" name="infoSignatory" id="infoSignatory" readonly>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA POSICIÓN -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-briefcase"></i> Posición</span>
+
+                <input type="text" class="form-control input-lg" name="infoPosition" id="infoPosition" readonly>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL EMAIL -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-envelope"></i> Email</span>
+
+                <input type="email" class="form-control input-lg" name="infoEmail" id="infoEmail" readonly>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA LA DIRECCIÓN -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i> Dirección</span>
+
+                <input type="text" class="form-control input-lg" name="infoDireccion" id="infoDireccion" readonly>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL TELÉFONO -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-phone"></i> Teléfono</span>
+
+                <input type="text" class="form-control input-lg" name="infoTelefono" id="infoTelefono" data-inputmask="'mask':'(999) 999-9999'" data-mask readonly>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA BANK NAME -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-building-columns"></i> Nombre del Banco</span>
+
+                <input type="text" class="form-control input-lg" name="infoBankName" id="infoBankName" readonly>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA BANK ADDRESS -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-map-location"></i> Dirección del Banco</span>
+
+                <input type="text" class="form-control input-lg" name="infoBankAddress" id="infoBankAddress" readonly>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA SWIFT -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-hashtag"></i> Swift</span>
+
+                <input type="text" class="form-control input-lg" name="infoSwift" id="infoSwift" readonly>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA ACCOUNT NUMBER -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-id-card"></i> Número de Cuenta</span>
+
+                <input type="text" class="form-control input-lg" name="infoAccountNumber" id="infoAccountNumber" readonly>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA PASSPORT NUMBER COUNTRY -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-passport"></i> País y Número del Pasaporte</span>
+
+                <input type="text" class="form-control input-lg" name="infoPassportNumberCountry" id="infoPassportNumberCountry" readonly>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA PASSPORT ISSUE DATE -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-passport"></i> Fecha de Emición del Pasaporte</span>
+
+                <input type="text" class="form-control input-lg" name="infoPassportIssueDate" id="infoPassportIssueDate" readonly>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA PASSPORT EXPIRATION DATE -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-passport"></i> Fecha de Vencimiento del Pasaporte</span>
+
+                <input type="text" class="form-control input-lg" name="infoPassportExpirationDate" id="infoPassportExpirationDate" readonly>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA LA PASSPORT IMAGE -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-passport"></i> Foto del Pasaporte</span>
+
+                <input type="text" class="form-control input-lg" name="infoPassportImage" id="infoPassportImage" readonly>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!--=====================================
+        PIE DEL MODAL
+        ======================================-->
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

@@ -183,12 +183,17 @@ CUERPO DOCUMENTO
         $_GET["ruta"] == "editar-venta" ||
         $_GET["ruta"] == "cuentas-cobrar" ||
         $_GET["ruta"] == "reportes" ||
-        $_GET["ruta"] == "formato-1" ||
-        $_GET["ruta"] == "formato-2" ||
-        $_GET["ruta"] == "formato-3" ||
-        $_GET["ruta"] == "formato-4" ||
-        $_GET["ruta"] == "formato" ||
-        $_GET["ruta"] == "formato-imagenes" ||
+        $_GET["ruta"] == "commodity" ||
+        $_GET["ruta"] == "product-origin" ||
+        $_GET["ruta"] == "port" ||
+        $_GET["ruta"] == "loi" ||
+        $_GET["ruta"] == "sco" ||
+        // $_GET["ruta"] == "formato-1" ||
+        // $_GET["ruta"] == "formato-2" ||
+        // $_GET["ruta"] == "formato-3" ||
+        // $_GET["ruta"] == "formato-4" ||
+        // $_GET["ruta"] == "formato" ||
+        // $_GET["ruta"] == "formato-imagenes" ||
         $_GET["ruta"] == "salir"
       ) {
 
@@ -248,12 +253,17 @@ CUERPO DOCUMENTO
   <script src="vistas/js/ventas.js"></script>
   <script src="vistas/js/cotizaciones.js"></script>
   <script src="vistas/js/reportes.js"></script>
-  <script src="vistas/js/formato1.js"></script>
+  <script src="vistas/js/commodity.js"></script>
+  <script src="vistas/js/productorigin.js"></script>
+  <script src="vistas/js/port.js"></script>
+  <script src="vistas/js/loi.js"></script>
+  <script src="vistas/js/sco.js"></script>
+  <!-- <script src="vistas/js/formato1.js"></script>
   <script src="vistas/js/formato2.js"></script>
-  <script src="vistas/js/formato3.js"></script>
-  <script src="vistas/js/formato4.js"></script>
-  <script src="vistas/js/formato.js"></script>
-  <script src="vistas/js/formatoimagenes.js"></script>
+  <script src="vistas/js/formato3.js"></script> -->
+  <!-- <script src="vistas/js/formato4.js"></script> -->
+  <!-- <script src="vistas/js/formato.js"></script>
+  <script src="vistas/js/formatoimagenes.js"></script> -->
 
 </body>
 

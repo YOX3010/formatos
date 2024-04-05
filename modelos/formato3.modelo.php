@@ -5,164 +5,198 @@ require_once "conexion.php";
 class ModeloFormato3
 {
 
-	/*=============================================
-	CREAR FORMATO 3
-	=============================================*/
+    /*=============================================
+    CREAR FORMATO 3
+    =============================================*/
 
-	// static public function mdlIngresarFormato3($tabla, $datos)
-	// {
+    // public static function mdlIngresarFormato3($tabla, $datos)
+    // {
 
-	// 	$stmt = Conexion::conectar()->prepare("INSERT INTO 		$tabla(	commercial_invoice,
-	// 																	date_form,
-	// 																	cosignee,
-	// 																	signatory,
-	// 																	address,
-	// 																	telephone,
-	// 																	email,
-	// 																	commodity,
-	// 																	quantity,
-	// 																	unit_price,
-	// 																	total_gross_amount,
-	// 																	terms_delivery_destination_port,
-	// 																	terms_payment,
-	// 																	fright_insurance_charges,
-	// 																	seller_account_detail,
-	// 																	bank_name,
-	// 																	bank_address,
-	// 																	account_name,
-	// 																	account_number,
-	// 																	swift,
-	// 																	buyer_bank_name,
-	// 																	bank_address_buyer,
-	// 																	account_holder,
-	// 																	swift_code,
-	// 																	account_number_buyer) 
-	// 															VALUES(	:commercial_invoice,
-	// 																	:date_form,
-	// 																	:cosignee,
-	// 																	:signatory,
-	// 																	:address,
-	// 																	:telephone,
-	// 																	:email,
-	// 																	:commodity,
-	// 																	:quantity,
-	// 																	:unit_price,
-	// 																	:total_gross_amount,
-	// 																	:terms_delivery_destination_port,
-	// 																	:terms_payment,
-	// 																	:fright_insurance_charges,
-	// 																	:seller_account_detail,
-	// 																	:bank_name,
-	// 																	:bank_address,
-	// 																	:account_name,
-	// 																	:account_number,
-	// 																	:swift,
-	// 																	:buyer_bank_name,
-	// 																	:bank_address_buyer,
-	// 																	:account_holder,
-	// 																	:swift_code,
-	// 																	:account_number_buyer)");
+    //     $stmt = Conexion::conectar()->prepare("INSERT INTO 		$tabla(	code,
+    // 																	ref_number,
+    // 																	date_today,
+    // 																	to_client,
+    // 																	trade_date,
+    // 																	seller,
+    // 																	product_name,
+    // 																	shipping_terms_sale,
+    // 																	origin,
+    // 																	trial_quantity,
+    // 																	contract_quantity,
+    // 																	duration_contract,
+    // 																	target_price_usd,
+    // 																	shipment_terms,
+    // 																	vessel,
+    // 																	inspection,
+    // 																	insurance,
+    // 																	payment_method,
+    // 																	qq_determination,
+    // 																	lay_time,
+    // 																	demurrage_rate,
+    // 																	law,
+    // 																	id_images)
+    // 															VALUES(	:code,
+    // 																	:ref_number,
+    // 																	:date_today,
+    // 																	:to_client,
+    // 																	:trade_date,
+    // 																	:seller,
+    // 																	:product_name,
+    // 																	:shipping_terms_sale,
+    // 																	:origin,
+    // 																	:trial_quantity,
+    // 																	:contract_quantity,
+    // 																	:duration_contract,
+    // 																	:target_price_usd,
+    // 																	:shipment_terms,
+    // 																	:vessel,
+    // 																	:inspection,
+    // 																	:insurance,
+    // 																	:payment_method,
+    // 																	:qq_determination,
+    // 																	:lay_time,
+    // 																	:demurrage_rate,
+    // 																	:law,
+    // 																	:id_images)");
 
-	// 	$stmt->bindParam(":commercial_invoice", $datos["commercial_invoice"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":date_form", $datos["date_form"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":cosignee", $datos["cosignee"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":signatory", $datos["signatory"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":address", $datos["address"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":telephone", $datos["telephone"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":email", $datos["email"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":commodity", $datos["commodity"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":quantity", $datos["quantity"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":unit_price", $datos["unit_price"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":total_gross_amount", $datos["total_gross_amount"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":terms_delivery_destination_port", $datos["terms_delivery_destination_port"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":terms_payment", $datos["terms_payment"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":fright_insurance_charges", $datos["fright_insurance_charges"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":seller_account_detail", $datos["seller_account_detail"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":bank_name", $datos["bank_name"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":bank_address", $datos["bank_address"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":account_name", $datos["account_name"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":account_number", $datos["account_number"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":swift", $datos["swift"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":buyer_bank_name", $datos["buyer_bank_name"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":bank_address_buyer", $datos["bank_address_buyer"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":account_holder", $datos["account_holder"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":swift_code", $datos["swift_code"], PDO::PARAM_STR);
-	// 	$stmt->bindParam(":account_number_buyer", $datos["account_number_buyer"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":code", $datos["code"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":ref_number", $datos["ref_number"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":date_today", $datos["date_today"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":to_client", $datos["to_client"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":trade_date", $datos["trade_date"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":seller", $datos["seller"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":product_name", $datos["product_name"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":shipping_terms_sale", $datos["shipping_terms_sale"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":origin", $datos["origin"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":trial_quantity", $datos["trial_quantity"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":contract_quantity", $datos["contract_quantity"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":duration_contract", $datos["duration_contract"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":target_price_usd", $datos["target_price_usd"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":shipment_terms", $datos["shipment_terms"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":vessel", $datos["vessel"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":inspection", $datos["inspection"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":insurance", $datos["insurance"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":payment_method", $datos["payment_method"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":qq_determination", $datos["qq_determination"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":lay_time", $datos["lay_time"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":demurrage_rate", $datos["demurrage_rate"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":law", $datos["law"], PDO::PARAM_STR);
+    //     $stmt->bindParam(":id_images", $datos["id_images"], PDO::PARAM_STR);
 
-	// 	if ($stmt->execute()) {
+    //     if ($stmt->execute()) {
 
-	// 		return "ok";
-	// 	} else {
+    //         return "ok";
+    //     } else {
 
-	// 		return "error";
-	// 	}
+    //         return "error";
+    //     }
 
-	// 	$stmt->close();
-	// 	$stmt = null;
-	// }
+    //     $stmt->close();
+    //     $stmt = null;
+    // }
 
-	/*=============================================
-	MOSTRAR FORMATO 3
-	=============================================*/
+    /*=============================================
+    MOSTRAR FORMATO 3
+    =============================================*/
 
-	static public function mdlMostrarFormato3($tabla, $item, $valor)
-	{
+    public static function mdlMostrarFormato3($tabla, $item, $valor)
+    {
 
-		if ($item != null) {
+        if ($item != null) {
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
 
-			$stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
+            $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
 
-			$stmt->execute();
+            $stmt->execute();
 
-			return $stmt->fetch();
-		} else {
+            return $stmt->fetch();
+        } else {
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
 
-			$stmt->execute();
+            $stmt->execute();
 
-			return $stmt->fetchAll();
-		}
+            return $stmt->fetchAll();
+        }
 
-		$stmt->close();
+        $stmt->close();
 
-		$stmt = null;
-	}
+        $stmt = null;
+    }
 
-	/*=============================================
-	EDITAR FORMATO 3
-	=============================================*/
+    /*=============================================
+    EDITAR FORMATO 3
+    =============================================*/
 
-	static public function mdlEditarFormato3($tabla, $datos)
-	{
+    public static function mdlEditarFormato3($tabla, $datos)
+    {
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla 	SET 	commercial_invoice = :commercial_invoice,
-																		date_commercial_invoice = :date_commercial_invoice,
-																		total_gross_amount = :total_gross_amount,
-                                                                        terms_delivary_destination_port = :terms_delivary_destination_port,
-                                                                        terms_payment = :terms_payment,
-                                                                        freight_insurance_charges = :freight_insurance_charges
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla 	SET 	authentication_code = :authentication_code,
+                                                                        ref_number = :ref_number,
+                                                                        icpo_date = :icpo_date,
+                                                                        icpo_to = :icpo_to,
+                                                                        trade_date = :trade_date,
+                                                                        seller = :seller,
+                                                                        duration_contract = :duration_contract,
+                                                                        target_price = :target_price,
+                                                                        vessel = :vessel,
+                                                                        inspection = :inspection,
+                                                                        insurance = :insurance,
+                                                                        payment_method = :payment_method,
+                                                                        qq_determination = :qq_determination,
+                                                                        lay_time = :lay_time,
+                                                                        demurrage_rate = :demurrage_rate,
+                                                                        law = :law,
+                                                                        name = :name,
+                                                                        date_place_birth = :date_place_birth,
+                                                                        passport_number_country_issue = :passport_number_country_issue,
+                                                                        passport_issue_date = :passport_issue_date,
+                                                                        passport_expiration_date = :passport_expiration_date,
+                                                                        title_within_corporation_company = :title_within_corporation_company,
+                                                                        office_phone_number = :office_phone_number,
+                                                                        mobile_phone_number = :mobile_phone_number,
+                                                                        email_address = :email_address,
+                                                                        id_imagenes = :id_imagenes
 															 	WHERE 	id = :id");
 
-		$stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
-		$stmt->bindParam(":commercial_invoice", $datos["commercial_invoice"], PDO::PARAM_STR);
-		$stmt->bindParam(":date_commercial_invoice", $datos["date_commercial_invoice"], PDO::PARAM_STR);
-		$stmt->bindParam(":total_gross_amount", $datos["total_gross_amount"], PDO::PARAM_STR);
-		$stmt->bindParam(":terms_delivary_destination_port", $datos["terms_delivary_destination_port"], PDO::PARAM_STR);
-		$stmt->bindParam(":terms_payment", $datos["terms_payment"], PDO::PARAM_STR);
-		$stmt->bindParam(":freight_insurance_charges", $datos["freight_insurance_charges"], PDO::PARAM_STR);
+        $stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
+        $stmt->bindParam(":authentication_code", $datos["authentication_code"], PDO::PARAM_STR);
+        $stmt->bindParam(":ref_number", $datos["ref_number"], PDO::PARAM_STR);
+        $stmt->bindParam(":icpo_date", $datos["icpo_date"], PDO::PARAM_STR);
+        $stmt->bindParam(":icpo_to", $datos["icpo_to"], PDO::PARAM_STR);
+        $stmt->bindParam(":trade_date", $datos["trade_date"], PDO::PARAM_STR);
+        $stmt->bindParam(":seller", $datos["seller"], PDO::PARAM_STR);
+        $stmt->bindParam(":duration_contract", $datos["duration_contract"], PDO::PARAM_STR);
+        $stmt->bindParam(":target_price", $datos["target_price"], PDO::PARAM_STR);
+        $stmt->bindParam(":vessel", $datos["vessel"], PDO::PARAM_STR);
+        $stmt->bindParam(":inspection", $datos["inspection"], PDO::PARAM_STR);
+        $stmt->bindParam(":insurance", $datos["insurance"], PDO::PARAM_STR);
+        $stmt->bindParam(":payment_method", $datos["payment_method"], PDO::PARAM_STR);
+        $stmt->bindParam(":qq_determination", $datos["qq_determination"], PDO::PARAM_STR);
+        $stmt->bindParam(":lay_time", $datos["lay_time"], PDO::PARAM_STR);
+        $stmt->bindParam(":demurrage_rate", $datos["demurrage_rate"], PDO::PARAM_STR);
+        $stmt->bindParam(":law", $datos["law"], PDO::PARAM_STR);
+        $stmt->bindParam(":name", $datos["name"], PDO::PARAM_STR);
+        $stmt->bindParam(":date_place_birth", $datos["date_place_birth"], PDO::PARAM_STR);
+        $stmt->bindParam(":passport_number_country_issue", $datos["passport_number_country_issue"], PDO::PARAM_STR);
+        $stmt->bindParam(":passport_issue_date", $datos["passport_issue_date"], PDO::PARAM_STR);
+        $stmt->bindParam(":passport_expiration_date", $datos["passport_expiration_date"], PDO::PARAM_STR);
+        $stmt->bindParam(":title_within_corporation_company", $datos["title_within_corporation_company"], PDO::PARAM_STR);
+        $stmt->bindParam(":office_phone_number", $datos["office_phone_number"], PDO::PARAM_STR);
+        $stmt->bindParam(":mobile_phone_number", $datos["mobile_phone_number"], PDO::PARAM_STR);
+        $stmt->bindParam(":email_address", $datos["email_address"], PDO::PARAM_STR);
+        $stmt->bindParam(":id_imagenes", $datos["id_imagenes"], PDO::PARAM_STR);
 
-		if ($stmt->execute()) {
+        if ($stmt->execute()) {
 
-			return "ok";
-		} else {
+            return "ok";
+        } else {
 
-			return "error";
-		}
+            return "error";
+        }
 
-		$stmt->close();
-		$stmt = null;
-	}
+        $stmt->close();
+        $stmt = null;
+    }
 }

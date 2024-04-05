@@ -1,28 +1,41 @@
 <?php
 
-class ControladorClientes{
+class ControladorClientes
+{
 
 	/*=============================================
 	CREAR CLIENTES
 	=============================================*/
 
-	static public function ctrCrearCliente(){
+	static public function ctrCrearCliente()
+	{
 
-		if(isset($_POST["nuevoCliente"])){
+		if (isset($_POST["nuevoCliente"])) {
 
-			   	$tabla = "clientes";
+			$tabla = "clientes";
 
-			   	$datos = array("nombre"=>$_POST["nuevoCliente"],
-					           "documento"=>$_POST["nuevoDocumentoId"],
-					           "email"=>$_POST["nuevoEmail"],
-					           "telefono"=>$_POST["nuevoTelefono"],
-					           "direccion"=>$_POST["nuevaDireccion"]);
+			$datos = array(
+				"cosignee" => $_POST["nuevoCosignee"],
+				"signatory" => $_POST["nuevoSignatory"],
+				"position" => $_POST["nuevoPosition"],
+				"email" => $_POST["nuevoEmail"],
+				"direccion" => $_POST["nuevaDireccion"],
+				"telefono" => $_POST["nuevoTelefono"],
+				"bank_name" => $_POST["nuevoBankName"],
+				"bank_address" => $_POST["nuevoBankAddress"],
+				"swift" => $_POST["nuevoSwift"],
+				"account_number" => $_POST["nuevoAccountNumber"],
+				"passport_number_country" => $_POST["nuevoPassportNumberCountry"],
+				"passport_issue_date" => $_POST["nuevoPassportIssueDate"],
+				"passport_expiration_date" => $_POST["nuevoPassportExpirationDate"],
+				"passport_image" => $_POST["nuevoPassportImage"],
+			);
 
-			   	$respuesta = ModeloClientes::mdlIngresarCliente($tabla, $datos);
+			$respuesta = ModeloClientes::mdlIngresarCliente($tabla, $datos);
 
-			   	if($respuesta == "ok"){
+			if ($respuesta == "ok") {
 
-					echo'<script>
+				echo '<script>
 
 					swal({
 						  type: "success",
@@ -39,10 +52,9 @@ class ControladorClientes{
 
 								})
 					</script>';
+			} else {
 
-			}else{
-
-				echo'<script>
+				echo '<script>
 
 					swal({
 						  type: "error",
@@ -60,47 +72,57 @@ class ControladorClientes{
 						})
 			  	</script>';
 			}
-
 		}
-
 	}
 
 	/*=============================================
 	MOSTRAR CLIENTES
 	=============================================*/
 
-	static public function ctrMostrarClientes($item, $valor){
+	static public function ctrMostrarClientes($item, $valor)
+	{
 
 		$tabla = "clientes";
 
 		$respuesta = ModeloClientes::mdlMostrarClientes($tabla, $item, $valor);
 
 		return $respuesta;
-
 	}
 
 	/*=============================================
 	EDITAR CLIENTE
 	=============================================*/
 
-	static public function ctrEditarCliente(){
+	static public function ctrEditarCliente()
+	{
 
-		if(isset($_POST["editarCliente"])){
+		if (isset($_POST["editarCliente"])) {
 
-			   	$tabla = "clientes";
+			$tabla = "clientes";
 
-			   	$datos = array("id"=>$_POST["idCliente"],
-			   				   "nombre"=>$_POST["editarCliente"],
-					           "documento"=>$_POST["editarDocumentoId"],
-					           "email"=>$_POST["editarEmail"],
-					           "telefono"=>$_POST["editarTelefono"],
-					           "direccion"=>$_POST["editarDireccion"]);
+			$datos = array(
+				"id" => $_POST["idCliente"],
+				"cosignee" => $_POST["editarCosignee"],
+				"signatory" => $_POST["editarSignatory"],
+				"position" => $_POST["editarPosition"],
+				"email" => $_POST["editarEmail"],
+				"direccion" => $_POST["editarDireccion"],
+				"telefono" => $_POST["editarTelefono"],
+				"bank_name" => $_POST["editarBankName"],
+				"bank_address" => $_POST["editarBankAddress"],
+				"swift" => $_POST["editarSwift"],
+				"account_number" => $_POST["editarAccountNumber"],
+				"passport_number_country" => $_POST["editarPassportNumberCountry"],
+				"passport_issue_date" => $_POST["editarPassportIssueDate"],
+				"passport_expiration_date" => $_POST["editarPassportExpirationDate"],
+				"passport_image" => $_POST["editarPassportImage"]
+			);
 
-			   	$respuesta = ModeloClientes::mdlEditarCliente($tabla, $datos);
+			$respuesta = ModeloClientes::mdlEditarCliente($tabla, $datos);
 
-			   	if($respuesta == "ok"){
+			if ($respuesta == "ok") {
 
-					echo'<script>
+				echo '<script>
 
 					swal({
 						  type: "success",
@@ -116,10 +138,9 @@ class ControladorClientes{
 									}
 								})
 					</script>';
+			} else {
 
-			}else{
-
-				echo'<script>
+				echo '<script>
 
 					swal({
 						  type: "error",
@@ -136,33 +157,31 @@ class ControladorClientes{
 
 						})
 			  	</script>';
-
 			}
-
 		}
-
 	}
 
 	/*=============================================
 	ELIMINAR CLIENTE
 	=============================================*/
 
-	static public function ctrEliminarCliente(){
+	static public function ctrEliminarCliente()
+	{
 
-		if(isset($_GET["idCliente"])){
+		if (isset($_GET["idCliente"])) {
 
-			$tabla ="clientes";
+			$tabla = "clientes";
 			$datos = $_GET["idCliente"];
 
 			$respuesta = ModeloClientes::mdlEliminarCliente($tabla, $datos);
 
-			if($respuesta == "ok"){
+			if ($respuesta == "ok") {
 
-				echo'<script>
+				echo '<script>
 
 				swal({
 					  type: "success",
-					  title: "El cliente ha sido borrado correctamente",					  showConfirmButton: true,
+					  title: "El cliente ha sido borrado correctamente", showConfirmButton: true,
 					  confirmButtonText: "Cerrar",
 					  closeOnConfirm: false
 					  }).then(function(result){
@@ -174,14 +193,7 @@ class ControladorClientes{
 								}
 							})
 				</script>';
-
-			}	
-
+			}
 		}
-
 	}
-
 }
-
-
-

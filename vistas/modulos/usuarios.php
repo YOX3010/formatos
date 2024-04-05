@@ -56,12 +56,10 @@ if ($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor") {
 
               <th style="width:10px">#</th>
               <th>Nombre</th>
-              <th>Usuario</th>
-              <th>Foto</th>
-              <th>Perfil</th>
               <th>Posición</th>
-              <th>Via</th>
-              <th>Email de Via</th>
+              <th>Email</th>
+              <th>Usuario</th>
+              <th>Perfil</th>
               <th>Estado</th>
               <th>Último login</th>
               <th>Acciones</th>
@@ -84,21 +82,19 @@ if ($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor") {
               echo ' <tr>
                   <td>' . ($key + 1) . '</td>
                   <td>' . $value["nombre"] . '</td>
+                  <td>' . $value["position"] . '</td>
+                  <td>' . $value["email"] . '</td>
                   <td>' . $value["usuario"] . '</td>';
 
-              if ($value["foto"] != "") {
+              // if ($value["foto"] != "") {
 
-                echo '<td><img src="' . $value["foto"] . '" class="img-thumbnail" width="40px"></td>';
-              } else {
+              //   echo '<td><img src="' . $value["foto"] . '" class="img-thumbnail" width="40px"></td>';
+              // } else {
 
-                echo '<td><img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="40px"></td>';
-              }
+              //   echo '<td><img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="40px"></td>';
+              // }
 
               echo '<td>' . $value["perfil"] . '</td>';
-
-              echo '<td>' . $value["position"] . '</td>
-                    <td>' . $value["via"] . '</td>
-                    <td>' . $value["via_email"] . '</td>';
 
               if ($value["estado"] != 0) {
 
@@ -185,6 +181,34 @@ MODAL AGREGAR USUARIO
 
             </div>
 
+            <!-- ENTRADA PARA EL EMAIL -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoEmail" placeholder="Ingresar email" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL POSICIÓN -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-sitemap"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoPosition" placeholder="Ingresar Posición" required>
+
+              </div>
+
+            </div>
+
             <!-- ENTRADA PARA EL USUARIO -->
 
             <div class="form-group">
@@ -208,48 +232,6 @@ MODAL AGREGAR USUARIO
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 
                 <input type="password" class="form-control input-lg" name="nuevoPassword" placeholder="Ingresar contraseña" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL POSICIÓN -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa-solid fa-sitemap"></i></span>
-
-                <input type="text" class="form-control input-lg" name="nuevoPosition" placeholder="Ingresar Posición" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL VIA -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa-solid fa-truck"></i></span>
-
-                <input type="text" class="form-control input-lg" name="nuevoVia" placeholder="Ingresar Via" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL EMAIL DE VIA -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa-solid fa-envelope"></i></span>
-
-                <input type="text" class="form-control input-lg" name="nuevoViaEmail" placeholder="Ingresar Email de Via" required>
 
               </div>
 
@@ -281,7 +263,7 @@ MODAL AGREGAR USUARIO
 
             <!-- ENTRADA PARA SUBIR FOTO -->
 
-            <div class="form-group">
+            <!-- <div class="form-group">
 
               <div class="panel">SUBIR FOTO</div>
 
@@ -291,7 +273,7 @@ MODAL AGREGAR USUARIO
 
               <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
 
-            </div>
+            </div> -->
 
           </div>
 
