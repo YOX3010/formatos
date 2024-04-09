@@ -56,9 +56,11 @@ $(".tablas").on("click", ".btnEditarUsuario", function () {
     processData: false,
     dataType: "json",
     success: function (respuesta) {
+      $("#idUsuario").val(respuesta["id"]);
       $("#editarNombre").val(respuesta["nombre"]);
       $("#editarPosition").val(respuesta["position"]);
       $("#editarEmail").val(respuesta["email"]);
+      $("#editarTelefono").val(respuesta["telefono"]);
       $("#editarUsuario").val(respuesta["usuario"]);
       $("#editarPerfil").html(respuesta["perfil"]);
       $("#editarPerfil").val(respuesta["perfil"]);

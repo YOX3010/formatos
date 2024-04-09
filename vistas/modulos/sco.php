@@ -80,7 +80,46 @@ if ($_SESSION["perfil"] == "Especial") {
 
               if ($value["id_loi"] == $_GET["idSCO"]) {
 
-                echo '<tr>';
+                echo '
+                
+                <tr style="background-color:#e1e1e1;">
+          
+            <td>
+              
+              <b>Fecha: </b> ' . $value["fecha"] . '
+        
+            </td>
+        
+          
+            <td colspan="1">
+              
+              <b>COD: </b> ' . $value["codigo"] . '
+        
+            </td>
+        
+            <td colspan="3" style=" text-align:end;">
+
+            <div class="btn-group">
+
+            <button class="btn btn-danger btnImprimirSCO" idSCO="' . $value["id"] . '"><i class="fa-solid fa-file-pdf"></i> Ver SCO</button>
+
+            <button class="btn btn-info btnImprimirCI" idCI="' . $value["id"] . '"><i class="fa-solid fa-file-invoice-dollar"></i> Imprimir CI</button>';
+
+                if ($_SESSION["perfil"] == "Administrador") {
+
+                  echo '<button class="btn btn-warning btnEditarSCO" idSCO="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarSCO"><i class="fa fa-pencil"></i></button>';
+
+                  //echo '<button class="btn btn-danger btnEliminarEmpleado" idEmpleado="'.$value["id"].'"><i class="fa fa-times"></i></button>';
+
+                }
+
+                echo '</div>
+              
+              </td>
+
+              </tr>
+                
+                <tr>';
 
                 $itemCliente = "id";
                 $valorCliente = $value["id_clientes"];
@@ -247,35 +286,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
             <td colspan="2">' . $value["commission"] . '</td>
 
-          </tr>
-
-          <tr style="background-color:#e1e1e1;">
-          
-            <td>
-              
-              <b>Fecha: </b> ' . $value["fecha"] . '
-        
-            </td>
-        
-            <td colspan="3" style=" text-align:end;">
-
-            <div class="btn-group">
-
-            <button class="btn btn-danger btnImprimirSCO" idSCO="' . $value["id"] . '"><i class="fa-solid fa-file-pdf"></i> Ver PDF</button>';
-
-                if ($_SESSION["perfil"] == "Administrador") {
-
-                  echo '<button class="btn btn-warning btnEditarSCO" idSCO="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarSCO"><i class="fa fa-pencil"></i></button>';
-
-                  //echo '<button class="btn btn-danger btnEliminarEmpleado" idEmpleado="'.$value["id"].'"><i class="fa fa-times"></i></button>';
-
-                }
-
-                echo '</div>
-              
-              </td>
-
-              </tr>';
+          </tr>';
               }
             }
 
@@ -365,7 +376,18 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-industry"></i></span>
 
-                <input type="number" min="0" max="99999999999" class="form-control input-lg" name="nuevoClientes" placeholder="To / Para:" require>
+                <!-- <input type="number" min="0" max="99999999999" class="form-control input-lg" name="nuevoClientes" placeholder="To / Para:" require> -->
+
+                <?php
+
+                $itemCliente = "id";
+                $valorCliente = $value["id_clientes"];
+
+                $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+
+                ?>
+
+                <input type="number" min="0" max="99999999999" class="form-control input-lg" name="nuevoClientes" value="<?php echo $respuestaCliente["id"] ?>" require>
 
                 <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
 

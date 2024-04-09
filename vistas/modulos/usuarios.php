@@ -111,8 +111,6 @@ if ($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor") {
                         
                       <button class="btn btn-warning btnEditarUsuario" idUsuario="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
 
-                      <button class="btn btn-danger btnEliminarUsuario" idUsuario="' . $value["id"] . '" fotoUsuario="' . $value["foto"] . '" usuario="' . $value["usuario"] . '"><i class="fa fa-times"></i></button>
-
                     </div>  
 
                   </td>
@@ -181,6 +179,20 @@ MODAL AGREGAR USUARIO
 
             </div>
 
+            <!-- ENTRADA PARA EL POSICIÓN -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-sitemap"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoPosition" placeholder="Ingresar Posición" required>
+
+              </div>
+
+            </div>
+
             <!-- ENTRADA PARA EL EMAIL -->
 
             <div class="form-group">
@@ -195,15 +207,15 @@ MODAL AGREGAR USUARIO
 
             </div>
 
-            <!-- ENTRADA PARA EL POSICIÓN -->
+            <!-- ENTRADA PARA EL TELEFONO -->
 
             <div class="form-group">
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-sitemap"></i></span>
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoPosition" placeholder="Ingresar Posición" required>
+                <input type="text" class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar Número de Telefono" required>
 
               </div>
 
@@ -346,7 +358,11 @@ MODAL EDITAR USUARIO
 
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                <input type="text" class="form-control input-lg" id="editarNombre" name="editarNombre" value="" required>
+                <input type="text" class="form-control input-lg" id="editarNombre" name="editarNombre" required>
+
+                <input type="hidden" name="idUsuario" id="idUsuario" required>
+
+                <input type="hidden" name="editarUsuario" id="editarUsuario" required>
 
               </div>
 
@@ -360,7 +376,35 @@ MODAL EDITAR USUARIO
 
                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value="" readonly>
+                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" readonly>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL EMAIL -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+
+                <input type="text" class="form-control input-lg" id="editarEmail" name="editarEmail">
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL TELEFONO -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+
+                <input type="text" class="form-control input-lg" id="editarTelefono" name="editarTelefono" value="">
 
               </div>
 
@@ -398,7 +442,7 @@ MODAL EDITAR USUARIO
 
             <!-- ENTRADA PARA EL VIA -->
 
-            <div class="form-group">
+            <!-- <div class="form-group">
 
               <div class="input-group">
 
@@ -408,11 +452,11 @@ MODAL EDITAR USUARIO
 
               </div>
 
-            </div>
+            </div> -->
 
             <!-- ENTRADA PARA EL EMAIL DE VIA -->
 
-            <div class="form-group">
+            <!-- <div class="form-group">
 
               <div class="input-group">
 
@@ -422,7 +466,7 @@ MODAL EDITAR USUARIO
 
               </div>
 
-            </div>
+            </div> -->
 
             <!-- ENTRADA PARA SELECCIONAR SU PERFIL -->
 
@@ -450,7 +494,7 @@ MODAL EDITAR USUARIO
 
             <!-- ENTRADA PARA SUBIR FOTO -->
 
-            <div class="form-group">
+            <!-- <div class="form-group">
 
               <div class="panel">SUBIR FOTO</div>
 
@@ -462,7 +506,7 @@ MODAL EDITAR USUARIO
 
               <input type="hidden" name="fotoActual" id="fotoActual">
 
-            </div>
+            </div> -->
 
           </div>
 

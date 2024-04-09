@@ -226,6 +226,8 @@ MODAL EDITAR UM
 
                 <input type="hidden" name="idUM" id="idUM" required>
 
+                <input type="hidden" name="editarUM" id="editarUM" required>
+
               </div>
 
             </div>

@@ -32,6 +32,7 @@ class ControladorUsuarios
 						$_SESSION["nombre"] = $respuesta["nombre"];
 						$_SESSION["position"] = $respuesta["position"];
 						$_SESSION["email"] = $respuesta["email"];
+						$_SESSION["telefono"] = $respuesta["telefono"];
 						$_SESSION["usuario"] = $respuesta["usuario"];
 						$_SESSION["perfil"] = $respuesta["perfil"];
 						// $_SESSION["foto"] = $respuesta["foto"];
@@ -89,6 +90,7 @@ class ControladorUsuarios
 				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
 				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoPosition"]) &&
 				preg_match('/./', $_POST["nuevoEmail"]) &&
+				preg_match('/./', $_POST["nuevoTelefono"]) &&
 				preg_match('/./', $_POST["nuevoUsuario"]) &&
 				preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoPassword"])
 			) {
@@ -165,6 +167,7 @@ class ControladorUsuarios
 					"nombre" => $_POST["nuevoNombre"],
 					"position" => $_POST["nuevoPosition"],
 					"email" => $_POST["nuevoEmail"],
+					"telefono" => $_POST["nuevoTelefono"],
 					"usuario" => $_POST["nuevoUsuario"],
 					"password" => $encriptar,
 					"perfil" => $_POST["nuevoPerfil"],
@@ -360,10 +363,12 @@ class ControladorUsuarios
 					"nombre" => $_POST["editarNombre"],
 					"position" => $_POST["editarPosition"],
 					"email" => $_POST["editarEmail"],
+					"telefono" => $_POST["editarTelefono"],
 					"usuario" => $_POST["editarUsuario"],
 					"password" => $encriptar,
 					"perfil" => $_POST["editarPerfil"],
 					// "foto" => $ruta,
+					"id" => $_POST["idUsuario"],
 				);
 
 				$respuesta = ModeloUsuarios::mdlEditarUsuario($tabla, $datos);

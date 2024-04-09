@@ -75,11 +75,21 @@ ELIMINAR SCO
 // });
 
 /*=============================================
-BOTON IMPRIMIR FORMATO 1
+BOTON PDF SCO
 =============================================*/
 
 $(".tablas").on("click", ".btnImprimirSCO", function () {
   var idSCO = $(this).attr("idSCO");
 
   window.open("extensiones/tcpdf/examples/sco.php?idSCO=" + idSCO, "_blank");
+});
+
+/*=============================================
+BOTON IMPRIMIR CI
+=============================================*/
+
+$(".tablas").on("click", ".btnImprimirCI", function () {
+  var idCI = $(this).attr("idCI");
+
+  window.open("extensiones/tcpdf/examples/ci.php?idCI=" + idCI, "_blank");
 });
