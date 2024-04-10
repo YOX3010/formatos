@@ -190,6 +190,7 @@ CUERPO DOCUMENTO
         $_GET["ruta"] == "sco" ||
         $_GET["ruta"] == "um" ||
         $_GET["ruta"] == "incoterms" ||
+        $_GET["ruta"] == "icpo" ||
         // $_GET["ruta"] == "formato-1" ||
         // $_GET["ruta"] == "formato-2" ||
         // $_GET["ruta"] == "formato-3" ||
@@ -262,6 +263,7 @@ CUERPO DOCUMENTO
   <script src="vistas/js/sco.js"></script>
   <script src="vistas/js/um.js"></script>
   <script src="vistas/js/incoterms.js"></script>
+  <script src="vistas/js/icpo.js"></script>
   <!-- <script src="vistas/js/formato1.js"></script>
   <script src="vistas/js/formato2.js"></script>
   <script src="vistas/js/formato3.js"></script> -->

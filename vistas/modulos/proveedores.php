@@ -162,7 +162,7 @@ MODAL AGREGAR PROVEEDOR
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-oil-well"></i></span>
+                <span class="input-group-addon"><i class="fa-solid fa-people-group"></i></span>
 
                 <input type="text" class="form-control input-lg" name="nuevoNombreProveedor" placeholder="Ingresar Nombre del Proveedor" required>
 

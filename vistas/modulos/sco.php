@@ -103,7 +103,9 @@ if ($_SESSION["perfil"] == "Especial") {
 
             <button class="btn btn-danger btnImprimirSCO" idSCO="' . $value["id"] . '"><i class="fa-solid fa-file-pdf"></i> Ver SCO</button>
 
-            <button class="btn btn-info btnImprimirCI" idCI="' . $value["id"] . '"><i class="fa-solid fa-file-invoice-dollar"></i> Imprimir CI</button>';
+            <button class="btn btn-info btnImprimirCI" idCI="' . $value["id"] . '"><i class="fa-solid fa-file-invoice-dollar"></i> Imprimir CI</button>
+            
+            <button class="btn btn-success btnICPO" idICPO="' . $value["id"] . '"><i class="fa-solid fa-file-contract"></i> Generar ICPO</button>';
 
                 if ($_SESSION["perfil"] == "Administrador") {
 
@@ -402,7 +404,7 @@ MODAL AGREGAR SCO
 
                 ?>
 
-                <input type="number" min="0" max="99999999999" class="form-control input-lg" name="nuevoClientes" value="<?php echo $value["id_loi"] ?>" require readonly>
+                <input type="number" min="0" max="99999999999" class="form-control input-lg" name="nuevoClientes" value="<?php echo $value["id_loi"] ?>" require>
 
                 <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
 
@@ -853,7 +855,7 @@ MODAL AGREGAR SCO
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar Elemento</button>
+          <button type="submit" class="btn btn-primary">Crear SCO</button>
 
         </div>
 
