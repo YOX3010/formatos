@@ -23,6 +23,13 @@
 			</li>
 
 			<li>
+				<a href="proveedores">
+					<i class="fa-solid fa-oil-well"></i>
+					<span>Proveedores</span>
+				</a>
+			</li>
+
+			<li>
 				<a href="commodity">
 					<i class="fa-solid fa-gas-pump"></i>
 					<span>Productos</span>

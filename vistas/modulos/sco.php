@@ -380,14 +380,29 @@ MODAL AGREGAR SCO
 
                 <?php
 
-                $itemCliente = "id";
-                $valorCliente = $value["id_clientes"];
+                // $item = null;
+                // $valor = null;
 
-                $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+                // $SCO = ControladorSCO::ctrMostrarSCO($item, $valor);
+
+                // foreach ($SCO as $key => $value) {
+
+                //   if ($value["id_loi"] == $_GET["idSCO"]) {
+
+                // $itemCliente = "id";
+                // $valorCliente = $value["id_clientes"];
+
+                // $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+
+                // if ($respuestaCliente["id"] == $value["id_clientes"]) {
+                //   echo '<input type="number" min="0" max="99999999999" class="form-control input-lg" name="nuevoClientes" value"' . $respuestaCliente["id"] . '" require>';
+                // }
+                //   }
+                // }
 
                 ?>
 
-                <input type="number" min="0" max="99999999999" class="form-control input-lg" name="nuevoClientes" value="<?php echo $respuestaCliente["id"] ?>" require>
+                <input type="number" min="0" max="99999999999" class="form-control input-lg" name="nuevoClientes" value="<?php echo $value["id_loi"] ?>" require readonly>
 
                 <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
 

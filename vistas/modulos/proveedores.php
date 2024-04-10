@@ -1,6 +1,6 @@
 <?php
 
-if($_SESSION["perfil"] == "Especial"){
+if ($_SESSION["perfil"] != "Administrador") {
 
   echo '<script>
 
@@ -9,26 +9,25 @@ if($_SESSION["perfil"] == "Especial"){
   </script>';
 
   return;
-
 }
 
 ?>
 
 <div class="content-wrapper">
 
-  <section class="content-header">    
+  <section class="content-header">
 
-    <h1>      
+    <h1>
 
-      Administrar Proveedores   
+      Administrar Proveedores
 
     </h1>
 
-    <ol class="breadcrumb">      
+    <ol class="breadcrumb">
 
-      <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>      
+      <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
-      <li class="active">Administrar Proveedores</li>    
+      <li class="active">Administrar Proveedores</li>
 
     </ol>
 
@@ -38,7 +37,7 @@ if($_SESSION["perfil"] == "Especial"){
 
     <div class="box">
 
-      <div class="box-header with-border">  
+      <div class="box-header with-border">
 
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarProveedor">
 
@@ -48,76 +47,71 @@ if($_SESSION["perfil"] == "Especial"){
 
       </div>
 
-      <div class="box-body">        
+      <div class="box-body">
 
-       <table class="table table-bordered table-striped dt-responsive tablas" width="100%">         
+        <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
 
-        <thead>         
+          <thead>
 
-         <tr>           
+            <tr>
 
-           <th style="width:10px">#</th>
-           <th>Documento</th>
-           <th>Nombre</th>
-           <th>Celular</th>
-           <th>Correo</th>
-           <th>Contacto</th>
-           <th>Acciones</th>
+              <th style="width:10px">#</th>
+              <th>Nombre del Proveedor</th>
+              <th>País de Origen</th>
+              <th>Acciones</th>
 
-         </tr> 
+            </tr>
 
-        </thead>
+          </thead>
 
-        <tbody>
+          <tbody>
 
-        <?php
+            <?php
 
-          $item = null;
-          $valor = null;
+            $item = null;
+            $valor = null;
 
-          $proveedores = ControladorProveedores::ctrMostrarProveedores($item, $valor);
+            $proveedores = ControladorProveedores::ctrMostrarProveedores($item, $valor);
 
-          foreach ($proveedores as $key => $value) { 
+            foreach ($proveedores as $key => $value) {
 
-            echo '<tr>
+              echo '<tr>
 
-                    <td>'.($key+1).'</td>
+                    <td>' . ($key + 1) . '</td>
 
-                    <td>'.$value["documento"].'</td>
+                    <td>' . $value["proveedor"] . '</td>';
 
-                    <td>'.$value["nombre"].'</td>
+              $itemProductOrigin = "id";
+              $valorProductOrigin = $value["id_origin"];
 
-                    <td>'.$value["celular"].'</td>
+              $respuestaOrigin = ControladorProductOrigin::ctrMostrarProductOrigin($itemProductOrigin, $valorProductOrigin);
 
-                    <td>'.$value["correo"].'</td>
-
-                    <td>'.$value["contacto"].'</td>
+              echo '<td>' . $respuestaOrigin["origin"] . '</td>
 
                     <td>
 
                       <div class="btn-group">                          
 
-                        <button class="btn btn-warning btnEditarProveedor" data-toggle="modal" data-target="#modalEditarProveedor" idProveedor="'.$value["id"].'"><i class="fa fa-pencil"></i></button>';
+                        <button class="btn btn-warning btnEditarProveedor" data-toggle="modal" data-target="#modalEditarProveedor" idProveedor="' . $value["id"] . '"><i class="fa fa-pencil"></i></button>';
 
-                      if($_SESSION["perfil"] == "Administrador"){
+              if ($_SESSION["perfil"] == "Administrador") {
 
-                          //echo '<button class="btn btn-danger btnEliminarCliente" idCliente="'.$value["id"].'"><i class="fa fa-times"></i></button>';
+                //echo '<button class="btn btn-danger btnEliminarCliente" idCliente="'.$value["id"].'"><i class="fa fa-times"></i></button>';
 
-                      }
+              }
 
-                      echo '</div> 
+              echo '</div> 
 
                     </td>
 
-                  </tr>';          
-
+                  </tr>';
             }
 
-        ?>   
+            ?>
 
-        </tbody>
+          </tbody>
 
-       </table>
+        </table>
 
       </div>
 
@@ -131,7 +125,7 @@ if($_SESSION["perfil"] == "Especial"){
 MODAL AGREGAR PROVEEDOR
 ======================================-->
 
-<div id="modalAgregarProveedor" class="modal fade" role="dialog">  
+<div id="modalAgregarProveedor" class="modal fade" role="dialog">
 
   <div class="modal-dialog">
 
@@ -159,71 +153,52 @@ MODAL AGREGAR PROVEEDOR
 
           <div class="box-body">
 
-            <!-- ENTRADA PARA EL DOCUMENTO -->            
+            <!-- ENTRADA PARA EL PROVEEDOR -->
 
-            <div class="form-group">              
+            <div class="form-group">
 
-              <div class="input-group">              
+              <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa-solid fa-oil-well"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoProveedor" placeholder="Ingresar Documento" required>
+                <input type="text" class="form-control input-lg" name="nuevoNombreProveedor" placeholder="Ingresar Nombre del Proveedor" required>
 
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL NOMBRE -->            
-
-            <div class="form-group">              
-
-              <div class="input-group">              
-
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar Nombre" required>
+                <input type="hidden" name="nuevoProveedor" id="nuevoProveedor" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL CELULAR -->            
+            <!-- ENTRADA PARA EL NOMBRE -->
 
-            <div class="form-group">              
+            <div class="form-group">
 
-              <div class="input-group">              
+              <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
+                <span class="input-group-addon"><i class="fa-solid fa-earth-americas"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoCelular" placeholder="Ingresar Celular" data-inputmask="'mask':'(999) 999-9999'" data-mask>
+                <select class="form-control input-lg" id="nuevoOrigin" name="nuevoOrigin" required>
 
-              </div>
+                  <option value="">Selecionar Origen</option>
 
-            </div>
+                  <?php
 
-            <!-- ENTRADA PARA EL CORREO -->            
+                  $item = null;
+                  $valor = null;
 
-            <div class="form-group">              
+                  $origin = ControladorProductOrigin::ctrMostrarProductOrigin($item, $valor);
 
-              <div class="input-group">              
+                  foreach ($origin as $key => $value) {
 
-                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
 
-                <input type="email" class="form-control input-lg" name="nuevoCorreo" placeholder="Ingresar Correo">
+                    echo '<option value="' . $value["id"] . '">' . $value["origin"] . '</option>';
+                  }
 
-              </div>
+                  ?>
 
-            </div>
+                </select>
 
-            <!-- ENTRADA PARA EL CONTACTO -->            
-
-            <div class="form-group">              
-
-              <div class="input-group">              
-
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoContacto" placeholder="Ingresar Contacto">
+                <input type="hidden" name="nuevoProveedor" id="nuevoProveedor" required>
 
               </div>
 
@@ -249,8 +224,8 @@ MODAL AGREGAR PROVEEDOR
 
       <?php
 
-        $crearProveedor = new ControladorProveedores();
-        $crearProveedor -> ctrCrearProveedor();
+      $crearProveedor = new ControladorProveedores();
+      $crearProveedor->ctrCrearProveedor();
 
       ?>
 
@@ -264,7 +239,7 @@ MODAL AGREGAR PROVEEDOR
 MODAL EDITAR PROVEEDOR
 ======================================-->
 
-<div id="modalEditarProveedor" class="modal fade" role="dialog">  
+<div id="modalEditarProveedor" class="modal fade" role="dialog">
 
   <div class="modal-dialog">
 
@@ -292,73 +267,52 @@ MODAL EDITAR PROVEEDOR
 
           <div class="box-body">
 
-            <!-- ENTRADA PARA EDITAR EL DOCUMENTO -->            
+            <!-- ENTRADA PARA EDITAR EL PROVEEDOR -->
 
-            <div class="form-group">              
+            <div class="form-group">
 
-              <div class="input-group">              
+              <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarProveedor" id="editarProveedor" required>
+                <input type="text" class="form-control input-lg" name="editarNombreProveedor" id="editarNombreProveedor" required>
 
-                <input type="hidden" id="idProveedor" name="idProveedor">
+                <input type="hidden" name="idProveedor" id="idProveedor" required>
 
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EDITAR EL NOMBRE -->            
-
-            <div class="form-group">              
-
-              <div class="input-group">              
-
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="editarNombre" id="editarNombre" required>
+                <input type="hidden" name="editarProveedor" id="editarProveedor" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EDITAR EL CELULAR -->            
+            <!-- ENTRADA PARA EDITAR EL NOMBRE -->
 
-            <div class="form-group">              
+            <div class="form-group">
 
-              <div class="input-group">              
+              <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarCelular" id="editarCelular" data-inputmask="'mask':'(999) 999-9999'" data-mask>
+                <select class="form-control input-lg" id="editarOrigin" name="editarOrigin" required>
 
-              </div>
+                  <option value="">Selecionar Origen</option>
 
-            </div>
+                  <?php
 
-            <!-- ENTRADA PARA EDITAR EL CORREO -->            
+                  $item = null;
+                  $valor = null;
 
-            <div class="form-group">              
+                  $origin = ControladorProductOrigin::ctrMostrarProductOrigin($item, $valor);
 
-              <div class="input-group">              
+                  foreach ($origin as $key => $value) {
 
-                <span class="input-group-addon"><i class="fa fa-envelope"></i></span> 
 
-                <input type="email" class="form-control input-lg" name="editarCorreo" id="editarCorreo">
+                    echo '<option value="' . $value["id"] . '">' . $value["origin"] . '</option>';
+                  }
 
-              </div>
+                  ?>
 
-            </div>
-
-            <!-- ENTRADA PARA EDITAR EL CONTACTO -->            
-
-            <div class="form-group">              
-
-              <div class="input-group">              
-
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="editarContacto" id="editarContacto">
+                </select>
 
               </div>
 
@@ -384,10 +338,10 @@ MODAL EDITAR PROVEEDOR
 
       <?php
 
-        $editarProveedor = new ControladorProveedores();
-        $editarProveedor -> ctrEditarProveedor();
+      $editarProveedor = new ControladorProveedores();
+      $editarProveedor->ctrEditarProveedor();
 
-      ?>  
+      ?>
 
     </div>
 
@@ -397,12 +351,7 @@ MODAL EDITAR PROVEEDOR
 
 <?php
 
-  $eliminarProveedor = new ControladorProveedores();
-  $eliminarProveedor -> ctrEliminarProveedor();
+$eliminarProveedor = new ControladorProveedores();
+$eliminarProveedor->ctrEliminarProveedor();
 
 ?>
-
-
-
-
-

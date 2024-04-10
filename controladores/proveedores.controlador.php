@@ -1,28 +1,29 @@
 <?php
 
-class ControladorProveedores{
+class ControladorProveedores
+{
 
 	/*=============================================
 	CREAR PROVEEDOR
 	=============================================*/
 
-	static public function ctrCrearProveedor(){
+	static public function ctrCrearProveedor()
+	{
 
-		if(isset($_POST["nuevoProveedor"])){
+		if (isset($_POST["nuevoProveedor"])) {
 
-			   	$tabla = "proveedores";
+			$tabla = "proveedores";
 
-			   	$datos = array(	"documento"	=>$_POST["nuevoProveedor"],
-			   					"nombre"	=>$_POST["nuevoNombre"],
-			   					"celular"	=>$_POST["nuevoCelular"],
-					           	"correo"	=>$_POST["nuevoCorreo"],
-					           	"contacto"	=>$_POST["nuevoContacto"]);
+			$datos = array(
+				"proveedor"	=> $_POST["nuevoNombreProveedor"],
+				"id_origin"	=> $_POST["nuevoOrigin"],
+			);
 
-			   	$respuesta = ModeloProveedores::mdlIngresarProveedor($tabla, $datos);
+			$respuesta = ModeloProveedores::mdlIngresarProveedor($tabla, $datos);
 
-			   	if($respuesta == "ok"){
+			if ($respuesta == "ok") {
 
-					echo'<script>
+				echo '<script>
 
 					swal({
 						  type: "success",
@@ -39,10 +40,9 @@ class ControladorProveedores{
 
 								})
 					</script>';
+			} else {
 
-			}else{
-
-				echo'<script>
+				echo '<script>
 
 					swal({
 						  type: "error",
@@ -60,47 +60,45 @@ class ControladorProveedores{
 						})
 			  	</script>';
 			}
-
 		}
-
 	}
 
 	/*=============================================
 	MOSTRAR PROVEEDORES
 	=============================================*/
 
-	static public function ctrMostrarProveedores($item, $valor){
+	static public function ctrMostrarProveedores($item, $valor)
+	{
 
 		$tabla = "proveedores";
 
 		$respuesta = ModeloProveedores::mdlMostrarProveedores($tabla, $item, $valor);
 
 		return $respuesta;
-
 	}
 
 	/*=============================================
 	EDITAR PROVEEDOR
 	=============================================*/
 
-	static public function ctrEditarProveedor(){
+	static public function ctrEditarProveedor()
+	{
 
-		if(isset($_POST["editarProveedor"])){
+		if (isset($_POST["editarProveedor"])) {
 
-			   	$tabla = "proveedores";
+			$tabla = "proveedores";
 
-			   	$datos = array(	"id"=>$_POST["idProveedor"],
-			   				   	"documento"	=>$_POST["editarProveedor"],
-			   					"nombre"	=>$_POST["editarNombre"],
-			   					"celular"	=>$_POST["editarCelular"],
-					           	"correo"	=>$_POST["editarCorreo"],
-					           	"contacto"	=>$_POST["editarContacto"]);
+			$datos = array(
+				"id" => $_POST["idProveedor"],
+				"proveedor"	=> $_POST["editarNombreProveedor"],
+				"id_origin"	=> $_POST["editarOrigin"],
+			);
 
-			   	$respuesta = ModeloProveedores::mdlEditarProveedor($tabla, $datos);
+			$respuesta = ModeloProveedores::mdlEditarProveedor($tabla, $datos);
 
-			   	if($respuesta == "ok"){
+			if ($respuesta == "ok") {
 
-					echo'<script>
+				echo '<script>
 
 					swal({
 						  type: "success",
@@ -116,10 +114,9 @@ class ControladorProveedores{
 									}
 								})
 					</script>';
+			} else {
 
-			}else{
-
-				echo'<script>
+				echo '<script>
 
 					swal({
 						  type: "error",
@@ -136,29 +133,27 @@ class ControladorProveedores{
 
 						})
 			  	</script>';
-
 			}
-
 		}
-
 	}
 
 	/*=============================================
 	ELIMINAR PROVEEDOR
 	=============================================*/
 
-	static public function ctrEliminarProveedor(){
+	static public function ctrEliminarProveedor()
+	{
 
-		if(isset($_GET["idProveedor"])){
+		if (isset($_GET["idProveedor"])) {
 
-			$tabla ="proveedores";
+			$tabla = "proveedores";
 			$datos = $_GET["idProveedor"];
 
 			$respuesta = ModeloProveedores::mdlEliminarProveedor($tabla, $datos);
 
-			if($respuesta == "ok"){
+			if ($respuesta == "ok") {
 
-				echo'<script>
+				echo '<script>
 
 				swal({
 					  type: "success",
@@ -174,14 +169,7 @@ class ControladorProveedores{
 								}
 							})
 				</script>';
-
-			}	
-
+			}
 		}
-
 	}
-
 }
-
-
-
