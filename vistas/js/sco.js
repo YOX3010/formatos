@@ -46,9 +46,9 @@ BOTON MODULO SCO
 =============================================*/
 
 $(".tablas").on("click", ".btnSCO", function () {
-  var idSCO = $(this).attr("idSCO");
+  var idLoi = $(this).attr("idLoi");
 
-  window.location = "index.php?ruta=sco&idSCO=" + idSCO;
+  window.location = "index.php?ruta=sco&idLoi=" + idLoi;
 });
 
 /*=============================================
@@ -89,7 +89,7 @@ BOTON IMPRIMIR CI
 =============================================*/
 
 $(".tablas").on("click", ".btnImprimirCI", function () {
-  var idCI = $(this).attr("idCI");
+  var idSCO = $(this).attr("idSCO");
 
-  window.open("extensiones/tcpdf/examples/ci.php?idCI=" + idCI, "_blank");
+  window.open("extensiones/tcpdf/examples/ci.php?idSCO=" + idSCO, "_blank");
 });

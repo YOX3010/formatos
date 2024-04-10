@@ -41,7 +41,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
         </button>
 
-        <a href="index.php?ruta=icpo&idICPO=<?php echo $_GET['idICPO']; ?>">
+        <a href="index.php?ruta=icpo&idSCO=<?php echo $_GET['idSCO']; ?>">
 
           <button class="btn btn-warning"> Actualizar </button>
 
@@ -64,7 +64,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
             foreach ($ICPO as $key => $value) {
 
-              if ($value["id_sco"] == $_GET["idICPO"]) {
+              if ($value["id_sco"] == $_GET["idSCO"]) {
 
                 echo ' 
 

@@ -41,7 +41,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
         </button>
 
-        <a href="index.php?ruta=loi&idLOI=<?php echo $_GET['idLOI']; ?>">
+        <a href="index.php?ruta=loi&idCliente=<?php echo $_GET['idCliente']; ?>">
 
           <button class="btn btn-warning"> Actualizar </button>
 
@@ -85,7 +85,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
             foreach ($loi as $key => $value) {
 
-              if ($value["id_clientes"] == $_GET["idLOI"]) {
+              if ($value["id_clientes"] == $_GET["idCliente"]) {
 
                 echo ' <tr>
 
@@ -108,7 +108,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
                       <div class="btn-group">
                       
-                      <button class="btn btn-info btnSCO" idSCO="' . $value["id"] . '"><i class="fa-regular fa-file-lines"></i> SCO</button>';
+                      <button class="btn btn-info btnSCO" idLoi="' . $value["id"] . '"><i class="fa-regular fa-file-lines"></i> SCO</button>';
 
                 if ($_SESSION["perfil"] == "Administrador") {
 

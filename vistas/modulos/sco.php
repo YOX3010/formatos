@@ -41,7 +41,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
         </button>
 
-        <a href="index.php?ruta=sco&idSCO=<?php echo $_GET['idSCO']; ?>">
+        <a href="index.php?ruta=sco&idLoi=<?php echo $_GET['idLoi']; ?>">
 
           <!-- <a href="index.php?ruta=sco&idSCO="> -->
 
@@ -78,7 +78,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
             foreach ($SCO as $key => $value) {
 
-              if ($value["id_loi"] == $_GET["idSCO"]) {
+              if ($value["id_loi"] == $_GET["idLoi"]) {
 
                 echo '
                 
@@ -103,9 +103,9 @@ if ($_SESSION["perfil"] == "Especial") {
 
             <button class="btn btn-danger btnImprimirSCO" idSCO="' . $value["id"] . '"><i class="fa-solid fa-file-pdf"></i> Ver SCO</button>
 
-            <button class="btn btn-info btnImprimirCI" idCI="' . $value["id"] . '"><i class="fa-solid fa-file-invoice-dollar"></i> Imprimir CI</button>
+            <button class="btn btn-info btnImprimirCI" idSCO="' . $value["id"] . '"><i class="fa-solid fa-file-invoice-dollar"></i> Imprimir CI</button>
             
-            <button class="btn btn-success btnICPO" idICPO="' . $value["id"] . '"><i class="fa-solid fa-file-contract"></i> Generar ICPO</button>';
+            <button class="btn btn-success btnICPO" idSCO="' . $value["id"] . '"><i class="fa-solid fa-file-contract"></i> Generar ICPO</button>';
 
                 if ($_SESSION["perfil"] == "Administrador") {
 
@@ -362,7 +362,7 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-file-code"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoLoi" value="<?php echo $_GET['idSCO']; ?>" require readonly>
+                <input type="text" class="form-control input-lg" name="nuevoLoi" value="<?php echo $_GET['idLoi']; ?>" require readonly>
 
                 <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
 
@@ -389,12 +389,12 @@ MODAL AGREGAR SCO
 
                 // foreach ($SCO as $key => $value) {
 
-                //   if ($value["id_loi"] == $_GET["idSCO"]) {
+                //   if ($value["id_loi"] == $_GET["idLoi"]) {
 
-                // $itemCliente = "id";
-                // $valorCliente = $value["id_clientes"];
+                $itemCliente = $_GET["idLoi"];
+                $valorCliente = $value["id_clientes"];
 
-                // $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+                $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
 
                 // if ($respuestaCliente["id"] == $value["id_clientes"]) {
                 //   echo '<input type="number" min="0" max="99999999999" class="form-control input-lg" name="nuevoClientes" value"' . $respuestaCliente["id"] . '" require>';
@@ -404,7 +404,7 @@ MODAL AGREGAR SCO
 
                 ?>
 
-                <input type="number" min="0" max="99999999999" class="form-control input-lg" name="nuevoClientes" value="<?php echo $value["id_loi"] ?>" require>
+                <input type="number" min="0" max="99999999999" class="form-control input-lg" name="nuevoClientes" value="<?php echo $respuestaCliente["id"] ?>" require>
 
                 <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
 
@@ -444,54 +444,6 @@ MODAL AGREGAR SCO
 
             </div>
 
-            <!-- SIGNATORY -->
-
-            <!-- <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" value="Signatory" readonly>
-
-                <input type="hidden" name="nuevoSCO" id="nuevoSCO" required> 
-
-              </div>
-
-            </div> -->
-
-            <!-- POSICIÓN CLIENTE -->
-
-            <!-- <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" value="Position cliente" readonly>
-
-                <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
-
-              </div>
-
-            </div> -->
-
-            <!-- EMAIL CLIENTE -->
-
-            <!-- <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" value="Email Cliente" readonly>
-
-                <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
-
-              </div>
-
-            </div> -->
-
             <!-- NOMBRE USUARIO -->
 
             <div class="form-group">
@@ -529,38 +481,6 @@ MODAL AGREGAR SCO
               </div>
 
             </div>
-
-            <!-- POSICIÓN USUARIO -->
-
-            <!-- <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="nuevoPosition2" placeholder="Position / Posición" required>
-
-                <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
-
-              </div>
-
-            </div> -->
-
-            <!-- EMAIL USUARIO -->
-
-            <!-- <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="email" class="form-control input-lg" name="nuevoEmail2" placeholder="Email / Correo Electrónico:" required>
-
-                <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
-
-              </div>
-
-            </div> -->
 
             <!-- VIA USUARIO-->
 

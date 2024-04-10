@@ -104,7 +104,7 @@ if ($_SESSION["perfil"] == "Especial") {
                       
                       <button class="btn btn-success btnInfoCliente" data-toggle="modal" data-target="#modalInfoCliente" idCliente="' . $value["id"] . '"><i class="fa-solid fa-eye"></i></button>
                       
-                      <button class="btn btn-info btnLOI" idLOI="' . $value["id"] . '"><i class="fa-regular fa-file-lines"></i> LOI\'s</button>';
+                      <button class="btn btn-info btnLOI" idCliente="' . $value["id"] . '"><i class="fa-regular fa-file-lines"></i> LOI\'s</button>';
 
               if ($_SESSION["perfil"] == "Administrador") {
 

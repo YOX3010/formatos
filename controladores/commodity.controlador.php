@@ -13,41 +13,41 @@ class ControladorCommodity
 		if (isset($_POST["nuevoCommodity"])) {
 
 			/*=============================================
-				VALIDAR IMAGEN
-				=============================================*/
+			VALIDAR IMAGEN
+			=============================================*/
 
 			$ruta = "vistas/img/productos/default/anonymous.png";
 
-			if (isset($_FILES["nuevoFichaTecnica"]["tmp_name"])) {
+			if (isset($_FILES["nuevaImagen"]["tmp_name"])) {
 
-				list($ancho, $alto) = getimagesize($_FILES["nuevoFichaTecnica"]["tmp_name"]);
+				list($ancho, $alto) = getimagesize($_FILES["nuevaImagen"]["tmp_name"]);
 
 				$nuevoAncho = 500;
 				$nuevoAlto = 500;
 
 				/*=============================================
-				 CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
-				 =============================================*/
+				CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL PRODUCTO
+				=============================================*/
 
 				$directorio = "vistas/img/productos/" . $_POST["nuevoCommodity"];
 
 				mkdir($directorio, 0755);
 
 				/*=============================================
-				 DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
-				 =============================================*/
+				DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
+				=============================================*/
 
-				if ($_FILES["nuevoFichaTecnica"]["type"] == "image/jpeg") {
+				if ($_FILES["nuevaImagen"]["type"] == "image/jpeg") {
 
 					/*=============================================
-					 GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-					 =============================================*/
+					GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+					=============================================*/
 
 					$aleatorio = mt_rand(100, 999);
 
 					$ruta = "vistas/img/productos/" . $_POST["nuevoCommodity"] . "/" . $aleatorio . ".jpg";
 
-					$origen = imagecreatefromjpeg($_FILES["nuevoFichaTecnica"]["tmp_name"]);
+					$origen = imagecreatefromjpeg($_FILES["nuevaImagen"]["tmp_name"]);
 
 					$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
@@ -56,17 +56,17 @@ class ControladorCommodity
 					imagejpeg($destino, $ruta);
 				}
 
-				if ($_FILES["nuevoFichaTecnica"]["type"] == "image/png") {
+				if ($_FILES["nuevaImagen"]["type"] == "image/png") {
 
 					/*=============================================
-					 GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-					 =============================================*/
+					GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+					=============================================*/
 
 					$aleatorio = mt_rand(100, 999);
 
 					$ruta = "vistas/img/productos/" . $_POST["nuevoCommodity"] . "/" . $aleatorio . ".png";
 
-					$origen = imagecreatefrompng($_FILES["nuevoFichaTecnica"]["tmp_name"]);
+					$origen = imagecreatefrompng($_FILES["nuevaImagen"]["tmp_name"]);
 
 					$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
@@ -82,7 +82,7 @@ class ControladorCommodity
 				"commodity" => $_POST["nuevoCommodity"],
 				"price_cliente" => $_POST["nuevoPriceCliente"],
 				"price_provedor" => $_POST["nuevoPriceProvedor"],
-				"ficha_tecnica" => $_POST["nuevoFichaTecnica"],
+				"ficha_tecnica" => $ruta,
 			);
 
 
@@ -156,13 +156,87 @@ class ControladorCommodity
 
 		if (isset($_POST["editarCommodity"])) {
 
+			/*=============================================
+				VALIDAR IMAGEN
+				=============================================*/
+
+			$ruta = $_POST["imagenActual"];
+
+			if (isset($_FILES["editarImagen"]["tmp_name"]) && !empty($_FILES["editarImagen"]["tmp_name"])) {
+
+				list($ancho, $alto) = getimagesize($_FILES["editarImagen"]["tmp_name"]);
+
+				$nuevoAncho = 500;
+				$nuevoAlto = 500;
+
+				/*=============================================
+				 CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
+				 =============================================*/
+
+				$directorio = "vistas/img/productos/" . $_POST["editarCommodity"];
+
+				/*=============================================
+				 PRIMERO PREGUNTAMOS SI EXISTE OTRA IMAGEN EN LA BD
+				 =============================================*/
+
+				if (!empty($_POST["imagenActual"]) && $_POST["imagenActual"] != "vistas/img/productos/default/anonymous.png") {
+
+					unlink($_POST["imagenActual"]);
+				} else {
+
+					mkdir($directorio, 0755);
+				}
+
+				/*=============================================
+				 DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
+				 =============================================*/
+
+				if ($_FILES["editarImagen"]["type"] == "image/jpeg") {
+
+					/*=============================================
+					 GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+					 =============================================*/
+
+					$aleatorio = mt_rand(100, 999);
+
+					$ruta = "vistas/img/productos/" . $_POST["editarCommodity"] . "/" . $aleatorio . ".jpg";
+
+					$origen = imagecreatefromjpeg($_FILES["editarImagen"]["tmp_name"]);
+
+					$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+
+					imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+
+					imagejpeg($destino, $ruta);
+				}
+
+				if ($_FILES["editarImagen"]["type"] == "image/png") {
+
+					/*=============================================
+					 GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+					 =============================================*/
+
+					$aleatorio = mt_rand(100, 999);
+
+					$ruta = "vistas/img/productos/" . $_POST["editarCommodity"] . "/" . $aleatorio . ".png";
+
+					$origen = imagecreatefrompng($_FILES["editarImagen"]["tmp_name"]);
+
+					$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+
+					imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+
+					imagepng($destino, $ruta);
+				}
+			}
+
 			$tabla = "commodity";
 
 			$datos = array(
 				"commodity" => $_POST["editarCommodity"],
 				"price_cliente" => $_POST["editarPriceCliente"],
 				"price_provedor" => $_POST["editarPriceProvedor"],
-				"ficha_tecnica" => $_POST["editarFichaTecnica"],
+				"ficha_tecnica" => $ruta,
 				"id" => $_POST["idCommodity"]
 			);
 

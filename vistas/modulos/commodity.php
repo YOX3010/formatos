@@ -191,15 +191,29 @@ MODAL AGREGAR COMMODITY
 
             <!-- ENTRADA FICHA TECNICA -->
 
-            <div class="form-group">
+            <!-- <div class="form-group">
 
               <div class="input-group">
 
                 <span class="input-group-addon"><i class="fa-solid fa-file"></i></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoFichaTecnica" placeholder="Cargar Ficha Técnica" required>
+                <input type="text" class="form-control input-lg" name="nuevoFichaTecnica" placeholder="Cargar Ficha Técnica">
 
               </div>
+
+            </div> -->
+
+            <!-- ENTRADA PARA SUBIR FOTO -->
+
+            <div class="form-group">
+
+              <div class="panel">SUBIR FICHA TECNICA</div>
+
+              <input type="file" class="nuevaImagen" name="nuevaImagen">
+
+              <p class="help-block">Peso máximo de la foto 2MB. Subir en formato de imagen (.jpeg, .png, ...)</p>
+
+              <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
 
             </div>
 
@@ -312,15 +326,31 @@ MODAL EDITAR COMMODITY
 
             <!-- ENTRADA PARA EDITAR FICHA TECNICA -->
 
-            <div class="form-group">
+            <!-- <div class="form-group">
 
               <div class="input-group">
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarFichaTecnica" id="editarFichaTecnica" required>
+                <input type="" class="form-control input-lg" name="editarFichaTecnica" id="editarFichaTecnica">
 
               </div>
+
+            </div> -->
+
+            <!-- ENTRADA PARA SUBIR FOTO -->
+
+            <div class="form-group">
+
+              <div class="panel">SUBIR FOTO</div>
+
+              <input type="file" class="nuevaImagen" name="editarImagen">
+
+              <p class="help-block">Peso máximo de la foto 2MB. Subir en formato de imagen (.jpeg, .png, ...)</p>
+
+              <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizarEditar" width="100px">
+
+              <input type="hidden" name="imagenActual" id="imagenActual">
 
             </div>
 

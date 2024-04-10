@@ -41,9 +41,9 @@ BOTON MODULO ICPO
 =============================================*/
 
 $(".tablas").on("click", ".btnICPO", function () {
-  var idICPO = $(this).attr("idICPO");
+  var idSCO = $(this).attr("idSCO");
 
-  window.location = "index.php?ruta=icpo&idICPO=" + idICPO;
+  window.location = "index.php?ruta=icpo&idSCO=" + idSCO;
 });
 
 /*=============================================
