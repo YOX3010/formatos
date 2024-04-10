@@ -20,6 +20,7 @@ $(".tablas").on("click", ".btnEditarProveedor", function () {
     success: function (respuesta) {
       $("#idProveedor").val(respuesta["id"]);
       $("#editarNombreProveedor").val(respuesta["proveedor"]);
+      $("#editarNombreRefineria").val(respuesta["refineria"]);
       $("#editarOrigin").val(respuesta["id_origin"]);
     },
   });

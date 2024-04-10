@@ -16,6 +16,7 @@ class ControladorProveedores
 
 			$datos = array(
 				"proveedor"	=> $_POST["nuevoNombreProveedor"],
+				"refineria"	=> $_POST["nuevoRefineria"],
 				"id_origin"	=> $_POST["nuevoOrigin"],
 			);
 
@@ -91,6 +92,7 @@ class ControladorProveedores
 			$datos = array(
 				"id" => $_POST["idProveedor"],
 				"proveedor"	=> $_POST["editarNombreProveedor"],
+				"refineria"	=> $_POST["editarRefineria"],
 				"id_origin"	=> $_POST["editarOrigin"],
 			);
 

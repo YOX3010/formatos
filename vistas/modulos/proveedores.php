@@ -57,6 +57,7 @@ if ($_SESSION["perfil"] != "Administrador") {
 
               <th style="width:10px">#</th>
               <th>Nombre del Proveedor</th>
+              <th>Refinería</th>
               <th>País de Origen</th>
               <th>Acciones</th>
 
@@ -79,7 +80,9 @@ if ($_SESSION["perfil"] != "Administrador") {
 
                     <td>' . ($key + 1) . '</td>
 
-                    <td>' . $value["proveedor"] . '</td>';
+                    <td>' . $value["proveedor"] . '</td>
+                    
+                    <td>' . $value["refineria"] . '</td>';
 
               $itemProductOrigin = "id";
               $valorProductOrigin = $value["id_origin"];
@@ -169,7 +172,23 @@ MODAL AGREGAR PROVEEDOR
 
             </div>
 
-            <!-- ENTRADA PARA EL NOMBRE -->
+            <!-- ENTRADA PARA EL REFINERIA -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-oil-well"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoRefineria" placeholder="Ingresar Nombre de la Refinaría" required>
+
+                <input type="hidden" name="nuevoProveedor" id="nuevoProveedor" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL ORIGEN -->
 
             <div class="form-group">
 
@@ -285,7 +304,21 @@ MODAL EDITAR PROVEEDOR
 
             </div>
 
-            <!-- ENTRADA PARA EDITAR EL NOMBRE -->
+            <!-- ENTRADA PARA EDITAR EL REFINERIA -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarRefineria" id="editarRefineria" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EDITAR EL ORIGEN -->
 
             <div class="form-group">
 

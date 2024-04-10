@@ -13,11 +13,14 @@ class ModeloProveedores
 	{
 
 		$stmt = Conexion::conectar()->prepare("		INSERT INTO 	$tabla	(proveedor,
-																			id_origin) 
+																			id_origin,
+																			refineria) 
 													VALUES 					(:proveedor,
-																			:id_origin)");
+																			:id_origin,
+																			:refineria)");
 
 		$stmt->bindParam(":proveedor", $datos["proveedor"], PDO::PARAM_STR);
+		$stmt->bindParam(":refineria", $datos["refineria"], PDO::PARAM_STR);
 		$stmt->bindParam(":id_origin", $datos["id_origin"], PDO::PARAM_INT);
 
 		if ($stmt->execute()) {
@@ -70,11 +73,13 @@ class ModeloProveedores
 	{
 
 		$stmt = Conexion::conectar()->prepare("UPDATE $tabla 	SET 	proveedor 	= :proveedor,
+																		refineria 	= :refineria,
 																		id_origin 	= :id_origin 
 																WHERE 	id 			= :id");
 
 		$stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
 		$stmt->bindParam(":proveedor", $datos["proveedor"], PDO::PARAM_STR);
+		$stmt->bindParam(":refineria", $datos["refineria"], PDO::PARAM_STR);
 		$stmt->bindParam(":id_origin", $datos["id_origin"], PDO::PARAM_INT);
 
 		if ($stmt->execute()) {
