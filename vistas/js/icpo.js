@@ -22,6 +22,7 @@ $(".tablas").on("click", ".btnEditarICPO", function () {
       $("#idICPO").val(respuesta["id"]);
       $("#editarSCO").val(respuesta["id_sco"]);
       $("#editarProveedor").val(respuesta["id_proveedor"]);
+      $("#editarCliente").val(respuesta["id_cliente"]);
       $("#editarAuthCode").val(respuesta["authentication_code"]);
       $("#editarRefNumber").val(respuesta["ref_number"]);
       $("#editarVia").val(respuesta["via"]);
@@ -42,8 +43,9 @@ BOTON MODULO ICPO
 
 $(".tablas").on("click", ".btnICPO", function () {
   var idSCO = $(this).attr("idSCO");
+  var idCliente = $(this).attr("idCliente");
 
-  window.location = "index.php?ruta=icpo&idSCO=" + idSCO;
+  window.location = `index.php?ruta=icpo&idSCO=${idSCO}&idCliente=${idCliente}`;
 });
 
 /*=============================================
@@ -76,5 +78,5 @@ BOTON PDF ICPO
 $(".tablas").on("click", ".btnImprimirICPO", function () {
   var idICPO = $(this).attr("idICPO");
 
-  window.open("extensiones/tcpdf/examples/icpo.php?idICPO=" + idICPO, "_blank");
+  window.open(`extensiones/tcpdf/examples/icpo.php?idICPO=${idICPO}`, "_blank");
 });

@@ -14,6 +14,7 @@ class ModeloICPO
 
         $stmt = Conexion::conectar()->prepare("INSERT INTO 		$tabla(	id_sco,
     																	id_proveedor,
+    																	id_cliente,
     																	authentication_code,
     																	ref_number,
     																	via,
@@ -26,6 +27,7 @@ class ModeloICPO
     																	demurrage_rate)
     															VALUES(	:id_sco,
     																	:id_proveedor,
+    																	:id_cliente,
     																	:authentication_code,
     																	:ref_number,
     																	:via,
@@ -39,6 +41,7 @@ class ModeloICPO
 
         $stmt->bindParam(":id_sco", $datos["id_sco"], PDO::PARAM_INT);
         $stmt->bindParam(":id_proveedor", $datos["id_proveedor"], PDO::PARAM_INT);
+        $stmt->bindParam(":id_cliente", $datos["id_cliente"], PDO::PARAM_INT);
         $stmt->bindParam(":authentication_code", $datos["authentication_code"], PDO::PARAM_STR);
         $stmt->bindParam(":ref_number", $datos["ref_number"], PDO::PARAM_STR);
         $stmt->bindParam(":via", $datos["via"], PDO::PARAM_STR);
@@ -101,6 +104,7 @@ class ModeloICPO
 
         $stmt = Conexion::conectar()->prepare("UPDATE $tabla 	SET 	id_sco = :id_sco,
                                                                         id_proveedor = :id_proveedor,
+                                                                        id_cliente = :id_cliente,
                                                                         authentication_code = :authentication_code,
                                                                         ref_number = :ref_number,
                                                                         via = :via,
@@ -116,6 +120,7 @@ class ModeloICPO
         $stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
         $stmt->bindParam(":id_sco", $datos["id_sco"], PDO::PARAM_INT);
         $stmt->bindParam(":id_proveedor", $datos["id_proveedor"], PDO::PARAM_INT);
+        $stmt->bindParam(":id_cliente", $datos["id_cliente"], PDO::PARAM_INT);
         $stmt->bindParam(":authentication_code", $datos["authentication_code"], PDO::PARAM_STR);
         $stmt->bindParam(":ref_number", $datos["ref_number"], PDO::PARAM_STR);
         $stmt->bindParam(":via", $datos["via"], PDO::PARAM_STR);

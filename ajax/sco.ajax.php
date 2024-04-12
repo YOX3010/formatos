@@ -22,6 +22,24 @@ class AjaxSCO
 
 		echo json_encode($respuesta);
 	}
+
+	/*=============================================
+	ENVIAR ID CLIENTE
+	=============================================*/
+
+	public $idMostrarCliente;
+	public $idMostrarSCO;
+
+	public function ajaxMostrarCliente()
+	{
+
+		$itemCliente = "id";
+		$valorCliente = $this->idMostrarCliente;
+
+		$respuestaCliente = ControladorSCO::ctrMostrarSCO($itemCliente, $valorCliente);
+
+		echo json_encode($respuestaCliente);
+	}
 }
 
 /*=============================================
@@ -33,4 +51,15 @@ if (isset($_POST["idSCO"])) {
 	$sco = new AjaxSCO();
 	$sco->idSCO = $_POST["idSCO"];
 	$sco->ajaxEditarSCO();
+}
+
+/*=============================================
+ENVIAR CLIENTE
+=============================================*/
+
+if (isset($_POST["idMostrarCliente"])) {
+
+	$cotizacion = new AjaxSCO();
+	$cotizacion->idMostrarCliente = $_POST["idMostrarCliente"];
+	$cotizacion->ajaxMostrarCliente();
 }

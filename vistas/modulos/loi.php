@@ -108,7 +108,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
                       <div class="btn-group">
                       
-                      <button class="btn btn-info btnSCO" idLoi="' . $value["id"] . '"><i class="fa-regular fa-file-lines"></i> SCO</button>';
+                      <button class="btn btn-info btnSCO" idLoi="' . $value["id"] . '" idCliente="' . $value["id_clientes"] . '"><i class="fa-regular fa-file-lines"></i> SCO</button>';
 
                 if ($_SESSION["perfil"] == "Administrador") {
 

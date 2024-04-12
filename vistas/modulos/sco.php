@@ -41,7 +41,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
         </button>
 
-        <a href="index.php?ruta=sco&idLoi=<?php echo $_GET['idLoi']; ?>">
+        <a href="index.php?ruta=sco&idLoi=<?php echo $_GET['idLoi']; ?>&idCliente=<?php echo $_GET['idCliente']; ?>">
 
           <!-- <a href="index.php?ruta=sco&idSCO="> -->
 
@@ -78,7 +78,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
             foreach ($SCO as $key => $value) {
 
-              if ($value["id_loi"] == $_GET["idLoi"]) {
+              if ($value["id_loi"] == $_GET["idLoi"] && $value["id_clientes"] == $_GET["idCliente"]) {
 
                 echo '
                 
@@ -105,7 +105,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
             <button class="btn btn-info btnImprimirCI" idSCO="' . $value["id"] . '"><i class="fa-solid fa-file-invoice-dollar"></i> Imprimir CI</button>
             
-            <button class="btn btn-success btnICPO" idSCO="' . $value["id"] . '"><i class="fa-solid fa-file-contract"></i> Generar ICPO</button>';
+            <button class="btn btn-success btnICPO" idSCO="' . $value["id"] . '" idCliente="' . $value["id_clientes"] . '"><i class="fa-solid fa-file-contract"></i> Generar ICPO</button>';
 
                 if ($_SESSION["perfil"] == "Administrador") {
 
@@ -378,33 +378,7 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-industry"></i></span>
 
-                <!-- <input type="number" min="0" max="99999999999" class="form-control input-lg" name="nuevoClientes" placeholder="To / Para:" require> -->
-
-                <?php
-
-                // $item = null;
-                // $valor = null;
-
-                // $SCO = ControladorSCO::ctrMostrarSCO($item, $valor);
-
-                // foreach ($SCO as $key => $value) {
-
-                //   if ($value["id_loi"] == $_GET["idLoi"]) {
-
-                $itemCliente = $_GET["idLoi"];
-                $valorCliente = $value["id_clientes"];
-
-                $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
-
-                // if ($respuestaCliente["id"] == $value["id_clientes"]) {
-                //   echo '<input type="number" min="0" max="99999999999" class="form-control input-lg" name="nuevoClientes" value"' . $respuestaCliente["id"] . '" require>';
-                // }
-                //   }
-                // }
-
-                ?>
-
-                <input type="number" min="0" max="99999999999" class="form-control input-lg" name="nuevoClientes" value="<?php echo $respuestaCliente["id"] ?>" require>
+                <input type="number" min="0" max="99999999999" class="form-control input-lg" name="nuevoClientes" value="<?php echo $_GET["idCliente"]; ?>" require>
 
                 <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
 

@@ -17,6 +17,7 @@ class ControladorICPO
             $datos = array(
                 "id_sco" => $_POST["nuevoSCO"],
                 "id_proveedor" => $_POST["nuevoNombreProveedor"],
+                "id_cliente" => $_POST["nuevoCliente"],
                 "authentication_code" => $_POST["nuevoAuthCode"],
                 "ref_number" => $_POST["nuevoRefNumber"],
                 "via" => $_POST["nuevoVia"],
@@ -104,6 +105,7 @@ class ControladorICPO
             $datos = array(
                 "id_sco" => $_POST["editarSCO"],
                 "id_proveedor" => $_POST["editarProveedor"],
+                "id_cliente" => $_POST["editarCliente"],
                 "authentication_code" => $_POST["editarAuthCode"],
                 "ref_number" => $_POST["editarRefNumber"],
                 "via" => $_POST["editarVia"],

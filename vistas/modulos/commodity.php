@@ -171,6 +171,8 @@ MODAL AGREGAR COMMODITY
 
                 <input type="text" class="form-control input-lg" name="nuevoPriceCliente" placeholder="Ingresar Precio de Venta" required>
 
+                <input type="hidden" name="nuevoCommodity" id="nuevoCommodity" required>
+
               </div>
 
             </div>
@@ -184,6 +186,8 @@ MODAL AGREGAR COMMODITY
                 <span class="input-group-addon"><i class="fa-solid fa-money-check-dollar"></i></span>
 
                 <input type="text" class="form-control input-lg" name="nuevoPriceProvedor" placeholder="Ingresar Precio de Compra" required>
+
+                <input type="hidden" name="nuevoCommodity" id="nuevoCommodity" required>
 
               </div>
 
@@ -210,6 +214,8 @@ MODAL AGREGAR COMMODITY
               <div class="panel">SUBIR FICHA TECNICA</div>
 
               <input type="file" class="nuevaImagen" name="nuevaImagen">
+
+              <input type="hidden" name="nuevoCommodity" id="nuevoCommodity" required>
 
               <p class="help-block">Peso máximo de la foto 2MB. Subir en formato de imagen (.jpeg, .png, ...)</p>
 
@@ -342,7 +348,7 @@ MODAL EDITAR COMMODITY
 
             <div class="form-group">
 
-              <div class="panel">SUBIR FOTO</div>
+              <div class="panel">SUBIR FICHA TECNICA</div>
 
               <input type="file" class="nuevaImagen" name="editarImagen">
 

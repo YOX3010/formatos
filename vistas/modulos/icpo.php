@@ -41,7 +41,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
         </button>
 
-        <a href="index.php?ruta=icpo&idSCO=<?php echo $_GET['idSCO']; ?>">
+        <a href="index.php?ruta=icpo&idSCO=<?php echo $_GET['idSCO']; ?>&idCliente=<?php echo $_GET['idCliente']; ?>">
 
           <button class="btn btn-warning"> Actualizar </button>
 
@@ -66,11 +66,15 @@ if ($_SESSION["perfil"] == "Especial") {
 
               if ($value["id_sco"] == $_GET["idSCO"]) {
 
-                echo ' 
-
+                echo '
+                
               <tr>
 
-              <td colspan="4" style="text-align:right;">
+              <th colspan="1">Authentication code</th>
+
+              <td colspan="2">' . $value["authentication_code"] . '</td>
+
+              <td colspan="1" style="text-align:right;">
 
               <div class="btn-group">
 
@@ -87,15 +91,6 @@ if ($_SESSION["perfil"] == "Especial") {
                 echo '</div>
 
             </td>
-
-              </tr>
-                
-              <tr>
-
-              <th colspan="1">Authentication code</th>
-
-              <td colspan="3">' . $value["authentication_code"] . '</td>
-
 
             </tr>
 
@@ -126,7 +121,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
             <tr>
 
-              <th style="text-align:center;" colspan="4">IRREVOCABLE CORPORATE PURCHASE ORDER ICPO / ORDEN DE COMPRA CORPORATIVA IRREVOCABLE OCOI.</th>
+              <th style="text-align:center;" colspan="4">IRREVOCABLE CORPORATE PURCHASE ORDER ICPO / ORDEN DE COMPRA CORPORATIVA IRREVOCABLE OCCI.</th>
 
             </tr>
 
@@ -138,42 +133,78 @@ if ($_SESSION["perfil"] == "Especial") {
 
             </tr>
 
-            <tr>
+            <tr>';
 
-              <th colspan="1">Seller / Vendedor</th>
+                $itemProveedor = "id";
+                $valorProveedor = $value["id_proveedor"];
 
-              <td colspan="3">' . $value["seller"] . '</td>
+                $respuestaProveedor = ControladorProveedores::ctrMostrarProveedores($itemProveedor, $valorProveedor);
 
-            </tr>
+                echo '<th colspan="1">Seller / Vendedor</th>
 
-            <tr>
-
-              <th colspan="1">Product Name / Nombre del Producto</th>
-
-              <td colspan="3">' . $value["product_name"] . '</td>
+              <td colspan="3">' . $respuestaProveedor["proveedor"] . '</td>
 
             </tr>
 
-            <tr>
+            <tr>';
 
-              <th colspan="1">Shipping Terms for Sale / Condiciones de envío para la venta</th>
-              <td colspan="2">' . $value["shipping_terms_sale"] . '</td>
+                $itemSCO = "id";
+                $valorSCO = $value["id_sco"];
+
+                $respuestaSCO = ControladorSCO::ctrMostrarSCO($itemSCO, $valorSCO);
+
+                $itemCommodity = "id";
+                $valorCommodity = $respuestaSCO["id_commodity"];
+
+                $respuestaCommodity = ControladorCommodity::ctrMostrarCommodity($itemCommodity, $valorCommodity);
+
+                echo '<th colspan="1">Product Name / Nombre del Producto</th>
+
+              <td colspan="3">' . $respuestaCommodity["commodity"] . '</td>
 
             </tr>
 
-            <tr>
+            <tr>';
 
-              <th colspan="1">Origin / Origen</th>
+                $itemIncoterms = "id";
+                $valorIncoterms = $respuestaSCO["id_incoterms"];
 
-              <td colspan="3">' . $value["origin"] . '</td>
+                $respuestaIncoterms = ControladorIncoterms::ctrMostrarIncoterms($itemIncoterms, $valorIncoterms);
+
+                $itemPort = "id";
+                $valorPort = $respuestaSCO["id_port"];
+
+                $respuestaPort = ControladorPort::ctrMostrarPort($itemPort, $valorPort);
+
+                echo  '<th colspan="1">Shipping Terms for Sale / Condiciones de envío para la venta</th>
+              
+              <td colspan="3">' . $respuestaIncoterms["incoterm"] . " " . $respuestaPort["port"] . '</td>
 
             </tr>
 
-            <tr>
+            <tr>';
 
-              <th colspan="1">Trial Quantity / Cantidad de Prueba</th>
+                $itemProductOrigin = "id";
+                $valorProductOrigin = $respuestaSCO["id_product_origin"];
 
-              <td colspan="3">' . $value["trial_quantity"] . '</td>
+                $respuestaProductOrigin = ControladorProductOrigin::ctrMostrarProductOrigin($itemProductOrigin, $valorProductOrigin);
+
+                echo '<th colspan="1">Origin / Origen</th>
+
+              <td colspan="3">' . $respuestaProductOrigin["origin"] . '</td>
+
+            </tr>
+
+            <tr>';
+
+                $itemUM = "id";
+                $valorUM = $respuestaSCO["id_um"];
+
+                $respuestaUM = ControladorUM::ctrMostrarUM($itemUM, $valorUM);
+
+                echo '<th colspan="1">Trial Quantity / Cantidad de Prueba</th>
+
+              <td colspan="3">' . $respuestaSCO["quantity"] . " " . $respuestaUM["unidad"] . '</td>
 
             </tr>
 
@@ -181,7 +212,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
               <th colspan="1">Contract Quantity / Contrato de Cantidad</th>
 
-              <td colspan="3">' . $value["contract_quantity"] . '</td>
+              <td colspan="3">' . $respuestaSCO["contract_terms"] . '</td>
 
             </tr>
 
@@ -197,7 +228,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
               <th colspan="1">Target Price USD / Precio Objetivo USD</th>
 
-              <td colspan="3">' . $value["target_price_usd"] . '</td>
+              <td colspan="3">' . $respuestaCommodity["price_provedor"] . " $ per " . $respuestaUM["unidad"] . '</td>
 
             </tr>
 
@@ -205,7 +236,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
               <th colspan="1">Shipment Terms / Coniciones de Envío</th>
 
-              <td colspan="3">' . $value["shipment_terms"] . '</td>
+              <td colspan="3">' . $respuestaIncoterms["incoterm"] . " PORT " . $respuestaPort["port"] . '</td>
 
             </tr>
 
@@ -237,7 +268,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
              <th colspan="1">Payment Method / Método de Pago</th>
 
-             <td colspan="3">' . $value["payment_method"] . '</td>
+             <td colspan="3">PAYMENTS TERM : 100% MT103</td>
 
             </tr>
 
@@ -253,7 +284,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
              <th colspan="1">Lay Time / Tiempo de Puesta</th>
 
-             <td colspan="3">' . $value["lay_time"] . '</td>
+             <td colspan="3">TBA</td>
 
             </tr>
 
@@ -269,15 +300,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
               <th colspan="1">Law / Ley</th>
 
-              <td colspan="3">' . $value["law"] . '</td>
-
-            </tr>
-
-            <tr>
-
-              <th colspan="1">Images / Imagenes</th>
-
-              <td colspan="3">' . $value["id_images"] . '</td>
+              <td colspan="3">USA / English Law / London High Courts. No arbitration</td>
 
             </tr>';
               }
@@ -337,7 +360,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-file-code"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoSCO" value="<?php echo $_GET['idICPO']; ?>" require readonly>
+                <input type="text" class="form-control input-lg" name="nuevoSCO" value="<?php echo $_GET['idSCO']; ?>" require readonly>
 
                 <input type="hidden" name="nuevoICPO" id="nuevoICPO" required>
 
@@ -373,6 +396,22 @@ MODAL AGREGAR ICPO
                   ?>
 
                 </select>
+
+                <input type="hidden" name="nuevoICPO" id="nuevoICPO" required>
+
+              </div>
+
+            </div>
+
+            <!-- ID CLIENTE -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-file-code"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoCliente" value="<?php echo $_GET['idCliente']; ?>" require readonly>
 
                 <input type="hidden" name="nuevoICPO" id="nuevoICPO" required>
 

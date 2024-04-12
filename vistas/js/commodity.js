@@ -63,7 +63,7 @@ ELIMINAR COMMODITY
 SUBIENDO LA FOTO DEL PRODUCTO
 =============================================*/
 
-$(".nuevoImagen").change(function () {
+$(".nuevaImagen").change(function () {
   var imagen = this.files[0];
 
   /*=============================================
@@ -71,7 +71,7 @@ $(".nuevoImagen").change(function () {
   	=============================================*/
 
   if (imagen["type"] != "image/jpeg" && imagen["type"] != "image/png") {
-    $(".nuevoImagen").val("");
+    $(".nuevaImagen").val("");
 
     swal({
       title: "Error al subir la imagen",
@@ -80,7 +80,7 @@ $(".nuevoImagen").change(function () {
       confirmButtonText: "¡Cerrar!",
     });
   } else if (imagen["size"] > 2000000) {
-    $(".nuevoImagen").val("");
+    $(".nuevaImagen").val("");
 
     swal({
       title: "Error al subir la imagen",
