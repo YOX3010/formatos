@@ -64,13 +64,39 @@ $(".tablas").on("click", ".btnEditarCommodity", function () {
     dataType: "json",
 
     success: function (respuesta) {
+      // var fileData = new FormData();
+      // datos.append("", 1200); // Agrega otros datos si es necesario
+
+      // var file = $("#file_foto")[0].files[0];
+      // fileData.append("Document", file); // Agrega la imagen al FormData
+
+      // $.ajax({
+      //   type: "POST",
+      //   url: "/Fotos/GuardarFoto", // URL del servidor para guardar la foto
+      //   contentType: false,
+      //   processData: false,
+      //   data: fileData,
+      //   success: function (respuestaImagen) {
+      //     $("#imagenActual").val(respuestaImagen["ficha_tecnica"]);
+
+      //     if (respuestaImagen["ficha_tecnica"] != "") {
+      //       $(".previsualizarEditar").attr("src", respuesta["ficha_tecnica"]);
+      //     } else {
+      //       $(".previsualizarEditar").attr(
+      //         "src",
+      //         "vistas/img/usuarios/default/anonymous.png"
+      //       );
+      //     }
+      //   },
+      // });
+
       $("#idCommodity").val(respuesta["id"]);
       $("#editarCommodity").val(respuesta["commodity"]);
       $("#editarPriceCliente").val(respuesta["price_cliente"]);
       $("#editarPriceProvedor").val(respuesta["price_provedor"]);
-      $("#imagenActual").val(respuesta["ficha_tecnica"]);
+      $("#imagenActual").val(respuestaImagen["ficha_tecnica"]);
 
-      if (respuesta["foto"] != "") {
+      if (respuestaImagen["ficha_tecnica"] != "") {
         $(".previsualizarEditar").attr("src", respuesta["ficha_tecnica"]);
       } else {
         $(".previsualizarEditar").attr(

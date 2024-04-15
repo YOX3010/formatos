@@ -38,6 +38,19 @@ $(".tablas").on("click", ".btnLOI", function () {
 });
 
 /*=============================================
+BOTON IMPRIMIR JV
+=============================================*/
+
+$(".tablas").on("click", ".btnJV", function () {
+  var idLOI = $(this).attr("idLOI");
+
+  window.open(
+    "extensiones/tcpdf/examples/joint-venture.php?idLOI=" + idLOI,
+    "_blank"
+  );
+});
+
+/*=============================================
 ELIMINAR LOI
 =============================================*/
 

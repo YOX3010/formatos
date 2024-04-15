@@ -108,7 +108,9 @@ if ($_SESSION["perfil"] == "Especial") {
 
                       <div class="btn-group">
                       
-                      <button class="btn btn-info btnSCO" idLoi="' . $value["id"] . '" idCliente="' . $value["id_clientes"] . '"><i class="fa-regular fa-file-lines"></i> Crear SCO</button>';
+                      <button class="btn btn-success btnSCO" idLoi="' . $value["id"] . '" idCliente="' . $value["id_clientes"] . '"><i class="fa-regular fa-file-lines"></i> Crear SCO</button>
+                      
+                      <button class="btn btn-info btnJV" idLoi="' . $value["id"] . '" idCliente="' . $value["id_clientes"] . '"><i class="fa-solid fa-handshake"></i> Imprimir Joint Venture</button>';
 
                 if ($_SESSION["perfil"] == "Administrador") {
 
