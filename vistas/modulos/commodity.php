@@ -155,7 +155,9 @@ MODAL AGREGAR COMMODITY
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoCommodity" placeholder="Ingresar Nombre del Producto" required>
+                <input type="text" class="form-control input-lg" name="nuevoNombreCommodity" placeholder="Ingresar Nombre del Producto" required>
+
+                <input type="hidden" name="nuevoCommodity" id="nuevoCommodity" required>
 
               </div>
 
@@ -213,7 +215,7 @@ MODAL AGREGAR COMMODITY
 
               <div class="panel">SUBIR FICHA TECNICA</div>
 
-              <input type="file" class="nuevaImagen" name="nuevaImagen">
+              <input type="file" class="nuevaImagen" name="nuevaImagen" id="nuevaImagen">
 
               <input type="hidden" name="nuevoCommodity" id="nuevoCommodity" required>
 
@@ -294,9 +296,11 @@ MODAL EDITAR COMMODITY
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarCommodity" id="editarCommodity" required>
+                <input type="text" class="form-control input-lg" name="editarNombreCommodity" id="editarNombreCommodity" required>
 
                 <input type="hidden" name="idCommodity" id="idCommodity" required>
+
+                <input type="hidden" name="editarCommodity" id="editarCommodity" required>
 
               </div>
 

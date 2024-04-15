@@ -16,73 +16,86 @@ class ControladorCommodity
 			VALIDAR IMAGEN
 			=============================================*/
 
-			$ruta = "vistas/img/productos/default/anonymous.png";
+			$target_dir = "../vistas/img/productos/";
+			$target_file = $target_dir . basename($_FILES["nuevaImagen"]["name"]);
+			// move_uploaded_file($_FILES["nuevaImagen"]["tmp_name"], $target_file);
 
-			if (isset($_FILES["nuevaImagen"]["tmp_name"])) {
-
-				list($ancho, $alto) = getimagesize($_FILES["nuevaImagen"]["tmp_name"]);
-
-				$nuevoAncho = 500;
-				$nuevoAlto = 500;
-
-				/*=============================================
-				CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL PRODUCTO
-				=============================================*/
-
-				$directorio = "vistas/img/productos/" . $_POST["nuevoCommodity"];
-
-				mkdir($directorio, 0755);
-
-				/*=============================================
-				DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
-				=============================================*/
-
-				if ($_FILES["nuevaImagen"]["type"] == "image/jpeg") {
-
-					/*=============================================
-					GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-					=============================================*/
-
-					$aleatorio = mt_rand(100, 999);
-
-					$ruta = "vistas/img/productos/" . $_POST["nuevoCommodity"] . "/" . $aleatorio . ".jpg";
-
-					$origen = imagecreatefromjpeg($_FILES["nuevaImagen"]["tmp_name"]);
-
-					$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
-
-					imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
-
-					imagejpeg($destino, $ruta);
-				}
-
-				if ($_FILES["nuevaImagen"]["type"] == "image/png") {
-
-					/*=============================================
-					GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-					=============================================*/
-
-					$aleatorio = mt_rand(100, 999);
-
-					$ruta = "vistas/img/productos/" . $_POST["nuevoCommodity"] . "/" . $aleatorio . ".png";
-
-					$origen = imagecreatefrompng($_FILES["nuevaImagen"]["tmp_name"]);
-
-					$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
-
-					imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
-
-					imagepng($destino, $ruta);
-				}
+			if (move_uploaded_file($_FILES["nuevaImagen"]["tmp_name"], $target_file)) {
+				echo "El archivo " . basename($_FILES["nuevaImagen"]["name"]) . " ha sido subido.";
+			} else {
+				echo "Lo siento, hubo un error al subir tu archivo.";
 			}
+
+
+
+
+			// $ruta = "vistas/img/productos/default/anonymous.png";
+
+			// if (isset($_FILES["nuevaImagen"]["tmp_name"])) {
+
+			// 	list($ancho, $alto) = getimagesize($_FILES["nuevaImagen"]["tmp_name"]);
+
+			// 	$nuevoAncho = 500;
+			// 	$nuevoAlto = 500;
+
+			// 	/*=============================================
+			// 	CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL PRODUCTO
+			// 	=============================================*/
+
+			// 	$directorio = "vistas/img/productos/" . $_POST["nuevoCommodity"];
+
+			// 	mkdir($directorio, 0755);
+
+			// 	/*=============================================
+			// 	DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
+			// 	=============================================*/
+
+			// 	if ($_FILES["nuevaImagen"]["type"] == "image/jpeg") {
+
+			// 		/*=============================================
+			// 		GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+			// 		=============================================*/
+
+			// 		$aleatorio = mt_rand(100, 999);
+
+			// 		$ruta = "vistas/img/productos/" . $_POST["nuevoCommodity"] . "/" . $aleatorio . ".jpg";
+
+			// 		$origen = imagecreatefromjpeg($_FILES["nuevaImagen"]["tmp_name"]);
+
+			// 		$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+
+			// 		imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+
+			// 		imagejpeg($destino, $ruta);
+			// 	}
+
+			// 	if ($_FILES["nuevaImagen"]["type"] == "image/png") {
+
+			// 		/*=============================================
+			// 		GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+			// 		=============================================*/
+
+			// 		$aleatorio = mt_rand(100, 999);
+
+			// 		$ruta = "vistas/img/productos/" . $_POST["nuevoCommodity"] . "/" . $aleatorio . ".png";
+
+			// 		$origen = imagecreatefrompng($_FILES["nuevaImagen"]["tmp_name"]);
+
+			// 		$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+
+			// 		imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+
+			// 		imagepng($destino, $ruta);
+			// 	}
+			// }
 
 			$tabla = "commodity";
 
 			$datos = array(
-				"commodity" => $_POST["nuevoCommodity"],
+				"commodity" => $_POST["nuevoNombreCommodity"],
 				"price_cliente" => $_POST["nuevoPriceCliente"],
 				"price_provedor" => $_POST["nuevoPriceProvedor"],
-				"ficha_tecnica" => $ruta,
+				"ficha_tecnica" => $target_file,
 			);
 
 
@@ -233,7 +246,7 @@ class ControladorCommodity
 			$tabla = "commodity";
 
 			$datos = array(
-				"commodity" => $_POST["editarCommodity"],
+				"commodity" => $_POST["editarNombreCommodity"],
 				"price_cliente" => $_POST["editarPriceCliente"],
 				"price_provedor" => $_POST["editarPriceProvedor"],
 				"ficha_tecnica" => $ruta,

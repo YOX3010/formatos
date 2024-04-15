@@ -133,16 +133,11 @@ if ($_SESSION["perfil"] == "Especial") {
 
             </tr>
 
-            <tr>';
+            <tr>
 
-                $itemProveedor = "id";
-                $valorProveedor = $value["id_proveedor"];
+              <th colspan="1">Seller / Vendedor</th>
 
-                $respuestaProveedor = ControladorProveedores::ctrMostrarProveedores($itemProveedor, $valorProveedor);
-
-                echo '<th colspan="1">Seller / Vendedor</th>
-
-              <td colspan="3">' . $respuestaProveedor["proveedor"] . '</td>
+              <td colspan="3">' . $respuestaProveedor["proveedor"] . " / " . $respuestaProveedor["refineria"] . '</td>
 
             </tr>
 

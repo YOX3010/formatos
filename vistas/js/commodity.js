@@ -1,4 +1,49 @@
 /*=============================================
+SUBIENDO LA FOTO DEL PRODUCTO
+=============================================*/
+
+$(".nuevaImagen").change(function () {
+  var imagen = this.files[0];
+
+  /*=============================================
+  	VALIDAMOS EL FORMATO DE LA IMAGEN SEA JPG O PNG
+  	=============================================*/
+
+  if (
+    imagen["type"] != "image/jpeg" &&
+    imagen["type"] != "image/png" &&
+    imagen["type"] != "image/jpg"
+  ) {
+    $(".nuevaImagen").val("");
+
+    swal({
+      title: "Error al subir la imagen",
+      text: "¡La imagen debe estar en formato JPG o PNG!",
+      type: "error",
+      confirmButtonText: "¡Cerrar!",
+    });
+  } else if (imagen["size"] > 20000000000) {
+    $(".nuevaImagen").val("");
+
+    swal({
+      title: "Error al subir la imagen",
+      text: "¡La imagen no debe pesar más de 2MB!",
+      type: "error",
+      confirmButtonText: "¡Cerrar!",
+    });
+  } else {
+    var datosImagen = new FileReader();
+    datosImagen.readAsDataURL(imagen);
+
+    $(datosImagen).on("load", function (event) {
+      var rutaImagen = event.target.result;
+
+      $(".previsualizar").attr("src", rutaImagen);
+    });
+  }
+});
+
+/*=============================================
 EDITAR COMMODITY
 =============================================*/
 
@@ -24,6 +69,15 @@ $(".tablas").on("click", ".btnEditarCommodity", function () {
       $("#editarPriceCliente").val(respuesta["price_cliente"]);
       $("#editarPriceProvedor").val(respuesta["price_provedor"]);
       $("#imagenActual").val(respuesta["ficha_tecnica"]);
+
+      if (respuesta["foto"] != "") {
+        $(".previsualizarEditar").attr("src", respuesta["ficha_tecnica"]);
+      } else {
+        $(".previsualizarEditar").attr(
+          "src",
+          "vistas/img/usuarios/default/anonymous.png"
+        );
+      }
     },
   });
 });
@@ -58,44 +112,3 @@ ELIMINAR COMMODITY
 // 	 })
 
 // })
-
-/*=============================================
-SUBIENDO LA FOTO DEL PRODUCTO
-=============================================*/
-
-$(".nuevaImagen").change(function () {
-  var imagen = this.files[0];
-
-  /*=============================================
-  	VALIDAMOS EL FORMATO DE LA IMAGEN SEA JPG O PNG
-  	=============================================*/
-
-  if (imagen["type"] != "image/jpeg" && imagen["type"] != "image/png") {
-    $(".nuevaImagen").val("");
-
-    swal({
-      title: "Error al subir la imagen",
-      text: "¡La imagen debe estar en formato JPG o PNG!",
-      type: "error",
-      confirmButtonText: "¡Cerrar!",
-    });
-  } else if (imagen["size"] > 2000000) {
-    $(".nuevaImagen").val("");
-
-    swal({
-      title: "Error al subir la imagen",
-      text: "¡La imagen no debe pesar más de 2MB!",
-      type: "error",
-      confirmButtonText: "¡Cerrar!",
-    });
-  } else {
-    var datosImagen = new FileReader();
-    datosImagen.readAsDataURL(imagen);
-
-    $(datosImagen).on("load", function (event) {
-      var rutaImagen = event.target.result;
-
-      $(".previsualizar").attr("src", rutaImagen);
-    });
-  }
-});
