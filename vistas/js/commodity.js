@@ -91,7 +91,7 @@ $(".tablas").on("click", ".btnEditarCommodity", function () {
       // });
 
       $("#idCommodity").val(respuesta["id"]);
-      $("#editarCommodity").val(respuesta["commodity"]);
+      $("#editarNombreCommodity").val(respuesta["commodity"]);
       $("#editarPriceCliente").val(respuesta["price_cliente"]);
       $("#editarPriceProvedor").val(respuesta["price_provedor"]);
       $("#imagenActual").val(respuestaImagen["ficha_tecnica"]);
@@ -101,7 +101,7 @@ $(".tablas").on("click", ".btnEditarCommodity", function () {
       } else {
         $(".previsualizarEditar").attr(
           "src",
-          "vistas/img/usuarios/default/anonymous.png"
+          "vistas/img/productos/default/anonymous.png"
         );
       }
     },

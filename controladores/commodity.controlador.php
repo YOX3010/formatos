@@ -16,18 +16,44 @@ class ControladorCommodity
 			VALIDAR IMAGEN
 			=============================================*/
 
-			$target_dir = "../vistas/img/productos/";
-			$target_file = $target_dir . basename($_FILES["nuevaImagen"]["name"]);
-			// move_uploaded_file($_FILES["nuevaImagen"]["tmp_name"], $target_file);
+			/*=============================================
+			NUEVO
+			=============================================*/
 
-			if (move_uploaded_file($_FILES["nuevaImagen"]["tmp_name"], $target_file)) {
-				echo "El archivo " . basename($_FILES["nuevaImagen"]["name"]) . " ha sido subido.";
-			} else {
-				echo "Lo siento, hubo un error al subir tu archivo.";
+			$targetDir = 'vistas/img/productos'; // Specify your upload directory
+			$targetFile = $targetDir . basename($_FILES['nuevaImagen']['name']);
+
+			// Validate file type (e.g., allow only images)
+			$imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+			if ($imageFileType !== 'jpg' && $imageFileType !== 'jpeg' && $imageFileType !== 'png') {
+				echo 'Invalid file format. Please upload a JPG or PNG image.';
+				exit;
 			}
 
+			// Move the uploaded file to the target directory
+			if (move_uploaded_file($_FILES['nuevaImagen']['tmp_name'], $targetFile)) {
+				echo 'File uploaded successfully!';
+			} else {
+				echo 'Error uploading file.';
+			}
 
+			/*=============================================
+			NUEVO - VIEJO
+			=============================================*/
 
+			// $target_dir = "../vistas/img/productos/";
+			// $target_file = $target_dir . basename($_FILES["nuevaImagen"]["name"]);
+			// // move_uploaded_file($_FILES["nuevaImagen"]["tmp_name"], $target_file);
+
+			// if (move_uploaded_file($_FILES["nuevaImagen"]["tmp_name"], $target_file)) {
+			// 	echo "El archivo " . basename($_FILES["nuevaImagen"]["name"]) . " ha sido subido.";
+			// } else {
+			// 	echo "Lo siento, hubo un error al subir tu archivo.";
+			// }
+
+			/*=============================================
+			VIEJO
+			=============================================*/
 
 			// $ruta = "vistas/img/productos/default/anonymous.png";
 
@@ -95,7 +121,7 @@ class ControladorCommodity
 				"commodity" => $_POST["nuevoNombreCommodity"],
 				"price_cliente" => $_POST["nuevoPriceCliente"],
 				"price_provedor" => $_POST["nuevoPriceProvedor"],
-				"ficha_tecnica" => $target_file,
+				"ficha_tecnica" => $targetDir,
 			);
 
 

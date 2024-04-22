@@ -193,7 +193,7 @@ MODAL AGREGAR CLIENTE
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-user-tie"></i></span>
+                <span class="input-group-addon"><i class="fa-solid fa-building-user"></i></span>
 
                 <input type="text" class="form-control input-lg" name="nuevoSignatory" placeholder="Ingresar Firmante" required>
 
@@ -267,6 +267,22 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
+            <!-- ENTRADA PARA EL CRN-->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-hashtag"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoCRN" placeholder="Ingresar Company Registration Number (CRN)" required>
+
+                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
+
+              </div>
+
+            </div>
+
             <!-- ENTRADA PARA EL BANK NAME -->
 
             <div class="form-group">
@@ -315,6 +331,70 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
+            <!-- ENTRADA PARA EL NOMBRE DEL OFICIAL DEL BANCO -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-user-tie"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoOfficerName" placeholder="Nombre del oficial del banco" require>
+
+                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL POSITION DEL OFICIAL DEL BANCO -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-briefcase"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoOfficerPosition" placeholder="Posición del oficial del banco" require>
+
+                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL TELEFONO DEL OFICIAL DEL BANCO -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-square-phone"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoOfficerPhone" placeholder="Ingresar Teléfono del oficial del banco" data-inputmask="'mask':'(999) 999-9999'" data-mask require>
+
+                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL E-MAIL DEL OFICIAL DEL BANCO -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-regular fa-envelope"></i></span>
+
+                <input type="email" class="form-control input-lg" name="nuevoOfficerEmail" placeholder="Ingresar E-mail del oficial del banco" require>
+
+                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
+
+              </div>
+
+            </div>
+
             <!-- ENTRADA PARA ACCOUNT NUMBER -->
 
             <div class="form-group">
@@ -331,7 +411,23 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA PASSPORT NUMBER AND COUNTRY -->
+            <!-- ENTRADA PARA COUNTRY -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-flag-usa"></i></span>
+
+                <input type="text" class="form-control input-lg" name="nuevoCountry" placeholder="Ingresar País de origen" required>
+
+                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA PASSPORT NUMBER -->
 
             <div class="form-group">
 
@@ -339,7 +435,7 @@ MODAL AGREGAR CLIENTE
 
                 <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoPassportNumberCountry" placeholder="Ingresar País de emición y Número del pasaporte" required>
+                <input type="text" class="form-control input-lg" name="nuevoPassportNumber" placeholder="Ingresar Número del pasaporte" required>
 
                 <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
 
@@ -383,15 +479,11 @@ MODAL AGREGAR CLIENTE
 
             <div class="form-group">
 
-              <div class="input-group">
+              <label for="nuevoPassportImage">Cargar foto del pasaporte</label>
 
-                <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
+              <input type="file" name="nuevoPassportImage" required>
 
-                <input type="text" class="form-control input-lg" name="nuevoPassportImage" placeholder="Cargar foto del pasaporte" required>
-
-                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
-
-              </div>
+              <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
 
             </div>
 
@@ -482,7 +574,7 @@ MODAL EDITAR CLIENTE
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-user-tie"></i></i></span>
+                <span class="input-group-addon"><i class="fa-solid fa-building-user"></i></span>
 
                 <input type="text" class="form-control input-lg" name="editarSignatory" id="editarSignatory" required>
 
@@ -546,6 +638,20 @@ MODAL EDITAR CLIENTE
 
             </div>
 
+            <!-- ENTRADA PARA CRN -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-hashtag"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarCRN" id="editarCRN" required>
+
+              </div>
+
+            </div>
+
             <!-- ENTRADA PARA BANK NAME -->
 
             <div class="form-group">
@@ -588,6 +694,62 @@ MODAL EDITAR CLIENTE
 
             </div>
 
+            <!-- ENTRADA PARA NOMBRE DEL OFICIAL DEL BANCO -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-user-tie"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarOfficerName" id="editarOfficerName" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA POSITION DEL OFICIAL DEL BANCO -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-briefcase"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarOfficerPosition" id="editarOfficerPosition" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA TELEFONO DEL OFICIAL DEL BANCO -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-square-phone"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarOfficerPhone" id="editarOfficerPhone" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA E-MAIL DEL OFICIAL DEL BANCO -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-regular fa-envelope"></i></span>
+
+                <input type="email" class="form-control input-lg" name="editarOfficerEmail" id="editarOfficerEmail" required>
+
+              </div>
+
+            </div>
+
             <!-- ENTRADA PARA ACCOUNT NUMBER -->
 
             <div class="form-group">
@@ -602,7 +764,21 @@ MODAL EDITAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA PASSPORT NUMBER COUNTRY -->
+            <!-- ENTRADA PARA COUNTRY -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-flag-usa"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarCountry" id="editarCountry" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA PASSPORT NUMBER -->
 
             <div class="form-group">
 
@@ -610,7 +786,7 @@ MODAL EDITAR CLIENTE
 
                 <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarPassportNumberCountry" id="editarPassportNumberCountry" required>
+                <input type="text" class="form-control input-lg" name="editarPassportNumber" id="editarPassportNumber" required>
 
               </div>
 
@@ -650,9 +826,15 @@ MODAL EDITAR CLIENTE
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
+                <div class="form-group">
 
-                <input type="text" class="form-control input-lg" name="editarPassportImage" id="editarPassportImage" required>
+                  <label for="editarPassportImage">Cargar foto del pasaporte</label>
+
+                  <input type="file" name="editarPassportImage" id="editarPassportImage" required>
+
+                  <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
+
+                </div>
 
               </div>
 
@@ -732,9 +914,11 @@ MODAL INFORMACIÓN DEL CLIENTE
 
             <div class="form-group">
 
+              <label for="infoCosignee">Cosignatario</label>
+
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-industry"></i> Cosignatario</span>
+                <span class="input-group-addon"><i class="fa-solid fa-industry"></i></span>
 
                 <input type="text" class="form-control input-lg" name="infoCosignee" id="infoCosignee" readonly>
 
@@ -746,9 +930,11 @@ MODAL INFORMACIÓN DEL CLIENTE
 
             <div class="form-group">
 
+              <label for="infoSignatory">Firmante</label>
+
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-user-tie"></i> Firmante</span>
+                <span class="input-group-addon"><i class="fa-solid fa-building-user"></i></span>
 
                 <input type="text" class="form-control input-lg" name="infoSignatory" id="infoSignatory" readonly>
 
@@ -760,9 +946,11 @@ MODAL INFORMACIÓN DEL CLIENTE
 
             <div class="form-group">
 
+              <label for="infoPosition">Posición</label>
+
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-briefcase"></i> Posición</span>
+                <span class="input-group-addon"><i class="fa-solid fa-briefcase"></i></span>
 
                 <input type="text" class="form-control input-lg" name="infoPosition" id="infoPosition" readonly>
 
@@ -774,9 +962,11 @@ MODAL INFORMACIÓN DEL CLIENTE
 
             <div class="form-group">
 
+              <label for="infoEmail">Email</label>
+
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa fa-envelope"></i> Email</span>
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
 
                 <input type="email" class="form-control input-lg" name="infoEmail" id="infoEmail" readonly>
 
@@ -788,9 +978,11 @@ MODAL INFORMACIÓN DEL CLIENTE
 
             <div class="form-group">
 
+              <label for="infoDireccion">Dirección</label>
+
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa fa-map-marker"></i> Dirección</span>
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
 
                 <input type="text" class="form-control input-lg" name="infoDireccion" id="infoDireccion" readonly>
 
@@ -802,11 +994,29 @@ MODAL INFORMACIÓN DEL CLIENTE
 
             <div class="form-group">
 
+              <label for="infoTelefono">Teléfono</label>
+
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa fa-phone"></i> Teléfono</span>
+                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
 
                 <input type="text" class="form-control input-lg" name="infoTelefono" id="infoTelefono" data-inputmask="'mask':'(999) 999-9999'" data-mask readonly>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA CRN -->
+
+            <div class="form-group">
+
+              <label for="infoCRN">CRN</label>
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-hashtag"></i></span>
+
+                <input type="text" class="form-control input-lg" name="infoCRN" id="infoCRN" readonly>
 
               </div>
 
@@ -816,9 +1026,11 @@ MODAL INFORMACIÓN DEL CLIENTE
 
             <div class="form-group">
 
+              <label for="infoBankName">Nombre del Banco</label>
+
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-building-columns"></i> Nombre del Banco</span>
+                <span class="input-group-addon"><i class="fa-solid fa-building-columns"></i></span>
 
                 <input type="text" class="form-control input-lg" name="infoBankName" id="infoBankName" readonly>
 
@@ -830,9 +1042,11 @@ MODAL INFORMACIÓN DEL CLIENTE
 
             <div class="form-group">
 
+              <label for="infoBankAddress">Dirección del Banco</label>
+
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-map-location"></i> Dirección del Banco</span>
+                <span class="input-group-addon"><i class="fa-solid fa-map-location"></i></span>
 
                 <input type="text" class="form-control input-lg" name="infoBankAddress" id="infoBankAddress" readonly>
 
@@ -844,9 +1058,11 @@ MODAL INFORMACIÓN DEL CLIENTE
 
             <div class="form-group">
 
+              <label for="infoSwift">Código Swift</label>
+
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-hashtag"></i> Swift</span>
+                <span class="input-group-addon"><i class="fa-solid fa-hashtag"></i></span>
 
                 <input type="text" class="form-control input-lg" name="infoSwift" id="infoSwift" readonly>
 
@@ -854,13 +1070,80 @@ MODAL INFORMACIÓN DEL CLIENTE
 
             </div>
 
+            <!-- ENTRADA PARA NOMBRE DEL OFICIAL DEL BANCO -->
+
+            <div class="form-group">
+
+              <label for="infoOfficerName">Nombre del oficial del banco</label>
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-user-tie"></i></span>
+
+                <input type="text" class="form-control input-lg" name="infoOfficerName" id="infoOfficerName" readonly>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA POSITION DEL OFICIAL DEL BANCO -->
+
+            <div class="form-group">
+
+              <label for="infoOfficerPosition">Posición del oficial del banco</label>
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-briefcase"></i></span>
+
+                <input type="text" class="form-control input-lg" name="infoOfficerPosition" id="infoOfficerPosition" readonly>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA TELEFONO DEL OFICIAL DEL BANCO -->
+
+            <div class="form-group">
+
+              <label for="infoOfficerPhone">Teléfono del oficial del banco</label>
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-square-phone"></i></span>
+
+                <input type="text" class="form-control input-lg" name="infoOfficerPhone" id="infoOfficerPhone" readonly>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA E-MAIL DEL OFICIAL DEL BANCO -->
+
+            <div class="form-group">
+
+              <label for="infoOfficerEmail">Email del oficial del banco</label>
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-regular fa-envelope"></i></span>
+
+                <input type="text" class="form-control input-lg" name="infoOfficerEmail" id="infoOfficerEmail" readonly>
+
+              </div>
+
+            </div>
+
+
             <!-- ENTRADA PARA ACCOUNT NUMBER -->
 
             <div class="form-group">
 
+              <label for="infoAccountNumber">Número de Cuenta</label>
+
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-id-card"></i> Número de Cuenta</span>
+                <span class="input-group-addon"><i class="fa-solid fa-id-card"></i></span>
 
                 <input type="text" class="form-control input-lg" name="infoAccountNumber" id="infoAccountNumber" readonly>
 
@@ -868,15 +1151,33 @@ MODAL INFORMACIÓN DEL CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA PASSPORT NUMBER COUNTRY -->
+            <!-- ENTRADA PARA COUNTRY -->
 
             <div class="form-group">
 
+              <label for="infoCountr">País de origen</label>
+
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-passport"></i> País y Número del Pasaporte</span>
+                <span class="input-group-addon"><i class="fa-solid fa-flag-usa"></i></span>
 
-                <input type="text" class="form-control input-lg" name="infoPassportNumberCountry" id="infoPassportNumberCountry" readonly>
+                <input type="text" class="form-control input-lg" name="infoCountry" id="infoCountry" readonly>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA PASSPORT NUMBER -->
+
+            <div class="form-group">
+
+              <label for="infopassportNumber">Número del Pasaporte</label>
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
+
+                <input type="text" class="form-control input-lg" name="infoPassportNumber" id="infoPassportNumber" readonly>
 
               </div>
 
@@ -886,9 +1187,11 @@ MODAL INFORMACIÓN DEL CLIENTE
 
             <div class="form-group">
 
+              <label for="infoPassportIssueDate">Fecha de emición del Pasaporte</label>
+
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-passport"></i> Fecha de Emición del Pasaporte</span>
+                <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
 
                 <input type="text" class="form-control input-lg" name="infoPassportIssueDate" id="infoPassportIssueDate" readonly>
 
@@ -900,9 +1203,11 @@ MODAL INFORMACIÓN DEL CLIENTE
 
             <div class="form-group">
 
+              <label for="infoPassportExpirationDate">Fecha de Vencimiento del Pasaporte</label>
+
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-passport"></i> Fecha de Vencimiento del Pasaporte</span>
+                <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
 
                 <input type="text" class="form-control input-lg" name="infoPassportExpirationDate" id="infoPassportExpirationDate" readonly>
 
@@ -914,9 +1219,11 @@ MODAL INFORMACIÓN DEL CLIENTE
 
             <div class="form-group">
 
+              <label for="infoPassportImage">Pasaporte</label>
+
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-passport"></i> Foto del Pasaporte</span>
+                <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
 
                 <input type="text" class="form-control input-lg" name="infoPassportImage" id="infoPassportImage" readonly>
 

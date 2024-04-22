@@ -364,7 +364,7 @@ class ControladorUsuarios
 					"position" => $_POST["editarPosition"],
 					"email" => $_POST["editarEmail"],
 					"telefono" => $_POST["editarTelefono"],
-					"usuario" => $_POST["editarUsuario"],
+					"usuario" => $_POST["editarNombreUsuario"],
 					"password" => $encriptar,
 					"perfil" => $_POST["editarPerfil"],
 					// "foto" => $ruta,

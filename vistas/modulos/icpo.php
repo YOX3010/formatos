@@ -98,7 +98,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
               <th>Ref. Number / Número de Referencia:</th>
 
-              <td>' . $value["ref_number"] . '</td>
+              <td>' . $value["ref_number"] . $value["id"] . '</td>
 
               <th>Date / Fecha</th>
 
@@ -353,9 +353,20 @@ MODAL AGREGAR ICPO
 
               <div class="input-group">
 
+                <?php
+
+                $itemSCO = "id";
+                $valorSCO = $_GET["idSCO"];
+
+                $respuestaSCO = ControladorSCO::ctrMostrarSCO($itemSCO, $valorSCO);
+
+                ?>
+
                 <span class="input-group-addon"><i class="fa-solid fa-file-code"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoSCO" value="<?php echo $_GET['idSCO']; ?>" require readonly>
+                <input type="hidden" class="form-control input-lg" name="nuevoSCO" value="<?php echo $_GET["idSCO"] ?>" require readonly>
+
+                <input type="text" class="form-control input-lg" value="<?php echo $respuestaSCO['codigo'] . $respuestaSCO["id"]; ?>" readonly>
 
                 <input type="hidden" name="nuevoICPO" id="nuevoICPO" required>
 
@@ -406,7 +417,18 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-file-code"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoCliente" value="<?php echo $_GET['idCliente']; ?>" require readonly>
+                <?php
+
+                $itemCliente = "id";
+                $valorCliente = $_GET["idCliente"];
+
+                $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+
+                ?>
+
+                <input type="hidden" class="form-control input-lg" name="nuevoCliente" value="<?php echo $_GET['idCliente']; ?>" require readonly>
+
+                <input type="text" class="form-control input-lg" value="<?php echo $respuestaCliente["cosignee"]; ?>" readonly>
 
                 <input type="hidden" name="nuevoICPO" id="nuevoICPO" required>
 
@@ -432,13 +454,13 @@ MODAL AGREGAR ICPO
 
             <!-- NUMERO DE REFERENCIA -->
 
-            <div class="form-group">
+            <div class="form-group" style="display: none;">
 
               <div class="input-group">
 
                 <span class="input-group-addon"><i class="fa-solid fa-hashtag"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoRefNumber" placeholder="Número de Referencia" required>
+                <input type="text" class="form-control input-lg" name="nuevoRefNumber" value="TCP-MAJR-ICPO-000" readonly required>
 
                 <input type="hidden" name="nuevoICPO" id="nuevoICPO" required>
 
@@ -645,7 +667,18 @@ MODAL EDITAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-hashtag"></i></span>
 
-                <input type="text" class="form-control input-lg" id="editarCodigo" name="editarCodigo" require readonly>
+                <?php
+
+                $itemSCO = "id";
+                $valorSCO = $_GET["idSCO"];
+
+                $respuestaSCO = ControladorSCO::ctrMostrarSCO($itemSCO, $valorSCO);
+
+                ?>
+
+                <input type="hidden" class="form-control input-lg" id="editarSCO" name="editarSCO" require readonly>
+
+                <input type="text" class="form-control input-lg" id="editarCodigo" value="<?php echo $respuestaSCO['codigo'] . $respuestaSCO["id"]; ?>" readonly>
 
                 <input type="hidden" name="idICPO" id="idICPO" required>
 
@@ -655,15 +688,34 @@ MODAL EDITAR ICPO
 
             </div>
 
-            <!-- ID LOI -->
+            <!-- PROVEEDOR -->
 
             <div class="form-group">
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-file-code"></i></span>
+                <span class="input-group-addon"><i class="fa-solid fa-oil-well"></i></span>
 
-                <input type="number" class="form-control input-lg" id="editarLoi" name="editarLoi" require readonly>
+                <select class="form-control input-lg" id="editarProveedor" name="editarProveedor" required>
+
+                  <option value="">Selecionar Proveedor</option>
+
+                  <?php
+
+                  $item = null;
+                  $valor = null;
+
+                  $usuario = ControladorProveedores::ctrMostrarProveedores($item, $valor);
+
+                  foreach ($usuario as $key => $value) {
+
+
+                    echo '<option value="' . $value["id"] . '">' . $value["proveedor"] . '</option>';
+                  }
+
+                  ?>
+
+                </select>
 
               </div>
 
@@ -677,13 +729,52 @@ MODAL EDITAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-industry"></i></span>
 
-                <input type="number" min="0" max="99999999999" class="form-control input-lg" id="editarClientes" name="editarClientes" require readonly>
+                <?php
+
+                $itemCliente = "id";
+                $valorCliente = $_GET["idCliente"];
+
+                $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+
+                ?>
+
+                <input type="hidden" class="form-control input-lg" id="editarCliente" name="editarCliente" require readonly>
+
+                <input type="text" class="form-control input-lg" id="editarCliente" value="<?php echo $respuestaCliente["cosignee"] ?>" readonly>
 
               </div>
 
             </div>
 
-            <!-- VIA CLIENTE-->
+            <!-- CODIGO DE AUTENTICACION -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-code"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarAuthCode" id="editarAuthCode" placeholder="Código de Autenticación" require>
+
+              </div>
+
+            </div>
+
+            <!-- NUMERO DE REFERENCIA -->
+
+            <div class="form-group" style="display: none;">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-hashtag"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarRefNumber" id="editarRefNumber" value="TCP-MAJR-ICPO-000" readonly required>
+
+              </div>
+
+            </div>
+
+            <!-- VIA-->
 
             <div class="form-group">
 
@@ -691,409 +782,105 @@ MODAL EDITAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-building-user"></i></span>
 
-                <input type="text" class="form-control input-lg" id="editarViaCliente" name="editarViaCliente" required>
+                <input type="text" class="form-control input-lg" name="editarVia" id="editarVia" placeholder="Via" required>
 
               </div>
 
             </div>
 
-            <!-- VIA EMAIL CLIENTE -->
+            <!-- TRADE DATE -->
 
             <div class="form-group">
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-envelope"></i></span>
+                <span class="input-group-addon"><i class="fa-solid fa-calendar-xmark"></i></span>
 
-                <input type="email" class="form-control input-lg" id="editarEmailViaCliente" name="editarEmailViaCliente" required>
+                <input type="date" class="form-control input-lg" name="editarTradeDate" id="editarTradeDate" required>
 
               </div>
 
             </div>
 
-            <!-- SIGNATORY -->
-
-            <!-- <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" value="Signatory" readonly>
-
-                <input type="hidden" id="editarICPO" id="editarICPO" required> 
-
-              </div>
-
-            </div> -->
-
-            <!-- POSICIÓN CLIENTE -->
-
-            <!-- <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" value="Position cliente" readonly>
-
-              </div>
-
-            </div> -->
-
-            <!-- EMAIL CLIENTE -->
-
-            <!-- <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" value="Email Cliente" readonly>
-
-              </div>
-
-            </div> -->
-
-            <!-- NOMBRE USUARIO -->
+            <!-- DURACIÓN DEL CONTRATO-->
 
             <div class="form-group">
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-user"></i></span>
+                <span class="input-group-addon"><i class="fa-regular fa-clock"></i></span>
 
-                <select class="form-control input-lg" id="editarUsuario" name="editarUsuario" required>
-
-                  <option value="">Selecionar Vendedor</option>
-
-                  <?php
-
-                  $item = null;
-                  $valor = null;
-
-                  $usuario = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
-
-                  foreach ($usuario as $key => $value) {
-
-
-                    echo '<option value="' . $value["id"] . '">' . $value["nombre"] . '</option>';
-                  }
-
-                  ?>
-
-                </select>
-
-                <!-- <input type="number" class="form-control input-lg" id="editarUsuario" placeholder="To / Para:" required> -->
+                <input type="text" class="form-control input-lg" name="editarDurationContract" id="editarDurationContract" placeholder="Duration Contract / Duración del Contrato" required>
 
               </div>
 
             </div>
 
-            <!-- POSICIÓN USUARIO -->
-
-            <!-- <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" id="editarPosition2" placeholder="Position / Posición" required>
-
-              </div>
-
-            </div> -->
-
-            <!-- EMAIL USUARIO -->
-
-            <!-- <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="email" class="form-control input-lg" id="editarEmail2" placeholder="Email / Correo Electrónico:" required>
-
-              </div>
-
-            </div> -->
-
-            <!-- VIA USUARIO-->
+            <!-- VESSEL-->
 
             <div class="form-group">
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-building-user"></i></span>
+                <span class="input-group-addon"><i class="fa-solid fa-ship"></i></span>
 
-                <input type="text" class="form-control input-lg" id="editarViaTpc" name="editarViaTpc" required>
+                <input type="text" class="form-control input-lg" name="editarVessel" id="editarVessel" placeholder="Vessel / Buque" required>
 
               </div>
 
             </div>
 
-            <!-- VIA EMAIL USUARIO-->
+            <!-- INSPECCION -->
 
             <div class="form-group">
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-envelope"></i></span>
+                <span class="input-group-addon"><i class="fa-regular fa-eye"></i></span>
 
-                <input type="email" class="form-control input-lg" id="editarEmailViaTpc" name="editarEmailViaTpc" required>
+                <input type="text" class="form-control input-lg" name="editarInspection" id="editarInspection" placeholder="Inpection / Inspección" required>
 
               </div>
 
             </div>
 
+            <!-- INSURANCE -->
+
             <div class="form-group">
 
               <div class="input-group">
 
-                <h5><b>TRANSACTING TERMS / TÉRMINOS DE TRANSACCIÓN:</b></h5>
+                <span class="input-group-addon"><i class="fa-solid fa-building-lock"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarInsurance" id="editarInsurance" placeholder="Insurance / Seguro" required>
 
               </div>
 
             </div>
 
-            <!-- VALIDEZ DE ICPO -->
+            <!-- Q & Q DETERMINATION -->
 
             <div class="form-group">
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-calendar-xmark"></i> Validez de ICPO:</span>
+                <span class="input-group-addon"><i class="fa-solid fa-coins"></i></span>
 
-                <input type="date" class="form-control input-lg" id="editarValidityICPO" name="editarValidityICPO" required>
+                <input type="text" class="form-control input-lg" name="editarQQ" id="editarQQ" placeholder="Q & Q Determination / Determinación de C & C" required>
 
               </div>
 
             </div>
 
-            <!-- MERCANCÍA -->
+            <!-- DEMURRAGE RATE -->
 
             <div class="form-group">
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-gas-pump"></i></span>
+                <span class="input-group-addon"><i class="fa-solid fa-sack-xmark"></i></span>
 
-                <select class="form-control input-lg" id="editarCommodity" name="editarCommodity" required>
-
-                  <option value="">Selecionar Producto</option>
-
-                  <?php
-
-                  $item = null;
-                  $valor = null;
-
-                  $producto = ControladorCommodity::ctrMostrarCommodity($item, $valor);
-
-                  foreach ($producto as $key => $value) {
-
-
-                    echo '<option value="' . $value["id"] . '">' . $value["commodity"] . '</option>';
-                  }
-
-                  ?>
-
-                </select>
-
-              </div>
-
-            </div>
-
-            <!-- CANTIDAD -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa-solid fa-boxes-packing"></i></span>
-
-                <input type="number" class="form-control input-lg" id="editarQuantity" name="editarQuantity" required>
-
-                <select class="form-control input-lg" id="editarUM" name="editarUM" required>
-
-                  <option value="">Selecionar Unidad</option>
-
-                  <?php
-
-                  $item = null;
-                  $valor = null;
-
-                  $unidad = ControladorUM::ctrMostrarUM($item, $valor);
-
-                  foreach ($unidad as $key => $value) {
-
-
-                    echo '<option value="' . $value["id"] . '">' . $value["unidad"] . '</option>';
-                  }
-
-                  ?>
-
-                </select>
-
-                <!-- <select class="form-control input-lg" id="editarUM" name="editarUM" required>
-
-                  <option value=""></option>
-
-                  <?php
-
-                  // $item = null;
-                  // $valor = null;
-
-                  // $um = ControladorUM::ctrMostrarUM($item, $valor);
-
-                  // foreach ($um as $key => $value) {
-
-
-                  //   echo '<option value="' . $value["id"] . '">' . $value["unidad"] . '</option>';
-                  // }
-
-                  ?>
-
-                </select> -->
-
-              </div>
-
-            </div>
-
-            <!-- PRECIO -->
-
-            <!-- <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" id="editarPrice" placeholder="Price / Precio" required>
-
-              </div>
-
-            </div> -->
-
-            <!-- INCOTERMS -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa-solid fa-sheet-plastic"></i></span>
-
-                <select class="form-control input-lg" id="editarIncoterms" name="editarIncoterms" required>
-
-                  <option value="">Selecionar Procedimiento</option>
-
-                  <?php
-
-                  $item = null;
-                  $valor = null;
-
-                  $incoterms = ControladorIncoterms::ctrMostrarIncoterms($item, $valor);
-
-                  foreach ($incoterms as $key => $value) {
-
-                    echo '<option value="' . $value["id"] . '">' . $value["incoterm"] . '</option>';
-                  }
-
-                  ?>
-
-                </select>
-
-              </div>
-
-            </div>
-
-            <!-- PUERTO -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa-solid fa-anchor"></i></span>
-
-                <select class="form-control input-lg" id="editarPort" name="editarPort" required>
-
-                  <option value="">Selecionar Puerto</option>
-
-                  <?php
-
-                  $item = null;
-                  $valor = null;
-
-                  $puerto = ControladorPort::ctrMostrarPort($item, $valor);
-
-                  foreach ($puerto as $key => $value) {
-
-
-                    echo '<option value="' . $value["id"] . '">' . $value["port"] . '</option>';
-                  }
-
-                  ?>
-
-                </select>
-
-              </div>
-
-            </div>
-
-            <!-- ORIGEN DEL PRODUCTO -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa-solid fa-globe"></i></span>
-
-                <select class="form-control input-lg" id="editarProductOrigin" name="editarProductOrigin" required>
-
-                  <option value="">Selecionar Origen del producto</option>
-
-                  <?php
-
-                  $item = null;
-                  $valor = null;
-
-                  $origin = ControladorProductOrigin::ctrMostrarProductOrigin($item, $valor);
-
-                  foreach ($origin as $key => $value) {
-
-
-                    echo '<option value="' . $value["id"] . '">' . $value["origin"] . '</option>';
-                  }
-
-                  ?>
-
-                </select>
-
-              </div>
-
-            </div>
-
-            <!-- TÉRMINO DEL CONTRATO -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa-solid fa-file-contract"></i></span>
-
-                <input type="text" class="form-control input-lg" id="editarContractTerms" name="editarContractTerms" required>
-
-              </div>
-
-            </div>
-
-            <!-- COMISIÓN -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa-solid fa-hand-holding-dollar"></i></span>
-
-                <input type="text" class="form-control input-lg" id="editarCommission" name="editarCommission" required>
+                <input type="text" class="form-control input-lg" name="editarDemurrageRate" id="editarDemurrageRate" placeholder="Demurrage Rate / Tasa de Sobreestadía" required>
 
               </div>
 

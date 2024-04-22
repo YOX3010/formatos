@@ -98,7 +98,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
                 echo '<td>' . $respuestaCliente["cosignee"] . '</td>
 
-                    <td>' . $value["codigo"] . '</td>
+                    <td>' . $value["codigo"] . $value["id"] . '</td>
 
                     <td>' . $value["descripcion"] . '</td>
 
@@ -108,9 +108,11 @@ if ($_SESSION["perfil"] == "Especial") {
 
                       <div class="btn-group">
                       
-                      <button class="btn btn-success btnSCO" idLoi="' . $value["id"] . '" idCliente="' . $value["id_clientes"] . '"><i class="fa-regular fa-file-lines"></i> Crear SCO</button>
+                      <button class="btn btn-info btnSCO" idLoi="' . $value["id"] . '" idCliente="' . $value["id_clientes"] . '" disabled><i class="fa-regular fa-file-lines"></i> Ver LOI</button>
+
+                      <button class="btn btn-danger btnSCO" idLoi="' . $value["id"] . '" idCliente="' . $value["id_clientes"] . '"><i class="fa-regular fa-file-lines"></i> Crear SCO</button>
                       
-                      <button class="btn btn-info btnJV" idLoi="' . $value["id"] . '" idCliente="' . $value["id_clientes"] . '"><i class="fa-solid fa-handshake"></i> Imprimir Joint Venture</button>';
+                      <button class="btn btn-success btnJV" idLoi="' . $value["id"] . '" idCliente="' . $value["id_clientes"] . '"><i class="fa-solid fa-handshake"></i> Joint Venture</button>';
 
                 if ($_SESSION["perfil"] == "Administrador") {
 
@@ -176,15 +178,24 @@ MODAL AGREGAR LOI
 
             <!-- ID CLIENTES -->
 
-            <div class="form-group" style="display: none;">
+            <div class="form-group">
 
               <div class="input-group">
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <!-- <input type="text" class="form-control input-lg" name="nuevoCliente" placeholder="Ingresar Codigo" required> -->
+                <?php
 
-                <input type="hidden" class="form-control" name="nuevoCliente" value="<?php echo $_GET['idLOI']; ?>" readonly>
+                $itemCliente = "id";
+                $valorCliente = $_GET["idCliente"];
+
+                $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+
+                ?>
+
+                <input type="hidden" class="form-control" name="nuevoCliente" value="<?php echo $_GET['idCliente']; ?>" readonly>
+
+                <input type="text" class="form-control input-lg" value="<?php echo $respuestaCliente["cosignee"] ?>" readonly>
 
               </div>
 
@@ -192,13 +203,13 @@ MODAL AGREGAR LOI
 
             <!-- ENTRADA CODIGO -->
 
-            <div class="form-group">
+            <div class="form-group" style="display: none;">
 
               <div class="input-group">
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="Ingresar Codigo" required>
+                <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="Ingresar Codigo" value="TPC-LOI-000" required readonly>
 
                 <input type="hidden" name="nuevoLOI" id="nuevoLOI" required>
 
@@ -226,15 +237,11 @@ MODAL AGREGAR LOI
 
             <div class="form-group">
 
-              <div class="input-group">
+              <label for="nuevoLoiImage">Cargar LOI (PDF)</label>
 
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+              <input type="file" name="nuevoLoiImage" accept=".pdf" required>
 
-                <input type="text" class="form-control input-lg" name="nuevoLoiImage" placeholder="Cargar LOI" required>
-
-                <input type="hidden" name="nuevoLOI" id="nuevoLOI" required>
-
-              </div>
+              <input type="hidden" name="nuevoLOI" id="nuevoLOI" required>
 
             </div>
 
@@ -303,13 +310,24 @@ MODAL EDITAR LOI
 
             <!-- ID CLIENTES -->
 
-            <div class="form-group" style="display: none;">
+            <div class="form-group">
 
               <div class="input-group">
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <input type="hidden" class="form-control input-lg" name="editarCliente" id="editarCliente" value="<?php echo $_GET['idLOI']; ?>" required readonly>
+                <?php
+
+                $itemCliente = "id";
+                $valorCliente = $_GET["idCliente"];
+
+                $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+
+                ?>
+
+                <input type="hidden" class="form-control input-lg" name="editarCliente" value="<?php echo $_GET['idCliente']; ?>" required>
+
+                <input type="text" class="form-control input-lg" id="editarCliente" value="<?php echo $respuestaCliente["cosignee"] ?>" readonly>
 
                 <input type="hidden" name="idLOI" id="idLOI" required>
 
@@ -321,13 +339,13 @@ MODAL EDITAR LOI
 
             <!-- ENTRADA PARA EDITAR CODIGO -->
 
-            <div class="form-group">
+            <div class="form-group" style="display: none;">
 
               <div class="input-group">
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarCodigo" id="editarCodigo" required>
+                <input type="hidden" class="form-control input-lg" name="editarCodigo" id="editarCodigo" required>
 
               </div>
 
@@ -351,13 +369,9 @@ MODAL EDITAR LOI
 
             <div class="form-group">
 
-              <div class="input-group">
+              <label for="nuevoLoiImage">Cargar LOI (PDF)</label>
 
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="editarLoiImage" id="editarLoiImage" required>
-
-              </div>
+              <input type="file" name="editarLoiImage" id="editarLoiImage" accept=".pdf" required>
 
             </div>
 

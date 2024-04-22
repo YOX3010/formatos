@@ -17,12 +17,18 @@ class ModeloClientes
 																			position,
 																			email,
 																			direccion,
-																			telefono, 
+																			telefono,
+																			crn,
 																			bank_name,
 																			bank_address,
 																			swift,
+																			bank_officer_name,
+																			bank_officer_position,
+																			bank_officer_phone,
+																			bank_officer_email,
 																			account_number,
-																			passport_number_country,
+																			country,
+																			passport_number,
 																			passport_issue_date,
 																			passport_expiration_date,
 																			passport_image) 
@@ -32,11 +38,17 @@ class ModeloClientes
 																			:email,
 																			:direccion,
 																			:telefono, 
+																			:crn, 
 																			:bank_name,
 																			:bank_address,
 																			:swift,
+																			:bank_officer_name,
+																			:bank_officer_position,
+																			:bank_officer_phone,
+																			:bank_officer_email,
 																			:account_number,
-																			:passport_number_country,
+																			:country,
+																			:passport_number,
 																			:passport_issue_date,
 																			:passport_expiration_date,
 																			:passport_image)");
@@ -47,11 +59,17 @@ class ModeloClientes
 		$stmt->bindParam(":email", $datos["email"], PDO::PARAM_STR);
 		$stmt->bindParam(":direccion", $datos["direccion"], PDO::PARAM_STR);
 		$stmt->bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
+		$stmt->bindParam(":crn", $datos["crn"], PDO::PARAM_STR);
 		$stmt->bindParam(":bank_name", $datos["bank_name"], PDO::PARAM_STR);
 		$stmt->bindParam(":bank_address", $datos["bank_address"], PDO::PARAM_STR);
 		$stmt->bindParam(":swift", $datos["swift"], PDO::PARAM_STR);
+		$stmt->bindParam(":bank_officer_name", $datos["bank_officer_name"], PDO::PARAM_STR);
+		$stmt->bindParam(":bank_officer_position", $datos["bank_officer_position"], PDO::PARAM_STR);
+		$stmt->bindParam(":bank_officer_phone", $datos["bank_officer_phone"], PDO::PARAM_STR);
+		$stmt->bindParam(":bank_officer_email", $datos["bank_officer_email"], PDO::PARAM_STR);
 		$stmt->bindParam(":account_number", $datos["account_number"], PDO::PARAM_STR);
-		$stmt->bindParam(":passport_number_country", $datos["passport_number_country"], PDO::PARAM_STR);
+		$stmt->bindParam(":country", $datos["country"], PDO::PARAM_STR);
+		$stmt->bindParam(":passport_number", $datos["passport_number"], PDO::PARAM_STR);
 		$stmt->bindParam(":passport_issue_date", $datos["passport_issue_date"], PDO::PARAM_STR);
 		$stmt->bindParam(":passport_expiration_date", $datos["passport_expiration_date"], PDO::PARAM_STR);
 		$stmt->bindParam(":passport_image", $datos["passport_image"], PDO::PARAM_STR);
@@ -111,11 +129,17 @@ class ModeloClientes
 																		email = :email,
 																		direccion = :direccion,
 																		telefono = :telefono, 
+																		crn = :crn, 
 																		bank_name = :bank_name,
 																		bank_address = :bank_address,
 																		swift = :swift,
+																		bank_officer_name = :bank_officer_name,
+																		bank_officer_position = :bank_officer_position,
+																		bank_officer_phone = :bank_officer_phone,
+																		bank_officer_email = :bank_officer_email,
 																		account_number = :account_number,
-																		passport_number_country = :passport_number_country,
+																		country = :country,
+																		passport_number = :passport_number,
 																		passport_issue_date = :passport_issue_date,
 																		passport_expiration_date = :passport_expiration_date,
 																		passport_image = :passport_image
@@ -128,11 +152,17 @@ class ModeloClientes
 		$stmt->bindParam(":email", $datos["email"], PDO::PARAM_STR);
 		$stmt->bindParam(":direccion", $datos["direccion"], PDO::PARAM_STR);
 		$stmt->bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
+		$stmt->bindParam(":crn", $datos["crn"], PDO::PARAM_STR);
 		$stmt->bindParam(":bank_name", $datos["bank_name"], PDO::PARAM_STR);
 		$stmt->bindParam(":bank_address", $datos["bank_address"], PDO::PARAM_STR);
 		$stmt->bindParam(":swift", $datos["swift"], PDO::PARAM_STR);
+		$stmt->bindParam(":bank_officer_name", $datos["bank_officer_name"], PDO::PARAM_STR);
+		$stmt->bindParam(":bank_officer_position", $datos["bank_officer_position"], PDO::PARAM_STR);
+		$stmt->bindParam(":bank_officer_phone", $datos["bank_officer_phone"], PDO::PARAM_STR);
+		$stmt->bindParam(":bank_officer_email", $datos["bank_officer_email"], PDO::PARAM_STR);
 		$stmt->bindParam(":account_number", $datos["account_number"], PDO::PARAM_STR);
-		$stmt->bindParam(":passport_number_country", $datos["passport_number_country"], PDO::PARAM_STR);
+		$stmt->bindParam(":country", $datos["country"], PDO::PARAM_STR);
+		$stmt->bindParam(":passport_number", $datos["passport_number"], PDO::PARAM_STR);
 		$stmt->bindParam(":passport_issue_date", $datos["passport_issue_date"], PDO::PARAM_STR);
 		$stmt->bindParam(":passport_expiration_date", $datos["passport_expiration_date"], PDO::PARAM_STR);
 		$stmt->bindParam(":passport_image", $datos["passport_image"], PDO::PARAM_STR);

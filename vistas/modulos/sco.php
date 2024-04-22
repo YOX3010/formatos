@@ -93,7 +93,7 @@ if ($_SESSION["perfil"] == "Especial") {
           
             <td colspan="1">
               
-              <b>COD: </b> ' . $value["codigo"] . '
+              <b>COD: </b> ' . $value["codigo"] . $value["id"] . '
         
             </td>
         
@@ -340,13 +340,13 @@ MODAL AGREGAR SCO
 
             <!-- CODIGO -->
 
-            <div class="form-group">
+            <div class="form-group" style="display: none;">
 
               <div class="input-group">
 
                 <span class="input-group-addon"><i class="fa-solid fa-hashtag"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="Código" require>
+                <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="Código" value="TCP-MAJR-SCO-000" require>
 
                 <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
 
@@ -356,7 +356,7 @@ MODAL AGREGAR SCO
 
             <!-- ID LOI -->
 
-            <div class="form-group">
+            <div class="form-group" style="display: none;">
 
               <div class="input-group">
 
@@ -378,7 +378,18 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-industry"></i></span>
 
-                <input type="number" min="0" max="99999999999" class="form-control input-lg" name="nuevoClientes" value="<?php echo $_GET["idCliente"]; ?>" require>
+                <?php
+
+                $itemCliente = "id";
+                $valorCliente = $_GET["idCliente"];
+
+                $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+
+                ?>
+
+                <input type="hidden" min="0" max="99999999999" class="form-control input-lg" name="nuevoClientes" value="<?php echo $_GET["idCliente"]; ?>" require>
+
+                <input type="text" class="form-control input-lg" value="<?php echo $respuestaCliente["cosignee"]; ?>" readonly>
 
                 <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
 
@@ -808,7 +819,7 @@ MODAL EDITAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-hashtag"></i></span>
 
-                <input type="text" class="form-control input-lg" id="editarCodigo" name="editarCodigo" require readonly>
+                <input type="text" class="form-control input-lg" id="editarCodigo" name="editarCodigo" readonly>
 
                 <input type="hidden" name="idSCO" id="idSCO" required>
 
@@ -820,7 +831,7 @@ MODAL EDITAR SCO
 
             <!-- ID LOI -->
 
-            <div class="form-group">
+            <div class="form-group" style="display: none;">
 
               <div class="input-group">
 
@@ -838,9 +849,20 @@ MODAL EDITAR SCO
 
               <div class="input-group">
 
+                <?php
+
+                $itemCliente = "id";
+                $valorCliente = $_GET["idCliente"];
+
+                $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+
+                ?>
+
                 <span class="input-group-addon"><i class="fa-solid fa-industry"></i></span>
 
-                <input type="number" min="0" max="99999999999" class="form-control input-lg" id="editarClientes" name="editarClientes" require readonly>
+                <input type="hidden" min="0" max="99999999999" class="form-control input-lg" id="editarClientes" name="editarClientes" require readonly>
+
+                <input type="text" class="form-control input-lg" id="editarClientes" value="<?php echo $respuestaCliente["cosignee"] ?>" readonly>
 
               </div>
 

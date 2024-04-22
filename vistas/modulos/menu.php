@@ -15,54 +15,9 @@
 				</a>
 			</li>
 
-			<li>
-				<a href="usuarios">
-					<i class="fa fa-user"></i>
-					<span>Usuarios</span>
-				</a>
-			</li>
-
-			<li>
-				<a href="proveedores">
-					<i class="fa-solid fa-oil-well"></i>
-					<span>Proveedores</span>
-				</a>
-			</li>
-
-			<li>
-				<a href="commodity">
-					<i class="fa-solid fa-gas-pump"></i>
-					<span>Productos</span>
-				</a>
-			</li>
-
-			<li>
-				<a href="product-origin">
-					<i class="fa-solid fa-globe"></i>
-					<span>Paises</span>
-				</a>
-			</li>
-
-			<li>
-				<a href="um">
-					<i class="fa-solid fa-ruler-combined"></i>
-					<span>Unidades</span>
-				</a>
-			</li>
-
-			<li>
-				<a href="incoterms">
-					<i class="fa-solid fa-sheet-plastic"></i>
-					<span>Procedimientos</span>
-				</a>
-			</li>
-
-			<li>
-				<a href="port">
-					<i class="fa-solid fa-anchor"></i>
-					<span>Puertos</span>
-				</a>
-			</li>';
+			
+			
+			';
 			}
 
 			// if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Especial"){

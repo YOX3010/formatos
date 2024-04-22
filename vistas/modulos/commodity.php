@@ -215,13 +215,13 @@ MODAL AGREGAR COMMODITY
 
               <div class="panel">SUBIR FICHA TECNICA</div>
 
-              <input type="file" class="nuevaImagen" name="nuevaImagen" id="nuevaImagen">
+              <input type="file" class="nuevaImagen" name="nuevaImagen" id="nuevaImagen" accept="image/*">
 
               <input type="hidden" name="nuevoCommodity" id="nuevoCommodity" required>
 
-              <p class="help-block">Peso máximo de la foto 2MB. Subir en formato de imagen (.jpeg, .png, ...)</p>
+              <p class="help-block">Peso máximo de la foto 2MB. Subir en formato de imagen (.jpeg, .jpg o .png)</p>
 
-              <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
+              <img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
 
             </div>
 
@@ -354,11 +354,11 @@ MODAL EDITAR COMMODITY
 
               <div class="panel">SUBIR FICHA TECNICA</div>
 
-              <input type="file" class="nuevaImagen" name="editarImagen">
+              <input type="file" class="nuevaImagen" name="imagenActual" id="imagenActual">
 
               <p class="help-block">Peso máximo de la foto 2MB. Subir en formato de imagen (.jpeg, .png, ...)</p>
 
-              <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizarEditar" width="100px">
+              <img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail previsualizarEditar" width="100px">
 
               <input type="hidden" name="imagenActual" id="imagenActual">
 

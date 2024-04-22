@@ -25,13 +25,17 @@ $(".tablas").on("click", ".btnEditarCliente", function () {
       $("#editarEmail").val(respuesta["email"]);
       $("#editarDireccion").val(respuesta["direccion"]);
       $("#editarTelefono").val(respuesta["telefono"]);
+      $("#editarCRN").val(respuesta["crn"]);
       $("#editarBankName").val(respuesta["bank_name"]);
       $("#editarBankAddress").val(respuesta["bank_address"]);
       $("#editarSwift").val(respuesta["swift"]);
+      $("#editarOfficerName").val(respuesta["bank_officer_name"]);
+      $("#editarOfficerPosition").val(respuesta["bank_officer_position"]);
+      $("#editarOfficerPhone").val(respuesta["bank_officer_phone"]);
+      $("#editarOfficerEmail").val(respuesta["bank_officer_email"]);
       $("#editarAccountNumber").val(respuesta["account_number"]);
-      $("#editarPassportNumberCountry").val(
-        respuesta["passport_number_country"]
-      );
+      $("#editarCountry").val(respuesta["country"]);
+      $("#editarPassportNumber").val(respuesta["passport_number"]);
       $("#editarPassportIssueDate").val(respuesta["passport_issue_date"]);
       $("#editarPassportExpirationDate").val(
         respuesta["passport_expiration_date"]
@@ -67,11 +71,17 @@ $(".tablas").on("click", ".btnInfoCliente", function () {
       $("#infoEmail").val(respuesta["email"]);
       $("#infoDireccion").val(respuesta["direccion"]);
       $("#infoTelefono").val(respuesta["telefono"]);
+      $("#infoCRN").val(respuesta["crn"]);
       $("#infoBankName").val(respuesta["bank_name"]);
       $("#infoBankAddress").val(respuesta["bank_address"]);
       $("#infoSwift").val(respuesta["swift"]);
+      $("#infoOfficerName").val(respuesta["bank_officer_name"]);
+      $("#infoOfficerPosition").val(respuesta["bank_officer_position"]);
+      $("#infoOfficerPhone").val(respuesta["bank_officer_phone"]);
+      $("#infoOfficerEmail").val(respuesta["bank_officer_email"]);
       $("#infoAccountNumber").val(respuesta["account_number"]);
-      $("#infoPassportNumberCountry").val(respuesta["passport_number_country"]);
+      $("#infoCountry").val(respuesta["country"]);
+      $("#infoPassportNumber").val(respuesta["passport_number"]);
       $("#infoPassportIssueDate").val(respuesta["passport_issue_date"]);
       $("#infoPassportExpirationDate").val(
         respuesta["passport_expiration_date"]

@@ -374,9 +374,9 @@ MODAL EDITAR USUARIO
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                <span class="input-group-addon"><i class="fa-solid fa-user-tie"></i></span>
 
-                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" readonly>
+                <input type="text" class="form-control input-lg" id="editarNombreUsuario" name="editarNombreUsuario" readonly>
 
               </div>
 
@@ -388,7 +388,7 @@ MODAL EDITAR USUARIO
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                <span class="input-group-addon"><i class="fa-solid fa-envelope"></i></span>
 
                 <input type="text" class="form-control input-lg" id="editarEmail" name="editarEmail">
 
@@ -402,7 +402,7 @@ MODAL EDITAR USUARIO
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                <span class="input-group-addon"><i class="fa-solid fa-phone"></i></span>
 
                 <input type="text" class="form-control input-lg" id="editarTelefono" name="editarTelefono" value="">
 

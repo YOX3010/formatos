@@ -146,43 +146,9 @@ CUERPO DOCUMENTO
 
       if (
         $_GET["ruta"] == "inicio" ||
-        $_GET["ruta"] == "inicio-vehiculos" ||
         $_GET["ruta"] == "usuarios" ||
-        $_GET["ruta"] == "categorias" ||
         $_GET["ruta"] == "proveedores" ||
-        $_GET["ruta"] == "productos" ||
-        $_GET["ruta"] == "reparaciones" ||
         $_GET["ruta"] == "clientes" ||
-        $_GET["ruta"] == "empleados" ||
-        $_GET["ruta"] == "empleados-cargos" ||
-        $_GET["ruta"] == "vehiculos" ||
-        $_GET["ruta"] == "marcas-vehiculos" ||
-        $_GET["ruta"] == "marcas-baterias" ||
-        $_GET["ruta"] == "modelos-vehiculos" ||
-        $_GET["ruta"] == "tipos-vehiculos" ||
-        $_GET["ruta"] == "ordenes" ||
-        $_GET["ruta"] == "ordenes-inspecciones" ||
-        $_GET["ruta"] == "ordenes-averias" ||
-        $_GET["ruta"] == "ordenes-cotizaciones" ||
-        $_GET["ruta"] == "ordenes-inspecciones-internas" ||
-        $_GET["ruta"] == "ordenes-inspecciones-baterias" ||
-        $_GET["ruta"] == "ordenes-inspecciones-neumaticos" ||
-        $_GET["ruta"] == "ordenes-inspecciones-generales" ||
-        $_GET["ruta"] == "ordenes-inspecciones-accesorios" ||
-        $_GET["ruta"] == "ordenes-inspecciones-reparaciones" ||
-        $_GET["ruta"] == "inspecciones-internas" ||
-        $_GET["ruta"] == "inspecciones-baterias" ||
-        $_GET["ruta"] == "inspecciones-neumaticos" ||
-        $_GET["ruta"] == "inspecciones-generales" ||
-        $_GET["ruta"] == "inspecciones-accesorios" ||
-        $_GET["ruta"] == "inspecciones-reparaciones" ||
-        $_GET["ruta"] == "ventas" ||
-        $_GET["ruta"] == "cotizaciones" ||
-        $_GET["ruta"] == "crear-venta" ||
-        $_GET["ruta"] == "crear-cotizacion" ||
-        $_GET["ruta"] == "editar-venta" ||
-        $_GET["ruta"] == "cuentas-cobrar" ||
-        $_GET["ruta"] == "reportes" ||
         $_GET["ruta"] == "commodity" ||
         $_GET["ruta"] == "product-origin" ||
         $_GET["ruta"] == "port" ||
@@ -191,12 +157,6 @@ CUERPO DOCUMENTO
         $_GET["ruta"] == "um" ||
         $_GET["ruta"] == "incoterms" ||
         $_GET["ruta"] == "icpo" ||
-        // $_GET["ruta"] == "formato-1" ||
-        // $_GET["ruta"] == "formato-2" ||
-        // $_GET["ruta"] == "formato-3" ||
-        // $_GET["ruta"] == "formato-4" ||
-        // $_GET["ruta"] == "formato" ||
-        // $_GET["ruta"] == "formato-imagenes" ||
         $_GET["ruta"] == "salir"
       ) {
 
@@ -226,36 +186,8 @@ CUERPO DOCUMENTO
 
   <script src="vistas/js/plantilla.js"></script>
   <script src="vistas/js/usuarios.js"></script>
-  <script src="vistas/js/categorias.js"></script>
   <script src="vistas/js/proveedores.js"></script>
-  <script src="vistas/js/productos.js"></script>
-  <script src="vistas/js/reparaciones.js"></script>
   <script src="vistas/js/clientes.js"></script>
-  <script src="vistas/js/empleados.js"></script>
-  <script src="vistas/js/cargos.js"></script>
-  <script src="vistas/js/vehiculos.js"></script>
-  <script src="vistas/js/marcas.js"></script>
-  <script src="vistas/js/marcasbaterias.js"></script>
-  <script src="vistas/js/modelos.js"></script>
-  <script src="vistas/js/tipos.js"></script>
-  <script src="vistas/js/ordenes.js"></script>
-  <script src="vistas/js/ordenesvehiculos.js"></script>
-  <script src="vistas/js/ordenesaverias.js"></script>
-  <script src="vistas/js/ordenesinspeccionesinternas.js"></script>
-  <script src="vistas/js/ordenesinspeccionesbaterias.js"></script>
-  <script src="vistas/js/ordenesinspeccionesneumaticos.js"></script>
-  <script src="vistas/js/ordenesinspeccionesgenerales.js"></script>
-  <script src="vistas/js/ordenesinspeccionesaccesorios.js"></script>
-  <script src="vistas/js/ordenesinspeccionesreparaciones.js"></script>
-  <script src="vistas/js/inspeccionesinternas.js"></script>
-  <script src="vistas/js/inspeccionesbaterias.js"></script>
-  <script src="vistas/js/inspeccionesneumaticos.js"></script>
-  <script src="vistas/js/inspeccionesgenerales.js"></script>
-  <script src="vistas/js/inspeccionesaccesorios.js"></script>
-  <script src="vistas/js/inspeccionesreparaciones.js"></script>
-  <script src="vistas/js/ventas.js"></script>
-  <script src="vistas/js/cotizaciones.js"></script>
-  <script src="vistas/js/reportes.js"></script>
   <script src="vistas/js/commodity.js"></script>
   <script src="vistas/js/productorigin.js"></script>
   <script src="vistas/js/port.js"></script>
@@ -264,12 +196,6 @@ CUERPO DOCUMENTO
   <script src="vistas/js/um.js"></script>
   <script src="vistas/js/incoterms.js"></script>
   <script src="vistas/js/icpo.js"></script>
-  <!-- <script src="vistas/js/formato1.js"></script>
-  <script src="vistas/js/formato2.js"></script>
-  <script src="vistas/js/formato3.js"></script> -->
-  <!-- <script src="vistas/js/formato4.js"></script> -->
-  <!-- <script src="vistas/js/formato.js"></script>
-  <script src="vistas/js/formatoimagenes.js"></script> -->
 
 </body>
 
