@@ -18,15 +18,15 @@
     </button>
   </a>
 
-  <!-- BOTON DE USUARIOS -->
-  <a href="commodity" style="color: #fff;">
+  <!-- BOTON DE PRODUCTOS -->
+  <a href="productos" style="color: #fff;">
     <button class="btn-info btn-lg">
       <i class="fa-solid fa-gas-pump"></i>
       <span>Productos</span>
     </button>
   </a>
 
-  <!-- BOTON DE USUARIOS -->
+  <!-- BOTON DE PRODUCT ORIGIN -->
   <a href="product-origin" style="color: #fff;">
     <button class="btn-info btn-lg">
       <i class="fa-solid fa-globe"></i>
@@ -34,7 +34,7 @@
     </button>
   </a>
 
-  <!-- BOTON DE USUARIOS -->
+  <!-- BOTON DE UNUDADES METRICAS -->
   <a href="um" style="color: #fff;">
     <button class="btn-info btn-lg">
       <i class="fa-solid fa-ruler-combined"></i>
@@ -42,7 +42,7 @@
     </button>
   </a>
 
-  <!-- BOTON DE USUARIOS -->
+  <!-- BOTON DE PROCEDIMIENTOS -->
   <a href="incoterms" style="color: #fff;">
     <button class="btn-info btn-lg">
       <i class="fa-solid fa-sheet-plastic"></i>
@@ -50,7 +50,7 @@
     </button>
   </a>
 
-  <!-- BOTON DE USUARIOS -->
+  <!-- BOTON DE PUERTOS -->
   <a href="port" style="color: #fff;">
     <button class="btn-info btn-lg">
       <i class="fa-solid fa-anchor"></i>

@@ -173,7 +173,7 @@ MODAL AGREGAR COMMODITY
 
                 <input type="text" class="form-control input-lg" name="nuevoPriceCliente" placeholder="Ingresar Precio de Venta" required>
 
-                <input type="hidden" name="nuevoCommodity" id="nuevoCommodity" required>
+                <!-- <input type="hidden" name="nuevoCommodity" id="nuevoCommodity" required> -->
 
               </div>
 
@@ -189,7 +189,7 @@ MODAL AGREGAR COMMODITY
 
                 <input type="text" class="form-control input-lg" name="nuevoPriceProvedor" placeholder="Ingresar Precio de Compra" required>
 
-                <input type="hidden" name="nuevoCommodity" id="nuevoCommodity" required>
+                <!-- <input type="hidden" name="nuevoCommodity" id="nuevoCommodity" required> -->
 
               </div>
 
@@ -217,7 +217,7 @@ MODAL AGREGAR COMMODITY
 
               <input type="file" class="nuevaImagen" name="nuevaImagen" id="nuevaImagen" accept="image/*">
 
-              <input type="hidden" name="nuevoCommodity" id="nuevoCommodity" required>
+              <!-- <input type="hidden" name="nuevoCommodity" id="nuevoCommodity" required> -->
 
               <p class="help-block">Peso máximo de la foto 2MB. Subir en formato de imagen (.jpeg, .jpg o .png)</p>
 

@@ -21,7 +21,7 @@ class ControladorCommodity
 			=============================================*/
 
 			$targetDir = 'vistas/img/productos'; // Specify your upload directory
-			$targetFile = $targetDir . basename($_FILES['nuevaImagen']['name']);
+			$targetFile = $targetDir . basename($_FILES['nuevaImagen']['nuevoNombreCommodity']);
 
 			// Validate file type (e.g., allow only images)
 			$imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
@@ -68,7 +68,7 @@ class ControladorCommodity
 			// 	CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL PRODUCTO
 			// 	=============================================*/
 
-			// 	$directorio = "vistas/img/productos/" . $_POST["nuevoCommodity"];
+			// 	$directorio = "vistas/img/productos/" . $_POST["nuevoNombreCommodity"];
 
 			// 	mkdir($directorio, 0755);
 
@@ -84,7 +84,7 @@ class ControladorCommodity
 
 			// 		$aleatorio = mt_rand(100, 999);
 
-			// 		$ruta = "vistas/img/productos/" . $_POST["nuevoCommodity"] . "/" . $aleatorio . ".jpg";
+			// 		$ruta = "vistas/img/productos/" . $_POST["nuevoNombreCommodity"] . "/" . $aleatorio . ".jpg";
 
 			// 		$origen = imagecreatefromjpeg($_FILES["nuevaImagen"]["tmp_name"]);
 
@@ -103,7 +103,7 @@ class ControladorCommodity
 
 			// 		$aleatorio = mt_rand(100, 999);
 
-			// 		$ruta = "vistas/img/productos/" . $_POST["nuevoCommodity"] . "/" . $aleatorio . ".png";
+			// 		$ruta = "vistas/img/productos/" . $_POST["nuevoNombreCommodity"] . "/" . $aleatorio . ".png";
 
 			// 		$origen = imagecreatefrompng($_FILES["nuevaImagen"]["tmp_name"]);
 
