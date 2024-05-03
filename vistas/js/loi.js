@@ -31,7 +31,7 @@ $(".tablas").on("click", ".btnEditarLOI", function () {
 BOTON ADMINISTRAR LOI
 =============================================*/
 
-$(".tablas").on("click", ".btnLOI", function () {
+$(".tablaClientes tbody").on("click", ".btnLOI", function () {
   var idCliente = $(this).attr("idCLiente");
 
   window.location = "index.php?ruta=loi&idCliente=" + idCliente;

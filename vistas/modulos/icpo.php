@@ -148,14 +148,14 @@ if ($_SESSION["perfil"] == "Especial") {
 
                 $respuestaSCO = ControladorSCO::ctrMostrarSCO($itemSCO, $valorSCO);
 
-                $itemCommodity = "id";
-                $valorCommodity = $respuestaSCO["id_commodity"];
+                $itemProductos = "id";
+                $valorProductos = $respuestaSCO["id_commodity"];
 
-                $respuestaCommodity = ControladorCommodity::ctrMostrarCommodity($itemCommodity, $valorCommodity);
+                $respuestaProductos = ControladorProductos::ctrMostrarProductos($itemProductos, $valorProductos);
 
                 echo '<th colspan="1">Product Name / Nombre del Producto</th>
 
-              <td colspan="3">' . $respuestaCommodity["commodity"] . '</td>
+              <td colspan="3">' . $respuestaProductos["commodity"] . '</td>
 
             </tr>
 
@@ -223,7 +223,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
               <th colspan="1">Target Price USD / Precio Objetivo USD</th>
 
-              <td colspan="3">' . $respuestaCommodity["price_provedor"] . " $ per " . $respuestaUM["unidad"] . '</td>
+              <td colspan="3">' . $respuestaProductos["price_provedor"] . " $ per " . $respuestaUM["unidad"] . '</td>
 
             </tr>
 

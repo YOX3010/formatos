@@ -1,39 +1,18 @@
 <?php
 
+
+
 require_once "conexion.php";
+
+
 
 class ModeloIncoterms
 {
 
-	/*=============================================
-	CREAR INCOTERMS
-	=============================================*/
 
-	static public function mdlIngresarIncoterms($tabla, $datos)
-	{
-
-		$stmt = Conexion::conectar()->prepare("INSERT INTO 		$tabla(		incoterm,
-																			procedimiento) 
-																VALUES(		:incoterm,
-																			:procedimiento)");
-
-		$stmt->bindParam(":incoterm", $datos["incoterm"], PDO::PARAM_STR);
-		$stmt->bindParam(":procedimiento", $datos["procedimiento"], PDO::PARAM_STR);
-
-		if ($stmt->execute()) {
-
-			return "ok";
-		} else {
-
-			return "error";
-		}
-
-		$stmt->close();
-		$stmt = null;
-	}
 
 	/*=============================================
-	MOSTRAR INCOTERMS
+	MOSTRAR PROCEDIMIENTO
 	=============================================*/
 
 	static public function mdlMostrarIncoterms($tabla, $item, $valor)
@@ -62,30 +41,133 @@ class ModeloIncoterms
 		$stmt = null;
 	}
 
+
+
 	/*=============================================
-	EDITAR INCOTERMS
+
+	REGISTRO DE PROCEDIMIENTO
+
 	=============================================*/
 
-	static public function mdlEditarIncoterms($tabla, $datos)
+	static public function mdlIngresarIncoterm($tabla, $datos)
 	{
+
+
+
+		$stmt = Conexion::conectar()->prepare("		INSERT INTO 		$tabla(		incoterm,
+																					procedimiento) 
+																		VALUES(		:incoterm,
+																					:procedimiento)");
+
+		$stmt->bindParam(":incoterm", $datos["incoterm"], PDO::PARAM_STR);
+		$stmt->bindParam(":procedimiento", $datos["procedimiento"], PDO::PARAM_STR);
+
+
+
+		if ($stmt->execute()) {
+
+
+
+			return "ok";
+		} else {
+
+
+
+			return "error";
+		}
+
+
+
+		$stmt->close();
+
+		$stmt = null;
+	}
+
+
+
+	/*=============================================
+
+	EDITAR PRODUCTO
+
+	=============================================*/
+
+	static public function mdlEditarIncoterm($tabla, $datos)
+	{
+
+
 
 		$stmt = Conexion::conectar()->prepare("UPDATE $tabla 	SET 	incoterm = :incoterm,
 																		procedimiento = :procedimiento
 															 	WHERE 	id 		= :id");
 
+
+
 		$stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
 		$stmt->bindParam(":incoterm", $datos["incoterm"], PDO::PARAM_STR);
 		$stmt->bindParam(":procedimiento", $datos["procedimiento"], PDO::PARAM_STR);
 
+
+
 		if ($stmt->execute()) {
+
+
 
 			return "ok";
 		} else {
 
+
+
 			return "error";
 		}
 
+
+
 		$stmt->close();
+
+		$stmt = null;
+	}
+
+
+
+	/*=============================================
+
+	BORRAR PROCEDIMIENTO
+
+	=============================================*/
+
+
+
+	static public function mdlEliminarIncoterm($tabla, $datos)
+	{
+
+
+
+		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
+
+
+
+		$stmt->bindParam(":id", $datos, PDO::PARAM_INT);
+
+
+
+		if ($stmt->execute()) {
+
+
+
+			return "ok";
+		} else {
+
+
+
+			return "error";
+		}
+
+
+
+		$stmt->close();
+
+
+
 		$stmt = null;
 	}
 }

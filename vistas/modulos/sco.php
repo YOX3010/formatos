@@ -215,14 +215,14 @@ if ($_SESSION["perfil"] == "Especial") {
 
             <td>' . $value["validity_of_sco"] . '</td>';
 
-                $itemCommodity = "id";
-                $valorCommodity = $value["id_commodity"];
+                $itemProductos = "id";
+                $valorProductos = $value["id_commodity"];
 
-                $respuestaCommodity = ControladorCommodity::ctrMostrarCommodity($itemCommodity, $valorCommodity);
+                $respuestaProductos = ControladorProductos::ctrMostrarProductos($itemProductos, $valorProductos);
 
                 echo '<th>Commodity / Mercancía:</th>
 
-            <td>' . $respuestaCommodity["commodity"] . '</td>
+            <td>' . $respuestaProductos["commodity"] . '</td>
 
           </tr>
 
@@ -239,7 +239,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
             <th>Price / Precio:</th>
 
-            <td>' . $respuestaCommodity["price_cliente"] . '</td>
+            <td>' . $respuestaProductos["price_cliente"] . '</td>
 
           </tr>
 
@@ -542,7 +542,7 @@ MODAL AGREGAR SCO
                   $item = null;
                   $valor = null;
 
-                  $producto = ControladorCommodity::ctrMostrarCommodity($item, $valor);
+                  $producto = ControladorProductos::ctrMostrarProductos($item, $valor);
 
                   foreach ($producto as $key => $value) {
 
@@ -1072,7 +1072,7 @@ MODAL EDITAR SCO
                   $item = null;
                   $valor = null;
 
-                  $producto = ControladorCommodity::ctrMostrarCommodity($item, $valor);
+                  $producto = ControladorProductos::ctrMostrarProductos($item, $valor);
 
                   foreach ($producto as $key => $value) {
 

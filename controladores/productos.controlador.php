@@ -37,18 +37,6 @@ class ControladorProductos
 
 		if (isset($_POST["nuevoCommodity"])) {
 
-
-
-			//if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaDescripcion"]) &&
-
-			//preg_match('/^[0-9]+$/', $_POST["nuevoStock"]) &&	
-
-			//preg_match('/^[0-9.]+$/', $_POST["nuevoPrecioCompra"]) &&
-
-			//preg_match('/^[0-9.]+$/', $_POST["nuevoPrecioVenta"])){
-
-
-
 			/*=============================================
 
 				VALIDAR IMAGEN
@@ -69,15 +57,15 @@ class ControladorProductos
 
 
 
-				$nuevoAncho = 500;
+				$nuevoAncho = 700;
 
-				$nuevoAlto = 500;
+				$nuevoAlto = 1000;
 
 
 
 				/*=============================================
 
-					CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
+					CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL PRODUCTO
 
 					=============================================*/
 
@@ -93,46 +81,46 @@ class ControladorProductos
 
 				/*=============================================
 
-					DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
+				DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
+
+				=============================================*/
+
+
+
+				if ($_FILES["nuevaImagen"]["type"] == "image/jpeg") {
+
+
+
+					/*=============================================
+
+					GUARDAMOS LA IMAGEN EN EL DIRECTORIO
 
 					=============================================*/
 
 
 
-				// if ($_FILES["nuevaImagen"]["type"] == "image/jpeg") {
+					$aleatorio = mt_rand(100, 999);
 
 
 
-				// 	/*=============================================
-
-				// 		GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-
-				// 		=============================================*/
+					$ruta = "vistas/img/productos/" . $_POST["nuevoNombreCommodity"] . "/" . $aleatorio . ".jpg";
 
 
 
-				// 	$aleatorio = mt_rand(100, 999);
+					$origen = imagecreatefromjpeg($_FILES["nuevaImagen"]["tmp_name"]);
 
 
 
-				// 	$ruta = "vistas/img/productos/" . $_POST["nuevoNombreCommodity"] . "/" . $aleatorio . ".jpg";
+					$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
 
 
-				// 	$origen = imagecreatefromjpeg($_FILES["nuevaImagen"]["tmp_name"]);
+					imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
 
 
 
-				// 	$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
-
-
-
-				// 	imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
-
-
-
-				// 	imagejpeg($destino, $ruta);
-				// }
+					imagejpeg($destino, $ruta);
+				}
 
 
 
@@ -289,7 +277,7 @@ class ControladorProductos
 
 
 
-		if (isset($_POST["editarProducto"])) {
+		if (isset($_POST["editarCommodity"])) {
 
 
 
@@ -323,9 +311,9 @@ class ControladorProductos
 
 
 
-				$nuevoAncho = 500;
+				$nuevoAncho = 700;
 
-				$nuevoAlto = 500;
+				$nuevoAlto = 1000;
 
 
 

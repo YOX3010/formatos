@@ -1,8 +1,62 @@
 /*=============================================
-EDITAR CLIENTE
+
+SUBIENDO LA FOTO DEL PASAPORTE
+
 =============================================*/
 
-$(".tablas").on("click", ".btnEditarCliente", function () {
+$(".nuevaImagen").change(function () {
+  var imagen = this.files[0];
+
+  /*=============================================
+
+  	VALIDAMOS EL FORMATO DE LA IMAGEN SEA JPG O PNG
+
+  	=============================================*/
+
+  if (imagen["type"] != "image/jpeg" && imagen["type"] != "image/png") {
+    $(".nuevaImagen").val("");
+
+    swal({
+      title: "Error al subir la imagen",
+
+      text: "¡La imagen debe estar en formato JPG o PNG!",
+
+      type: "error",
+
+      confirmButtonText: "¡Cerrar!",
+    });
+  } else if (imagen["size"] > 2000000) {
+    $(".nuevaImagen").val("");
+
+    swal({
+      title: "Error al subir la imagen",
+
+      text: "¡La imagen no debe pesar más de 2MB!",
+
+      type: "error",
+
+      confirmButtonText: "¡Cerrar!",
+    });
+  } else {
+    var datosImagen = new FileReader();
+
+    datosImagen.readAsDataURL(imagen);
+
+    $(datosImagen).on("load", function (event) {
+      var rutaImagen = event.target.result;
+
+      $(".previsualizar").attr("src", rutaImagen);
+    });
+  }
+});
+
+/*=============================================
+
+EDITAR PASAPORTE
+
+=============================================*/
+
+$(".tablaClientes tbody").on("click", "button.btnEditarCliente", function () {
   var idCliente = $(this).attr("idCliente");
 
   var datos = new FormData();
@@ -11,12 +65,19 @@ $(".tablas").on("click", ".btnEditarCliente", function () {
 
   $.ajax({
     url: "ajax/clientes.ajax.php",
+
     method: "POST",
+
     data: datos,
+
     cache: false,
+
     contentType: false,
+
     processData: false,
+
     dataType: "json",
+
     success: function (respuesta) {
       $("#idCliente").val(respuesta["id"]);
       $("#editarCosignee").val(respuesta["cosignee"]);
@@ -40,15 +101,25 @@ $(".tablas").on("click", ".btnEditarCliente", function () {
       $("#editarPassportExpirationDate").val(
         respuesta["passport_expiration_date"]
       );
-      $("#editarPassportImage").val(respuesta["passport_image"]);
+
+      if (respuesta["passport_image"] != "") {
+        $("#imagenActual").val(respuesta["passport_image"]);
+        $(".previsualizar").attr("src", respuesta["passport_image"]);
+      } else {
+        $(".previsualizarEditar").attr(
+          "src",
+          "vistas/img/clientes/default/cliente.png"
+        );
+      }
     },
   });
 });
+
 /*=============================================
 MOSTRAR INFO CLIENTE
 =============================================*/
 
-$(".tablas").on("click", ".btnInfoCliente", function () {
+$(".tablaClientes tbody").on("click", ".btnInfoCliente", function () {
   var idCliente = $(this).attr("idCliente");
 
   var datos = new FormData();
@@ -86,30 +157,15 @@ $(".tablas").on("click", ".btnInfoCliente", function () {
       $("#infoPassportExpirationDate").val(
         respuesta["passport_expiration_date"]
       );
-      $("#infoPassportImage").val(respuesta["passport_image"]);
+      if (respuesta["passport_image"] != "") {
+        $("#imagenActual").val(respuesta["passport_image"]);
+        $(".previsualizar").attr("src", respuesta["passport_image"]);
+      } else {
+        $(".previsualizarEditar").attr(
+          "src",
+          "vistas/img/clientes/default/cliente.png"
+        );
+      }
     },
-  });
-});
-
-/*=============================================
-ELIMINAR CLIENTE
-=============================================*/
-
-$(".tablas").on("click", ".btnEliminarCliente", function () {
-  var idCliente = $(this).attr("idCliente");
-
-  swal({
-    title: "¿Está seguro de borrar el cliente?",
-    text: "¡Si no lo está puede cancelar la acción!",
-    type: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    cancelButtonText: "Cancelar",
-    confirmButtonText: "Si, borrar cliente!",
-  }).then(function (result) {
-    if (result.value) {
-      window.location = "index.php?ruta=clientes&idCliente=" + idCliente;
-    }
   });
 });

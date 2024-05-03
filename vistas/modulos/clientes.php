@@ -1,57 +1,82 @@
-<?php
-
-if ($_SESSION["perfil"] == "Especial") {
-
-  echo '<script>
-
-    window.location = "inicio";
-
-  </script>';
-
-  return;
-}
-
-?>
-
 <div class="content-wrapper">
+
+
 
   <section class="content-header">
 
+
+
     <h1>
+
+
 
       Administrar clientes
 
+
+
     </h1>
+
+
 
     <ol class="breadcrumb">
 
+
+
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+
+
 
       <li class="active">Administrar clientes</li>
 
+
+
     </ol>
+
+
 
   </section>
 
+
+
   <section class="content">
+
+
 
     <div class="box">
 
+
+
       <div class="box-header with-border">
+
+
 
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCliente">
 
-          Agregar cliente
+
+
+          Agregar Cliente
+
+
 
         </button>
 
+
+
       </div>
+
+
 
       <div class="box-body">
 
-        <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
+
+
+        <table class="table table-bordered table-striped dt-responsive tablas tablaClientes" width="100%">
+
+
 
           <thead>
+
+
 
             <tr>
 
@@ -62,10 +87,12 @@ if ($_SESSION["perfil"] == "Especial") {
               <th>Email</th>
               <th>Dirección</th>
               <th>Teléfono</th>
-              <th>Ingreso al sistema</th>
+              <th>Fecha de registro</th>
               <th>Acciones</th>
 
             </tr>
+
+
 
           </thead>
 
@@ -80,49 +107,46 @@ if ($_SESSION["perfil"] == "Especial") {
 
             foreach ($clientes as $key => $value) {
 
-              echo '<tr>
+              echo ' <tr>
 
-                    <td>' . ($key + 1) . '</td>
+              <td>' . ($key + 1) . '</td>
 
-                    <td>' . $value["cosignee"] . '</td>
+              <td>' . $value["cosignee"] . '</td>
 
-                    <td>' . $value["signatory"] . '</td>
+              <td>' . $value["signatory"] . '</td>
 
-                    <td>' . $value["position"] . '</td>
+              <td>' . $value["position"] . '</td>
 
-                    <td>' . $value["email"] . '</td>
+              <td>' . $value["email"] . '</td>
 
-                    <td>' . $value["direccion"] . '</td>  
-                    
-                    <td>' . $value["telefono"] . '</td>
+              <td>' . $value["direccion"] . '</td>  
+              
+              <td>' . $value["telefono"] . '</td>
 
-                    <td>' . $value["fecha"] . '</td>
+              <td>' . $value["fecha"] . '</td>
 
-                    <td>
+              <td>
 
-                      <div class="btn-group">
-                      
-                      <button class="btn btn-success btnInfoCliente" data-toggle="modal" data-target="#modalInfoCliente" idCliente="' . $value["id"] . '"><i class="fa-solid fa-eye"></i></button>
-                      
-                      <button class="btn btn-info btnLOI" idCliente="' . $value["id"] . '"><i class="fa-regular fa-file-lines"></i> LOI\'s</button>';
+                <div class="btn-group">
+                
+                <button class="btn btn-info btnInfoCliente" data-toggle="modal" data-target="#modalInfoCliente" idCliente="' . $value["id"] . '"><i class="fa-solid fa-circle-info"></i></button>
+                
+                <button class="btn btn-danger btnLOI" idCliente="' . $value["id"] . '"><i class="fa-regular fa-file-lines"></i> LOI\'s</button>';
 
               if ($_SESSION["perfil"] == "Administrador") {
 
-                echo '<button class="btn btn-warning btnEditarCliente" data-toggle="modal" data-target="#modalEditarCliente" idCliente="' . $value["id"] . '"><i class="fa-solid fa-pencil"></i></button>';
+                echo '<button class="btn btn-warning btnEditarCliente" idCliente="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarCliente"><i class="fa fa-pencil"></i></button>';
 
-                //echo '<button class="btn btn-danger btnEliminarCliente" idCliente="'.$value["id"].'"><i class="fa fa-times"></i></button>';
+                //echo '<button class="btn btn-danger btnEliminarEmpleado" idEmpleado="'.$value["id"].'"><i class="fa fa-times"></i></button>';
 
               }
 
-              echo '
-              
-              
-              
-              </div> 
 
-                    </td>
+              echo '</div>  
 
-                  </tr>';
+        </td>
+
+      </tr>';
             }
 
             ?>
@@ -133,35 +157,67 @@ if ($_SESSION["perfil"] == "Especial") {
 
       </div>
 
+
+
     </div>
+
+
 
   </section>
 
+
+
 </div>
 
+
+
 <!--=====================================
+
 MODAL AGREGAR CLIENTE
+
 ======================================-->
+
+
 
 <div id="modalAgregarCliente" class="modal fade" role="dialog">
 
+
+
   <div class="modal-dialog">
+
+
 
     <div class="modal-content">
 
-      <form role="form" method="post">
+
+
+      <form role="form" method="post" enctype="multipart/form-data">
+
+
 
         <!--=====================================
+
         CABEZA DEL MODAL
+
         ======================================-->
+
+
 
         <div class="modal-header" style="background:#3c8dbc; color:white">
 
+
+
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar cliente</h4>
+
+
+          <h4 class="modal-title">Agregar Cliente</h4>
+
+
 
         </div>
+
+
 
         <!--=====================================
         CUERPO DEL MODAL
@@ -171,17 +227,17 @@ MODAL AGREGAR CLIENTE
 
           <div class="box-body">
 
-            <!-- ENTRADA PARA EL COSIGNEE -->
+            <!-- ENTRADA COSIGNEE -->
 
             <div class="form-group">
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-industry"></i></i></span>
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoCosignee" placeholder="Ingresar Cosignatario" required>
+                <input type="text" class="form-control input-lg" name="nuevoCosignee" placeholder="Ingresar Nombre del Cosignatario" required>
 
-                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
+                <input type="hidden" name="nuevoClientes" id="nuevoClientes" required>
 
               </div>
 
@@ -197,8 +253,6 @@ MODAL AGREGAR CLIENTE
 
                 <input type="text" class="form-control input-lg" name="nuevoSignatory" placeholder="Ingresar Firmante" required>
 
-                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
-
               </div>
 
             </div>
@@ -212,8 +266,6 @@ MODAL AGREGAR CLIENTE
                 <span class="input-group-addon"><i class="fa-solid fa-briefcase"></i></span>
 
                 <input type="text" class="form-control input-lg" name="nuevoPosition" placeholder="Ingresar Posición" required>
-
-                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
 
               </div>
 
@@ -229,8 +281,6 @@ MODAL AGREGAR CLIENTE
 
                 <input type="email" class="form-control input-lg" name="nuevoEmail" placeholder="Ingresar email" required>
 
-                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
-
               </div>
 
             </div>
@@ -244,8 +294,6 @@ MODAL AGREGAR CLIENTE
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
 
                 <input type="text" class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar dirección" required>
-
-                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
 
               </div>
 
@@ -261,8 +309,6 @@ MODAL AGREGAR CLIENTE
 
                 <input type="text" class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar teléfono" required>
 
-                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
-
               </div>
 
             </div>
@@ -276,8 +322,6 @@ MODAL AGREGAR CLIENTE
                 <span class="input-group-addon"><i class="fa-solid fa-hashtag"></i></span>
 
                 <input type="text" class="form-control input-lg" name="nuevoCRN" placeholder="Ingresar Company Registration Number (CRN)" required>
-
-                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
 
               </div>
 
@@ -293,8 +337,6 @@ MODAL AGREGAR CLIENTE
 
                 <input type="text" class="form-control input-lg" name="nuevoBankName" placeholder="Ingresar Nombre del banco" required>
 
-                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
-
               </div>
 
             </div>
@@ -308,8 +350,6 @@ MODAL AGREGAR CLIENTE
                 <span class="input-group-addon"><i class="fa-solid fa-map-location"></i></span>
 
                 <input type="text" class="form-control input-lg" name="nuevoBankAddress" placeholder="Ingresar Dirección del Banco" required>
-
-                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
 
               </div>
 
@@ -325,8 +365,6 @@ MODAL AGREGAR CLIENTE
 
                 <input type="text" class="form-control input-lg" name="nuevoSwift" placeholder="Ingresar Swift" required>
 
-                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
-
               </div>
 
             </div>
@@ -340,8 +378,6 @@ MODAL AGREGAR CLIENTE
                 <span class="input-group-addon"><i class="fa-solid fa-user-tie"></i></span>
 
                 <input type="text" class="form-control input-lg" name="nuevoOfficerName" placeholder="Nombre del oficial del banco" require>
-
-                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
 
               </div>
 
@@ -357,8 +393,6 @@ MODAL AGREGAR CLIENTE
 
                 <input type="text" class="form-control input-lg" name="nuevoOfficerPosition" placeholder="Posición del oficial del banco" require>
 
-                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
-
               </div>
 
             </div>
@@ -371,9 +405,7 @@ MODAL AGREGAR CLIENTE
 
                 <span class="input-group-addon"><i class="fa-solid fa-square-phone"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoOfficerPhone" placeholder="Ingresar Teléfono del oficial del banco" data-inputmask="'mask':'(999) 999-9999'" data-mask require>
-
-                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
+                <input type="text" class="form-control input-lg" name="nuevoOfficerPhone" placeholder="Ingresar Teléfono del oficial del banco" require>
 
               </div>
 
@@ -389,8 +421,6 @@ MODAL AGREGAR CLIENTE
 
                 <input type="email" class="form-control input-lg" name="nuevoOfficerEmail" placeholder="Ingresar E-mail del oficial del banco" require>
 
-                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
-
               </div>
 
             </div>
@@ -404,8 +434,6 @@ MODAL AGREGAR CLIENTE
                 <span class="input-group-addon"><i class="fa-solid fa-id-card"></i></span>
 
                 <input type="text" class="form-control input-lg" name="nuevoAccountNumber" placeholder="Ingresar Número de Cuenta" required>
-
-                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
 
               </div>
 
@@ -421,8 +449,6 @@ MODAL AGREGAR CLIENTE
 
                 <input type="text" class="form-control input-lg" name="nuevoCountry" placeholder="Ingresar País de origen" required>
 
-                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
-
               </div>
 
             </div>
@@ -436,8 +462,6 @@ MODAL AGREGAR CLIENTE
                 <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
 
                 <input type="text" class="form-control input-lg" name="nuevoPassportNumber" placeholder="Ingresar Número del pasaporte" required>
-
-                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
 
               </div>
 
@@ -453,8 +477,6 @@ MODAL AGREGAR CLIENTE
 
                 <input type="text" class="form-control input-lg" name="nuevoPassportIssueDate" placeholder="Ingresar Fecha de emición del pasaporte" required>
 
-                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
-
               </div>
 
             </div>
@@ -469,21 +491,21 @@ MODAL AGREGAR CLIENTE
 
                 <input type="text" class="form-control input-lg" name="nuevoPassportExpirationDate" placeholder="Ingresar Fecha de vencimiendo del passaporte" required>
 
-                <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
-
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL PASSPORT IMAGE -->
+            <!-- ENTRADA PARA SUBIR FOTO -->
 
             <div class="form-group">
 
-              <label for="nuevoPassportImage">Cargar foto del pasaporte</label>
+              <div class="panel">SUBIR FOTO DEL PASAPORTE</div>
 
-              <input type="file" name="nuevoPassportImage" required>
+              <input type="file" class="nuevaImagen" name="nuevaImagen" accept="image/*">
 
-              <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
+              <p class="help-block">Peso máximo de la foto 2MB. Subir en formato de imagen PNG o JPG</p>
+
+              <img src="vistas/img/clientes/default/cliente.png" class="img-thumbnail previsualizar" width="100px">
 
             </div>
 
@@ -499,18 +521,18 @@ MODAL AGREGAR CLIENTE
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar cliente</button>
+          <button type="submit" class="btn btn-primary">Guardar Cliente</button>
 
         </div>
 
+        <?php
+
+        $crearCliente = new ControladorClientes();
+        $crearCliente->ctrCrearCliente();
+
+        ?>
+
       </form>
-
-      <?php
-
-      $crearCliente = new ControladorClientes();
-      $crearCliente->ctrCrearCliente();
-
-      ?>
 
     </div>
 
@@ -519,7 +541,7 @@ MODAL AGREGAR CLIENTE
 </div>
 
 <!--=====================================
-MODAL EDITAR CLIENTE
+MODAL EDITAR COMMODITY
 ======================================-->
 
 <div id="modalEditarCliente" class="modal fade" role="dialog">
@@ -538,7 +560,7 @@ MODAL EDITAR CLIENTE
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Editar cliente</h4>
+          <h4 class="modal-title">Editar Cliente</h4>
 
         </div>
 
@@ -550,19 +572,19 @@ MODAL EDITAR CLIENTE
 
           <div class="box-body">
 
-            <!-- ENTRADA PARA EL COSIGNEE -->
+            <!-- ENTRADA PARA EDITAR COSIGNEE -->
 
             <div class="form-group">
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-industry"></i></span>
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
                 <input type="text" class="form-control input-lg" name="editarCosignee" id="editarCosignee" required>
 
                 <input type="hidden" name="idCliente" id="idCliente" required>
 
-                <input type="hidden" name="editarCliente" id="editarCliente" required>
+                <input type="hidden" name="editarClientes" id="editarClientes" required>
 
               </div>
 
@@ -632,7 +654,7 @@ MODAL EDITAR CLIENTE
 
                 <span class="input-group-addon"><i class="fa fa-phone"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarTelefono" id="editarTelefono" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
+                <input type="text" class="form-control input-lg" name="editarTelefono" id="editarTelefono" required>
 
               </div>
 
@@ -730,7 +752,7 @@ MODAL EDITAR CLIENTE
 
                 <span class="input-group-addon"><i class="fa-solid fa-square-phone"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarOfficerPhone" id="editarOfficerPhone" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
+                <input type="text" class="form-control input-lg" name="editarOfficerPhone" id="editarOfficerPhone" required>
 
               </div>
 
@@ -820,23 +842,19 @@ MODAL EDITAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA LA PASSPORT IMAGE -->
+            <!-- ENTRADA PARA SUBIR FOTO -->
 
             <div class="form-group">
 
-              <div class="input-group">
+              <div class="panel">SUBIR FOTO DEL PASAPORTE</div>
 
-                <div class="form-group">
+              <input type="file" class="nuevaImagen" name="editarImagen" accept="image/*">
 
-                  <label for="editarPassportImage">Cargar foto del pasaporte</label>
+              <p class="help-block">Peso máximo de la foto 2MB. Subir en formato de imagen PNG o JPG</p>
 
-                  <input type="file" name="editarPassportImage" id="editarPassportImage" required>
+              <img src="vistas/img/clientes/default/cliente.png" class="img-thumbnail previsualizar" width="100px">
 
-                  <input type="hidden" name="nuevoCliente" id="nuevoCliente" required>
-
-                </div>
-
-              </div>
+              <input type="hidden" name="imagenActual" id="imagenActual">
 
             </div>
 
@@ -856,27 +874,20 @@ MODAL EDITAR CLIENTE
 
         </div>
 
+        <?php
+
+        $editarCliente = new ControladorClientes();
+        $editarCliente->ctrEditarCliente();
+
+        ?>
+
       </form>
-
-      <?php
-
-      $editarCliente = new ControladorClientes();
-      $editarCliente->ctrEditarCliente();
-
-      ?>
 
     </div>
 
   </div>
 
 </div>
-
-<?php
-
-$eliminarCliente = new ControladorClientes();
-$eliminarCliente->ctrEliminarCliente();
-
-?>
 
 <!--=====================================
 MODAL INFORMACIÓN DEL CLIENTE
@@ -1000,7 +1011,7 @@ MODAL INFORMACIÓN DEL CLIENTE
 
                 <span class="input-group-addon"><i class="fa fa-phone"></i></span>
 
-                <input type="text" class="form-control input-lg" name="infoTelefono" id="infoTelefono" data-inputmask="'mask':'(999) 999-9999'" data-mask readonly>
+                <input type="text" class="form-control input-lg" name="infoTelefono" id="infoTelefono" readonly>
 
               </div>
 
@@ -1215,19 +1226,13 @@ MODAL INFORMACIÓN DEL CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA LA PASSPORT IMAGE -->
+            <!-- ENTRADA PARA SUBIR FOTO -->
 
             <div class="form-group">
 
-              <label for="infoPassportImage">Pasaporte</label>
+              <img src="vistas/img/clientes/default/cliente.png" class="img-thumbnail previsualizar" width="200px">
 
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
-
-                <input type="text" class="form-control input-lg" name="infoPassportImage" id="infoPassportImage" readonly>
-
-              </div>
+              <input type="hidden" name="imagenActual" id="imagenActual">
 
             </div>
 

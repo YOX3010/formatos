@@ -108,11 +108,9 @@ if ($_SESSION["perfil"] == "Especial") {
 
                       <div class="btn-group">
                       
-                      <button class="btn btn-info btnSCO" idLoi="' . $value["id"] . '" idCliente="' . $value["id_clientes"] . '" disabled><i class="fa-regular fa-file-lines"></i> Ver LOI</button>
-
                       <button class="btn btn-danger btnSCO" idLoi="' . $value["id"] . '" idCliente="' . $value["id_clientes"] . '"><i class="fa-regular fa-file-lines"></i> Crear SCO</button>
                       
-                      <button class="btn btn-success btnJV" idLoi="' . $value["id"] . '" idCliente="' . $value["id_clientes"] . '"><i class="fa-solid fa-handshake"></i> Joint Venture</button>';
+                      <button class="btn btn-info btnJV" idLoi="' . $value["id"] . '" idCliente="' . $value["id_clientes"] . '"><i class="fa-solid fa-handshake"></i> Joint Venture</button>';
 
                 if ($_SESSION["perfil"] == "Administrador") {
 
@@ -182,7 +180,7 @@ MODAL AGREGAR LOI
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                <span class="input-group-addon"><i class="fa-solid fa-building-user"></i></span>
 
                 <?php
 
@@ -235,7 +233,7 @@ MODAL AGREGAR LOI
 
             <!-- ENTRADA LOI IMAGE -->
 
-            <div class="form-group">
+            <!-- <div class="form-group">
 
               <label for="nuevoLoiImage">Cargar LOI (PDF)</label>
 
@@ -243,7 +241,7 @@ MODAL AGREGAR LOI
 
               <input type="hidden" name="nuevoLOI" id="nuevoLOI" required>
 
-            </div>
+            </div> -->
 
           </div>
 
@@ -314,7 +312,7 @@ MODAL EDITAR LOI
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                <span class="input-group-addon"><i class="fa-solid fa-building-user"></i></span>
 
                 <?php
 
@@ -367,13 +365,13 @@ MODAL EDITAR LOI
 
             <!-- ENTRADA PARA EDITAR LOI IMAGE -->
 
-            <div class="form-group">
+            <!-- <div class="form-group">
 
               <label for="nuevoLoiImage">Cargar LOI (PDF)</label>
 
               <input type="file" name="editarLoiImage" id="editarLoiImage" accept=".pdf" required>
 
-            </div>
+            </div> -->
 
           </div>
 

@@ -10,13 +10,13 @@ class AjaxIncoterms
 		EDITAR INCOTERMS
 	=============================================*/
 
-	public $idIncoterms;
+	public $idIncoterm;
 
 	public function ajaxEditarIncoterms()
 	{
 
 		$item = "id";
-		$valor = $this->idIncoterms;
+		$valor = $this->idIncoterm;
 
 		$respuesta = ControladorIncoterms::ctrMostrarIncoterms($item, $valor);
 
@@ -28,9 +28,9 @@ class AjaxIncoterms
 EDITAR INCOTERMS
 =============================================*/
 
-if (isset($_POST["idIncoterms"])) {
+if (isset($_POST["idIncoterm"])) {
 
 	$incoterms = new AjaxIncoterms();
-	$incoterms->idIncoterms = $_POST["idIncoterms"];
+	$incoterms->idIncoterm = $_POST["idIncoterm"];
 	$incoterms->ajaxEditarIncoterms();
 }

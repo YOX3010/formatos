@@ -17,17 +17,13 @@ if ($_SESSION["perfil"] != "Administrador") {
 
   <section class="content-header">
 
-    <h1>
-
-      Administrar procedimientos
-
-    </h1>
+    <h1>Administrar Procedimientos</h1>
 
     <ol class="breadcrumb">
 
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
-      <li class="active">Administrar procedimientos</li>
+      <li class="active">Administrar Procedimientos</li>
 
     </ol>
 
@@ -39,9 +35,9 @@ if ($_SESSION["perfil"] != "Administrador") {
 
       <div class="box-header with-border">
 
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarIncoterm">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarIncoterms">
 
-          Agregar procedimiento
+          Agregar Procedimiento
 
         </button>
 
@@ -49,16 +45,14 @@ if ($_SESSION["perfil"] != "Administrador") {
 
       <div class="box-body">
 
-        <table class="table table-bordered table-striped dt-responsive tablaIncoterms" width="100%">
+        <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
 
           <thead>
 
             <tr>
 
               <th style="width:10px">#</th>
-
-              <th>Procedimiento</th>
-
+              <th>Nombre del procedimiento</th>
               <th>Acciones</th>
 
             </tr>
@@ -72,33 +66,27 @@ if ($_SESSION["perfil"] != "Administrador") {
             $item = null;
             $valor = null;
 
-            $incoterm = ControladorIncoterms::ctrMostrarIncoterms($item, $valor);
+            $incoterms = ControladorIncoterms::ctrMostrarIncoterms($item, $valor);
 
-            foreach ($incoterm as $key => $value) {
+            foreach ($incoterms as $key => $value) {
 
               echo ' <tr>
 
-        <td>' . ($key + 1) . '</td>
+                    <td>' . ($key + 1) . '</td>
 
-        <td>' . $value["incoterm"] . '</td>
+                    <td>' . $value["incoterm"] . '</td>
 
-        <td>
+                    <td>
 
-          <div class="btn-group">';
+                      <div class="btn-group">                          
 
-              if ($_SESSION["perfil"] == "Administrador") {
+                        <button class="btn btn-warning btnEditarIncoterms" idIncoterms="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarIncoterms"><i class="fa fa-pencil"></i></button>
+                        
+                      </div>  
 
-                echo '<button class="btn btn-warning btnEditarIncoterm" idIncoterm="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarIncoterm"><i class="fa fa-pencil"></i></button>';
+                    </td>
 
-                //echo '<button class="btn btn-danger btnEliminarEmpleado" idEmpleado="'.$value["id"].'"><i class="fa fa-times"></i></button>';
-
-              }
-
-              echo '</div>  
-
-        </td>
-
-      </tr>';
+                  </tr>';
             }
 
             ?>
@@ -116,30 +104,26 @@ if ($_SESSION["perfil"] != "Administrador") {
 </div>
 
 <!--=====================================
-
-MODAL AGREGAR PRODUCTO
-
+MODAL AGREGAR Incoterms
 ======================================-->
 
-<div id="modalAgregarIncoterm" class="modal fade" role="dialog">
+<div id="modalAgregarIncoterms" class="modal fade" role="dialog">
 
   <div class="modal-dialog">
 
     <div class="modal-content">
 
-      <form role="form" method="post" enctype="multipart/form-data">
+      <form role="form" method="post">
 
         <!--=====================================
-
         CABEZA DEL MODAL
-
         ======================================-->
 
         <div class="modal-header" style="background:#3c8dbc; color:white">
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar procedimiento</h4>
+          <h4 class="modal-title">Agregar Procedimiento</h4>
 
         </div>
 
@@ -151,7 +135,7 @@ MODAL AGREGAR PRODUCTO
 
           <div class="box-body">
 
-            <!-- ENTRADA INCOTERM -->
+            <!-- ENTRADA Incoterms -->
 
             <div class="form-group">
 
@@ -159,7 +143,7 @@ MODAL AGREGAR PRODUCTO
 
                 <span class="input-group-addon"><i class="fa-solid fa-sheet-plastic"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoNombreIncoterm" placeholder="Ingresar el Procedimiento" required>
+                <input type="text" class="form-control input-lg" name="nuevoNombreIncoterm" placeholder="Ingresar el nombre del Procedimiento" required>
 
                 <input type="hidden" name="nuevoIncoterms" id="nuevoIncoterms" required>
 
@@ -173,7 +157,7 @@ MODAL AGREGAR PRODUCTO
 
               <div class="panel">SUBIR IMAGEN DEL PROCEDIMIENTO</div>
 
-              <input type="file" class="nuevaImagen" name="nuevaImagen" id="nuevaImagen" accept="image/*">
+              <input type="file" class="nuevaImagen" name="nuevaImagen" id="nuevaImagen" accept="image/*" required>
 
               <p class="help-block">Peso máximo de la foto 2MB. Subir en formato de imagen PNG o JPG</p>
 
@@ -199,8 +183,8 @@ MODAL AGREGAR PRODUCTO
 
         <?php
 
-        $crearProducto = new ControladorIncoterms();
-        $crearProducto->ctrCrearIncoterms();
+        $crearIncoterms = new ControladorIncoterms();
+        $crearIncoterms->ctrCrearIncoterms();
 
         ?>
 
@@ -213,10 +197,10 @@ MODAL AGREGAR PRODUCTO
 </div>
 
 <!--=====================================
-MODAL EDITAR COMMODITY
+MODAL EDITAR Incoterms
 ======================================-->
 
-<div id="modalEditarIncoterm" class="modal fade" role="dialog">
+<div id="modalEditarIncoterms" class="modal fade" role="dialog">
 
   <div class="modal-dialog">
 
@@ -244,7 +228,7 @@ MODAL EDITAR COMMODITY
 
           <div class="box-body">
 
-            <!-- ENTRADA PARA EDITAR INCOTERM -->
+            <!-- ENTRADA PARA EDITAR Incoterms -->
 
             <div class="form-group">
 
@@ -252,9 +236,9 @@ MODAL EDITAR COMMODITY
 
                 <span class="input-group-addon"><i class="fa-solid fa-sheet-plastic"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarNombreIncoterm" id="editarNombreIncoterm" required>
+                <input type="text" class="form-control input-lg" name="editarIncoterm" id="editarIncoterm" required>
 
-                <input type="hidden" name="idIncoterm" id="idIncoterm" required>
+                <input type="hidden" name="idIncoterms" id="idIncoterms" required>
 
                 <input type="hidden" name="editarIncoterms" id="editarIncoterms" required>
 
@@ -266,7 +250,7 @@ MODAL EDITAR COMMODITY
 
             <div class="form-group">
 
-              <div class="panel">SUBIR IMAGEN DEL PROCEDIMIENTO</div>
+              <div class="panel">SUBIR IMAGEN PROCEDIMIENTO</div>
 
               <input type="file" class="nuevaImagen" name="editarImagen" accept="image/*">
 
@@ -296,8 +280,8 @@ MODAL EDITAR COMMODITY
 
         <?php
 
-        $editarProducto = new ControladorIncoterms();
-        $editarProducto->ctrEditarIncoterms();
+        $editarIncoterms = new ControladorIncoterms();
+        $editarIncoterms->ctrEditarIncoterms();
 
         ?>
 

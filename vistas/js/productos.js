@@ -291,15 +291,6 @@ $(".tablaProductos tbody").on("click", "button.btnEditarProducto", function () {
           "vistas/img/productos/default/anonymous.png"
         );
       }
-
-      // if (respuesta["ficha_tecnica"] !== "") {
-      //   $(".previsualizarEditar").attr("src", respuesta["ficha_tecnica"]);
-      // } else {
-      //   $(".previsualizarEditar").attr(
-      //     "src",
-      //     "vistas/img/productos/default/anonymous.png"
-      //   );
-      // }
     },
   });
 });

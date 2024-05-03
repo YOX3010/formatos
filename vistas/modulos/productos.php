@@ -289,20 +289,6 @@ MODAL AGREGAR PRODUCTO
 
             </div>
 
-            <!-- ENTRADA FICHA TECNICA -->
-
-            <!-- <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa-solid fa-file"></i></i></span>
-
-                <input type="text" class="form-control input-lg" name="nuevoFichaTecnica" placeholder="Cargar Ficha Técnica">
-
-              </div>
-
-            </div> -->
-
             <!-- ENTRADA PARA SUBIR FOTO -->
 
             <div class="form-group">
@@ -310,8 +296,6 @@ MODAL AGREGAR PRODUCTO
               <div class="panel">SUBIR FICHA TECNICA</div>
 
               <input type="file" class="nuevaImagen" name="nuevaImagen" id="nuevaImagen" accept="image/*">
-
-              <!-- <input type="hidden" name="nuevoCommodity" id="nuevoCommodity" required> -->
 
               <p class="help-block">Peso máximo de la foto 2MB. Subir en formato de imagen PNG o JPG</p>
 
@@ -394,7 +378,7 @@ MODAL EDITAR COMMODITY
 
                 <input type="hidden" name="idProducto" id="idProducto" required>
 
-                <input type="hidden" name="editarProducto" id="editarProducto" required>
+                <input type="hidden" name="editarCommodity" id="editarCommodity" required>
 
               </div>
 
@@ -427,20 +411,6 @@ MODAL EDITAR COMMODITY
               </div>
 
             </div>
-
-            <!-- ENTRADA PARA EDITAR FICHA TECNICA -->
-
-            <!-- <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="" class="form-control input-lg" name="editarFichaTecnica" id="editarFichaTecnica">
-
-              </div>
-
-            </div> -->
 
             <!-- ENTRADA PARA SUBIR FOTO -->
 
