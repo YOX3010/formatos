@@ -12,19 +12,24 @@ class ModeloLOI
 	static public function mdlIngresarLOI($tabla, $datos)
 	{
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO 		$tabla(		id_clientes,
+		$stmt = Conexion::conectar()->prepare("INSERT INTO 		$tabla(		id_proveedor,
+																			id_clientes,
 																			codigo,
-																			descripcion,
-																			loi_image) 
-																VALUES(		:id_clientes,
+																			descripcion
+																			-- loi_image
+																			) 
+																VALUES(		:id_proveedor,
+																			:id_clientes,
 																			:codigo,
-																			:descripcion,
-																			:loi_image)");
+																			:descripcion
+																			-- :loi_image
+																			)");
 
+		$stmt->bindParam(":id_proveedor", $datos["id_proveedor"], PDO::PARAM_INT);
 		$stmt->bindParam(":id_clientes", $datos["id_clientes"], PDO::PARAM_INT);
 		$stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
 		$stmt->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
-		$stmt->bindParam(":loi_image", $datos["loi_image"], PDO::PARAM_STR);
+		// $stmt->bindParam(":loi_image", $datos["loi_image"], PDO::PARAM_STR);
 
 		if ($stmt->execute()) {
 
@@ -75,17 +80,15 @@ class ModeloLOI
 	static public function mdlEditarLOI($tabla, $datos)
 	{
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla 	SET 	id_clientes = :id_clientes,
-																		codigo = :codigo,
-																		loi_image = :loi_image,
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla 	SET 	id_proveedor = :id_proveedor,
+																		id_clientes = :id_clientes,
 																		descripcion = :descripcion
-															 	WHERE 	id 		= :id");
+																WHERE 	id 		= :id");
 
 		$stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
+		$stmt->bindParam(":id_proveedor", $datos["id_proveedor"], PDO::PARAM_INT);
 		$stmt->bindParam(":id_clientes", $datos["id_clientes"], PDO::PARAM_INT);
-		$stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
 		$stmt->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
-		$stmt->bindParam(":loi_image", $datos["loi_image"], PDO::PARAM_STR);
 
 		if ($stmt->execute()) {
 

@@ -157,6 +157,7 @@ CUERPO DOCUMENTO
         $_GET["ruta"] == "um" ||
         $_GET["ruta"] == "incoterms" ||
         $_GET["ruta"] == "icpo" ||
+        $_GET["ruta"] == "ver-icpo" ||
         $_GET["ruta"] == "salir"
       ) {
 

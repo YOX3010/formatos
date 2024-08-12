@@ -15,13 +15,17 @@ class ControladorICPO
             $tabla = "icpo";
 
             $datos = array(
-                "id_sco" => $_POST["nuevoSCO"],
                 "id_proveedor" => $_POST["nuevoNombreProveedor"],
-                "id_cliente" => $_POST["nuevoCliente"],
+                "id_producto" => $_POST["nuevoProducto"],
+                "id_origen" => $_POST["nuevoOrigen"],
+                "id_um" => $_POST["nuevoUM"],
+                "id_port" => $_POST["nuevoPort"],
                 "authentication_code" => $_POST["nuevoAuthCode"],
                 "ref_number" => $_POST["nuevoRefNumber"],
                 "via" => $_POST["nuevoVia"],
                 "trade_date" => $_POST["nuevoTradeDate"],
+                "trial_quantity" => $_POST["nuevoTrialQuantity"],
+                "contract_quantity" => $_POST["nuevoContractQuantity"],
                 "duration_contract" => $_POST["nuevoDurationContract"],
                 "vessel" => $_POST["nuevoVessel"],
                 "inspection" => $_POST["nuevoInspection"],
@@ -38,15 +42,15 @@ class ControladorICPO
 
     				swal({
 
-    					  type: "warning",
-    					  title: "El ICPO ha sido guardado correctamente. Recuerde Actualizar",
+    					  type: "success",
+    					  title: "El ICPO ha sido guardado correctamente",
     					  showConfirmButton: true,
     					  confirmButtonText: "Cerrar"
     					  }).then(function(result){
 
     								if (result.value) {
 
-    								window.location.close
+    								window.location = "icpo"
 
     								}
 
@@ -103,13 +107,17 @@ class ControladorICPO
             $tabla = "icpo";
 
             $datos = array(
-                "id_sco" => $_POST["editarSCO"],
                 "id_proveedor" => $_POST["editarProveedor"],
-                "id_cliente" => $_POST["editarCliente"],
+                "id_producto" => $_POST["editarProducto"],
+                "id_origen" => $_POST["editarOrigen"],
+                "id_um" => $_POST["editarUM"],
+                "id_port" => $_POST["editarPort"],
                 "authentication_code" => $_POST["editarAuthCode"],
                 "ref_number" => $_POST["editarRefNumber"],
                 "via" => $_POST["editarVia"],
                 "trade_date" => $_POST["editarTradeDate"],
+                "trial_quantity" => $_POST["editarTrialQuantity"],
+                "contract_quantity" => $_POST["editarContractQuantity"],
                 "duration_contract" => $_POST["editarDurationContract"],
                 "vessel" => $_POST["editarVessel"],
                 "inspection" => $_POST["editarInspection"],
@@ -127,14 +135,14 @@ class ControladorICPO
 
 					swal({
 
-						  type: "warning",
-						  title: "El ICPO ha sido Editado correctamente, Recuerde Actualizar",
+						  type: "success",
+						  title: "El ICPO ha sido Editado correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 									if (result.value) {
 
-									window.location.close
+									window.location = "icpo"
 
 									}
 

@@ -267,13 +267,11 @@ MODAL AGREGAR PRODUCTO
 
                 <input type="text" class="form-control input-lg" name="nuevoPriceCliente" placeholder="Ingresar Precio de Venta" required>
 
-                <!-- <input type="hidden" name="nuevoCommodity" id="nuevoCommodity" required> -->
-
               </div>
 
             </div>
 
-            <!-- ENTRADA PRECIO PROVEDOR -->
+            <!-- ENTRADA PRECIO PROVEEDOR -->
 
             <div class="form-group">
 
@@ -282,8 +280,6 @@ MODAL AGREGAR PRODUCTO
                 <span class="input-group-addon"><i class="fa-solid fa-money-check-dollar"></i></span>
 
                 <input type="text" class="form-control input-lg" name="nuevoPriceProvedor" placeholder="Ingresar Precio de Compra" required>
-
-                <!-- <input type="hidden" name="nuevoCommodity" id="nuevoCommodity" required> -->
 
               </div>
 
@@ -418,7 +414,7 @@ MODAL EDITAR COMMODITY
 
               <div class="panel">SUBIR FICHA TECNICA</div>
 
-              <input type="file" class="nuevaImagen" name="editarImagen" accept="image/*">
+              <input type="file" class="nuevaImagen" name="editarImagen" id="editarImagen" accept="image/*">
 
               <p class="help-block">Peso máximo de la foto 2MB. Subir en formato de imagen PNG o JPG</p>
 

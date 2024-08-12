@@ -81,16 +81,27 @@ $(".tablaIncoterms tbody").on("click", "button.btnEditarIncoterm", function () {
     success: function (respuesta) {
       $("#idIncoterm").val(respuesta["id"]);
       $("#editarNombreIncoterm").val(respuesta["incoterm"]);
+      let imagenProcedimineto = respuesta["procedimiento"];
 
-      if (respuesta["procedimiento"] != "") {
-        $("#imagenActual").val(respuesta["procedimiento"]);
-        $(".previsualizar").attr("src", respuesta["procedimiento"]);
+      if (imagenProcedimineto != "") {
+        $(".previsualizar").attr("src", imagenProcedimineto);
+        $("#imagenActual").val(imagenProcedimineto);
       } else {
-        $(".previsualizarEditar").attr(
+        $(".previsualizar").attr(
           "src",
           "vistas/img/procedimientos/default/empty-doc.png"
         );
       }
+
+      /* if (respuesta["procedimiento"] != "") {
+        $(".previsualizar").attr("src", respuesta["procedimiento"]);
+        $("#imagenActual").val(respuesta["procedimiento"]);
+      } else {
+        $(".previsualizar").attr(
+          "src",
+          "vistas/img/procedimientos/default/empty-doc.png"
+        );
+      } */
     },
   });
 });

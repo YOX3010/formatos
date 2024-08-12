@@ -9,7 +9,7 @@
 			if ($_SESSION["perfil"] == "Administrador") {
 
 				echo '<li class="active">
-				<a href="inicio">
+					<a href="inicio">
 					<i class="fa fa-home"></i>
 					<span>Inicio</span>
 				</a>
@@ -49,12 +49,29 @@
 			if ($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Vendedor") {
 
 				echo '<li>
+						<a href="proveedores">
+							<i class="fa-solid fa-oil-well"></i>
+							&nbsp;
+							<span>Proveedores</span>
+						</a>
+					</li>
+				
+					<li>
 						<a href="clientes">
 							<i class="fa-solid fa-user-tie"></i>
 							&nbsp;
 							<span>Clientes</span>
 						</a>
-					</li>';
+					</li>
+					
+					<li>
+						<a href="icpo">
+							<i class="fa-solid fa-file"></i>
+							&nbsp;
+							<span>ICPO</span>
+						</a>
+					</li>
+					';
 
 				// 	<li class="treeview">
 				// 		<a href="">

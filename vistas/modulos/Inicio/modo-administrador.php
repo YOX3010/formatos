@@ -11,12 +11,12 @@
   </a>
 
   <!-- BOTON DE PROVEEDORES -->
-  <a href="proveedores" style="color: #fff;">
+  <!-- <a href="proveedores" style="color: #fff;">
     <button class="btn-info btn-lg">
       <i class="fa-solid fa-oil-well"></i>
       <span>Proveedores</span>
     </button>
-  </a>
+  </a> -->
 
   <!-- BOTON DE PRODUCTOS -->
   <a href="productos" style="color: #fff;">

@@ -11,17 +11,24 @@ if ($_SESSION["perfil"] == "Especial") {
   return;
 }
 
+$itemCliente = "id";
+$valorCliente = $_GET["idProveedor"];
+
+$respuestaProveedor = ControladorProveedores::ctrMostrarProveedores($itemCliente, $valorCliente);
+
 ?>
 
 <div class="content-wrapper">
 
   <section class="content-header">
 
-    <h1>Administrar LOI's</h1>
+    <h1>Administrar LOI's de <?php echo $respuestaProveedor["refineria"] . ' / ' . $respuestaProveedor['proveedor'] ?></h1>
 
     <ol class="breadcrumb">
 
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+
+      <li><a href="proveedores">Proveedores</a></li>
 
       <li class="active">Administrar LOI's</li>
 
@@ -41,13 +48,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
         </button>
 
-        <a href="index.php?ruta=loi&idCliente=<?php echo $_GET['idCliente']; ?>">
-
-          <button class="btn btn-warning"> Actualizar </button>
-
-        </a>
-
-        <a href="clientes">
+        <a href="proveedores">
 
           <button class="btn btn-success"><i class="fa-regular fa-circle-left"></i></button>
 
@@ -64,8 +65,8 @@ if ($_SESSION["perfil"] == "Especial") {
             <tr>
 
               <th style="width:10px">#</th>
-              <th>Cosignatario</th>
               <th>Código de LOI</th>
+              <th>Cosignatario</th>
               <th>Descripción</th>
               <th>Fecha</th>
               <th>Acciones</th>
@@ -85,7 +86,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
             foreach ($loi as $key => $value) {
 
-              if ($value["id_clientes"] == $_GET["idCliente"]) {
+              if ($value["id_proveedor"] == $_GET["idProveedor"]) {
 
                 echo ' <tr>
 
@@ -96,9 +97,9 @@ if ($_SESSION["perfil"] == "Especial") {
 
                 $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
 
-                echo '<td>' . $respuestaCliente["cosignee"] . '</td>
-
-                    <td>' . $value["codigo"] . $value["id"] . '</td>
+                echo '<td>' . $value["codigo"] . '</td>
+                
+                    <td>' . $respuestaCliente["cosignee"] . '</td>
 
                     <td>' . $value["descripcion"] . '</td>
 
@@ -174,6 +175,34 @@ MODAL AGREGAR LOI
 
           <div class="box-body">
 
+            <!-- ID PROVEEDOR -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-industry"></i></span>
+
+                <input type="hidden" class="form-control" name="nuevoLOI" value="<?php echo $_GET['idProveedor']; ?>" readonly>
+
+                <input type="text" class="form-control input-lg" value="<?php echo $respuestaProveedor["proveedor"] ?>" readonly>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-oil-well"></i></span>
+
+                <input type="text" class="form-control input-lg" value="<?php echo $respuestaProveedor["refineria"] ?>" readonly>
+
+              </div>
+
+            </div>
+
             <!-- ID CLIENTES -->
 
             <div class="form-group">
@@ -182,34 +211,25 @@ MODAL AGREGAR LOI
 
                 <span class="input-group-addon"><i class="fa-solid fa-building-user"></i></span>
 
-                <?php
+                <select class="form-control input-lg" name="nuevoCliente" required>
 
-                $itemCliente = "id";
-                $valorCliente = $_GET["idCliente"];
+                  <option value="">Selecionar Cliente</option>
 
-                $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+                  <?php
 
-                ?>
+                  $itemCliente = null;
+                  $valorCliente = null;
 
-                <input type="hidden" class="form-control" name="nuevoCliente" value="<?php echo $_GET['idCliente']; ?>" readonly>
+                  $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
 
-                <input type="text" class="form-control input-lg" value="<?php echo $respuestaCliente["cosignee"] ?>" readonly>
+                  foreach ($respuestaCliente as $key => $valueCliente) {
 
-              </div>
+                    echo '<option value="' . $valueCliente["id"] . '">' . $valueCliente["cosignee"] . ' - ' . $valueCliente["signatory"] . '</option>';
+                  }
 
-            </div>
+                  ?>
 
-            <!-- ENTRADA CODIGO -->
-
-            <div class="form-group" style="display: none;">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="Ingresar Codigo" value="TPC-LOI-000" required readonly>
-
-                <input type="hidden" name="nuevoLOI" id="nuevoLOI" required>
+                </select>
 
               </div>
 
@@ -223,9 +243,7 @@ MODAL AGREGAR LOI
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoDescripcion" placeholder="Ingresar Descripción" required>
-
-                <input type="hidden" name="nuevoLOI" id="nuevoLOI" required>
+                <textarea class="form-control input-lg" name="nuevoDescripcion" style="resize: none;" rows="6" placeholder="Ingresar Descripción"></textarea>
 
               </div>
 
@@ -306,6 +324,50 @@ MODAL EDITAR LOI
 
           <div class="box-body">
 
+            <!-- ENTRADA PARA EDITAR CODIGO -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-hashtag"></i></span>
+
+                <input type="text" class="form-control input-lg" id="editarCodigo" readonly>
+
+              </div>
+
+            </div>
+
+            <!-- ID PROVEEDOR -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-industry"></i></span>
+
+                <input type="hidden" class="form-control" name="editarLOI" id="editarLOI" value="<?php echo $_GET['idProveedor']; ?>" readonly>
+
+                <input type="text" class="form-control input-lg" value="<?php echo $respuestaProveedor["proveedor"] ?>" readonly>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-oil-well"></i></span>
+
+                <input type="text" class="form-control input-lg" value="<?php echo $respuestaProveedor["refineria"] ?>" readonly>
+
+                <input type="hidden" name="idLOI" id="idLOI" required>
+
+              </div>
+
+            </div>
+
             <!-- ID CLIENTES -->
 
             <div class="form-group">
@@ -314,42 +376,26 @@ MODAL EDITAR LOI
 
                 <span class="input-group-addon"><i class="fa-solid fa-building-user"></i></span>
 
-                <?php
+                <select class="form-control input-lg" id="editarCliente" name="editarCliente" required>
 
-                $itemCliente = "id";
-                $valorCliente = $_GET["idCliente"];
+                  <option value="">Selecionar Cliente</option>
 
-                $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+                  <?php
 
-                ?>
+                  foreach ($respuestaCliente as $key => $valueCliente) {
 
-                <input type="hidden" class="form-control input-lg" name="editarCliente" value="<?php echo $_GET['idCliente']; ?>" required>
+                    echo '<option value="' . $valueCliente["id"] . '">' . $valueCliente["cosignee"] . ' - ' . $valueCliente["signatory"] . '</option>';
+                  }
 
-                <input type="text" class="form-control input-lg" id="editarCliente" value="<?php echo $respuestaCliente["cosignee"] ?>" readonly>
+                  ?>
 
-                <input type="hidden" name="idLOI" id="idLOI" required>
-
-                <input type="hidden" name="editarLOI" id="editarLOI" required>
+                </select>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EDITAR CODIGO -->
-
-            <div class="form-group" style="display: none;">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="hidden" class="form-control input-lg" name="editarCodigo" id="editarCodigo" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EDITAR DESCRIPCION -->
+            <!-- ENTRADA DESCRIPCION -->
 
             <div class="form-group">
 
@@ -357,7 +403,7 @@ MODAL EDITAR LOI
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarDescripcion" id="editarDescripcion" required>
+                <textarea class="form-control input-lg" name="editarDescripcion" id="editarDescripcion" style="resize: none;" rows="6" placeholder="Ingresar Descripción"></textarea>
 
               </div>
 

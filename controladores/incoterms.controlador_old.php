@@ -2,21 +2,21 @@
 
 
 
-class ControladorProductos
+class ControladorIncoterms
 {
 
 
 
 	/*=============================================
-	MOSTRAR PRODUCTOS
+	MOSTRAR INCOTERMS
 	=============================================*/
 
-	static public function ctrMostrarProductos($item, $valor)
+	static public function ctrMostrarIncoterms($item, $valor)
 	{
 
-		$tabla = "commodity";
+		$tabla = "incoterms";
 
-		$respuesta = ModeloProductos::mdlMostrarProductos($tabla, $item, $valor);
+		$respuesta = ModeloIncoterms::mdlMostrarIncoterms($tabla, $item, $valor);
 
 		return $respuesta;
 	}
@@ -24,18 +24,17 @@ class ControladorProductos
 
 	/*=============================================
 
-	CREAR PRODUCTO
+	CREAR INCOTERMS
 
 	=============================================*/
 
 
 
-	static public function ctrCrearProducto()
+	static public function ctrCrearIncoterms()
 	{
 
 
-
-		if (isset($_POST["nuevoCommodity"])) {
+		if (isset($_POST["nuevoIncoterms"])) {
 
 			/*=============================================
 
@@ -44,40 +43,26 @@ class ControladorProductos
 				=============================================*/
 
 
-
-			$ruta = "";
-
+			$ruta = "vistas/img/procedimientos/default/empty-doc.png";
 
 
 			if (isset($_FILES["nuevaImagen"]["tmp_name"])) {
 
-
-
 				list($ancho, $alto) = getimagesize($_FILES["nuevaImagen"]["tmp_name"]);
 
+				$nuevoAncho = 500;
 
-
-				$nuevoAncho = 700;
-
-				$nuevoAlto = 1000;
-
-
+				$nuevoAlto = 500;
 
 				/*=============================================
 
-					CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL PRODUCTO
+				CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL PROCEDIMIENTO
 
-					=============================================*/
+				=============================================*/
 
-
-
-				$directorio = "vistas/img/productos/" . $_POST["nuevoNombreCommodity"];
-
-
+				$directorio = "vistas/img/procedimientos/" . $_POST["nuevoNombreIncoterm"];
 
 				mkdir($directorio, 0755);
-
-
 
 				/*=============================================
 
@@ -85,11 +70,7 @@ class ControladorProductos
 
 				=============================================*/
 
-
-
 				if ($_FILES["nuevaImagen"]["type"] == "image/jpeg") {
-
-
 
 					/*=============================================
 
@@ -97,36 +78,20 @@ class ControladorProductos
 
 					=============================================*/
 
-
-
 					$aleatorio = mt_rand(100, 999);
 
-
-
-					$ruta = "vistas/img/productos/" . $_POST["nuevoNombreCommodity"] . "/" . $aleatorio . ".jpg";
-
-
+					$ruta = "vistas/img/procedimientos/" . $_POST["nuevoNombreIncoterm"] . "/" . $aleatorio . ".jpg";
 
 					$origen = imagecreatefromjpeg($_FILES["nuevaImagen"]["tmp_name"]);
 
-
-
 					$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
-
-
 					imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
-
-
 
 					imagejpeg($destino, $ruta);
 				}
 
-
-
 				if ($_FILES["nuevaImagen"]["type"] == "image/png") {
-
-
 
 					/*=============================================
 
@@ -134,15 +99,9 @@ class ControladorProductos
 
 						=============================================*/
 
-
-
 					$aleatorio = mt_rand(100, 999);
 
-
-
-					$ruta = "vistas/img/productos/" . $_POST["nuevoNombreCommodity"] . "/" . $aleatorio . ".png";
-
-
+					$ruta = "vistas/img/procedimientos/" . $_POST["nuevoNombreIncoterm"] . "/" . $aleatorio . ".png";
 
 					$origen = imagecreatefrompng($_FILES["nuevaImagen"]["tmp_name"]);
 
@@ -162,20 +121,16 @@ class ControladorProductos
 
 
 
-			$tabla = "commodity";
-
-
+			$tabla = "incoterms";
 
 			$datos = array(
-				"commodity" => $_POST["nuevoNombreCommodity"],
-				"price_cliente" => $_POST["nuevoPriceCliente"],
-				"price_provedor" => $_POST["nuevoPriceProvedor"],
-				"ficha_tecnica" => $ruta,
+				"incoterm" => $_POST["nuevoNombreIncoterm"],
+				"procedimiento" => $ruta,
 			);
 
 
 
-			$respuesta = ModeloProductos::mdlIngresarProducto($tabla, $datos);
+			$respuesta = ModeloIncoterms::mdlIngresarIncoterm($tabla, $datos);
 
 
 
@@ -191,7 +146,7 @@ class ControladorProductos
 
 							  type: "success",
 
-							  title: "El producto ha sido guardado correctamente",
+							  title: "El Procedimiento ha sido guardado correctamente",
 
 							  showConfirmButton: true,
 
@@ -203,7 +158,7 @@ class ControladorProductos
 
 
 
-										window.location = "productos";
+										window.location = "incoterms";
 
 
 
@@ -235,7 +190,7 @@ class ControladorProductos
 
 						  type: "error",
 
-						  title: "¡El producto no puede ir con los campos vacíos o llevar caracteres especiales!",
+						  title: "¡El Procedimiento no puede ir con los campos vacíos o llevar caracteres especiales!",
 
 						  showConfirmButton: true,
 
@@ -247,7 +202,7 @@ class ControladorProductos
 
 
 
-							window.location = "productos";
+							window.location = "incoterms";
 
 
 
@@ -266,36 +221,26 @@ class ControladorProductos
 
 	/*=============================================
 
-	EDITAR PRODUCTO
+	EDITAR INCOTERMS
 
 	=============================================*/
 
 
 
-	static public function ctrEditarProducto()
+	static public function ctrEditarIncoterms()
 	{
 
 
 
-		if (isset($_POST["editarCommodity"])) {
-
-
-
-			//if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarDescripcion"]) &&
-
-			//preg_match('/^[0-9]+$/', $_POST["editarStock"]) &&	
-
-			// preg_match('/^[0-9.]+$/', $_POST["editarPrecioCompra"]) &&
-
-			// preg_match('/^[0-9.]+$/', $_POST["editarPrecioVenta"])){
+		if (isset($_POST["editarIncoterms"])) {
 
 
 
 			/*=============================================
 
-				VALIDAR IMAGEN
+			VALIDAR IMAGEN
 
-				=============================================*/
+			=============================================*/
 
 
 
@@ -311,21 +256,21 @@ class ControladorProductos
 
 
 
-				$nuevoAncho = 700;
+				$nuevoAncho = 500;
 
-				$nuevoAlto = 1000;
+				$nuevoAlto = 500;
 
 
 
 				/*=============================================
 
-					CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
+				CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL PRICEDIMIENTO
 
-					=============================================*/
+				=============================================*/
 
 
 
-				$directorio = "vistas/img/productos/" . $_POST["editarNombreCommodity"];
+				$directorio = "vistas/img/procedimientos/" . $_POST["editarNombreIncoterm"];
 
 
 
@@ -337,7 +282,7 @@ class ControladorProductos
 
 
 
-				if (!empty($_POST["imagenActual"]) && $_POST["imagenActual"] != "vistas/img/productos/default/anonymous.png") {
+				if (!empty($_POST["imagenActual"]) && $_POST["imagenActual"] != "vistas/img/procedimientos/default/empty-doc.png") {
 
 
 
@@ -375,7 +320,7 @@ class ControladorProductos
 
 
 
-					$ruta = "vistas/img/productos/" . $_POST["editarNombreCommodity"] . "/" . $aleatorio . ".jpg";
+					$ruta = "vistas/img/procedimientos/" . $_POST["editarNombreIncoterm"] . "/" . $aleatorio . ".jpg";
 
 
 
@@ -412,7 +357,7 @@ class ControladorProductos
 
 
 
-					$ruta = "vistas/img/productos/" . $_POST["editarNombreCommodity"] . "/" . $aleatorio . ".png";
+					$ruta = "vistas/img/procedimientos/" . $_POST["editarNombreIncoterm"] . "/" . $aleatorio . ".png";
 
 
 
@@ -434,20 +379,18 @@ class ControladorProductos
 
 
 
-			$tabla = "commodity";
+			$tabla = "incoterms";
 
 
 
 			$datos = array(
-				"commodity" => $_POST["editarNombreCommodity"],
-				"price_cliente" => $_POST["editarPriceCliente"],
-				"price_provedor" => $_POST["editarPriceProvedor"],
-				"ficha_tecnica" => $ruta,
-				"id" => $_POST["idProducto"],
+				"incoterm" => $_POST["editarNombreIncoterm"],
+				"procedimiento" => $ruta,
+				"id" => $_POST["idIncoterm"]
 			);
 
 
-			$respuesta = ModeloProductos::mdlEditarProducto($tabla, $datos);
+			$respuesta = ModeloIncoterms::mdlEditarIncoterm($tabla, $datos);
 
 
 
@@ -463,7 +406,7 @@ class ControladorProductos
 
 							  type: "success",
 
-							  title: "El producto ha sido editado correctamente",
+							  title: "El Procedimiento ha sido editado correctamente",
 
 							  showConfirmButton: true,
 
@@ -475,7 +418,7 @@ class ControladorProductos
 
 
 
-										window.location = "productos";
+										window.location = "incoterms";
 
 
 
@@ -507,7 +450,7 @@ class ControladorProductos
 
 						  type: "error",
 
-						  title: "¡El producto no puede ir con los campos vacíos o llevar caracteres especiales!",
+						  title: "¡El Procedimiento no puede ir con los campos vacíos o llevar caracteres especiales!",
 
 						  showConfirmButton: true,
 
@@ -519,7 +462,7 @@ class ControladorProductos
 
 
 
-							window.location = "productos";
+							window.location = "incoterms";
 
 
 
@@ -538,7 +481,7 @@ class ControladorProductos
 
 	/*=============================================
 
-	BORRAR PRODUCTO
+	BORRAR INCOTERMS
 
 	=============================================*/
 
@@ -551,7 +494,7 @@ class ControladorProductos
 
 
 
-	// 		$tabla = "productos";
+	// 		$tabla = "incoterms";
 
 	// 		$datos = $_GET["idProducto"];
 
@@ -611,29 +554,4 @@ class ControladorProductos
 	// 	}
 	// }
 
-
-
-	/*=============================================
-
-	MOSTRAR SUMA VENTAS
-
-	=============================================*/
-
-
-
-	// static public function ctrMostrarSumaVentas()
-	// {
-
-
-
-	// 	$tabla = "productos";
-
-
-
-	// 	$respuesta = ModeloProductos::mdlMostrarSumaVentas($tabla);
-
-
-
-	// 	return $respuesta;
-	// }
 }

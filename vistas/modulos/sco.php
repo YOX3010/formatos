@@ -103,9 +103,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
             <button class="btn btn-danger btnImprimirSCO" idSCO="' . $value["id"] . '"><i class="fa-solid fa-file-pdf"></i> Ver SCO</button>
 
-            <button class="btn btn-info btnImprimirCI" idSCO="' . $value["id"] . '"><i class="fa-solid fa-file-invoice-dollar"></i> Imprimir CI</button>
-            
-            <button class="btn btn-success btnICPO" idSCO="' . $value["id"] . '" idCliente="' . $value["id_clientes"] . '"><i class="fa-solid fa-file-contract"></i> Generar ICPO</button>';
+            <button class="btn btn-info btnImprimirCI" idSCO="' . $value["id"] . '"><i class="fa-solid fa-file-invoice-dollar"></i> Imprimir CI</button>';
 
                 if ($_SESSION["perfil"] == "Administrador") {
 
@@ -286,9 +284,25 @@ if ($_SESSION["perfil"] == "Especial") {
 
             <th>Commission / Comisión:</th>
 
-            <td colspan="2">' . $value["commission"] . '</td>
+            <td colspan="3">' . $value["commission"] . '</td>
 
-          </tr>';
+          </tr>
+
+          <tr>
+
+            <th>Observation / Observación:</th>
+
+            <td colspan="3">' . $value["observacion"] . '</td>
+
+          </tr>
+
+          <tr>
+
+            <td colspan="4"><br></td>
+
+          </tr>
+          
+          ';
               }
             }
 
@@ -340,7 +354,7 @@ MODAL AGREGAR SCO
 
             <!-- CODIGO -->
 
-            <div class="form-group" style="display: none;">
+            <!-- <div class="form-group" style="display: none;">
 
               <div class="input-group">
 
@@ -348,23 +362,15 @@ MODAL AGREGAR SCO
 
                 <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="Código" value="TCP-MAJR-SCO-000" require>
 
-                <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
-
               </div>
 
-            </div>
+            </div> -->
 
-            <!-- ID LOI -->
-
-            <div class="form-group" style="display: none;">
+            <div class="form-group">
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa-solid fa-file-code"></i></span>
-
-                <input type="text" class="form-control input-lg" name="nuevoLoi" value="<?php echo $_GET['idLoi']; ?>" require readonly>
-
-                <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
+                <h5><b>DATOS DEL COMPRADOR:</b></h5>
 
               </div>
 
@@ -387,11 +393,11 @@ MODAL AGREGAR SCO
 
                 ?>
 
-                <input type="hidden" min="0" max="99999999999" class="form-control input-lg" name="nuevoClientes" value="<?php echo $_GET["idCliente"]; ?>" require>
+                <input type="hidden" class="form-control input-lg" name="nuevoClientes" value="<?php echo $_GET["idCliente"]; ?>" require>
 
                 <input type="text" class="form-control input-lg" value="<?php echo $respuestaCliente["cosignee"]; ?>" readonly>
 
-                <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
+                <input type="hidden" class="form-control input-lg" name="nuevoLoi" value="<?php echo $_GET['idLoi']; ?>" readonly>
 
               </div>
 
@@ -405,9 +411,7 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-building-user"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoViaCliente" placeholder="Via del comprador" required>
-
-                <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
+                <input type="text" class="form-control input-lg" name="nuevoViaCliente" placeholder="Via del comprador">
 
               </div>
 
@@ -421,9 +425,17 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-envelope"></i></span>
 
-                <input type="email" class="form-control input-lg" name="nuevoEmailViaCliente" placeholder="Email de Via del cliente" required>
+                <input type="email" class="form-control input-lg" name="nuevoEmailViaCliente" placeholder="Email de Via del cliente">
 
-                <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <h5><b>DATOS DEL VENDEDOR:</b></h5>
 
               </div>
 
@@ -437,31 +449,7 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-user"></i></span>
 
-                <select class="form-control input-lg" id="nuevoUsuario" name="nuevoUsuario" required>
-
-                  <option value="">Selecionar Vendedor</option>
-
-                  <?php
-
-                  $item = null;
-                  $valor = null;
-
-                  $usuario = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
-
-                  foreach ($usuario as $key => $value) {
-
-
-                    echo '<option value="' . $value["id"] . '">' . $value["nombre"] . '</option>';
-                  }
-
-                  ?>
-
-                </select>
-
-                <!-- <input type="text" class="form-control input-lg" name="nuevoUsuario" placeholder="<?php //echo $_SESSION["perfil"]; 
-                                                                                                        ?>" required readonly> -->
-
-                <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
+                <input type="text" class="form-control input-lg" name="nuevoSCO" value="<?php echo $_SESSION['nombre'] ?>" required readonly>
 
               </div>
 
@@ -475,9 +463,7 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-building-user"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoViaTpc" placeholder="Via del vendedor" required>
-
-                <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
+                <input type="text" class="form-control input-lg" name="nuevoViaTpc" placeholder="Via del vendedor">
 
               </div>
 
@@ -491,9 +477,7 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-envelope"></i></span>
 
-                <input type="email" class="form-control input-lg" name="nuevoEmailViaTpc" placeholder="Email de Via del vendedor" required>
-
-                <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
+                <input type="email" class="form-control input-lg" name="nuevoEmailViaTpc" placeholder="Email de Via del vendedor">
 
               </div>
 
@@ -517,9 +501,7 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-calendar-xmark"></i> Validez de SCO:</span>
 
-                <input type="date" class="form-control input-lg" name="nuevoValiditySco" placeholder="Validity of SCO / Validez de SCO" required>
-
-                <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
+                <input type="date" class="form-control input-lg" name="nuevoValiditySco" placeholder="Validity of SCO / Validez de SCO">
 
               </div>
 
@@ -533,7 +515,7 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-gas-pump"></i></span>
 
-                <select class="form-control input-lg" id="nuevoCommodity" name="nuevoCommodity" required>
+                <select class="form-control input-lg" id="nuevoCommodity" name="nuevoCommodity">
 
                   <option value="">Selecionar Producto</option>
 
@@ -554,6 +536,20 @@ MODAL AGREGAR SCO
 
                 </select>
 
+                <div class="input-group-btn" style="padding-left: 10px;">
+
+                  <a href="productos">
+
+                    <button class="btn btn-success " type="button">
+
+                      <i class="fa-solid fa-plus"></i>
+
+                    </button>
+
+                  </a>
+
+                </div>
+
               </div>
 
             </div>
@@ -562,15 +558,18 @@ MODAL AGREGAR SCO
 
             <div class="form-group">
 
-              <div class="input-group">
+              <div class="input-group" style="display: flex; align-items:center;width:100%">
 
-                <span class="input-group-addon"><i class="fa-solid fa-boxes-packing"></i></span>
+                <span class="input-group-addon input-lg" style="padding-right:40px;"><i class="fa-solid fa-boxes-packing"></i></span>
 
-                <input type="number" class="form-control input-lg" name="nuevoQuantity" placeholder="Quantity / Cantidad" required>
+                <input type="number" class="form-control input-lg" name="nuevoQuantity" style="max-width: 61%;" placeholder="Quantity / Cantidad">
 
-                <select class="form-control input-lg" id="nuevoUM" name="nuevoUM" required>
 
-                  <option value="">Seleccionar Unidad</option>
+                <!-- <div class="input-group-lg"> -->
+
+                <select class="form-control input-lg" name="nuevoUM" style="max-width: 20%;">
+
+                  <option value="">Unidad</option>
 
                   <?php
 
@@ -589,7 +588,21 @@ MODAL AGREGAR SCO
 
                 </select>
 
-                <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
+                <!-- </div> -->
+
+                <div class="input-group-btn" style="padding-left: 10px;">
+
+                  <a href="um">
+
+                    <button class="btn btn-success " type="button">
+
+                      <i class="fa-solid fa-plus"></i>
+
+                    </button>
+
+                  </a>
+
+                </div>
 
               </div>
 
@@ -603,9 +616,7 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoPrice" placeholder="Price / Precio" required>
-
-                <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
+                <input type="text" class="form-control input-lg" name="nuevoPrice" placeholder="Price / Precio" >
 
               </div>
 
@@ -619,7 +630,7 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-sheet-plastic"></i></span>
 
-                <select class="form-control input-lg" id="nuevoIncoterms" name="nuevoIncoterms" required>
+                <select class="form-control input-lg" id="nuevoIncoterms" name="nuevoIncoterms">
 
                   <option value="">Selecionar Procedimiento</option>
 
@@ -640,7 +651,19 @@ MODAL AGREGAR SCO
 
                 </select>
 
-                <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
+                <div class="input-group-btn" style="padding-left: 10px;">
+
+                  <a href="incoterms">
+
+                    <button class="btn btn-success " type="button">
+
+                      <i class="fa-solid fa-plus"></i>
+
+                    </button>
+
+                  </a>
+
+                </div>
 
               </div>
 
@@ -654,7 +677,7 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-anchor"></i></span>
 
-                <select class="form-control input-lg" id="nuevoPort" name="nuevoPort" required>
+                <select class="form-control input-lg" id="nuevoPort" name="nuevoPort">
 
                   <option value="">Selecionar Puerto</option>
 
@@ -675,7 +698,19 @@ MODAL AGREGAR SCO
 
                 </select>
 
-                <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
+                <div class="input-group-btn" style="padding-left: 10px;">
+
+                  <a href="port">
+
+                    <button class="btn btn-success " type="button">
+
+                      <i class="fa-solid fa-plus"></i>
+
+                    </button>
+
+                  </a>
+
+                </div>
 
               </div>
 
@@ -689,7 +724,7 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-globe"></i></span>
 
-                <select class="form-control input-lg" id="nuevoProductOrigin" name="nuevoProductOrigin" required>
+                <select class="form-control input-lg" id="nuevoProductOrigin" name="nuevoProductOrigin">
 
                   <option value="">Selecionar Origen del producto</option>
 
@@ -710,7 +745,19 @@ MODAL AGREGAR SCO
 
                 </select>
 
-                <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
+                <div class="input-group-btn" style="padding-left: 10px;">
+
+                  <a href="product-origin">
+
+                    <button class="btn btn-success " type="button">
+
+                      <i class="fa-solid fa-plus"></i>
+
+                    </button>
+
+                  </a>
+
+                </div>
 
               </div>
 
@@ -724,9 +771,7 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-file-contract"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoContractTerms" placeholder="Contract Term / Término de Contrato" required>
-
-                <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
+                <input type="text" class="form-control input-lg" name="nuevoContractTerms" placeholder="Contract Term / Término de Contrato" value="SPOT">
 
               </div>
 
@@ -740,9 +785,21 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-hand-holding-dollar"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoCommission" placeholder="Commission / Comisión" required>
+                <input type="text" class="form-control input-lg" name="nuevoCommission" placeholder="Commission / Comisión">
 
-                <input type="hidden" name="nuevoSCO" id="nuevoSCO" required>
+              </div>
+
+            </div>
+
+            <!-- OBSERVACIÓN -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-circle-exclamation"></i></span>
+
+                <textarea type="text" class="form-control input-lg" name="nuevoObservacion" placeholder="observation / observacion" rows="3" style="resize: none;"></textarea>
 
               </div>
 
@@ -896,50 +953,6 @@ MODAL EDITAR SCO
 
             </div>
 
-            <!-- SIGNATORY -->
-
-            <!-- <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" value="Signatory" readonly>
-
-                <input type="hidden" id="editarSCO" id="editarSCO" required> 
-
-              </div>
-
-            </div> -->
-
-            <!-- POSICIÓN CLIENTE -->
-
-            <!-- <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" value="Position cliente" readonly>
-
-              </div>
-
-            </div> -->
-
-            <!-- EMAIL CLIENTE -->
-
-            <!-- <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" value="Email Cliente" readonly>
-
-              </div>
-
-            </div> -->
-
             <!-- NOMBRE USUARIO -->
 
             <div class="form-group">
@@ -974,34 +987,6 @@ MODAL EDITAR SCO
               </div>
 
             </div>
-
-            <!-- POSICIÓN USUARIO -->
-
-            <!-- <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" id="editarPosition2" placeholder="Position / Posición" required>
-
-              </div>
-
-            </div> -->
-
-            <!-- EMAIL USUARIO -->
-
-            <!-- <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="email" class="form-control input-lg" id="editarEmail2" placeholder="Email / Correo Electrónico:" required>
-
-              </div>
-
-            </div> -->
 
             <!-- VIA USUARIO-->
 
@@ -1119,44 +1104,9 @@ MODAL EDITAR SCO
 
                 </select>
 
-                <!-- <select class="form-control input-lg" id="editarUM" name="editarUM" required>
-
-                  <option value=""></option>
-
-                  <?php
-
-                  // $item = null;
-                  // $valor = null;
-
-                  // $um = ControladorUM::ctrMostrarUM($item, $valor);
-
-                  // foreach ($um as $key => $value) {
-
-
-                  //   echo '<option value="' . $value["id"] . '">' . $value["unidad"] . '</option>';
-                  // }
-
-                  ?>
-
-                </select> -->
-
               </div>
 
             </div>
-
-            <!-- PRECIO -->
-
-            <!-- <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" id="editarPrice" placeholder="Price / Precio" required>
-
-              </div>
-
-            </div> -->
 
             <!-- INCOTERMS -->
 
@@ -1279,6 +1229,20 @@ MODAL EDITAR SCO
                 <span class="input-group-addon"><i class="fa-solid fa-hand-holding-dollar"></i></span>
 
                 <input type="text" class="form-control input-lg" id="editarCommission" name="editarCommission" required>
+
+              </div>
+
+            </div>
+
+            <!-- OBSERVACIÓN -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa-solid fa-circle-exclamation"></i></span>
+
+                <textarea type="text" class="form-control input-lg" name="editarObservacion" id="editarObservacion" rows="3" style="resize: none;"></textarea>
 
               </div>
 

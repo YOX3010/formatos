@@ -28,7 +28,8 @@ class ModeloSCO
     																	validity_of_sco,
     																	quantity,
     																	contract_terms,
-    																	commission)
+    																	commission,
+                                                                        observacion)
     															VALUES(	:id_loi,
                                                                         :id_clientes,
     																	:id_usuario,
@@ -45,7 +46,8 @@ class ModeloSCO
     																	:validity_of_sco,
     																	:quantity,
     																	:contract_terms,
-    																	:commission)");
+    																	:commission,
+                                                                        :observacion)");
 
         $stmt->bindParam(":id_loi", $datos["id_loi"], PDO::PARAM_INT);
         $stmt->bindParam(":id_clientes", $datos["id_clientes"], PDO::PARAM_INT);
@@ -64,6 +66,7 @@ class ModeloSCO
         $stmt->bindParam(":quantity", $datos["quantity"], PDO::PARAM_INT);
         $stmt->bindParam(":contract_terms", $datos["contract_terms"], PDO::PARAM_STR);
         $stmt->bindParam(":commission", $datos["commission"], PDO::PARAM_STR);
+        $stmt->bindParam(":observacion", $datos["observacion"], PDO::PARAM_STR);
 
         if ($stmt->execute()) {
 
@@ -130,7 +133,8 @@ class ModeloSCO
                                                                         validity_of_sco = :validity_of_sco,
                                                                         quantity = :quantity,
                                                                         contract_terms = :contract_terms,
-                                                                        commission = :commission
+                                                                        commission = :commission,
+                                                                        observacion = :observacion
 															 	WHERE 	id = :id");
 
         $stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
@@ -151,6 +155,7 @@ class ModeloSCO
         $stmt->bindParam(":quantity", $datos["quantity"], PDO::PARAM_INT);
         $stmt->bindParam(":contract_terms", $datos["contract_terms"], PDO::PARAM_STR);
         $stmt->bindParam(":commission", $datos["commission"], PDO::PARAM_STR);
+        $stmt->bindParam(":observacion", $datos["observacion"], PDO::PARAM_STR);
 
         if ($stmt->execute()) {
 

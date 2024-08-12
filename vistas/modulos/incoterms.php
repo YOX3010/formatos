@@ -49,7 +49,7 @@ if ($_SESSION["perfil"] != "Administrador") {
 
       <div class="box-body">
 
-        <table class="table table-bordered table-striped dt-responsive tablaIncoterms" width="100%">
+        <table class="table table-bordered table-striped dt-responsive tablaIncoterms tablas" width="100%">
 
           <thead>
 
@@ -117,7 +117,7 @@ if ($_SESSION["perfil"] != "Administrador") {
 
 <!--=====================================
 
-MODAL AGREGAR PRODUCTO
+MODAL AGREGAR PROCEDIMIENTO
 
 ======================================-->
 
@@ -159,9 +159,7 @@ MODAL AGREGAR PRODUCTO
 
                 <span class="input-group-addon"><i class="fa-solid fa-sheet-plastic"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoNombreIncoterm" placeholder="Ingresar el Procedimiento" required>
-
-                <input type="hidden" name="nuevoIncoterms" id="nuevoIncoterms" required>
+                <input type="text" class="form-control input-lg" name="nuevoIncoterms" placeholder="Ingresar el Procedimiento" required>
 
               </div>
 
@@ -171,9 +169,9 @@ MODAL AGREGAR PRODUCTO
 
             <div class="form-group">
 
-              <div class="panel">SUBIR IMAGEN DEL PROCEDIMIENTO</div>
+              <div class="panel">SUBIR IMAGENES DEL PROCEDIMIENTO</div>
 
-              <input type="file" class="nuevaImagen" name="nuevaImagen" id="nuevaImagen" accept="image/*">
+              <input type="file" multiple class="nuevaImagen" name="nuevaImagen[]" id="nuevaImagen" accept="image/*">
 
               <p class="help-block">Peso máximo de la foto 2MB. Subir en formato de imagen PNG o JPG</p>
 
@@ -256,8 +254,6 @@ MODAL EDITAR COMMODITY
 
                 <input type="hidden" name="idIncoterm" id="idIncoterm" required>
 
-                <input type="hidden" name="editarIncoterms" id="editarIncoterms" required>
-
               </div>
 
             </div>
@@ -268,13 +264,16 @@ MODAL EDITAR COMMODITY
 
               <div class="panel">SUBIR IMAGEN DEL PROCEDIMIENTO</div>
 
-              <input type="file" class="nuevaImagen" name="editarImagen" accept="image/*">
+              <input type="file" name="editarImagen" id="imagenActual" accept="image/*">
+              <!-- <input type="text" id="imagenActual"> -->
 
               <p class="help-block">Peso máximo de la foto 2MB. Subir en formato de imagen PNG o JPG</p>
 
-              <img src="vistas/img/procedimientos/default/empty-doc.png" class="img-thumbnail previsualizar" width="100px">
+              <img class="img-thumbnail previsualizar" width="100px">
+              <!-- <img class="img-thumbnail" src="vistas/img/procedimientos/prueba/123.jpg" width="100px"> -->
+              <!-- <img class="img-thumbnail previsualizar" id="imagenActual" width="100px"> -->
 
-              <input type="hidden" name="imagenActual" id="imagenActual">
+              <!-- <input type="hidden" name="imagenActual" id="imagenActual"> -->
 
             </div>
 

@@ -129,9 +129,7 @@
 
                 <div class="btn-group">
                 
-                <button class="btn btn-info btnInfoCliente" data-toggle="modal" data-target="#modalInfoCliente" idCliente="' . $value["id"] . '"><i class="fa-solid fa-circle-info"></i></button>
-                
-                <button class="btn btn-danger btnLOI" idCliente="' . $value["id"] . '"><i class="fa-regular fa-file-lines"></i> LOI\'s</button>';
+                <button class="btn btn-info btnInfoCliente" data-toggle="modal" data-target="#modalInfoCliente" idCliente="' . $value["id"] . '"><i class="fa-solid fa-circle-info"></i></button>';
 
               if ($_SESSION["perfil"] == "Administrador") {
 
@@ -227,6 +225,16 @@ MODAL AGREGAR CLIENTE
 
           <div class="box-body">
 
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <h5><b>INFORMACIÓN GENERAL:</b></h5>
+
+              </div>
+
+            </div>
+
             <!-- ENTRADA COSIGNEE -->
 
             <div class="form-group">
@@ -241,6 +249,8 @@ MODAL AGREGAR CLIENTE
 
               </div>
 
+              <small>Este campo es requerido (*)</small>
+
             </div>
 
             <!-- ENTRADA PARA EL SIGNATORY -->
@@ -251,7 +261,7 @@ MODAL AGREGAR CLIENTE
 
                 <span class="input-group-addon"><i class="fa-solid fa-building-user"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoSignatory" placeholder="Ingresar Firmante" required>
+                <input type="text" class="form-control input-lg" name="nuevoSignatory" placeholder="Ingresar Firmante">
 
               </div>
 
@@ -265,7 +275,7 @@ MODAL AGREGAR CLIENTE
 
                 <span class="input-group-addon"><i class="fa-solid fa-briefcase"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoPosition" placeholder="Ingresar Posición" required>
+                <input type="text" class="form-control input-lg" name="nuevoPosition" placeholder="Ingresar Posición">
 
               </div>
 
@@ -279,7 +289,7 @@ MODAL AGREGAR CLIENTE
 
                 <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
 
-                <input type="email" class="form-control input-lg" name="nuevoEmail" placeholder="Ingresar email" required>
+                <input type="email" class="form-control input-lg" name="nuevoEmail" placeholder="Ingresar email">
 
               </div>
 
@@ -293,7 +303,7 @@ MODAL AGREGAR CLIENTE
 
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar dirección" required>
+                <input type="text" class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar dirección">
 
               </div>
 
@@ -307,7 +317,7 @@ MODAL AGREGAR CLIENTE
 
                 <span class="input-group-addon"><i class="fa fa-phone"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar teléfono" required>
+                <input type="text" class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar teléfono">
 
               </div>
 
@@ -321,7 +331,17 @@ MODAL AGREGAR CLIENTE
 
                 <span class="input-group-addon"><i class="fa-solid fa-hashtag"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoCRN" placeholder="Ingresar Company Registration Number (CRN)" required>
+                <input type="text" class="form-control input-lg" name="nuevoCRN" placeholder="Ingresar Company Registration Number (CRN)">
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <h5><b>INFORMACIÓN BANCARÍA:</b></h5>
 
               </div>
 
@@ -335,7 +355,7 @@ MODAL AGREGAR CLIENTE
 
                 <span class="input-group-addon"><i class="fa-solid fa-building-columns"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoBankName" placeholder="Ingresar Nombre del banco" required>
+                <input type="text" class="form-control input-lg" name="nuevoBankName" placeholder="Ingresar Nombre del banco">
 
               </div>
 
@@ -349,7 +369,7 @@ MODAL AGREGAR CLIENTE
 
                 <span class="input-group-addon"><i class="fa-solid fa-map-location"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoBankAddress" placeholder="Ingresar Dirección del Banco" required>
+                <input type="text" class="form-control input-lg" name="nuevoBankAddress" placeholder="Ingresar Dirección del Banco">
 
               </div>
 
@@ -363,7 +383,7 @@ MODAL AGREGAR CLIENTE
 
                 <span class="input-group-addon"><i class="fa-solid fa-hashtag"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoSwift" placeholder="Ingresar Swift" required>
+                <input type="text" class="form-control input-lg" name="nuevoSwift" placeholder="Ingresar Swift">
 
               </div>
 
@@ -433,7 +453,17 @@ MODAL AGREGAR CLIENTE
 
                 <span class="input-group-addon"><i class="fa-solid fa-id-card"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoAccountNumber" placeholder="Ingresar Número de Cuenta" required>
+                <input type="text" class="form-control input-lg" name="nuevoAccountNumber" placeholder="Ingresar Número de Cuenta">
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <h5><b>INFORMACIÓN DE LOCACIÓN:</b></h5>
 
               </div>
 
@@ -447,7 +477,7 @@ MODAL AGREGAR CLIENTE
 
                 <span class="input-group-addon"><i class="fa-solid fa-flag-usa"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoCountry" placeholder="Ingresar País de origen" required>
+                <input type="text" class="form-control input-lg" name="nuevoCountry" placeholder="Ingresar País de origen">
 
               </div>
 
@@ -461,7 +491,7 @@ MODAL AGREGAR CLIENTE
 
                 <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoPassportNumber" placeholder="Ingresar Número del pasaporte" required>
+                <input type="text" class="form-control input-lg" name="nuevoPassportNumber" placeholder="Ingresar Número del pasaporte">
 
               </div>
 
@@ -475,7 +505,7 @@ MODAL AGREGAR CLIENTE
 
                 <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoPassportIssueDate" placeholder="Ingresar Fecha de emición del pasaporte" required>
+                <input type="text" class="form-control input-lg" name="nuevoPassportIssueDate" placeholder="Ingresar Fecha de emición del pasaporte">
 
               </div>
 
@@ -489,7 +519,7 @@ MODAL AGREGAR CLIENTE
 
                 <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoPassportExpirationDate" placeholder="Ingresar Fecha de vencimiendo del passaporte" required>
+                <input type="text" class="form-control input-lg" name="nuevoPassportExpirationDate" placeholder="Ingresar Fecha de vencimiendo del passaporte">
 
               </div>
 
@@ -541,7 +571,7 @@ MODAL AGREGAR CLIENTE
 </div>
 
 <!--=====================================
-MODAL EDITAR COMMODITY
+MODAL EDITAR CLIENTE
 ======================================-->
 
 <div id="modalEditarCliente" class="modal fade" role="dialog">
@@ -572,6 +602,16 @@ MODAL EDITAR COMMODITY
 
           <div class="box-body">
 
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <h5><b>INFORMACIÓN GENERAL:</b></h5>
+
+              </div>
+
+            </div>
+
             <!-- ENTRADA PARA EDITAR COSIGNEE -->
 
             <div class="form-group">
@@ -580,7 +620,7 @@ MODAL EDITAR COMMODITY
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarCosignee" id="editarCosignee" required>
+                <input type="text" class="form-control input-lg" name="editarCosignee" id="editarCosignee" placeholder="Cosignatario" required>
 
                 <input type="hidden" name="idCliente" id="idCliente" required>
 
@@ -598,7 +638,7 @@ MODAL EDITAR COMMODITY
 
                 <span class="input-group-addon"><i class="fa-solid fa-building-user"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarSignatory" id="editarSignatory" required>
+                <input type="text" class="form-control input-lg" name="editarSignatory" id="editarSignatory" placeholder="Firmante">
 
               </div>
 
@@ -612,7 +652,7 @@ MODAL EDITAR COMMODITY
 
                 <span class="input-group-addon"><i class="fa-solid fa-briefcase"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarPosition" id="editarPosition" required>
+                <input type="text" class="form-control input-lg" name="editarPosition" id="editarPosition" placeholder="Posición">
 
               </div>
 
@@ -626,7 +666,7 @@ MODAL EDITAR COMMODITY
 
                 <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
 
-                <input type="email" class="form-control input-lg" name="editarEmail" id="editarEmail" required>
+                <input type="email" class="form-control input-lg" name="editarEmail" id="editarEmail" placeholder="Correo electrónico">
 
               </div>
 
@@ -640,7 +680,7 @@ MODAL EDITAR COMMODITY
 
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarDireccion" id="editarDireccion" required>
+                <input type="text" class="form-control input-lg" name="editarDireccion" id="editarDireccion" placeholder="Dirección">
 
               </div>
 
@@ -654,7 +694,7 @@ MODAL EDITAR COMMODITY
 
                 <span class="input-group-addon"><i class="fa fa-phone"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarTelefono" id="editarTelefono" required>
+                <input type="text" class="form-control input-lg" name="editarTelefono" id="editarTelefono" placeholder="Teléfono">
 
               </div>
 
@@ -668,7 +708,17 @@ MODAL EDITAR COMMODITY
 
                 <span class="input-group-addon"><i class="fa-solid fa-hashtag"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarCRN" id="editarCRN" required>
+                <input type="text" class="form-control input-lg" name="editarCRN" id="editarCRN" placeholder="CRN">
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <h5><b>INFORMACIÓN BANCARÍA:</b></h5>
 
               </div>
 
@@ -682,7 +732,7 @@ MODAL EDITAR COMMODITY
 
                 <span class="input-group-addon"><i class="fa-solid fa-building-columns"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarBankName" id="editarBankName" required>
+                <input type="text" class="form-control input-lg" name="editarBankName" id="editarBankName" placeholder="Nombre del Banco">
 
               </div>
 
@@ -696,7 +746,7 @@ MODAL EDITAR COMMODITY
 
                 <span class="input-group-addon"><i class="fa-solid fa-map-location"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarBankAddress" id="editarBankAddress" required>
+                <input type="text" class="form-control input-lg" name="editarBankAddress" id="editarBankAddress" placeholder="Dirección del Banco">
 
               </div>
 
@@ -710,7 +760,7 @@ MODAL EDITAR COMMODITY
 
                 <span class="input-group-addon"><i class="fa-solid fa-hashtag"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarSwift" id="editarSwift" required>
+                <input type="text" class="form-control input-lg" name="editarSwift" id="editarSwift" placeholder="Swift">
 
               </div>
 
@@ -724,7 +774,7 @@ MODAL EDITAR COMMODITY
 
                 <span class="input-group-addon"><i class="fa-solid fa-user-tie"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarOfficerName" id="editarOfficerName" required>
+                <input type="text" class="form-control input-lg" name="editarOfficerName" id="editarOfficerName" placeholder="Nombre del Oficial">
 
               </div>
 
@@ -738,7 +788,7 @@ MODAL EDITAR COMMODITY
 
                 <span class="input-group-addon"><i class="fa-solid fa-briefcase"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarOfficerPosition" id="editarOfficerPosition" required>
+                <input type="text" class="form-control input-lg" name="editarOfficerPosition" id="editarOfficerPosition" placeholder="Posición del Oficial">
 
               </div>
 
@@ -752,7 +802,7 @@ MODAL EDITAR COMMODITY
 
                 <span class="input-group-addon"><i class="fa-solid fa-square-phone"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarOfficerPhone" id="editarOfficerPhone" required>
+                <input type="text" class="form-control input-lg" name="editarOfficerPhone" id="editarOfficerPhone" placeholder="Teléfono del Oficial">
 
               </div>
 
@@ -766,7 +816,7 @@ MODAL EDITAR COMMODITY
 
                 <span class="input-group-addon"><i class="fa-regular fa-envelope"></i></span>
 
-                <input type="email" class="form-control input-lg" name="editarOfficerEmail" id="editarOfficerEmail" required>
+                <input type="email" class="form-control input-lg" name="editarOfficerEmail" id="editarOfficerEmail" placeholder="Correo electrónico del Oficial">
 
               </div>
 
@@ -780,7 +830,17 @@ MODAL EDITAR COMMODITY
 
                 <span class="input-group-addon"><i class="fa-solid fa-id-card"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarAccountNumber" id="editarAccountNumber" required>
+                <input type="text" class="form-control input-lg" name="editarAccountNumber" id="editarAccountNumber" placeholder="Número de cuenta">
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <h5><b>INFORMACIÓN DE LOCACIÓN:</b></h5>
 
               </div>
 
@@ -794,7 +854,7 @@ MODAL EDITAR COMMODITY
 
                 <span class="input-group-addon"><i class="fa-solid fa-flag-usa"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarCountry" id="editarCountry" required>
+                <input type="text" class="form-control input-lg" name="editarCountry" id="editarCountry" placeholder="País">
 
               </div>
 
@@ -808,7 +868,7 @@ MODAL EDITAR COMMODITY
 
                 <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarPassportNumber" id="editarPassportNumber" required>
+                <input type="text" class="form-control input-lg" name="editarPassportNumber" id="editarPassportNumber" placeholder="Número de pasaporte">
 
               </div>
 
@@ -822,7 +882,7 @@ MODAL EDITAR COMMODITY
 
                 <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarPassportIssueDate" id="editarPassportIssueDate" required>
+                <input type="text" class="form-control input-lg" name="editarPassportIssueDate" id="editarPassportIssueDate" placeholder="Fecha de emisión">
 
               </div>
 
@@ -836,7 +896,7 @@ MODAL EDITAR COMMODITY
 
                 <span class="input-group-addon"><i class="fa-solid fa-passport"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarPassportExpirationDate" id="editarPassportExpirationDate" required>
+                <input type="text" class="form-control input-lg" name="editarPassportExpirationDate" id="editarPassportExpirationDate" placeholder="Fecha de expiración">
 
               </div>
 

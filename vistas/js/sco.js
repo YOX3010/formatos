@@ -37,6 +37,7 @@ $(".tablas").on("click", ".btnEditarSCO", function () {
       $("#editarQuantity").val(respuesta["quantity"]);
       $("#editarContractTerms").val(respuesta["contract_terms"]);
       $("#editarCommission").val(respuesta["commission"]);
+      $("#editarObservacion").val(respuesta["observacion"]);
     },
   });
 });

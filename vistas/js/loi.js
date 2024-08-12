@@ -20,9 +20,10 @@ $(".tablas").on("click", ".btnEditarLOI", function () {
 
     success: function (respuesta) {
       $("#idLOI").val(respuesta["id"]);
+      $("#editarCliente").val(respuesta["id_clientes"]);
       $("#editarCodigo").val(respuesta["codigo"]);
       $("#editarDescripcion").val(respuesta["descripcion"]);
-      $("#editarLoiImage").val(respuesta["loi_image"]);
+      // $("#editarLoiImage").val(respuesta["loi_image"]);
     },
   });
 });
@@ -31,10 +32,10 @@ $(".tablas").on("click", ".btnEditarLOI", function () {
 BOTON ADMINISTRAR LOI
 =============================================*/
 
-$(".tablaClientes tbody").on("click", ".btnLOI", function () {
-  var idCliente = $(this).attr("idCLiente");
+$(".tablas tbody").on("click", ".btnLOI", function () {
+  var idProveedor = $(this).attr("idProveedor");
 
-  window.location = "index.php?ruta=loi&idCliente=" + idCliente;
+  window.location = "index.php?ruta=loi&idProveedor=" + idProveedor;
 });
 
 /*=============================================

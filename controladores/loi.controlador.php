@@ -12,13 +12,39 @@ class ControladorLOI
 
 		if (isset($_POST["nuevoLOI"])) {
 
+			$itemCliente = "id";
+			$valorCliente = $_POST['nuevoCliente'];
+
+			$respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+
+			$cosignee = $respuestaCliente['cosignee'];
+
+			$cosigneeWords = explode(" ", $cosignee);
+
+			$cosigneeIniciales = "";
+
+			foreach ($cosigneeWords as $words) {
+				$cosigneeIniciales .= strtoupper($words[0]);
+			}
+
+			// Obtener la fecha actual
+
+			date_default_timezone_set('America/Caracas');
+
+			$fechaActual = date('Y-m-d');
+
+			$fechaActual = str_replace('-', "", $fechaActual);
+
+			$codigo = "TPC-" . $cosigneeIniciales . "-LOI-" . $fechaActual;
+
 			$tabla = "loi";
 
 			$datos = array(
+				"id_proveedor" => $_POST["nuevoLOI"],
 				"id_clientes" => $_POST["nuevoCliente"],
-				"codigo" => $_POST["nuevoCodigo"],
+				"codigo" => $codigo,
 				"descripcion" => $_POST["nuevoDescripcion"],
-				"loi_image" => $_POST["nuevoLoiImage"],
+				// "loi_image" => $_POST["nuevoLoiImage"],
 			);
 
 
@@ -30,15 +56,15 @@ class ControladorLOI
 
 					swal({
 
-						  type: "warning",
-						  title: "El LOI ha sido guardado correctamente, No olvide Actualizar",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
-						  }).then(function(result){
+						type: "success",
+						title: "La LOI ha sido guardado correctamente",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar"
+						}).then(function(result){
 
 									if (result.value) {
 
-									window.location.close
+									window.location = "index.php?ruta=loi&idProveedor=' . $_POST["nuevoLOI"] . '"
 
 									}
 
@@ -51,11 +77,11 @@ class ControladorLOI
 
 					swal({
 
-						  type: "error",
-						  title: "¡Error al Guardar El LOI!",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
-						  }).then(function(result){
+						type: "error",
+						title: "¡Error al Guardar la LOI!",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar"
+						}).then(function(result){
 							if (result.value) {
 
 							window.location.close
@@ -95,10 +121,10 @@ class ControladorLOI
 			$tabla = "loi";
 
 			$datos = array(
+				"id_proveedor" => $_POST["editarLOI"],
 				"id_clientes" => $_POST["editarCliente"],
-				"codigo" => $_POST["editarCodigo"],
 				"descripcion" => $_POST["editarDescripcion"],
-				"loi_image" => $_POST["editarLoiImage"],
+				// "loi_image" => $_POST["editarLoiImage"],
 				"id" => $_POST["idLOI"]
 			);
 
@@ -110,14 +136,14 @@ class ControladorLOI
 
 					swal({
 
-						  type: "warning",
-						  title: "El LOI ha sido Editada correctamente, No olvide Actualizar",
+						  type: "success",
+						  title: "El LOI ha sido Editada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 									if (result.value) {
 
-									window.location.close
+									window.location = "index.php?ruta=loi&idProveedor=' . $_POST["editarLOI"] . '"
 
 									}
 

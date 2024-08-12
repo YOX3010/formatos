@@ -1,15 +1,15 @@
 <?php
 
-if ($_SESSION["perfil"] != "Administrador") {
+// if ($_SESSION["perfil"] != "Administrador") {
 
-  echo '<script>
+//   echo '<script>
 
-    window.location = "inicio";
+//     window.location = "inicio";
 
-  </script>';
+//   </script>';
 
-  return;
-}
+//   return;
+// }
 
 ?>
 
@@ -93,14 +93,13 @@ if ($_SESSION["perfil"] != "Administrador") {
 
                     <td>
 
-                      <div class="btn-group">                          
+                      <div class="btn-group">      
 
-                        <button class="btn btn-warning btnEditarProveedor" data-toggle="modal" data-target="#modalEditarProveedor" idProveedor="' . $value["id"] . '"><i class="fa fa-pencil"></i></button>';
+                        <button class="btn btn-danger btnLOI" idProveedor="' . $value["id"] . '"><i class="fa-regular fa-file-lines"></i> LOI\'s</button>';
 
               if ($_SESSION["perfil"] == "Administrador") {
 
-                //echo '<button class="btn btn-danger btnEliminarCliente" idCliente="'.$value["id"].'"><i class="fa fa-times"></i></button>';
-
+                echo '<button class="btn btn-warning btnEditarProveedor" data-toggle="modal" data-target="#modalEditarProveedor" idProveedor="' . $value["id"] . '"><i class="fa fa-pencil"></i></button>';
               }
 
               echo '</div> 
@@ -164,9 +163,7 @@ MODAL AGREGAR PROVEEDOR
 
                 <span class="input-group-addon"><i class="fa-solid fa-people-group"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoNombreProveedor" placeholder="Ingresar Nombre del Proveedor" required>
-
-                <input type="hidden" name="nuevoProveedor" id="nuevoProveedor" required>
+                <input type="text" class="form-control input-lg" name="nuevoProveedor" placeholder="Ingresar Nombre del Proveedor" required>
 
               </div>
 
@@ -181,8 +178,6 @@ MODAL AGREGAR PROVEEDOR
                 <span class="input-group-addon"><i class="fa-solid fa-oil-well"></i></span>
 
                 <input type="text" class="form-control input-lg" name="nuevoRefineria" placeholder="Ingresar Nombre de la Refinaría" required>
-
-                <input type="hidden" name="nuevoProveedor" id="nuevoProveedor" required>
 
               </div>
 
@@ -216,8 +211,6 @@ MODAL AGREGAR PROVEEDOR
                   ?>
 
                 </select>
-
-                <input type="hidden" name="nuevoProveedor" id="nuevoProveedor" required>
 
               </div>
 
@@ -292,13 +285,11 @@ MODAL EDITAR PROVEEDOR
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <span class="input-group-addon"><i class="fa-solid fa-people-group"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarNombreProveedor" id="editarNombreProveedor" required>
+                <input type="text" class="form-control input-lg" name="editarProveedor" id="editarProveedor" placeholder="Proveedor" required>
 
                 <input type="hidden" name="idProveedor" id="idProveedor" required>
-
-                <input type="hidden" name="editarProveedor" id="editarProveedor" required>
 
               </div>
 
@@ -310,9 +301,9 @@ MODAL EDITAR PROVEEDOR
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <span class="input-group-addon"><i class="fa-solid fa-oil-well"></i></span>
 
-                <input type="text" class="form-control input-lg" name="editarRefineria" id="editarRefineria" required>
+                <input type="text" class="form-control input-lg" name="editarRefineria" id="editarRefineria" placeholder="Refinería" required>
 
               </div>
 
@@ -324,7 +315,7 @@ MODAL EDITAR PROVEEDOR
 
               <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <span class="input-group-addon"><i class="fa-solid fa-earth-americas"></i></span>
 
                 <select class="form-control input-lg" id="editarOrigin" name="editarOrigin" required>
 

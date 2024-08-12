@@ -20,13 +20,17 @@ $(".tablas").on("click", ".btnEditarICPO", function () {
 
     success: function (respuesta) {
       $("#idICPO").val(respuesta["id"]);
-      $("#editarSCO").val(respuesta["id_sco"]);
       $("#editarProveedor").val(respuesta["id_proveedor"]);
-      $("#editarCliente").val(respuesta["id_cliente"]);
+      $("#editarProducto").val(respuesta["id_producto"]);
+      $("#editarOrigen").val(respuesta["id_origen"]);
+      $("#editarUM").val(respuesta["id_um"]);
+      $("#editarPort").val(respuesta["id_port"]);
       $("#editarAuthCode").val(respuesta["authentication_code"]);
       $("#editarRefNumber").val(respuesta["ref_number"]);
       $("#editarVia").val(respuesta["via"]);
       $("#editarTradeDate").val(respuesta["trade_date"]);
+      $("#editarTrialQuantity").val(respuesta["trial_quantity"]);
+      $("#editarContractQuantity").val(respuesta["contract_quantity"]);
       $("#editarDurationContract").val(respuesta["duration_contract"]);
       $("#editarVessel").val(respuesta["vessel"]);
       $("#editarInspection").val(respuesta["inspection"]);
@@ -42,10 +46,9 @@ BOTON MODULO ICPO
 =============================================*/
 
 $(".tablas").on("click", ".btnICPO", function () {
-  var idSCO = $(this).attr("idSCO");
-  var idCliente = $(this).attr("idCliente");
+  var idICPO = $(this).attr("idICPO");
 
-  window.location = `index.php?ruta=icpo&idSCO=${idSCO}&idCliente=${idCliente}`;
+  window.location = `index.php?ruta=ver-icpo&idICPO=${idICPO}`;
 });
 
 /*=============================================

@@ -12,18 +12,53 @@ class ControladorSCO
 
         if (isset($_POST["nuevoSCO"])) {
 
+            $itemCliente = "id";
+            $valorCliente = $_POST['nuevoClientes'];
+
+            $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+
+            $cosignee = $respuestaCliente['cosignee'];
+
+            $cosigneeWords = explode(" ", $cosignee);
+
+            $cosigneeIniciales = "";
+
+            foreach ($cosigneeWords as $words) {
+                $cosigneeIniciales .= strtoupper($words[0]);
+            }
+
+            $vendedor = $_SESSION['nombre'];
+
+            $vendedorWords = explode(" ", $vendedor);
+
+            $vendedorIniciales = "";
+
+            foreach ($vendedorWords as $vendedorWord) {
+                $vendedorIniciales .= strtoupper(($vendedorWord[0]));
+            }
+
+            // Obtener la fecha actual
+
+            date_default_timezone_set('America/Caracas');
+
+            $fechaActual = date('Y-m-d');
+
+            $fechaActual = str_replace('-', "", $fechaActual);
+
+            $codigo = "TPC-" . $cosigneeIniciales . "-" . $vendedorIniciales . "-SCO-" . $fechaActual;
+
             $tabla = "sco";
 
             $datos = array(
                 "id_loi" => $_POST["nuevoLoi"],
                 "id_clientes" => $_POST["nuevoClientes"],
-                "id_usuario" => $_POST["nuevoUsuario"],
+                "id_usuario" => $_POST["nuevoSCO"],
                 "id_commodity" => $_POST["nuevoCommodity"],
                 "id_port" => $_POST["nuevoPort"],
                 "id_product_origin" => $_POST["nuevoProductOrigin"],
                 "id_um" => $_POST["nuevoUM"],
                 "id_incoterms" => $_POST["nuevoIncoterms"],
-                "codigo" => $_POST["nuevoCodigo"],
+                "codigo" => $codigo,
                 "via_cliente" => $_POST["nuevoViaCliente"],
                 "email_via_cliente" => $_POST["nuevoEmailViaCliente"],
                 "via_tpc" => $_POST["nuevoViaTpc"],
@@ -32,6 +67,7 @@ class ControladorSCO
                 "quantity" => $_POST["nuevoQuantity"],
                 "contract_terms" => $_POST["nuevoContractTerms"],
                 "commission" => $_POST["nuevoCommission"],
+                "observacion" => $_POST["nuevoObservacion"],
             );
 
             $respuesta = ModeloSCO::mdlIngresarSCO($tabla, $datos);
@@ -124,6 +160,7 @@ class ControladorSCO
                 "quantity" => $_POST["editarQuantity"],
                 "contract_terms" => $_POST["editarContractTerms"],
                 "commission" => $_POST["editarCommission"],
+                "observacion" => $_POST["editarObservacion"],
                 "id" => $_POST["idSCO"],
             );
 
