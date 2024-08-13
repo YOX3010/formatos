@@ -11,13 +11,23 @@ if ($_SESSION["perfil"] == "Especial") {
   return;
 }
 
+$itemCliente = "id";
+$valorCliente = $_GET["idCliente"];
+
+$respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+
+$itemLOI = "id";
+$valorLOI = $_GET["idLoi"];
+
+$respuestaLOI = ControladorLOI::ctrMostrarLOI($itemLOI, $valorLOI);
+
 ?>
 
 <div class="content-wrapper">
 
   <section class="content-header">
 
-    <h1>SCO </h1>
+    <h1>SCO's de <?php echo $respuestaLOI['codigo'] ?></h1>
 
     <ol class="breadcrumb">
 
@@ -41,31 +51,29 @@ if ($_SESSION["perfil"] == "Especial") {
 
         </button>
 
-        <a href="index.php?ruta=sco&idLoi=<?php echo $_GET['idLoi']; ?>&idCliente=<?php echo $_GET['idCliente']; ?>">
-
-          <!-- <a href="index.php?ruta=sco&idSCO="> -->
-
-          <button class="btn btn-warning"> Actualizar </button>
-
-        </a>
-
       </div>
 
       <div class="box-body">
 
         <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
 
-          <!-- <thead>
+          <thead>
 
             <tr>
 
               <th style="width:10px">#</th>
-              <th colspan="4">Formatos</th>
+              <th>Código</th>
+              <th>Cosignatario</th>
+              <th>Firmante</th>
+              <th>Mercancía</th>
+              <th>Cantidad</th>
+              <th>Puerto</th>
+              <th>Fecha</th>
               <th>Acciones</th>
 
             </tr>
 
-          </thead> -->
+          </thead>
 
           <tbody>
 
@@ -80,7 +88,74 @@ if ($_SESSION["perfil"] == "Especial") {
 
               if ($value["id_loi"] == $_GET["idLoi"] && $value["id_clientes"] == $_GET["idCliente"]) {
 
-                echo '
+                echo '<tr>
+
+                    <td>' . ($key + 1) . '</td>';
+
+                $itemCliente = "id";
+                $valorCliente = $value["id_clientes"];
+
+                $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+
+                $itemCommodity = "id";
+                $valorCommodity = $value["id_commodity"];
+
+                $respuestaCommodity = ControladorProductos::ctrMostrarProductos($itemCommodity, $valorCommodity);
+
+                $itemUM = "id";
+                $valorUM = $value["id_um"];
+
+                $respuestaUM = ControladorUM::ctrMostrarUM($itemUM, $valorUM);
+
+                $itemPort = "id";
+                $valorPort = $value["id_port"];
+
+                $respuestaPort = ControladorPort::ctrMostrarPort($itemPort, $valorPort);
+
+                $fecha = $value['fecha'];
+
+                $nuevaFecha = new DateTime($fecha);
+
+                $fechaFormato = $nuevaFecha->format('d/m/Y');
+                // $fechaFormato = $nuevaFecha->format('F d Y');
+
+                echo '<td>' . $value["codigo"] . '</td>
+                
+                    <td>' . $respuestaCliente["cosignee"] . '</td>
+
+                    <td>' . $respuestaCliente["signatory"] . '</td>
+
+                    <td>' . $respuestaCommodity["commodity"] . '</td>
+                    
+                    <td>' . $value["quantity"] . ' ' . $respuestaUM['unidad'] . '</td>
+
+                    <td>' . $respuestaPort["port"] . '</td>
+                    
+                    <td>' . $fechaFormato . '</td>
+
+                    <td>
+
+                      <div class="btn-group">
+                      
+                      <button class="btn btn-danger btnImprimirSCO" idSCO="' . $value["id"] . '"><i class="fa-solid fa-file-pdf"></i> Ver SCO</button>
+
+                      <button class="btn btn-info btnImprimirCI" idSCO="' . $value["id"] . '"><i class="fa-solid fa-file-invoice-dollar"></i> Imprimir CI</button>';
+
+                if ($_SESSION["perfil"] == "Administrador") {
+
+                  echo '<button class="btn btn-warning btnEditarSCO" idSCO="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarSCO"><i class="fa fa-pencil"></i></button>';
+
+                  //echo '<button class="btn btn-danger btnEliminarEmpleado" idEmpleado="'.$value["id"].'"><i class="fa fa-times"></i></button>';
+
+                }
+
+                echo '</div>  
+
+                    </td>
+
+                  </tr>';
+
+                /* echo '
                 
                 <tr style="background-color:#e1e1e1;">
           
@@ -93,7 +168,7 @@ if ($_SESSION["perfil"] == "Especial") {
           
             <td colspan="1">
               
-              <b>COD: </b> ' . $value["codigo"] . $value["id"] . '
+              <b>COD: </b> ' . $value["codigo"] . '
         
             </td>
         
@@ -302,7 +377,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
           </tr>
           
-          ';
+          '; */
               }
             }
 
@@ -384,15 +459,6 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-industry"></i></span>
 
-                <?php
-
-                $itemCliente = "id";
-                $valorCliente = $_GET["idCliente"];
-
-                $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
-
-                ?>
-
                 <input type="hidden" class="form-control input-lg" name="nuevoClientes" value="<?php echo $_GET["idCliente"]; ?>" require>
 
                 <input type="text" class="form-control input-lg" value="<?php echo $respuestaCliente["cosignee"]; ?>" readonly>
@@ -449,7 +515,9 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-user"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoSCO" value="<?php echo $_SESSION['nombre'] ?>" required readonly>
+                <input type="hidden" class="form-control input-lg" name="nuevoSCO" value="<?php echo $_SESSION['id'] ?>" required readonly>
+
+                <input type="text" class="form-control input-lg" value="<?php echo $_SESSION['nombre'] ?>" required readonly>
 
               </div>
 
@@ -463,7 +531,7 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-building-user"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoViaTpc" placeholder="Via del vendedor">
+                <input type="text" class="form-control input-lg" name="nuevoViaTpc" placeholder="Via del vendedor (Tamesis Per Company)">
 
               </div>
 
@@ -477,7 +545,7 @@ MODAL AGREGAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-envelope"></i></span>
 
-                <input type="email" class="form-control input-lg" name="nuevoEmailViaTpc" placeholder="Email de Via del vendedor">
+                <input type="email" class="form-control input-lg" name="nuevoEmailViaTpc" placeholder="Email de Via del vendedor (Tamesis Per Company)">
 
               </div>
 
@@ -607,20 +675,6 @@ MODAL AGREGAR SCO
               </div>
 
             </div>
-
-            <!-- PRECIO -->
-
-            <!-- <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg" name="nuevoPrice" placeholder="Price / Precio" >
-
-              </div>
-
-            </div> -->
 
             <!-- INCOTERMS -->
 
@@ -868,58 +922,17 @@ MODAL EDITAR SCO
 
           <div class="box-body">
 
-            <!-- CODIGO -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa-solid fa-hashtag"></i></span>
-
-                <input type="text" class="form-control input-lg" id="editarCodigo" name="editarCodigo" readonly>
-
-                <input type="hidden" name="idSCO" id="idSCO" required>
-
-                <input type="hidden" name="editarSCO" id="editarSCO" required>
-
-              </div>
-
-            </div>
-
-            <!-- ID LOI -->
-
-            <div class="form-group" style="display: none;">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa-solid fa-file-code"></i></span>
-
-                <input type="number" class="form-control input-lg" id="editarLoi" name="editarLoi" require readonly>
-
-              </div>
-
-            </div>
-
             <!-- COSIGNEE -->
 
             <div class="form-group">
 
               <div class="input-group">
 
-                <?php
-
-                $itemCliente = "id";
-                $valorCliente = $_GET["idCliente"];
-
-                $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
-
-                ?>
-
                 <span class="input-group-addon"><i class="fa-solid fa-industry"></i></span>
 
-                <input type="hidden" min="0" max="99999999999" class="form-control input-lg" id="editarClientes" name="editarClientes" require readonly>
+                <input type="hidden" name="editarClientes" value="<?php echo $_GET['idCliente'] ?>">
 
-                <input type="text" class="form-control input-lg" id="editarClientes" value="<?php echo $respuestaCliente["cosignee"] ?>" readonly>
+                <input type="text" class="form-control input-lg" value="<?php echo $respuestaCliente["cosignee"] ?>" readonly>
 
               </div>
 
@@ -933,7 +946,7 @@ MODAL EDITAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-building-user"></i></span>
 
-                <input type="text" class="form-control input-lg" id="editarViaCliente" name="editarViaCliente" required>
+                <input type="text" class="form-control input-lg" id="editarViaCliente" name="editarViaCliente" placeholder="Via del Comprador">
 
               </div>
 
@@ -947,7 +960,7 @@ MODAL EDITAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-envelope"></i></span>
 
-                <input type="email" class="form-control input-lg" id="editarEmailViaCliente" name="editarEmailViaCliente" required>
+                <input type="email" class="form-control input-lg" id="editarEmailViaCliente" name="editarEmailViaCliente" placeholder="Email de via del comprador">
 
               </div>
 
@@ -961,28 +974,13 @@ MODAL EDITAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-user"></i></span>
 
-                <select class="form-control input-lg" id="editarUsuario" name="editarUsuario" required>
+                <input type="hidden" name="editarSCO" id="editarUsuario">
 
-                  <option value="">Selecionar Vendedor</option>
+                <input type="hidden" name="idSCO" id="idSCO">
 
-                  <?php
+                <input type="hidden" name="editarLoi" value="<?php echo $_GET['idLoi'] ?>">
 
-                  $item = null;
-                  $valor = null;
-
-                  $usuario = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
-
-                  foreach ($usuario as $key => $value) {
-
-
-                    echo '<option value="' . $value["id"] . '">' . $value["nombre"] . '</option>';
-                  }
-
-                  ?>
-
-                </select>
-
-                <!-- <input type="number" class="form-control input-lg" id="editarUsuario" placeholder="To / Para:" required> -->
+                <input type="text" class="form-control input-lg" value="<?php echo $_SESSION['nombre'] ?>" readonly>
 
               </div>
 
@@ -996,7 +994,7 @@ MODAL EDITAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-building-user"></i></span>
 
-                <input type="text" class="form-control input-lg" id="editarViaTpc" name="editarViaTpc" required>
+                <input type="text" class="form-control input-lg" id="editarViaTpc" name="editarViaTpc" placeholder="Via del Vendedor (Tamesis Per Company)">
 
               </div>
 
@@ -1010,7 +1008,7 @@ MODAL EDITAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-envelope"></i></span>
 
-                <input type="email" class="form-control input-lg" id="editarEmailViaTpc" name="editarEmailViaTpc" required>
+                <input type="email" class="form-control input-lg" id="editarEmailViaTpc" name="editarEmailViaTpc" placeholder="Email de Via del vendedor (Tamesis Per Company)">
 
               </div>
 
@@ -1054,11 +1052,6 @@ MODAL EDITAR SCO
 
                   <?php
 
-                  $item = null;
-                  $valor = null;
-
-                  $producto = ControladorProductos::ctrMostrarProductos($item, $valor);
-
                   foreach ($producto as $key => $value) {
 
 
@@ -1077,11 +1070,11 @@ MODAL EDITAR SCO
 
             <div class="form-group">
 
-              <div class="input-group">
+              <div class="input-group" style="display: flex; align-items:center;width:100%">
 
-                <span class="input-group-addon"><i class="fa-solid fa-boxes-packing"></i></span>
+                <span class="input-group-addon input-lg" style="padding-right:40px;"><i class="fa-solid fa-boxes-packing"></i></span>
 
-                <input type="number" class="form-control input-lg" id="editarQuantity" name="editarQuantity" required>
+                <input type="number" class="form-control input-lg" id="editarQuantity" name="editarQuantity" style="max-width: 61%;" placeholder="Cantidad" required>
 
                 <select class="form-control input-lg" id="editarUM" name="editarUM" required>
 
@@ -1089,13 +1082,7 @@ MODAL EDITAR SCO
 
                   <?php
 
-                  $item = null;
-                  $valor = null;
-
-                  $unidad = ControladorUM::ctrMostrarUM($item, $valor);
-
-                  foreach ($unidad as $key => $value) {
-
+                  foreach ($um as $key => $value) {
 
                     echo '<option value="' . $value["id"] . '">' . $value["unidad"] . '</option>';
                   }
@@ -1214,7 +1201,7 @@ MODAL EDITAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-file-contract"></i></span>
 
-                <input type="text" class="form-control input-lg" id="editarContractTerms" name="editarContractTerms" required>
+                <input type="text" class="form-control input-lg" id="editarContractTerms" name="editarContractTerms" placeholder="Ingresar Términos del contrato">
 
               </div>
 
@@ -1228,7 +1215,7 @@ MODAL EDITAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-hand-holding-dollar"></i></span>
 
-                <input type="text" class="form-control input-lg" id="editarCommission" name="editarCommission" required>
+                <input type="text" class="form-control input-lg" id="editarCommission" name="editarCommission" placeholder="Ingresar Comisión">
 
               </div>
 
@@ -1242,7 +1229,7 @@ MODAL EDITAR SCO
 
                 <span class="input-group-addon"><i class="fa-solid fa-circle-exclamation"></i></span>
 
-                <textarea type="text" class="form-control input-lg" name="editarObservacion" id="editarObservacion" rows="3" style="resize: none;"></textarea>
+                <textarea type="text" class="form-control input-lg" name="editarObservacion" id="editarObservacion" rows="3" style="resize: none;" placeholder="Ingresar Observación"></textarea>
 
               </div>
 
@@ -1266,8 +1253,8 @@ MODAL EDITAR SCO
 
         <?php
 
-        $editarSCO = new ControladorSCO();
-        $editarSCO->ctrEditarSCO();
+        $editSCO = new ControladorSCO();
+        $editSCO->ctrEditarSCO();
 
         ?>
 

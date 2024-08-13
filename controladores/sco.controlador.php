@@ -78,15 +78,15 @@ class ControladorSCO
 
     				swal({
 
-    					  type: "warning",
-    					  title: "El SCO ha sido guardado correctamente. Recuerde Actualizar",
+    					  type: "success",
+    					  title: "El SCO ha sido guardado correctamente",
     					  showConfirmButton: true,
     					  confirmButtonText: "Cerrar"
     					  }).then(function(result){
 
     								if (result.value) {
 
-    								window.location.close
+    								window.location = "index.php?ruta=sco&idLoi=' . $_POST["nuevoLoi"] . '&idCliente=' . $_POST["nuevoClientes"] . '"
 
     								}
 
@@ -145,13 +145,12 @@ class ControladorSCO
             $datos = array(
                 "id_loi" => $_POST["editarLoi"],
                 "id_clientes" => $_POST["editarClientes"],
-                "id_usuario" => $_POST["editarUsuario"],
+                "id_usuario" => $_POST["editarSCO"],
                 "id_commodity" => $_POST["editarCommodity"],
                 "id_port" => $_POST["editarPort"],
                 "id_product_origin" => $_POST["editarProductOrigin"],
                 "id_um" => $_POST["editarUM"],
                 "id_incoterms" => $_POST["editarIncoterms"],
-                "codigo" => $_POST["editarCodigo"],
                 "via_cliente" => $_POST["editarViaCliente"],
                 "email_via_cliente" => $_POST["editarEmailViaCliente"],
                 "via_tpc" => $_POST["editarViaTpc"],
@@ -172,14 +171,14 @@ class ControladorSCO
 
 					swal({
 
-						  type: "warning",
-						  title: "El SCO ha sido Editado correctamente, Recuerde Actualizar",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
-						  }).then(function(result){
+                        type: "success",
+                        title: "El SCO ha sido Editado correctamente",
+                        showConfirmButton: true,
+                        confirmButtonText: "Cerrar"
+                        }).then(function(result){
 									if (result.value) {
 
-									window.location.close
+									window.location = "index.php?ruta=sco&idLoi=' . $_POST["editarLoi"] . '&idCliente=' . $_POST["editarClientes"] . '"
 
 									}
 
@@ -192,11 +191,11 @@ class ControladorSCO
 
 					swal({
 
-						  type: "error",
-						  title: "¡Error al Editar El SCO!",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
-						  }).then(function(result){
+                        type: "error",
+                        title: "¡Error al Editar El SCO!",
+                        showConfirmButton: true,
+                        confirmButtonText: "Cerrar"
+                        }).then(function(result){
 							if (result.value) {
 
 							window.location.close

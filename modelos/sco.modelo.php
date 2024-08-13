@@ -14,39 +14,39 @@ class ModeloSCO
 
         $stmt = Conexion::conectar()->prepare("INSERT INTO 		$tabla(	id_loi,
                                                                         id_clientes,
-    																	id_usuario,
-    																	id_commodity,
-    																	id_port,
-    																	id_product_origin,
-    																	id_um,
-    																	id_incoterms,
-    																	codigo,
-    																	via_cliente,
-    																	email_via_cliente,
-    																	via_tpc,
-    																	email_via_tpc,
-    																	validity_of_sco,
-    																	quantity,
-    																	contract_terms,
-    																	commission,
+                                                                        id_usuario,
+                                                                        id_commodity,
+                                                                        id_port,
+                                                                        id_product_origin,
+                                                                        id_um,
+                                                                        id_incoterms,
+                                                                        codigo,
+                                                                        via_cliente,
+                                                                        email_via_cliente,
+                                                                        via_tpc,
+                                                                        email_via_tpc,
+                                                                        validity_of_sco,
+                                                                        quantity,
+                                                                        contract_terms,
+                                                                        commission,
                                                                         observacion)
-    															VALUES(	:id_loi,
+                                                                VALUES(	:id_loi,
                                                                         :id_clientes,
-    																	:id_usuario,
-    																	:id_commodity,
-    																	:id_port,
-    																	:id_product_origin,
+                                                                        :id_usuario,
+                                                                        :id_commodity,
+                                                                        :id_port,
+                                                                        :id_product_origin,
                                                                         :id_um,
-    																	:id_incoterms,
-    																	:codigo,
-    																	:via_cliente,
-    																	:email_via_cliente,
-    																	:via_tpc,
-    																	:email_via_tpc,
-    																	:validity_of_sco,
-    																	:quantity,
-    																	:contract_terms,
-    																	:commission,
+                                                                        :id_incoterms,
+                                                                        :codigo,
+                                                                        :via_cliente,
+                                                                        :email_via_cliente,
+                                                                        :via_tpc,
+                                                                        :email_via_tpc,
+                                                                        :validity_of_sco,
+                                                                        :quantity,
+                                                                        :contract_terms,
+                                                                        :commission,
                                                                         :observacion)");
 
         $stmt->bindParam(":id_loi", $datos["id_loi"], PDO::PARAM_INT);
@@ -125,7 +125,6 @@ class ModeloSCO
                                                                         id_product_origin = :id_product_origin,
                                                                         id_um = :id_um,
                                                                         id_incoterms = :id_incoterms,
-                                                                        codigo = :codigo,
                                                                         via_cliente = :via_cliente,
                                                                         email_via_cliente = :email_via_cliente,
                                                                         via_tpc = :via_tpc,
@@ -135,7 +134,7 @@ class ModeloSCO
                                                                         contract_terms = :contract_terms,
                                                                         commission = :commission,
                                                                         observacion = :observacion
-															 	WHERE 	id = :id");
+                                                                WHERE 	id = :id");
 
         $stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
         $stmt->bindParam(":id_loi", $datos["id_loi"], PDO::PARAM_INT);
@@ -146,7 +145,6 @@ class ModeloSCO
         $stmt->bindParam(":id_product_origin", $datos["id_product_origin"], PDO::PARAM_INT);
         $stmt->bindParam(":id_um", $datos["id_um"], PDO::PARAM_INT);
         $stmt->bindParam(":id_incoterms", $datos["id_incoterms"], PDO::PARAM_INT);
-        $stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
         $stmt->bindParam(":via_cliente", $datos["via_cliente"], PDO::PARAM_STR);
         $stmt->bindParam(":email_via_cliente", $datos["email_via_cliente"], PDO::PARAM_STR);
         $stmt->bindParam(":via_tpc", $datos["via_tpc"], PDO::PARAM_STR);
