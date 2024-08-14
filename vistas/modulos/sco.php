@@ -634,7 +634,6 @@ MODAL AGREGAR SCO
 
                 <input type="number" class="form-control input-lg" name="nuevoQuantity" style="max-width: 61%;" placeholder="Quantity / Cantidad">
 
-
                 <!-- <div class="input-group-lg"> -->
 
                 <select class="form-control input-lg" name="nuevoUM" style="max-width: 20%;">

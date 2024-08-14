@@ -17,7 +17,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
   <section class="content-header">
 
-    <h1>ICPO</h1>
+    <h1>Administrar ICPO's</h1>
 
     <ol class="breadcrumb">
 
@@ -75,36 +75,45 @@ if ($_SESSION["perfil"] == "Especial") {
 
             foreach ($ICPO as $key => $value) {
 
-              // if ($value["id_sco"] == $_GET["idSCO"]) {
-
-              $fechaCodigo = str_replace(array("-", " ", ":"), "", $value["fecha"]);
-
-              echo '<tr>
-
-              <th colspan="1">' . ($key + 1) . '</th>
-
-              <td>TPC-MAJR-SCO-000' . $value["id"] . '</td>';
-
+              // LLAMAR CONTROLADOR DE MOSTRAR PROVEEDORES
 
               $itemProveedor = "id";
               $valorProveedor = $value["id_proveedor"];
 
               $respuestaProveedor = ControladorProveedores::ctrMostrarProveedores($itemProveedor, $valorProveedor);
 
-              echo '<td>' . $respuestaProveedor["refineria"] . ' / ' . $respuestaProveedor["proveedor"] . '</td>
-
-              <td>TPC-MAJR-SCO-000' . $value["ref_number"] . '</td>
-
-              <td colspan="1">' . $fechaCodigo . "-" . $value["authentication_code"] . '</td>';
+              // LLAMAR CONTROLADOR DE MOSTRAR PRODUCTOS
 
               $itemProductos = "id";
               $valorProductos = $value["id_producto"];
 
               $respuestaProductos = ControladorProductos::ctrMostrarProductos($itemProductos, $valorProductos);
 
+              // if ($value["id_sco"] == $_GET["idSCO"]) {
+
+              // $fechaCodigo = str_replace(array("-", " ", ":"), "", $value["fecha"]);
+
+              $fecha = $value['fecha'];
+
+              $nuevaFecha = new DateTime($fecha);
+
+              $fechaFormato = $nuevaFecha->format('d/m/Y');
+
+              echo '<tr>
+
+              <th>' . ($key + 1) . '</th>
+
+              <td>' . $value["code"] . '</td>';
+
+              echo '<td>' . $respuestaProveedor["refineria"] . ' / ' . $respuestaProveedor["proveedor"] . '</td>
+
+              <td>' . $value["ref_number"] . '</td>
+
+              <td>' . $value["authentication_code"] . '</td>';
+
               echo '<td>' . $respuestaProductos["commodity"] . '</td>
 
-              <td>' . $value["fecha"] . '</td>
+              <td>' . $fechaFormato . '</td>
 
               <td style="text-align:center;">
 
@@ -205,8 +214,6 @@ MODAL AGREGAR ICPO
 
                 </select>
 
-                <input type="hidden" name="nuevoICPO" id="nuevoICPO" required>
-
               </div>
 
             </div>
@@ -229,9 +236,11 @@ MODAL AGREGAR ICPO
 
                 ?>
 
-                <input type="hidden" class="form-control input-lg" name="nuevoAuthCode" value="<?php echo $code; ?>" require>
+                <!-- <input type="hidden" class="form-control input-lg" name="nuevoICPO" value="<?php //echo $code; 
+                                                                                                ?>" require> -->
 
-                <input type="hidden" name="nuevoICPO" id="nuevoICPO" required>
+                <input type="hidden" class="form-control input-lg" name="nuevoICPO" value="230108104423-90039630139" require>
+
 
               </div>
 
@@ -240,34 +249,115 @@ MODAL AGREGAR ICPO
             <!-- NUMERO DE REFERENCIA -->
 
             <!-- <div class="form-group" style="display: none;"> -->
-            <div class="form-group">
+            <div class="form-group" style="border: lightgrey solid 1px;padding:5px">
 
-              <div class="input-group">
+              <div class="input-group" style="display: flex; flex-direction: column">
 
-                <span class="input-group-addon"><i class="fa-solid fa-hashtag"></i></span>
+                <h4>Selecionar código de referencia de SCO</h4>
 
-                <span class="input-group-addon">TPC-MAJR-SCO-000</span>
+                <!-- <span class="input-group-addon">TPC-MAJR-SCO-000</span> -->
 
-                <select class="form-control input-lg" name="nuevoRefNumber" required>
+                <!-- <select class="form-control input-lg" name="nuevoRefNumber" required>
 
-                  <option value="">Selecionar referencia de SCO</option>
+                  <option value="">Selecionar código de referencia de SCO</option>
 
                   <?php
 
-                  $item = null;
-                  $valor = null;
+                  // $itemSCO = null;
+                  // $valorSCO = null;
 
-                  $numRef = ControladorSCO::ctrMostrarSCO($item, $valor);
+                  // $sco = ControladorSCO::ctrMostrarSCO($itemSCO, $valorSCO);
 
-                  foreach ($numRef as $key => $valueNumRef) {
+                  // foreach ($sco as $key => $valueSCO) {
 
+                  //   $itemCliente = "id";
+                  //   $valorCliente = $valueSCO['id_clientes'];
 
-                    echo '<option value="' . $valueNumRef["id"] . '">' . $valueNumRef["id"] . '</option>';
-                  }
+                  //   $respuestaClientes = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+
+                  //   echo '<option value="' . $valueSCO["id"] . '">' . $valueSCO["codigo"] . ' - ' . $respuestaClientes["cosignee"] . ' - ' . $respuestaClientes["signatory"] . '</option>';
+                  // }
 
                   ?>
 
-                </select>
+                </select> -->
+
+                <style type="text/css">
+                  #modalAgregarICPO div.dataTables_length label,
+                  #modalAgregarICPO div.dataTables_info,
+                  #modalAgregarICPO .col-sm-6:first-child {
+                    display: none !important;
+                  }
+
+                  #modalAgregarICPO div.dataTables_filter label,
+                  #modalAgregarICPO table.dataTable,
+                  #modalAgregarICPO .col-sm-6 {
+                    width: 100% !important;
+                  }
+
+                  #modalAgregarICPO div.dataTables_filter input {
+                    width: 90% !important;
+                  }
+
+                  #modalAgregarICPO div.dataTables_filter label {
+                    display: flex !important;
+                    align-items: center;
+                  }
+
+                  #modalAgregarICPO div.dataTables_filter {
+                    text-align: center !important;
+                  }
+                </style>
+
+                <?php
+
+                $itemSCO = null;
+                $valorSCO = null;
+
+                $sco = ControladorSCO::ctrMostrarSCO($itemSCO, $valorSCO);
+
+                ?>
+
+                <table class="table table-bordered table-striped dt-responsive tablaNumRef tablas">
+
+                  <thead>
+
+                    <th>Código</th>
+                    <th>Cosignatario</th>
+                    <th>Firmante</th>
+                    <th>Acción</th>
+
+                  </thead>
+
+                  <tbody>
+
+                    <?php
+
+                    foreach ($sco as $key => $valueSCO) {
+
+                      $itemCliente = "id";
+                      $valorCliente = $valueSCO['id_clientes'];
+
+                      $respuestaClientes = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+
+                      echo '<tr>
+                      
+                        <td>' . $valueSCO['codigo'] . '</td>
+
+                        <td>' . $respuestaClientes["cosignee"] . '</td>
+                        
+                        <td>' . $respuestaClientes["signatory"] . '</td>
+                        
+                        <td style="display:flex; justify-content:center; text-align:center; align-items:center;"> <input type="checkbox" class="checkRef" name="nuevoRefNumber" value="' . $valueSCO['codigo'] . '"> </td>
+                      
+                      </tr>';
+                    }
+
+                    ?>
+
+                  </tbody>
+
+                </table>
 
               </div>
 
@@ -281,7 +371,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-building-user"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoVia" placeholder="Via" required>
+                <input type="text" class="form-control input-lg" name="nuevoVia" placeholder="Via (Tamesis Per Company)" required>
 
               </div>
 
@@ -300,6 +390,8 @@ MODAL AGREGAR ICPO
               <div class="input-group">
 
                 <span class="input-group-addon"><i class="fa-solid fa-calendar-xmark"></i></span>
+
+                <span class="input-group-addon">Trade date:</span>
 
                 <input type="date" class="form-control input-lg" name="nuevoTradeDate" required>
 
@@ -412,13 +504,13 @@ MODAL AGREGAR ICPO
 
             <div class="form-group">
 
-              <div class="input-group">
+              <div class="input-group" style="display: flex; align-items:center;width:100%">
 
-                <span class="input-group-addon"><i class="fa-solid fa-boxes-packing"></i></span>
+                <span class="input-group-addon input-lg" style="padding-right:40px;"><i class="fa-solid fa-boxes-packing"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoTrialQuantity" placeholder="Trial Quantity / Cantidad de prueba" required>
+                <input type="text" class="form-control input-lg" name="nuevoTrialQuantity" style="max-width: 71%;" placeholder="Trial Quantity / Cantidad de prueba" required>
 
-                <select class="form-control input-sm" name="nuevoUM" required>
+                <select class="form-control input-lg" name="nuevoUM" style="max-width: 20%;" required>
 
                   <option value="">Unidad</option>
 
@@ -457,6 +549,8 @@ MODAL AGREGAR ICPO
 
                   <option value="12 Months">12 Months</option>
 
+                  <option value="24 Months">24 Months</option>
+
                 </select>
 
               </div>
@@ -473,7 +567,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon">Duration Contract</span>
 
-                <input type="text" class="form-control input-lg" name="nuevoDurationContract" value="TBA" readonly>
+                <input type="text" class="form-control input-lg" name="nuevoDurationContract" value="TBA">
 
               </div>
 
@@ -489,7 +583,8 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon">Vessel</span>
 
-                <input type="text" class="form-control input-lg" name="nuevoVessel" value="To be acceptable by seller and/or buyer, and terminal" readonly>
+                <!-- <input type="text" class="form-control input-lg" name="nuevoVessel" value="To be acceptable by seller and/or buyer, and terminal"> -->
+                <input type="text" class="form-control input-lg" name="nuevoVessel" value="N/A">
 
               </div>
 
@@ -505,7 +600,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon">Inspection</span>
 
-                <textarea type="text" rows="3" style="resize: none;" class="form-control input-lg" name="nuevoInspection" readonly>SGS or ANY EQUIVALENT/ the seller pays the inspectors at the shipping tank. The buyer pays the inspectors at the receiving tank</textarea>
+                <textarea type="text" rows="5" style="resize: none;" class="form-control input-lg" name="nuevoInspection">SGS or ANY EQUIVALENT/ the seller pays the inspectors at the shipping tank. The buyer pays the inspectors at the receiving tank</textarea>
 
               </div>
 
@@ -521,7 +616,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon">Insurance</span>
 
-                <input type="text" class="form-control input-lg" name="nuevoInsurance" value="By seller choice" readonly>
+                <input type="text" class="form-control input-lg" name="nuevoInsurance" value="By seller choice">
 
               </div>
 
@@ -537,7 +632,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon">Payment Method</span>
 
-                <input type="text" class="form-control input-lg" value="PAYMENTS TERM : 100% MT103" readonly>
+                <input type="text" class="form-control input-lg" value="PAYMENTS TERM : 100% MT103">
 
               </div>
 
@@ -553,7 +648,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon">Q & Q Determination</span>
 
-                <input type="text" class="form-control input-lg" name="nuevoQQ" value="As per quantity in VAC as per Bill of Lading" readonly>
+                <input type="text" class="form-control input-lg" name="nuevoQQ" value="As per quantity in VAC as per Bill of Lading">
 
               </div>
 
@@ -569,7 +664,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon">Lay time</span>
 
-                <input type="text" class="form-control input-lg" value="TBA" readonly>
+                <input type="text" class="form-control input-lg" value="N/A">
 
               </div>
 
@@ -585,7 +680,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon">Demurrage Rate</span>
 
-                <input type="text" class="form-control input-lg" name="nuevoDemurrageRate" value="N/A" readonly>
+                <input type="text" class="form-control input-lg" name="nuevoDemurrageRate" value="N/A">
 
               </div>
 
@@ -601,7 +696,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon">Law</span>
 
-                <input type="text" class="form-control input-lg" value="USA / English Law / London High Courts. No arbitration" readonly>
+                <input type="text" class="form-control input-lg" value="USA / English Law / London High Courts. No arbitration">
 
               </div>
 

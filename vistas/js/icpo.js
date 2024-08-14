@@ -83,3 +83,9 @@ $(".tablas").on("click", ".btnImprimirICPO", function () {
 
   window.open(`extensiones/tcpdf/examples/icpo.php?idICPO=${idICPO}`, "_blank");
 });
+
+$(document).ready(function () {
+  $(".checkRef").click(function () {
+    $(".checkRef").not(this).prop("checked", false);
+  });
+});

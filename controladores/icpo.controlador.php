@@ -12,6 +12,39 @@ class ControladorICPO
 
         if (isset($_POST["nuevoICPO"])) {
 
+            $itemProveedor = "id";
+            $valorProveedor = $_POST['nuevoNombreProveedor'];
+
+            $respuestaProveedor = ControladorProveedores::ctrMostrarProveedores($itemProveedor, $valorProveedor);
+
+            $proveedor = $respuestaProveedor['proveedor'];
+
+            $proveedorWords = explode(" ", $proveedor);
+
+            $proveedorIniciales = "";
+
+            foreach ($proveedorWords as $proveedorWord) {
+                $proveedorIniciales .= strtoupper(($proveedorWord[0]));
+            }
+
+            $usuarioTPC = $_SESSION['nombre'];
+
+            $usuarioTPCWords = explode(" ", $usuarioTPC);
+
+            $usuarioTPCIniciales = "";
+
+            foreach ($usuarioTPCWords as $usuarioTPCWord) {
+                $usuarioTPCIniciales .= strtoupper(($usuarioTPCWord[0]));
+            }
+
+            date_default_timezone_set('America/Caracas');
+
+            $fechaActual = date('Y-m-d');
+
+            $fechaActual = str_replace('-', "", $fechaActual);
+
+            $codigo = 'TPC-' . $proveedorIniciales . '-' . $usuarioTPCIniciales . '-ICPO-' . $fechaActual;
+
             $tabla = "icpo";
 
             $datos = array(
@@ -20,7 +53,8 @@ class ControladorICPO
                 "id_origen" => $_POST["nuevoOrigen"],
                 "id_um" => $_POST["nuevoUM"],
                 "id_port" => $_POST["nuevoPort"],
-                "authentication_code" => $_POST["nuevoAuthCode"],
+                "code" => $codigo,
+                "authentication_code" => $_POST["nuevoICPO"],
                 "ref_number" => $_POST["nuevoRefNumber"],
                 "via" => $_POST["nuevoVia"],
                 "trade_date" => $_POST["nuevoTradeDate"],
