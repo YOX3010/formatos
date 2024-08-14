@@ -112,6 +112,8 @@ $respuestaLOI = ControladorLOI::ctrMostrarLOI($itemLOI, $valorLOI);
 
                 $respuestaPort = ControladorPort::ctrMostrarPort($itemPort, $valorPort);
 
+                // FORMATEAR FECHA
+
                 $fecha = $value['fecha'];
 
                 $nuevaFecha = new DateTime($fecha);
@@ -157,227 +159,227 @@ $respuestaLOI = ControladorLOI::ctrMostrarLOI($itemLOI, $valorLOI);
 
                 /* echo '
                 
-                <tr style="background-color:#e1e1e1;">
-          
-            <td>
-              
-              <b>Fecha: </b> ' . $value["fecha"] . '
-        
-            </td>
-        
-          
-            <td colspan="1">
-              
-              <b>COD: </b> ' . $value["codigo"] . '
-        
-            </td>
-        
-            <td colspan="3" style=" text-align:end;">
-
-            <div class="btn-group">
-
-            <button class="btn btn-danger btnImprimirSCO" idSCO="' . $value["id"] . '"><i class="fa-solid fa-file-pdf"></i> Ver SCO</button>
-
-            <button class="btn btn-info btnImprimirCI" idSCO="' . $value["id"] . '"><i class="fa-solid fa-file-invoice-dollar"></i> Imprimir CI</button>';
-
-                if ($_SESSION["perfil"] == "Administrador") {
-
-                  echo '<button class="btn btn-warning btnEditarSCO" idSCO="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarSCO"><i class="fa fa-pencil"></i></button>';
-
-                  //echo '<button class="btn btn-danger btnEliminarEmpleado" idEmpleado="'.$value["id"].'"><i class="fa fa-times"></i></button>';
-
-                }
-
-                echo '</div>
-              
-              </td>
-
-              </tr>
+                  <tr style="background-color:#e1e1e1;">
+            
+                    <td>
+                      
+                      <b>Fecha: </b> ' . $value["fecha"] . '
                 
-                <tr>';
-
-                $itemCliente = "id";
-                $valorCliente = $value["id_clientes"];
-
-                $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
-
-                echo '<th>To / Para:</th>
-              
-              <td>' . $respuestaCliente["cosignee"] . '</td>
-
-            <th>Mr. / Sr.:</th>
-
-            <td>' . $respuestaCliente["signatory"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th>Position / Posición:</th>
-
-            <td>' . $respuestaCliente["position"] . '</td>
-
-            <th>Email / Correo Electrónico:</th>
-
-            <td>' . $respuestaCliente["email"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th>Via:</th>
-
-            <td>' . $value["via_cliente"] . '</td>
-
-            <th>Email / Correo Electrónico:</th>
-
-            <td>' . $value["email_via_cliente"] . '</td>
-
-          </tr>';
-
-                $itemUsuario = "id";
-                $valorUsuario = $value["id_usuario"];
-
-                $respuestaUsuario = ControladorUsuarios::ctrMostrarUsuarios($itemUsuario, $valorUsuario);
-
-                echo '<tr>
-
-            <th>From / De:</th>
-
-            <td>TAMESIS PER COMPANY LLC</td>
-
-            <th>To / Para:</th>
-
-            <td>' . $respuestaUsuario["nombre"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th>Position / Posición:</th>
-
-            <td>' . $respuestaUsuario["position"] . '</td>
-
-            <th>Email:</th>
-
-            <td>' . $respuestaUsuario["email"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th>Via:</th>
-
-            <td>' . $value["via_tpc"] . '</td>
-
-            <th>Email:</th>
-
-            <td>' . $value["email_via_tpc"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th style="text-align: center;" colspan="4">TRANSACTING TERMS / TÉRMINOS DE TRANSACCIÓN:</th>
-
-          </tr>
-
-          <tr>
-
-            <th>Validity of SCO / Validez de SCO:</th>
-
-            <td>' . $value["validity_of_sco"] . '</td>';
-
-                $itemProductos = "id";
-                $valorProductos = $value["id_commodity"];
-
-                $respuestaProductos = ControladorProductos::ctrMostrarProductos($itemProductos, $valorProductos);
-
-                echo '<th>Commodity / Mercancía:</th>
-
-            <td>' . $respuestaProductos["commodity"] . '</td>
-
-          </tr>
-
-          <tr>';
-
-                $itemUM = "id";
-                $valorUM = $value["id_um"];
-
-                $respuestaUM = ControladorUM::ctrMostrarUM($itemUM, $valorUM);
-
-                echo '<th>Quantity / Cantidad:</th>
+                    </td>
                 
-                <td>' . $value["quantity"] . $respuestaUM["unidad"] . '</td>
+                  
+                    <td colspan="1">
+                      
+                      <b>COD: </b> ' . $value["codigo"] . '
+                
+                    </td>
+                
+                    <td colspan="3" style=" text-align:end;">
 
-            <th>Price / Precio:</th>
+                    <div class="btn-group">
 
-            <td>' . $respuestaProductos["price_cliente"] . '</td>
+                    <button class="btn btn-danger btnImprimirSCO" idSCO="' . $value["id"] . '"><i class="fa-solid fa-file-pdf"></i> Ver SCO</button>
 
-          </tr>
+                    <button class="btn btn-info btnImprimirCI" idSCO="' . $value["id"] . '"><i class="fa-solid fa-file-invoice-dollar"></i> Imprimir CI</button>';
 
-          <tr>';
+                        if ($_SESSION["perfil"] == "Administrador") {
 
-                $itemIncoterms = "id";
-                $valorIncoterms = $value["id_incoterms"];
+                          echo '<button class="btn btn-warning btnEditarSCO" idSCO="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarSCO"><i class="fa fa-pencil"></i></button>';
 
-                $respuestaIncoterms = ControladorIncoterms::ctrMostrarIncoterms($itemIncoterms, $valorIncoterms);
+                          //echo '<button class="btn btn-danger btnEliminarEmpleado" idEmpleado="'.$value["id"].'"><i class="fa fa-times"></i></button>';
 
-                echo '<th>Incoterms / Incotérminos:</th>
+                        }
+
+                        echo '</div>
+                      
+                      </td>
+
+                      </tr>
+                        
+                        <tr>';
+
+                        $itemCliente = "id";
+                        $valorCliente = $value["id_clientes"];
+
+                        $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+
+                        echo '<th>To / Para:</th>
+                      
+                      <td>' . $respuestaCliente["cosignee"] . '</td>
+
+                    <th>Mr. / Sr.:</th>
+
+                    <td>' . $respuestaCliente["signatory"] . '</td>
+
+                  </tr>
+
+                  <tr>
+
+                    <th>Position / Posición:</th>
+
+                    <td>' . $respuestaCliente["position"] . '</td>
+
+                    <th>Email / Correo Electrónico:</th>
+
+                    <td>' . $respuestaCliente["email"] . '</td>
+
+                  </tr>
+
+                  <tr>
+
+                    <th>Via:</th>
+
+                    <td>' . $value["via_cliente"] . '</td>
+
+                    <th>Email / Correo Electrónico:</th>
+
+                    <td>' . $value["email_via_cliente"] . '</td>
+
+                  </tr>';
+
+                  $itemUsuario = "id";
+                  $valorUsuario = $value["id_usuario"];
+
+                  $respuestaUsuario = ControladorUsuarios::ctrMostrarUsuarios($itemUsuario, $valorUsuario);
+
+                  echo '<tr>
+
+                    <th>From / De:</th>
+
+                    <td>TAMESIS PER COMPANY LLC</td>
+
+                    <th>To / Para:</th>
+
+                    <td>' . $respuestaUsuario["nombre"] . '</td>
+
+                  </tr>
+
+                  <tr>
+
+                    <th>Position / Posición:</th>
+
+                    <td>' . $respuestaUsuario["position"] . '</td>
+
+                    <th>Email:</th>
+
+                    <td>' . $respuestaUsuario["email"] . '</td>
+
+                  </tr>
+
+                  <tr>
+
+                    <th>Via:</th>
+
+                    <td>' . $value["via_tpc"] . '</td>
+
+                    <th>Email:</th>
+
+                    <td>' . $value["email_via_tpc"] . '</td>
+
+                  </tr>
+
+                  <tr>
+
+                    <th style="text-align: center;" colspan="4">TRANSACTING TERMS / TÉRMINOS DE TRANSACCIÓN:</th>
+
+                  </tr>
+
+                  <tr>
+
+                    <th>Validity of SCO / Validez de SCO:</th>
+
+                    <td>' . $value["validity_of_sco"] . '</td>';
+
+                        $itemProductos = "id";
+                        $valorProductos = $value["id_commodity"];
+
+                        $respuestaProductos = ControladorProductos::ctrMostrarProductos($itemProductos, $valorProductos);
+
+                        echo '<th>Commodity / Mercancía:</th>
+
+                    <td>' . $respuestaProductos["commodity"] . '</td>
+
+                  </tr>
+
+                  <tr>';
+
+                        $itemUM = "id";
+                        $valorUM = $value["id_um"];
+
+                        $respuestaUM = ControladorUM::ctrMostrarUM($itemUM, $valorUM);
+
+                        echo '<th>Quantity / Cantidad:</th>
+                        
+                        <td>' . $value["quantity"] . $respuestaUM["unidad"] . '</td>
+
+                    <th>Price / Precio:</th>
+
+                    <td>' . $respuestaProductos["price_cliente"] . '</td>
+
+                  </tr>
+
+                  <tr>';
+
+                        $itemIncoterms = "id";
+                        $valorIncoterms = $value["id_incoterms"];
+
+                        $respuestaIncoterms = ControladorIncoterms::ctrMostrarIncoterms($itemIncoterms, $valorIncoterms);
+
+                        echo '<th>Incoterms / Incotérminos:</th>
+                  
+                        <td>' . $respuestaIncoterms["incoterm"] . '</td>';
+
+                        $itemPort = "id";
+                        $valorPort = $value["id_port"];
+
+                        $respuestaPort = ControladorPort::ctrMostrarPort($itemPort, $valorPort);
+
+                        echo '<th>Port / Puerto:</th>
+
+                    <td>' . $respuestaPort["port"] . '</td>
+
+                  </tr>';
+
+                        $itemProductOrigin = "id";
+                        $valorProductOrigin = $value["id_product_origin"];
+
+                        $respuestaProductOrigin = ControladorProductOrigin::ctrMostrarProductOrigin($itemProductOrigin, $valorProductOrigin);
+
+                  echo '<tr>
+
+                    <th>Product Origin / Origen del Producto:</th>
+
+                    <td>' . $respuestaProductOrigin["origin"] . '</td>
+
+                    <th>Contract Term / Término del Contrato:</th>
+
+                    <td>SPOT</td>
+
+                  </tr>
+
+                  <tr>
+
+                    <th>Commission / Comisión:</th>
+
+                    <td colspan="3">' . $value["commission"] . '</td>
+
+                  </tr>
+
+                  <tr>
+
+                    <th>Observation / Observación:</th>
+
+                    <td colspan="3">' . $value["observacion"] . '</td>
+
+                  </tr>
+
+                  <tr>
+
+                    <td colspan="4"><br></td>
+
+                  </tr>
           
-                <td>' . $respuestaIncoterms["incoterm"] . '</td>';
-
-                $itemPort = "id";
-                $valorPort = $value["id_port"];
-
-                $respuestaPort = ControladorPort::ctrMostrarPort($itemPort, $valorPort);
-
-                echo '<th>Port / Puerto:</th>
-
-            <td>' . $respuestaPort["port"] . '</td>
-
-          </tr>';
-
-                $itemProductOrigin = "id";
-                $valorProductOrigin = $value["id_product_origin"];
-
-                $respuestaProductOrigin = ControladorProductOrigin::ctrMostrarProductOrigin($itemProductOrigin, $valorProductOrigin);
-
-                echo '<tr>
-
-            <th>Product Origin / Origen del Producto:</th>
-
-            <td>' . $respuestaProductOrigin["origin"] . '</td>
-
-            <th>Contract Term / Término del Contrato:</th>
-
-            <td>SPOT</td>
-
-          </tr>
-
-          <tr>
-
-            <th>Commission / Comisión:</th>
-
-            <td colspan="3">' . $value["commission"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <th>Observation / Observación:</th>
-
-            <td colspan="3">' . $value["observacion"] . '</td>
-
-          </tr>
-
-          <tr>
-
-            <td colspan="4"><br></td>
-
-          </tr>
-          
-          '; */
+                '; */
               }
             }
 
