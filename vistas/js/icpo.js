@@ -25,7 +25,8 @@ $(".tablas").on("click", ".btnEditarICPO", function () {
       $("#editarOrigen").val(respuesta["id_origen"]);
       $("#editarUM").val(respuesta["id_um"]);
       $("#editarPort").val(respuesta["id_port"]);
-      $("#editarAuthCode").val(respuesta["authentication_code"]);
+      $("#editarICPO").val(respuesta["authentication_code"]);
+      // $("#editarCode").val(respuesta["code"]);
       $("#editarRefNumber").val(respuesta["ref_number"]);
       $("#editarVia").val(respuesta["via"]);
       $("#editarTradeDate").val(respuesta["trade_date"]);
@@ -85,6 +86,7 @@ $(".tablas").on("click", ".btnImprimirICPO", function () {
 });
 
 $(document).ready(function () {
+  // CHECK BOX'S
   $(".checkRef").click(function () {
     $(".checkRef").not(this).prop("checked", false);
   });

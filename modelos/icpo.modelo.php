@@ -122,7 +122,6 @@ class ModeloICPO
                                                                         id_origen = :id_origen,
                                                                         id_um = :id_um,
                                                                         id_port = :id_port,
-                                                                        code = :code,
                                                                         authentication_code = :authentication_code,
                                                                         ref_number = :ref_number,
                                                                         via = :via,
@@ -143,7 +142,6 @@ class ModeloICPO
         $stmt->bindParam(":id_origen", $datos["id_origen"], PDO::PARAM_INT);
         $stmt->bindParam(":id_um", $datos["id_um"], PDO::PARAM_INT);
         $stmt->bindParam(":id_port", $datos["id_port"], PDO::PARAM_INT);
-        $stmt->bindParam(":code", $datos["code"], PDO::PARAM_STR);
         $stmt->bindParam(":authentication_code", $datos["authentication_code"], PDO::PARAM_STR);
         $stmt->bindParam(":ref_number", $datos["ref_number"], PDO::PARAM_STR);
         $stmt->bindParam(":via", $datos["via"], PDO::PARAM_STR);

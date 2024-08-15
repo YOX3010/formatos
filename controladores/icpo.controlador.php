@@ -146,7 +146,7 @@ class ControladorICPO
                 "id_origen" => $_POST["editarOrigen"],
                 "id_um" => $_POST["editarUM"],
                 "id_port" => $_POST["editarPort"],
-                "authentication_code" => $_POST["editarAuthCode"],
+                "authentication_code" => $_POST["editarICPO"],
                 "ref_number" => $_POST["editarRefNumber"],
                 "via" => $_POST["editarVia"],
                 "trade_date" => $_POST["editarTradeDate"],
