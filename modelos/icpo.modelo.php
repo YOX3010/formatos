@@ -28,8 +28,11 @@ class ModeloICPO
     																	vessel,
     																	inspection,
     																	insurance,
+                                                                        payment_method,
     																	qq_determination,
-    																	demurrage_rate)
+                                                                        lay_time,
+    																	demurrage_rate,
+                                                                        law)
     															VALUES(	:id_proveedor,
                                                                         :id_producto,
     																	:id_origen,
@@ -46,8 +49,11 @@ class ModeloICPO
     																	:vessel,
     																	:inspection,
     																	:insurance,
+                                                                        :payment_method,
     																	:qq_determination,
-    																	:demurrage_rate)");
+                                                                        :lay_time,
+    																	:demurrage_rate,
+                                                                        :law)");
 
         $stmt->bindParam(":id_proveedor", $datos["id_proveedor"], PDO::PARAM_INT);
         $stmt->bindParam(":id_producto", $datos["id_producto"], PDO::PARAM_INT);
@@ -64,9 +70,12 @@ class ModeloICPO
         $stmt->bindParam(":duration_contract", $datos["duration_contract"], PDO::PARAM_STR);
         $stmt->bindParam(":vessel", $datos["vessel"], PDO::PARAM_STR);
         $stmt->bindParam(":inspection", $datos["inspection"], PDO::PARAM_STR);
-        $stmt->bindParam(":insurance", $datos["insurance"], PDO::PARAM_INT);
+        $stmt->bindParam(":insurance", $datos["insurance"], PDO::PARAM_STR);
+        $stmt->bindParam(":payment_method", $datos["payment_method"], PDO::PARAM_STR);
         $stmt->bindParam(":qq_determination", $datos["qq_determination"], PDO::PARAM_STR);
+        $stmt->bindParam(":lay_time", $datos["lay_time"], PDO::PARAM_STR);
         $stmt->bindParam(":demurrage_rate", $datos["demurrage_rate"], PDO::PARAM_STR);
+        $stmt->bindParam(":law", $datos["law"], PDO::PARAM_STR);
 
         if ($stmt->execute()) {
 
@@ -132,8 +141,11 @@ class ModeloICPO
                                                                         vessel = :vessel,
                                                                         inspection = :inspection,
                                                                         insurance = :insurance,
+                                                                        payment_method = :payment_method,
                                                                         qq_determination = :qq_determination,
-                                                                        demurrage_rate = :demurrage_rate
+                                                                        lay_time = :lay_time,
+                                                                        demurrage_rate = :demurrage_rate,
+                                                                        law = :law
 															 	WHERE 	id = :id");
 
         $stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
@@ -151,9 +163,12 @@ class ModeloICPO
         $stmt->bindParam(":duration_contract", $datos["duration_contract"], PDO::PARAM_STR);
         $stmt->bindParam(":vessel", $datos["vessel"], PDO::PARAM_STR);
         $stmt->bindParam(":inspection", $datos["inspection"], PDO::PARAM_STR);
-        $stmt->bindParam(":insurance", $datos["insurance"], PDO::PARAM_INT);
+        $stmt->bindParam(":insurance", $datos["insurance"], PDO::PARAM_STR);
+        $stmt->bindParam(":payment_method", $datos["payment_method"], PDO::PARAM_STR);
         $stmt->bindParam(":qq_determination", $datos["qq_determination"], PDO::PARAM_STR);
+        $stmt->bindParam(":lay_time", $datos["lay_time"], PDO::PARAM_STR);
         $stmt->bindParam(":demurrage_rate", $datos["demurrage_rate"], PDO::PARAM_STR);
+        $stmt->bindParam(":law", $datos["law"], PDO::PARAM_STR);
 
         if ($stmt->execute()) {
 

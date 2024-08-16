@@ -11,20 +11,27 @@ if ($_SESSION["perfil"] == "Especial") {
     return;
 }
 
+$itemICPO = "id";
+$valorICPO = $_GET['idICPO'];
+
+$respuestaICPO = ControladorICPO::ctrMostrarICPO($itemICPO, $valorICPO);
+
 ?>
 
 <div class="content-wrapper">
 
     <section class="content-header">
 
-        <h1>TPC-MAJR-000<?php echo $_GET["idICPO"]; ?></h1>
+        <h1><?php echo $respuestaICPO["code"]; ?></h1>
 
         <ol class="breadcrumb">
 
             <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
-            <li class="active">TPC-MAJR-000<?php echo $_GET["idICPO"]; ?></li>
+            <li class="active"><?php echo $respuestaICPO["code"] ?></li>
 
+            <!-- <li class="active">TPC-MAJR-000<?php //echo $_GET["idICPO"]; 
+                                                ?></li> -->
         </ol>
 
     </section>
@@ -34,6 +41,12 @@ if ($_SESSION["perfil"] == "Especial") {
         <div class="box">
 
             <div class="box-header with-border">
+
+                <a href="extensiones/tcpdf/examples/icpo.php?idICPO=<?php echo $_GET["idICPO"] ?>" target="_blank">
+
+                    <button class="btn btn-danger btnImprimirICPO"><i class=" fa fa-print"></i> Imprimir ICPO</button>
+
+                </a>
 
                 <a href="icpo">
 
@@ -64,7 +77,13 @@ if ($_SESSION["perfil"] == "Especial") {
 
                             if ($value["id"] == $_GET["idICPO"]) {
 
-                                $fechaCodigo = str_replace(array("-", " ", ":"), "", $value["fecha"]);
+                                $fecha = $value['fecha'];
+                                $fecha = new DateTime($fecha);
+                                $fecha = $fecha->format('d/m/Y');
+
+                                $tradeDate = $value['trade_date'];
+                                $tradeDate = new DateTime($tradeDate);
+                                $tradeDate = $tradeDate->format('d/m/Y');
 
                                 echo '
                 
@@ -72,24 +91,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
                                 <th colspan="1">Authentication code:</th>
 
-                                <td colspan="2">' . $fechaCodigo . "-" . $value["authentication_code"] . '</td>
-
-                                <td colspan="1" style="text-align:center;">
-
-                                <div class="btn-group">
-
-                                    <button class="btn btn-danger btnImprimirICPO" idICPO="' . $value["id"] . '"><i class="fa fa-print"></i> Imprimir ICPO</button>';
-
-
-                                if ($_SESSION["perfil"] == "Administrador") {
-
-                                    //echo '<button class="btn btn-danger btnEliminarEmpleado" idEmpleado="'.$value["id"].'"><i class="fa fa-times"></i></button>';
-
-                                }
-
-                                echo '</div>
-
-                                </td>
+                                <td colspan="3">' . $value["authentication_code"] . '</td>
 
                                 </tr>
 
@@ -97,11 +99,11 @@ if ($_SESSION["perfil"] == "Especial") {
 
                                 <th>Ref. Number / Número de Referencia:</th>
 
-                                <td>TPC-MAJR-SCO-000' . $value["ref_number"] . '</td>
+                                <td>' . $value["ref_number"] . '</td>
 
                                 <th>Date / Fecha</th>
 
-                                <td>' . $value["fecha"] . '</td>
+                                <td>' . $fecha . '</td>
 
                                 </tr>
 
@@ -128,7 +130,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
                                 <th colspan="1">Trade Date / Fecha de negociación</th>
 
-                                <td colspan="3">' . $value["trade_date"] . '</td>
+                                <td colspan="3">' . $tradeDate . '</td>
 
                                 </tr>
 
@@ -161,7 +163,7 @@ if ($_SESSION["perfil"] == "Especial") {
                                 $respuestaPort = ControladorPort::ctrMostrarPort($itemPort, $valorPort);
 
                                 echo  '<th colspan="1">Shipping Terms for Sale / Condiciones de envío para la venta</th>
-              
+
                                 <td colspan="3">Free On Board (FOB) Tank to Tank' . " " . $respuestaPort["port"] . '</td>
 
                                 </tr>
@@ -244,7 +246,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
                                 <th colspan="1">Insurance / Seguro</th>
 
-                                <td colspan="3">By seller choice</td>
+                                <td colspan="3">' . $value['insurance'] . '</td>
 
                                 </tr>
 
@@ -252,7 +254,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
                                 <th colspan="1">Payment Method / Método de Pago</th>
 
-                                <td colspan="3">PAYMENTS TERM : 100% MT103</td>
+                                <td colspan="3">' . $value['payment_method'] . '</td>
 
                                 </tr>
 
@@ -268,7 +270,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
                                 <th colspan="1">Lay Time / Tiempo de Puesta</th>
 
-                                <td colspan="3">TBA</td>
+                                <td colspan="3">' . $value['lay_time'] . '</td>
 
                                 </tr>
 
@@ -284,7 +286,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
                                 <th colspan="1">Law / Ley</th>
 
-                                <td colspan="3">USA / English Law / London High Courts. No arbitration</td>
+                                <td colspan="3">' . $value['law'] . '</td>
 
                                 </tr>
                                 

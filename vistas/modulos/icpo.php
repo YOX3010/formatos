@@ -78,6 +78,16 @@ if ($_SESSION["perfil"] == "Especial") {
 
         </button>
 
+        <a href="inicio">
+
+          <button class="btn btn-success">
+
+            <i class="fa-regular fa-circle-left"></i>
+
+          </button>
+
+        </a>
+
       </div>
 
       <div class="box-body">
@@ -606,7 +616,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon">Payment Method</span>
 
-                <input type="text" class="form-control input-lg" value="PAYMENTS TERM : 100% MT103">
+                <input type="text" class="form-control input-lg" name="nuevoPaymentMethod" value="PAYMENTS TERM : 100% MT103">
 
               </div>
 
@@ -638,7 +648,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon">Lay time</span>
 
-                <input type="text" class="form-control input-lg" value="N/A">
+                <input type="text" class="form-control input-lg" name="nuevoLayTime" value="N/A">
 
               </div>
 
@@ -670,7 +680,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon">Law</span>
 
-                <input type="text" class="form-control input-lg" value="USA / English Law / London High Courts. No arbitration">
+                <input type="text" class="form-control input-lg" name="nuevoLaw" value="USA / English Law / London High Courts. No arbitration">
 
               </div>
 
@@ -1019,7 +1029,7 @@ MODAL EDITAR ICPO
 
                 <span class="input-group-addon">Vessel</span>
 
-                <input type="text" class="form-control input-lg" name="editarVessel" value="To be acceptable by seller and/or buyer, and terminal">
+                <input type="text" class="form-control input-lg" name="editarVessel" id="editarVessel">
 
               </div>
 
@@ -1035,7 +1045,7 @@ MODAL EDITAR ICPO
 
                 <span class="input-group-addon">Inspection</span>
 
-                <textarea type="text" rows="3" style="resize: none;" class="form-control input-lg" name="editarInspection">SGS or ANY EQUIVALENT/ the seller pays the inspectors at the shipping tank. The buyer pays the inspectors at the receiving tank</textarea>
+                <textarea type="text" rows="5" style="resize: none;" class="form-control input-lg" name="editarInspection" id="editarInspection"></textarea>
 
               </div>
 
@@ -1051,7 +1061,7 @@ MODAL EDITAR ICPO
 
                 <span class="input-group-addon">Insurance</span>
 
-                <input type="text" class="form-control input-lg" name="editarInsurance" value="By seller choice">
+                <input type="text" class="form-control input-lg" name="editarInsurance" id="editarInsurance">
 
               </div>
 
@@ -1067,7 +1077,7 @@ MODAL EDITAR ICPO
 
                 <span class="input-group-addon">Payment Method</span>
 
-                <input type="text" class="form-control input-lg" value="PAYMENTS TERM : 100% MT103">
+                <input type="text" class="form-control input-lg" name="editarPaymentMethod" id="editarPaymentMethod">
 
               </div>
 
@@ -1099,7 +1109,7 @@ MODAL EDITAR ICPO
 
                 <span class="input-group-addon">Lay time</span>
 
-                <input type="text" class="form-control input-lg" value="TBA">
+                <input type="text" class="form-control input-lg" name="editarLayTime" id="editarLayTime">
 
               </div>
 
@@ -1115,7 +1125,7 @@ MODAL EDITAR ICPO
 
                 <span class="input-group-addon">Demurrage Rate</span>
 
-                <input type="text" class="form-control input-lg" name="editarDemurrageRate" value="N/A">
+                <input type="text" class="form-control input-lg" name="editarDemurrageRate" id="editarDemurrageRate">
 
               </div>
 
@@ -1131,7 +1141,7 @@ MODAL EDITAR ICPO
 
                 <span class="input-group-addon">Law</span>
 
-                <input type="text" class="form-control input-lg" value="USA / English Law / London High Courts. No arbitration">
+                <input type="text" class="form-control input-lg" name="editarLaw" id="editarLaw">
 
               </div>
 
@@ -1142,8 +1152,8 @@ MODAL EDITAR ICPO
         </div>
 
         <!--=====================================
-PIE DEL MODAL
-======================================-->
+        PIE DEL MODAL
+        ======================================-->
 
         <div class="modal-footer">
 

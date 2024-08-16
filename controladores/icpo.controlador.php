@@ -64,8 +64,11 @@ class ControladorICPO
                 "vessel" => $_POST["nuevoVessel"],
                 "inspection" => $_POST["nuevoInspection"],
                 "insurance" => $_POST["nuevoInsurance"],
+                "payment_method" => $_POST["nuevoPaymentMethod"],
                 "qq_determination" => $_POST["nuevoQQ"],
+                "lay_time" => $_POST["nuevoLayTime"],
                 "demurrage_rate" => $_POST["nuevoDemurrageRate"],
+                "law" => $_POST["nuevoLaw"],
             );
 
             $respuesta = ModeloICPO::mdlIngresarICPO($tabla, $datos);
@@ -156,8 +159,11 @@ class ControladorICPO
                 "vessel" => $_POST["editarVessel"],
                 "inspection" => $_POST["editarInspection"],
                 "insurance" => $_POST["editarInsurance"],
+                "payment_method" => $_POST["editarPaymentMethod"],
                 "qq_determination" => $_POST["editarQQ"],
+                "lay_time" => $_POST["editarLayTime"],
                 "demurrage_rate" => $_POST["editarDemurrageRate"],
+                "law" => $_POST["editarLaw"],
                 "id" => $_POST["idICPO"],
             );
 

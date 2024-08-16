@@ -36,8 +36,11 @@ $(".tablas").on("click", ".btnEditarICPO", function () {
       $("#editarVessel").val(respuesta["vessel"]);
       $("#editarInspection").val(respuesta["inspection"]);
       $("#editarInsurance").val(respuesta["insurance"]);
+      $("#editarPaymentMethod").val(respuesta["payment_method"]);
       $("#editarQQ").val(respuesta["qq_determination"]);
+      $("#editarLayTime").val(respuesta["lay_time"]);
       $("#editarDemurrageRate").val(respuesta["demurrage_rate"]);
+      $("#editarLaw").val(respuesta["law"]);
     },
   });
 });
