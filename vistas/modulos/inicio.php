@@ -5,12 +5,19 @@
 
   .texto-caja {
     position: relative;
-    z-index: 100;
+    z-index: 50;
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
   }
 
   .icon {
     z-index: 1;
+  }
+
+  a.small-box {
+    z-index: 100;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 </style>
 

@@ -373,7 +373,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-calendar-xmark"></i></span>
 
-                <span class="input-group-addon">Trade date:</span>
+                <span class="input-group-addon">Fecha de entrega:</span>
 
                 <input type="date" class="form-control input-lg" name="nuevoTradeDate" required>
 
@@ -422,7 +422,8 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-handshake"></i></span>
 
-                <span class="input-group-addon">Free on Board (FOB) Tank to Tank </span>
+                <!-- <span class="input-group-addon">Free on Board (FOB) Tank to Tank </span> -->
+                <span class="input-group-addon">Puerto de entrega </span>
 
                 <select class="form-control input-lg" name="nuevoPort" required>
 
@@ -525,7 +526,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-file-contract"></i></span>
 
-                <span class="input-group-addon">Contract Quantity</span>
+                <span class="input-group-addon">Cantidad del contrato</span>
 
                 <input type="text" class="form-control input-lg" name="nuevoContractQuantity" value="N/A">
 
@@ -541,7 +542,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon"><i class="fa-regular fa-clock"></i></span>
 
-                <span class="input-group-addon">Duration Contract</span>
+                <span class="input-group-addon">Duración del Contrato</span>
 
                 <select class="form-control input-lg" name="nuevoDurationContract" required>
 
@@ -565,7 +566,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-ship"></i></span>
 
-                <span class="input-group-addon">Vessel</span>
+                <span class="input-group-addon">Buque</span>
 
                 <!-- <input type="text" class="form-control input-lg" name="nuevoVessel" value="To be acceptable by seller and/or buyer, and terminal"> -->
                 <input type="text" class="form-control input-lg" name="nuevoVessel" value="N/A">
@@ -582,7 +583,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon"><i class="fa-regular fa-eye"></i></span>
 
-                <span class="input-group-addon">Inspection</span>
+                <span class="input-group-addon">Inspección</span>
 
                 <textarea type="text" rows="5" style="resize: none;" class="form-control input-lg" name="nuevoInspection">SGS or ANY EQUIVALENT/ the seller pays the inspectors at the shipping tank. The buyer pays the inspectors at the receiving tank</textarea>
 
@@ -598,7 +599,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-building-lock"></i></span>
 
-                <span class="input-group-addon">Insurance</span>
+                <span class="input-group-addon">Seguro</span>
 
                 <input type="text" class="form-control input-lg" name="nuevoInsurance" value="By seller choice">
 
@@ -614,7 +615,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon"><i class="fa-regular fa-credit-card"></i></span>
 
-                <span class="input-group-addon">Payment Method</span>
+                <span class="input-group-addon">Método de pago</span>
 
                 <input type="text" class="form-control input-lg" name="nuevoPaymentMethod" value="PAYMENTS TERM : 100% MT103">
 
@@ -630,7 +631,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-coins"></i></span>
 
-                <span class="input-group-addon">Q & Q Determination</span>
+                <span class="input-group-addon">Cantidad Determinada</span>
 
                 <input type="text" class="form-control input-lg" name="nuevoQQ" value="As per quantity in VAC as per Bill of Lading">
 
@@ -646,7 +647,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-stopwatch"></i></span>
 
-                <span class="input-group-addon">Lay time</span>
+                <span class="input-group-addon">Tiempo de demora</span>
 
                 <input type="text" class="form-control input-lg" name="nuevoLayTime" value="N/A">
 
@@ -662,7 +663,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-sack-xmark"></i></span>
 
-                <span class="input-group-addon">Demurrage Rate</span>
+                <span class="input-group-addon">Tasa de sobreestadía</span>
 
                 <input type="text" class="form-control input-lg" name="nuevoDemurrageRate" value="N/A">
 
@@ -678,7 +679,7 @@ MODAL AGREGAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-scale-balanced"></i></span>
 
-                <span class="input-group-addon">Law</span>
+                <span class="input-group-addon">Ley</span>
 
                 <input type="text" class="form-control input-lg" name="nuevoLaw" value="USA / English Law / London High Courts. No arbitration">
 
@@ -841,6 +842,8 @@ MODAL EDITAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-calendar-xmark"></i></span>
 
+                <span class="input-group-addon">Fecha de entrega:</span>
+
                 <input type="date" class="form-control input-lg" name="editarTradeDate" id="editarTradeDate" required>
 
               </div>
@@ -886,7 +889,7 @@ MODAL EDITAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-handshake"></i></span>
 
-                <span class="input-group-addon">Free on Board (FOB) Tank to Tank </span>
+                <span class="input-group-addon">Puerto de entrega</span>
 
                 <select class="form-control input-lg" name="editarPort" id="editarPort" required>
 
@@ -987,7 +990,7 @@ MODAL EDITAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-file-contract"></i></span>
 
-                <span class="input-group-addon">Contract Quantity</span>
+                <span class="input-group-addon">Cantidad del contrato</span>
 
                 <input type="text" class="form-control input-lg" name="editarContractQuantity" id="editarContractQuantity" value="N/A">
 
@@ -1003,7 +1006,7 @@ MODAL EDITAR ICPO
 
                 <span class="input-group-addon"><i class="fa-regular fa-clock"></i></span>
 
-                <span class="input-group-addon">Duration Contract</span>
+                <span class="input-group-addon">Duración Contrato</span>
 
                 <select class="form-control input-lg" name="editarDurationContract" id="editarDurationContract" required>
 
@@ -1027,7 +1030,7 @@ MODAL EDITAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-ship"></i></span>
 
-                <span class="input-group-addon">Vessel</span>
+                <span class="input-group-addon">Buque</span>
 
                 <input type="text" class="form-control input-lg" name="editarVessel" id="editarVessel">
 
@@ -1043,7 +1046,7 @@ MODAL EDITAR ICPO
 
                 <span class="input-group-addon"><i class="fa-regular fa-eye"></i></span>
 
-                <span class="input-group-addon">Inspection</span>
+                <span class="input-group-addon">Inspección</span>
 
                 <textarea type="text" rows="5" style="resize: none;" class="form-control input-lg" name="editarInspection" id="editarInspection"></textarea>
 
@@ -1059,7 +1062,7 @@ MODAL EDITAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-building-lock"></i></span>
 
-                <span class="input-group-addon">Insurance</span>
+                <span class="input-group-addon">Seguro</span>
 
                 <input type="text" class="form-control input-lg" name="editarInsurance" id="editarInsurance">
 
@@ -1075,7 +1078,7 @@ MODAL EDITAR ICPO
 
                 <span class="input-group-addon"><i class="fa-regular fa-credit-card"></i></span>
 
-                <span class="input-group-addon">Payment Method</span>
+                <span class="input-group-addon">Método de pago</span>
 
                 <input type="text" class="form-control input-lg" name="editarPaymentMethod" id="editarPaymentMethod">
 
@@ -1091,7 +1094,7 @@ MODAL EDITAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-coins"></i></span>
 
-                <span class="input-group-addon">Q & Q Determination</span>
+                <span class="input-group-addon">Cantidad Determinada</span>
 
                 <input type="text" class="form-control input-lg" name="editarQQ" value="As per quantity in VAC as per Bill of Lading">
 
@@ -1107,7 +1110,7 @@ MODAL EDITAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-stopwatch"></i></span>
 
-                <span class="input-group-addon">Lay time</span>
+                <span class="input-group-addon">Tiempo de demora</span>
 
                 <input type="text" class="form-control input-lg" name="editarLayTime" id="editarLayTime">
 
@@ -1123,7 +1126,7 @@ MODAL EDITAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-sack-xmark"></i></span>
 
-                <span class="input-group-addon">Demurrage Rate</span>
+                <span class="input-group-addon">Tasa de sobreestadía</span>
 
                 <input type="text" class="form-control input-lg" name="editarDemurrageRate" id="editarDemurrageRate">
 
@@ -1139,7 +1142,7 @@ MODAL EDITAR ICPO
 
                 <span class="input-group-addon"><i class="fa-solid fa-scale-balanced"></i></span>
 
-                <span class="input-group-addon">Law</span>
+                <span class="input-group-addon">Ley</span>
 
                 <input type="text" class="form-control input-lg" name="editarLaw" id="editarLaw">
 
