@@ -33,6 +33,12 @@ $respuestaLOI = ControladorLOI::ctrMostrarLOI($itemLOI, $valorLOI);
 
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
+      <li><a href="proveedores">Proveedores</a></li>
+
+      <li>
+        <a href="index.php?ruta=loi&idProveedor=<?php echo $_GET['idProveedor'] ?>">LOI's</a>
+      </li>
+
       <li class="active">SCO</li>
 
     </ol>
@@ -50,6 +56,12 @@ $respuestaLOI = ControladorLOI::ctrMostrarLOI($itemLOI, $valorLOI);
           Generar SCO
 
         </button>
+
+        <a href="index.php?ruta=loi&idProveedor=<?php echo $_GET['idProveedor'] ?>">
+
+          <button class="btn btn-success"><i class="fa-regular fa-circle-left"></i></button>
+
+        </a>
 
       </div>
 

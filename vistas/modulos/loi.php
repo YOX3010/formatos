@@ -97,19 +97,27 @@ $respuestaProveedor = ControladorProveedores::ctrMostrarProveedores($itemCliente
 
                 $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
 
+                // FORMATEAR FECHA
+
+                $fecha = $value['fecha'];
+
+                $nuevaFecha = new DateTime($fecha);
+
+                $fechaFormato = $nuevaFecha->format('d/m/Y');
+
                 echo '<td>' . $value["codigo"] . '</td>
                 
                     <td>' . $respuestaCliente["cosignee"] . '</td>
 
                     <td>' . $value["descripcion"] . '</td>
 
-                    <td>' . $value["fecha"] . '</td>
+                    <td>' . $fechaFormato . '</td>
 
                     <td>
 
                       <div class="btn-group">
                       
-                      <button class="btn btn-danger btnSCO" idLoi="' . $value["id"] . '" idCliente="' . $value["id_clientes"] . '"><i class="fa-regular fa-file-lines"></i> Crear SCO</button>
+                      <button class="btn btn-danger btnSCO" idLoi="' . $value["id"] . '" idCliente="' . $value["id_clientes"] . '" idProveedor="' . $_GET["idProveedor"] . '"><i class="fa-regular fa-file-lines"></i> Crear SCO</button>
                       
                       <button class="btn btn-info btnJV" idLoi="' . $value["id"] . '" idCliente="' . $value["id_clientes"] . '"><i class="fa-solid fa-handshake"></i> Joint Venture</button>';
 

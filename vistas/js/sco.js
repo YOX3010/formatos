@@ -49,9 +49,9 @@ BOTON MODULO SCO
 $(".tablas").on("click", ".btnSCO", function () {
   var idLoi = $(this).attr("idLoi");
   var idCliente = $(this).attr("idCliente");
+  var idProveedor = $(this).attr("idProveedor");
 
-  window.location =
-    "index.php?ruta=sco&idLoi=" + idLoi + "&idCliente=" + idCliente;
+  window.location = `index.php?ruta=sco&idLoi=${idLoi}&idCliente=${idCliente}&idProveedor=${idProveedor}`;
 });
 
 /*=============================================
