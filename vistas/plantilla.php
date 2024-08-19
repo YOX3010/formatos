@@ -13,7 +13,7 @@ session_start();
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Tamesis Per Company files system</title>
+  <title>Tamesystem</title>
 
   <!-- Tell the browser to be responsive to screen width -->
 

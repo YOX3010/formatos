@@ -1,12 +1,28 @@
+<style>
+  .cajas {
+    position: relative;
+  }
+
+  .texto-caja {
+    position: relative;
+    z-index: 100;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  .icon {
+    z-index: 1;
+  }
+</style>
+
 <div class="content-wrapper">
 
   <section class="content-header">
 
     <h1>
 
-      Tablero
+      Tamesystem
 
-      <small>Panel de Control</small>
+      <small>Sistema de formatos Tamesis Per Company</small>
 
     </h1>
 
@@ -14,97 +30,59 @@
 
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
-      <li class="active">Tablero</li>
-
     </ol>
 
   </section>
 
   <section class="content">
 
-    <div class="row">
+    <div class="box box-default">
 
-      <?php
+      <div class="box-header">
 
-      //if($_SESSION["perfil"] =="Administrador"){
-
-      //include "inicio/cajas-superiores.php";
-
-      //}
-
-      ?>
-
-    </div>
-
-    <div class="row">
-
-      <div class="col-lg-12">
-
-        <?php
-
-        if ($_SESSION["perfil"] == "Administrador") {
-
-          //  include "reportes/grafico-ventas.php";
-          include "Inicio/modo-administrador.php";
-        }
-
-        ?>
-
-      </div>
-
-      <div class="col-lg-6">
-
-        <?php
-
-        if ($_SESSION["perfil"] == "Administrador") {
-
-          //  include "reportes/productos-mas-vendidos.php";
-
-        }
-
-        ?>
-
-      </div>
-
-      <div class="col-lg-6">
-
-        <?php
-
-        if ($_SESSION["perfil"] == "Administrador") {
-
-          //  include "inicio/productos-recientes.php";
-
-        }
-
-        ?>
-
-      </div>
-
-      <div class="col-lg-12">
-
-        <?php
-
-        if ($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor") {
-
-
-          echo '<div class="box box-success">
-
-             <div class="box-header">
-
-             <h1>Bienvenid@ ' . $_SESSION["nombre"] . '</h1>
-
-             </div>
-
-             </div>';
-        }
-
-        include "Inicio/opciones-iniciales.php";
-
-        ?>
+        <h1>Bienvenid@ <?php echo $_SESSION["nombre"]  ?></h1>
 
       </div>
 
     </div>
+
+    <div class="box box-warning">
+
+      <div class="row">
+
+        <div class="col-lg-12">
+
+          <?php
+
+          include "Inicio/opciones-iniciales.php";
+
+          ?>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <?php
+    if ($_SESSION["perfil"] == "Administrador") {
+
+
+      echo '<div class="box box-primary">
+
+        <div class="row">
+
+          <div class="col-lg-12">';
+
+      include "Inicio/modo-administrador.php";
+
+      echo '</div>
+        
+        </div>
+        
+      </div>';
+    }
+    ?>
 
   </section>
 

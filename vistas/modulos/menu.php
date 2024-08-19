@@ -7,48 +7,20 @@
 			<?php
 
 			if ($_SESSION["perfil"] == "Administrador") {
-
-				echo '<li class="active">
-					<a href="inicio">
-					<i class="fa fa-home"></i>
-					<span>Inicio</span>
-				</a>
-			</li>
-
-			
-			
-			';
 			}
-
-			// if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Especial"){
-
-			// 	echo '<li>
-			// 		<a href="categorias">
-			// 			<i class="fa fa-th"></i>
-			// 			<span>Categorías</span>
-			// 		</a>
-			// 	</li>
-
-			// 	<li>
-			// 		<a href="productos">
-			// 			<i class="fa fa-product-hunt"></i>
-			// 			<span>Productos</span>
-			// 		</a>
-			// 	</li>
-
-			// 	<li>
-			// 		<a href="proveedores">
-			// 			<i class="fa-solid fa-truck-field"></i>
-			// 			&nbsp;
-			// 			<span>Proveedores</span>
-			// 		</a>
-			// 	</li>';
-
-			// }
 
 			if ($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Vendedor") {
 
-				echo '<li>
+				echo '
+				
+					<li class="active">
+						<a href="inicio">
+							<i class="fa fa-home"></i>
+							<span>Inicio</span>
+						</a>
+					</li>
+				
+					<li>
 						<a href="proveedores">
 							<i class="fa-solid fa-oil-well"></i>
 							&nbsp;
