@@ -61,6 +61,16 @@
         </button>
 
 
+        <a href="inicio">
+
+          <button class="btn btn-success">
+
+            <i class="fa-regular fa-circle-left"></i>
+
+          </button>
+
+        </a>
+
 
       </div>
 

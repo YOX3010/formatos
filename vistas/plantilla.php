@@ -150,14 +150,20 @@ CUERPO DOCUMENTO
         $_GET["ruta"] == "proveedores" ||
         $_GET["ruta"] == "clientes" ||
         $_GET["ruta"] == "productos" ||
+
+        //OPCIONES DE ADMINISTRADOR
         $_GET["ruta"] == "product-origin" ||
         $_GET["ruta"] == "port" ||
-        $_GET["ruta"] == "loi" ||
-        $_GET["ruta"] == "sco" ||
         $_GET["ruta"] == "um" ||
         $_GET["ruta"] == "incoterms" ||
+
+        //FORMATOS
+        $_GET["ruta"] == "loi" ||
+        $_GET["ruta"] == "sco" ||
         $_GET["ruta"] == "icpo" ||
         $_GET["ruta"] == "ver-icpo" ||
+
+        //SALIR
         $_GET["ruta"] == "salir"
       ) {
 
